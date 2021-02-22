@@ -1,0 +1,12 @@
+<h1>マイページトップ</h1>
+    <ul class="list-inline">
+      家計簿追加
+      <%= form_with model: @month, local: true do |f| %>
+            <%= f.date_select :month, use_month_numbers: true, date_separator: '年', discard_day: true %>月
+            <%= f.submit '追加', class: 'btn btn-outline-primary btn-sm' %>
+      <% end %>
+      <div class='text-center'>
+      </div>
+    </ul>
+
+<%= render @months %>

@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  month: 2021-02-21
+  user: one
+
+two:
+  month: 2021-02-21
+  user: two
