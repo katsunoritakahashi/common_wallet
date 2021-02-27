@@ -1,0 +1,12 @@
+ja:
+  enums:
+    detail:
+      classification:
+        rent: 家賃
+        food: 食費
+        life: 生活費
+        enjoy: 交際費
+        money: 入金
+      status:
+        not_yet: 未済
+        done: 済

@@ -1,0 +1,70 @@
+<header>
+  <h2 class="border-bottom">
+    <%= @month.month.strftime("%Y年%-m月の家計簿") %>
+  </h2>
+</header>
+<div class="col-sm-12">
+  <ul class="list-inline">
+    <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
+      <%= f.date_field :date, class: 'form-control', id: 'js-new-detail-date' %>
+      <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money]],{ include_blank: '項目'}, class: 'form-control', id: 'js-new-detail-classification' %>
+      <%= f.text_field :note, class: 'form-control', placeholder: 'メモ', id: 'js-new-detail-note' %>
+      <%= f.number_field :income, class: 'form-control', placeholder: '収入', id: 'js-new-detail-income' %>
+      <%= f.number_field :spending, class: 'form-control', placeholder: '支出', id: 'js-new-detail-spending' %>
+      <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["共通", "共通"]],{ include_blank: '立替'}, class: 'form-control', id: 'js-new-detail-replayer' %>
+      <%= f.submit '明細追加', class: 'btn btn-outline-primary' %>
+    <% end %>
+  </ul>
+</div>
+<div class="col-sm-12 col-lg-8">
+  <% if @details.present? %>
+  <p class="border-bottom">
+    <%= link_to '分析画面へ', month_budgets_path %>
+    <%= link_to '精算画面へ', new_month_detail_path %>
+    <%= link_to '入金画面へ', month_deposits_path %>
+  </p>
+  <div class="stay">
+  <table class="text-center table table-bordered table_border_radius">
+    <tr class="table-secondary">
+      <th>月初残高</th>
+      <th>月末残高</th>
+    </tr>
+    <tr class="table-light">
+      <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
+      <% if @month.balance_last.present? %>
+        <td><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+      <% else %>
+        <td><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
+      <% end %>
+    </tr>
+  </table>
+  <table class="text-center table table-bordered">
+    <tr class="table-secondary">
+      <th class="border-top border-dark-top">収入</th>
+      <th>支出</th>
+      <th>収支</th>
+    </tr>
+    <tr class="table-light">
+      <td><%= "#{@income_total.to_s(:delimited)}円" %></td>
+      <td><%= "#{@spending_total.to_s(:delimited)}円" %></td>
+      <td>
+        <% if @balance_of_payments >= 0 %>
+          <%= "+#{@balance_of_payments.to_s(:delimited)}円" %>
+        <% else %>
+        <div class="red">
+          <%= "#{@balance_of_payments.to_s(:delimited)}円" %>
+        </div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  </div>
+  <div id="js-table-detail">
+    <%= render partial: 'details/detail', locals: { details: @details } %>
+  </div>
+  <% else %>
+    <p>明細がありません</p>
+    <%= link_to '予算を設定する', month_budgets_path  %>
+  <% end %>
+    <%= link_to '戻る', months_path  %>
+</div>

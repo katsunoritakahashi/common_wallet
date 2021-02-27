@@ -16,3 +16,97 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+
+ .fa-trash:before{
+  color:#708090;
+ }
+ .navbar-light .navbar-toggler {
+  border-color: rgba(0,0,0,0);
+}
+.fa-pen:before{
+  color:#708090;
+ }
+ 
+// 大デバイス（デスクトップ, 1200px 未満）
+@media (min-width: 992px) {
+  body {
+    font-size: 1.0rem;
+  }
+ }
+ // 中デバイス（タブレット, 992px 未満）
+ @media (max-width: 991.98px) {
+  body {
+    font-size: 1.0rem;
+  }
+ }
+ // 小デバイス（横向きモバイル, 768px 未満）
+ @media (max-width: 767.98px) {
+  body {
+    font-size: 1.0rem;
+  }
+ }
+ // @include media-breakpoint-up(sm) {
+ // 極小デバイス（縦向きモバイル, 576px 未満）
+ @media (max-width: 550px) {
+  body, .btn-sm, .btn, .form-control {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+ }
+ @media (max-width: 550px) {
+  .stay{
+    font-size: 0.9rem;
+  }
+ }
+ @media (max-width: 550px) {
+  .display-xs-none {
+    display: none;
+  }
+ }
+ @media (min-width: 550px) {
+  .display-lg-none {
+    display: none;
+  }
+ }
+
+ @media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  body, .btn-sm, .btn, .form-control {
+    font-size: 0.5rem;
+  }
+ }
+ @media (max-width: 550px) {
+  .form-control, .btn {
+    height: calc(1.6rem);
+    padding: 0.200rem 0.5rem;
+  }
+ }
+ body{
+  background-color: #F9F8F4;
+}
+a{
+  color: #b68973;
+}
+.form-control {
+  width: 25%;
+}
+.red {
+  color: #f14668;
+}
+.blue {
+  color: #8ac4d0;
+}
+.light-blue {
+  color: #0000FF;
+}
+.yellow {
+  color: #ffe227;
+}
+.green {
+  color: #beca5c;
+}
+.gray {
+  color: #708090;
+}

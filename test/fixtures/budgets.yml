@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rent: 1
+  food: 1
+  life: 1
+  enjoy: 1
+  month: one
+  user: one
+
+two:
+  rent: 1
+  food: 1
+  life: 1
+  enjoy: 1
+  month: two
+  user: two

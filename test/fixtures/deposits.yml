@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_deposit: 1
+  man_salary: 1
+  woman_salary: 1
+  user: one
+  month: one
+
+two:
+  total_deposit: 1
+  man_salary: 1
+  woman_salary: 1
+  user: two
+  month: two

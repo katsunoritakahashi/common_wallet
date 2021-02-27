@@ -1,2 +1,41 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="col-sm-12 col-lg-8">
+  <h2><%= "#{current_user.name}の家計簿" %></h2>
+  <h5>今月の家計簿</h5>
+  <% if @months.present? && @this_month.include?(Date.parse(@months.pluck(:month).to_s)) %>
+    <table class="text-center table table-bordered table_border_radius">
+      <tr class="table-secondary">
+        <th>月初残高</th>
+        <th>月末予定残高</th>
+        <th>精算未済</th>
+      </tr>
+      <tr class="table-light">
+        <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
+        <td><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+        <td><%= link_to "#{@not_yet_count}件", new_month_detail_path(@month.id) %></td>
+      </tr>
+    </table>
+  <% else %>
+    <p><%= link_to "今月の家計簿が登録されていません", months_path %></p>
+  <% end %>
+
+  <h5>今月の支出</h5>
+  <% if @months.present? && @this_month.include?(Date.parse(@months.pluck(:month).to_s)) && @detail.present? %>
+    <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
+  <% else %>
+    <p>
+      <% if @month.present? %>
+        <%= link_to "今月の支出が登録されていません", month_details_path(@month.id) %>
+      <% else %>
+        <%= link_to "今月の支出が登録されていません", months_path %>
+      <% end %>
+    </p>
+  <% end %>
+
+  <h5>残高推移</h5>
+  <% if @months.present? %>
+    <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last.to_j] }, colors: ['#bee5eb'], suffix: "万" %>
+  <% else %>
+    <p><%= link_to "家計簿が登録されていません", months_path %></p>
+  <% end %>
+
+</div>

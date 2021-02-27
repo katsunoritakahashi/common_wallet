@@ -1,0 +1,54 @@
+<header>
+  <div class="col-sm-12">
+    <h2 class="border-bottom">
+      補正
+    </h2>
+  </div>
+</header>
+<div class="col-sm-12">
+  <ul class="list-inline">
+    <%= form_with model: @add, local: true, html: { class: 'form-inline' } do |f| %>
+      <%= f.text_field :name, class: 'form-control', placeholder: '補正内容' %>
+      <%= f.select :player,[["旦那", "旦那"], ["嫁", "嫁"]],{ include_blank: '補正者'}, class: 'form-control' %>
+      <%= f.number_field :amount, class: 'form-control', placeholder: '金額(円)' %>
+      <%= f.number_field :rate, class: 'form-control', placeholder: '補正率(%)' %>
+      <%= f.submit '補正追加', class: 'btn btn-outline-primary' %>
+    <% end %>
+  </ul>
+  <p>※補正率は未入力の場合は「100(%)」となります。</p>
+</div>
+<div class="col-sm-12 col-lg-8">
+  <% if @corrects.present? %>
+  <table class="text-center table table-hover table-sm">
+    <tr class="table-secondary">
+      <th>補正名</th>
+      <th>補正者</th>
+      <th>補正額(金額×補正率)</th>
+      <th></th>
+    </tr>
+    <% @corrects.each do |correct| %>
+    <tr class="table-light">
+      <td><%= correct.name %></td>
+      <td>
+        <% if correct.player == '旦那' %>
+          <i class="fas fa-male fa-lg light-blue"></i>
+        <% elsif correct.player == '嫁' %>
+          <i class="fas fa-female fa-lg red"></i>
+        <% else %>
+          <%= correct.player %>
+        <% end %>
+      </td>
+      <td><%= "#{correct.correct_amount.to_s(:delimited)}円" %></td>
+      <td>
+        <%= link_to correct_path(correct), method: :delete, data:{confirm:"本当に削除していいですか？"} do %>
+          <%= icon 'fas', 'trash' %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <% else %>
+    <p>補正明細がありません</p>
+  <% end %>
+    <%= link_to '戻る', month_deposits_path(@deposit.month_id)  %>
+</div>

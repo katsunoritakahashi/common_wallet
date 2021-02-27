@@ -1,0 +1,6 @@
+<footer>
+  <%= link_to 'トップ',user_path(current_user) %>
+  <%= link_to '一覧', months_path %>
+  <%= link_to 'ログアウト', logout_path, method: :delete %>
+  <%= current_user.name %>
+</footer>

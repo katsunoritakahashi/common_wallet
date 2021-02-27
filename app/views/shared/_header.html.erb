@@ -1,10 +1,7 @@
 <header>
 <br>
-  <%= link_to '家計簿アプリ',root_path %>
-  <%= link_to 'トップ', months_path %>
-  <%= link_to '明細一覧', '#' %>
-  <%= link_to '分析', '#' %>
-  <%= link_to '予算', '#' %> 
+  <%= link_to 'トップ',user_path %>
+  <%= link_to '一覧', months_path %>
   <%= link_to 'ログアウト', logout_path, method: :delete %>
   <%= current_user.name %>
 </header>
