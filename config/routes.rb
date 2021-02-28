@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   root 'static_pages#top'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
       resources :corrects, only: %i[index create destroy]
     end
   end
+  resources :password_resets, only: %i[new create edit update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
