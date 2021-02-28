@@ -16,55 +16,8 @@
     <% end %>
   </ul>
 </div>
-<div class="col-sm-12 col-lg-8">
-  <% if @details.present? %>
-  <p class="border-bottom">
-    <%= link_to '分析画面へ', month_budgets_path %>
-    <%= link_to '精算画面へ', new_month_detail_path %>
-    <%= link_to '入金画面へ', month_deposits_path %>
-  </p>
-  <div class="stay">
-  <table class="text-center table table-bordered table_border_radius">
-    <tr class="table-secondary">
-      <th>月初残高</th>
-      <th>月末残高</th>
-    </tr>
-    <tr class="table-light">
-      <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
-      <% if @month.balance_last.present? %>
-        <td><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
-      <% else %>
-        <td><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
-      <% end %>
-    </tr>
-  </table>
-  <table class="text-center table table-bordered">
-    <tr class="table-secondary">
-      <th class="border-top border-dark-top">収入</th>
-      <th>支出</th>
-      <th>収支</th>
-    </tr>
-    <tr class="table-light">
-      <td><%= "#{@income_total.to_s(:delimited)}円" %></td>
-      <td><%= "#{@spending_total.to_s(:delimited)}円" %></td>
-      <td>
-        <% if @balance_of_payments >= 0 %>
-          <%= "+#{@balance_of_payments.to_s(:delimited)}円" %>
-        <% else %>
-        <div class="red">
-          <%= "#{@balance_of_payments.to_s(:delimited)}円" %>
-        </div>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-  </div>
-  <div id="js-table-detail">
-    <%= render partial: 'details/detail', locals: { details: @details } %>
-  </div>
-  <% else %>
-    <p>明細がありません</p>
-    <%= link_to '予算を設定する', month_budgets_path  %>
-  <% end %>
-    <%= link_to '戻る', months_path  %>
+    <div id="js-table-detail">
+      <%= render partial: 'details/detail', locals: { details: @details } %>
+    </div>
+  <%= link_to '戻る', months_path  %>
 </div>

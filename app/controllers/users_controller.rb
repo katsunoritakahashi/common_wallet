@@ -22,21 +22,21 @@ class UsersController < ApplicationController
     if @months.present?
       @this_month = Date.today.all_month
       @column_chart = Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(7).pluck(:month, :balance_last)
-      if @this_month.include?(Date.parse(@months.pluck(:month).to_s))
-        @month = Month.find_by(user_id: current_user.id, month: Date.today.beginning_of_month)
-        @detail = Detail.where(user_id: current_user.id, month_id: @month.id) if @month.present?
-        if @detail.present?
-          @not_yet_count = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where.not(replayer: '共通').count(:id)
-          @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).includes(:month).sum(:spending)
-          @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:spending)
-          @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:spending)
-          @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending)
-          @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy
-          pie_chart
-          #binding.irb
-        end
+      @month = Month.find_by(user_id: current_user.id, month: Date.today.beginning_of_month)
+      @detail = Detail.where(user_id: current_user.id, month_id: @month.id) if @month.present?
+      @budget = Budget.where(user_id: current_user.id, month_id: @month.id) if @month.present?
+      if @detail.present?
+        @not_yet_count = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').count(:id)
+        @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).where("date <= ?", Date.today).includes(:month).sum(:spending)
+        @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).where("date <= ?", Date.today).includes(:month).sum(:spending)
+        @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).where("date <= ?", Date.today).includes(:month).sum(:spending)
+        @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).where("date <= ?", Date.today).includes(:month).sum(:spending)
+        @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy
+        pie_chart
+        #binding.irb
       end
     end
+    #binding.irb
   end
 
   def destroy

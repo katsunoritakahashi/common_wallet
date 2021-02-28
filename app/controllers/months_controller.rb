@@ -15,7 +15,7 @@ class MonthsController < ApplicationController
     if !@data.present?
       @month.user_id = current_user.id
       if @month.save
-        @months = Month.where(user_id: current_user.id).includes(:user).order(month: :desc)
+        redirect_back_or_to months_path, success: '家計簿を追加しました'
       else
         redirect_back_or_to months_path, danger: '追加できませんでした'
       end

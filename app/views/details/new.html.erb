@@ -40,9 +40,9 @@
               <%= replayer.replayer %>
             <% end %>
           </td>
-          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).sum(:income)).to_s(:delimited)}円" %></td>
-          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).sum(:spending)).to_s(:delimited)}円" %></td>
-          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).sum(:income)).to_s(:delimited)}円" %></td>
+          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
+          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending)).to_s(:delimited)}円" %></td>
+          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date < ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
         </tr>
       <% end %>
         <tr class="table-light">
