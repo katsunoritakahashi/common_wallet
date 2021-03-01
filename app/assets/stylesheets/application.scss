@@ -48,50 +48,59 @@
  // @include media-breakpoint-up(sm) {
  // 極小デバイス（縦向きモバイル, 576px 未満）
  @media (max-width: 550px) {
-  body, .btn-sm, .btn, .form-control {
+  body, .btn-sm, .btn {
     font-size: 0.8rem;
     text-align: center;
   }
- }
- @media (max-width: 550px) {
   .stay{
     font-size: 0.9rem;
   }
- }
- @media (max-width: 550px) {
+  p.stay-top {
+    font-size: 1rem;
+  }
   .display-xs-none {
     display: none;
   }
+  .form-control, .btn {
+    height: calc(1.6rem);
+    padding: 0.200rem 0.5rem;
+  }
+  .sub-image img{
+    width: 100%;
+    height: auto;
+  }
  }
+
  @media (min-width: 550px) {
   .display-lg-none {
     display: none;
   }
+  .visible-xs-block {display: none; }
  }
 
  @media (max-width: 480px) {
+  h1 {
+    font-size: 2.2rem;
+  }
   h2 {
     font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.4rem;
   }
   body, .btn-sm, .btn, .form-control {
     font-size: 0.5rem;
   }
  }
- @media (max-width: 550px) {
-  .form-control, .btn {
-    height: calc(1.6rem);
-    padding: 0.200rem 0.5rem;
-  }
- }
+
  body{
-  background-color: #F9F8F4;
+  background-color: #fdfdea;
+  font-family: YuGothic,'Yu Gothic', sans-serif;
 }
 a{
   color: #b68973;
 }
-.form-control {
-  width: 25%;
-}
+
 .red {
   color: #f14668;
 }
@@ -109,4 +118,22 @@ a{
 }
 .gray {
   color: #708090;
+}
+.orange {
+  color: #fca504;
+}
+.white {
+  color: #FFFFFF;
+}
+
+.main-contents{
+  background-color: #FFFFFF;
+}
+
+.center {
+  text-align: center;
+}
+footer{
+  background-color: #ffc107;
+  text-align: center;
 }

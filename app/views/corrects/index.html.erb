@@ -12,7 +12,7 @@
       <%= f.select :player,[["旦那", "旦那"], ["嫁", "嫁"]],{ include_blank: '補正者'}, class: 'form-control' %>
       <%= f.number_field :amount, class: 'form-control', placeholder: '金額(円)' %>
       <%= f.number_field :rate, class: 'form-control', placeholder: '補正率(%)' %>
-      <%= f.submit '補正追加', class: 'btn btn-outline-primary' %>
+      <%= f.submit '補正追加', class: 'btn btn-outline-primary btn-sm' %>
     <% end %>
   </ul>
   <p>※補正率は未入力の場合は「100(%)」となります。</p>
@@ -20,7 +20,7 @@
 <div class="col-sm-12 col-lg-8">
   <% if @corrects.present? %>
   <table class="text-center table table-hover table-sm">
-    <tr class="table-secondary">
+    <tr class="table-warning">
       <th>補正名</th>
       <th>補正者</th>
       <th>補正額(金額×補正率)</th>

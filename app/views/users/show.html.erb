@@ -1,5 +1,5 @@
 <div class="col-sm-12 col-lg-8">
-  <h2><%= "#{current_user.name}の家計簿" %></h2>
+  <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
   <h5>
     <% if @month.present? %>
       <%= link_to "今月の家計簿", month_details_path(@month.id) %>
@@ -9,7 +9,7 @@
   </h5>
   <% if @month.present? %>
     <table class="text-center table table-bordered table_border_radius">
-      <tr class="table-secondary">
+      <tr class="table-warning">
         <th>月初残高</th>
         <th>月末予定残高</th>
         <th>精算未済</th>

@@ -1,6 +1,4 @@
 <footer>
-  <%= link_to 'トップ',user_path(current_user) %>
-  <%= link_to '一覧', months_path %>
-  <%= link_to 'ログアウト', logout_path, method: :delete %>
-  <%= current_user.name %>
+  <%= link_to '利用規約',terms_of_service_path,:style=>"color:#FFFFFF;" %>
+  <%= link_to 'プライバシーポリシー', privacy_policy_path,:style=>"color:#FFFFFF;" %>
 </footer>

@@ -4,7 +4,7 @@
   <%= link_to "再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"} %>
   <%= link_to '戻る', month_details_path  %>
 <table class="text-center table table-bordered table-sm">
-  <tr class="table-secondary">
+  <tr class="table-warning">
     <th></th>
     <th>出費</th>
     <th>予算</th>
@@ -47,10 +47,10 @@
     <td class="table-light"><%= "#{@spending_total * 100 / @budget_total}%" %></td>
   </tr>
 </table>
-    <p>項目別
+    <h4>項目別</h4>
     <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
+    <h4>予算対比</h4>
     <%= bar_chart @bar_cahrt, colors: ['#bee5eb','#5D99FF','#FFD700','#33CC66'] %>
-    </p>
 <% else %>
   <ul class="list-inline">
     ※予算を設定して下さい
@@ -59,7 +59,7 @@
           <%= f.number_field :food, class: 'form-control', placeholder: '食費' %>
           <%= f.number_field :life, class: 'form-control', placeholder: '生活費' %>
           <%= f.number_field :enjoy, class: 'form-control', placeholder: '交際費' %>
-          <%= f.submit '登録', class: 'btn btn-outline-primary' %>
+          <%= f.submit '登録', class: 'btn btn-outline-primary btn-sm' %>
     <% end %>
   </ul>
 <% end %>

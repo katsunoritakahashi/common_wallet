@@ -4,7 +4,7 @@
   <% if @deposit %>
   <%= link_to "再設定", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"} %>
   <table class="text-center table table-hover table-striped">
-    <tr class="table-secondary">
+    <tr class="table-warning">
       <th></th>
       <th>旦那</th>
       <th>嫁</th>
@@ -26,7 +26,7 @@
     </tr>
   </table>
   <table class="text-center table table-hover table-striped">
-    <tr class="table-secondary">
+    <tr class="table-warning">
       <th></th>
       <th>旦那</th>
       <th>嫁</th>
@@ -54,7 +54,7 @@
           <%= f.number_field :total_deposit, class: 'form-control', placeholder: '合計入金額' %>
           <%= f.number_field :man_salary, class: 'form-control', placeholder: '旦那給料' %>
           <%= f.number_field :woman_salary, class: 'form-control', placeholder: '嫁給料' %>
-          <%= f.submit '設定', class: 'btn btn-outline-primary' %>
+          <%= f.submit '設定', class: 'btn btn-outline-primary btn-sm' %>
         </div>
     <% end %>
   </ul>

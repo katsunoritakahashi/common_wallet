@@ -6,7 +6,7 @@
   </p>
   <div class="stay">
   <table class="text-center table table-bordered table_border_radius">
-    <tr class="table-secondary">
+    <tr class="table-warning">
       <th>月初残高</th>
       <th>月末残高</th>
     </tr>
@@ -20,7 +20,7 @@
     </tr>
   </table>
   <table class="text-center table table-bordered">
-    <tr class="table-secondary">
+    <tr class="table-warning">
       <th class="border-top border-dark-top">収入</th>
       <th>支出</th>
       <th>収支</th>
@@ -41,7 +41,7 @@
   </table>
   </div>
   <table class="text-center table table-hover table-sm">
-    <tr class="table-secondary">
+    <tr class="table-warning">
       <th>日付</th>
       <th>項目</th>
       <th>メモ</th>
@@ -63,9 +63,9 @@
         <% elsif detail.classification == 'life' %>
           <i class="fas fa-faucet fa-lg blue"></i>
         <% elsif detail.classification == 'enjoy' %>
-          <i class="fas fa-plane-departure fa-lg green"></i>
+          <i class="fas fa-glass-cheers fa-lg green"></i>
         <% elsif detail.classification == 'money' %>
-          <i class="fas fa-yen-sign fa-lg gray"></i>
+          <i class="fas fa-donate fa-lg gray"></i>
         <% else %>
           <%= detail.classification_i18n %>
         <% end %>

@@ -4,7 +4,7 @@
   <% if @details.present? %>
   <div class="stay">
     <table class="text-center table">
-      <tr class="table-secondary">
+      <tr class="table-warning">
         <th>口座残高</th>
         <th>精算額</th>
         <th>精算後残高</th>
@@ -23,7 +23,7 @@
     </table>
     <h5>○精算内訳</h5>
     <table class="text-center table table-bordered">
-      <tr class="table-secondary">
+      <tr class="table-warning">
         <th></th>
         <th>入金</th>
         <th>支払</th>
@@ -55,7 +55,7 @@
   </div>
     <h5>○精算明細</h5>
     <table class="text-center table table-hover table-sm">
-      <tr class="table-secondary">
+      <tr class="table-warning">
         <th>日付</th>
         <th>分類</th>
         <th>メモ</th>
@@ -75,9 +75,9 @@
         <% elsif detail.classification == 'life' %>
           <i class="fas fa-faucet fa-lg blue"></i>
         <% elsif detail.classification == 'enjoy' %>
-          <i class="fas fa-user-friends fa-lg green"></i>
+          <i class="fas fa-glass-cheers fa-lg green"></i>
         <% elsif detail.classification == 'money' %>
-          <i class="fas fa-yen-sign fa-lg gray"></i>
+          <i class="fas fa-donate fa-lg gray"></i>
         <% else %>
           <%= detail.classification_i18n %>
         <% end %>

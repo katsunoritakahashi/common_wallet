@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h2>ログイン</h2>
+      <h2 class="border-bottom">ログイン</h2>
       <%= form_with url: login_path, local: true do |f| %>
         <div class="form-group">
           <%= f.label :メールアドレス %>
@@ -12,7 +12,7 @@
           <%= f.password_field :password, class: 'form-control' %>
         </div>
         <div class="actions">
-          <%= f.submit 'ログイン', class: 'btn btn-primary' %>
+          <%= f.submit 'ログイン', class: 'btn btn-outline-primary btn-sm' %>
         </div>
       <% end %>
       <div class='text-center'>

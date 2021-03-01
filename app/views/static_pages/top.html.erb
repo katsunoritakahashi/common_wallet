@@ -1,1 +1,52 @@
-<h2>共通財布管理アプリ</h2>
+<div class="col-sm-12">
+<div class="main-contents">
+<h1 class="sub-image"><br><%= image_tag 'top.png', width: '400', height: '80'%></h1>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-5 col-lg-5 align-self-center">
+      <div class="chatches">
+        <div class="main-chatch">
+          <h1><br><b>”中の人”の、</b></h1>
+          <h1><b>”中の人”による、</b></h1>
+          <h1><b>”中の人”の為の家計簿。</b></h1><br>
+        </div>
+        <div class="sub-chatch">
+          <h4>「オレトク家計簿」は<br>製作者のこだわりが詰まった<br>共働き夫婦の<br class="visible-xs-block"><span class="orange">”共通財布専用”</span>家計簿です。</h4>
+          <h1><%= link_to '無料で始める', new_user_path, class: 'btn btn-primary btn-lg' %></h1><br><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-5 align-self-center">
+      <div class="sub-image">
+        <%= image_tag 'Analytics-pana.png', width: '500', height: '500'%>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="sub-contents">
+<h3><br><b>機能紹介</b></h3>
+  <h5>オレトク家計簿には共通財布で管理している<br class="visible-xs-block">共働き夫婦に最適な機能がたくさんあります。</h5>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <h5><b>①基本的な家計簿機能</b></h5>
+      <p class="stay-top">通常の家計簿にある<br class="visible-xs-block">「データ入力」「残高管理」「予算設定」は<br class="visible-xs-block">もちろんあるので、個人の家計簿としてもご利用可能です。</p>
+      <%= image_tag 'mobile-mockup-detail.png', width: '250', height: '250'%>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <h5><b>②データ分析</b></h5>
+      <p class="stay-top">「月次残高推移」「項目別支出割合」<br class="visible-xs-block">「支出/予算対比」など<br class="visible-xs-block">多面的なデータ分析が可能です。</p>
+      <%= image_tag 'mobile-mockup-analytics.png', width: '250', height: '250'%>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <h5><b>③精算機能</b></h5>
+      <p class="stay-top">現金支払など<br class="visible-xs-block">部分的に個人で立替えた明細については<br class="visible-xs-block">自動的に精算額を算出してくれます。</p>
+      <%= image_tag 'mobile-mockup-payment.png', width: '250', height: '250'%>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <h5><b>④入金金額算出</b></h5>
+      <p class="stay-top">毎月の入金額で揉めるのはもうやめませんか？<br class="visible-xs-block">設定した条件に従って<br class="visible-xs-block">毎月自動的に入金額を計算します。</p>
+      <%= image_tag 'mobile-mockup-deposit.png', width: '250', height: '250'%>
+    </div>
+  </div>
+</div>
+</div>
+
