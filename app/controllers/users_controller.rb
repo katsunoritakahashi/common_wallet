@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
-  skip_before_action :authenticated_this_month, only: %i[new destroy]
+  skip_before_action :authenticated_this_month, only: %i[new destroy create]
 
   def new
     @user = User.new
@@ -28,10 +28,10 @@ class UsersController < ApplicationController
       @budget = Budget.where(user_id: current_user.id, month_id: @month.id) if @month.present?
       if @detail.present?
         @not_yet_count = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').count(:id)
-        @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).where("date <= ?", Date.today).includes(:month).sum(:spending)
-        @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).where("date <= ?", Date.today).includes(:month).sum(:spending)
-        @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).where("date <= ?", Date.today).includes(:month).sum(:spending)
-        @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).where("date <= ?", Date.today).includes(:month).sum(:spending)
+        @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).includes(:month).sum(:spending)
+        @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:spending)
+        @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:spending)
+        @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending)
         @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy
         pie_chart
         #binding.irb

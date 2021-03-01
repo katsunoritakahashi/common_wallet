@@ -8,7 +8,7 @@
     <% end %>
   </p>
   <% if @months.present? %>
-  <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last.to_j] }, colors: ['#bee5eb'], suffix: "万" %>
+  <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last.to_j] }, colors: ['#ffc107'], suffix: "万" %>
   <div id="js-table-month">
     <%= render partial: 'months/month', locals: { months: @months } %>
   </div>
