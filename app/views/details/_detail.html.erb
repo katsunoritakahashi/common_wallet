@@ -1,0 +1,126 @@
+<div class="col-sm-12 col-lg-8">
+  <p class="border-bottom">
+    <%= link_to '分析画面へ', month_budgets_path %>
+    <%= link_to '精算画面へ', new_month_detail_path %>
+    <%= link_to '入金画面へ', month_deposits_path %>
+  </p>
+  <div class="stay">
+  <table class="text-center table table-bordered table_border_radius">
+    <tr class="table-warning">
+      <th>月初残高</th>
+      <th>月末残高</th>
+    </tr>
+    <tr class="table-light">
+      <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
+      <% if @month.balance_last.present? %>
+        <td><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+      <% else %>
+        <td><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
+      <% end %>
+    </tr>
+  </table>
+  <table class="text-center table table-bordered">
+    <tr class="table-warning">
+      <th class="border-top border-dark-top">収入</th>
+      <th>支出</th>
+      <th>収支</th>
+    </tr>
+    <tr class="table-light">
+      <td><%= "#{@income_total.to_s(:delimited)}円" %></td>
+      <td><%= "#{@spending_total.to_s(:delimited)}円" %></td>
+      <td>
+        <% if @balance_of_payments >= 0 %>
+          <%= "+#{@balance_of_payments.to_s(:delimited)}円" %>
+        <% else %>
+        <div class="red">
+          <%= "#{@balance_of_payments.to_s(:delimited)}円" %>
+        </div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  </div>
+  <table class="text-center table table-hover table-sm">
+    <tr class="table-warning">
+      <th>日付</th>
+      <th>項目</th>
+      <th>メモ</th>
+      <th class="display-xs-none">収入</th>
+      <th class="display-xs-none">支出</th>
+      <th class="display-lg-none">収支</th>
+      <th>立替</th>
+      <th>精算</th>
+      <th></th>
+    </tr>
+    <% details.each do |detail| %>
+      <tr class="table-light" id="detail-trash-button-<%=detail.id%>">
+        <td><%= detail.date.strftime("%-m月%-d日") %></td>
+        <td>
+        <% if detail.classification == 'rent' %>
+          <i class="fas fa-home fa-lg red"></i>
+        <% elsif detail.classification == 'food' %>
+          <i class="fas fa-utensils fa-lg yellow"></i>
+        <% elsif detail.classification == 'life' %>
+          <i class="fas fa-faucet fa-lg blue"></i>
+        <% elsif detail.classification == 'enjoy' %>
+          <i class="fas fa-glass-cheers fa-lg green"></i>
+        <% elsif detail.classification == 'money' %>
+          <i class="fas fa-donate fa-lg gray"></i>
+        <% else %>
+          <%= detail.classification_i18n %>
+        <% end %>
+        </td>
+        <td><%= detail.note %></td>
+        <td class="display-xs-none">
+          <% if detail.income.present? %>
+            <%= "#{detail.income.to_s(:delimited)}円" %>
+          <% else %>
+            <%= detail.income %>
+          <% end %>
+        </td>
+        <td class="display-xs-none">
+          <% if detail.spending.present? %>
+            <%= "#{detail.spending.to_s(:delimited)}円" %>
+          <% else %>
+            <%= detail.spending %>
+          <% end %>
+        </td>
+        <td class="display-lg-none">
+          <% if detail.income.present? && detail.spending.present? %>
+            <%= "#{(detail.income - detail.spending).to_s(:delimited)}円" %>
+          <% elsif !detail.income.present? && detail.spending.present? %>
+          <div class="red">
+            <%= "#{(-detail.spending).to_s(:delimited)}円" %>
+          </div>
+          <% elsif detail.income.present? && !detail.spending.present? %>
+          <div>
+            <%= "+#{(detail.income).to_s(:delimited)}円" %>
+          </div>
+          <% else %>
+            <%= detail.income %>
+          <% end %>
+        </td>
+        <td>
+          <% if detail.replayer == '旦那' %>
+            <i class="fas fa-male fa-lg light-blue"></i>
+          <% elsif detail.replayer == '嫁' %>
+            <i class="fas fa-female fa-lg red"></i>
+          <% elsif detail.replayer == '共通' %>
+            <i class="fas fa-user-friends green"></i>
+          <% else %>
+            <%= detail.replayer %>
+          <% end %>
+        </td>
+        <td>
+          <div id="detail-status-button-<%=detail.id%>">
+              <%= render partial: 'details/status', locals: { detail: detail} %>
+          </div>
+        </td>
+        <td>
+          <%= link_to detail_path(detail), method: :delete, data:{confirm:"本当に削除していいですか？"}, remote: true do %>
+            <%= icon 'fas', 'trash' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>

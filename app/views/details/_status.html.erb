@@ -1,0 +1,9 @@
+<%= link_to detail_path(detail),id: "detail-status-button-#{detail.id}", method: :patch, remote: true do %>
+  <% if detail.status == 'not_yet' %>
+    <%= icon 'far', 'square' %>
+  <% elsif detail.status == 'done' %>
+    <%= icon 'fas', 'check-square' %>
+  <% else %>
+    <%= detail.status %>
+  <% end %>
+<% end %>

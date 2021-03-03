@@ -1,5 +1,20 @@
 <header>
-  <%= link_to 'Common_wallet',root_path %>
-  <%= link_to 'ログイン', login_path %>
-  <%= link_to '新規登録', new_user_path %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <a class='navbar-brand' href='/'>
+      <%= image_tag 'top-header.png', width: '130', height: '30'%>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'ログイン', login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '新規登録', new_user_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>

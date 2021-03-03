@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true, length: { maximum: 255 }
   has_many :months, dependent: :destroy
+  has_many :details, dependent: :destroy
+  has_many :budgets, dependent: :destroy
+  has_many :deposits, dependent: :destroy
+  has_many :corrects, dependent: :destroy
 end

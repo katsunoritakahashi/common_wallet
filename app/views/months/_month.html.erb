@@ -1,10 +1,40 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div id="month-id-<%= month.id %>">
-  <li>
-    <%= link_to month.month.strftime("%Y年%m月の家計簿"), "#", class: 'btn btn btn-info btn-sm' %>
-    <%= link_to month_path(month), method: :delete, data:{confirm:"本当に削除していいですか？"} do %>
-      <%= icon 'fas', 'trash' %>
+<table class="text-center table table-hover table-striped">
+    <tr class="table-warning">
+      <th>年月</th>
+      <th>月初</th>
+      <th>月末</th>
+      <th>明細数</th>
+      <th></th>
+    </tr>
+    <% months.each do |month| %>
+      <tr class="table-light" id="month-trash-button-<%=month.id%>">
+        <td><%= link_to month.month.strftime("%Y年%-m月"), month_details_path(month) %></td>
+
+        <td>
+        <% if month.balance.present? %>
+          <%= "#{month.balance.to_s(:delimited)}円" %>
+        <% else %>
+          <%= month.balance %>
+        <% end %>
+        </td>
+
+        <td>
+        <% if month.balance.present? %>
+          <%= "#{month.balance_last.to_s(:delimited)}円" %></td>
+        <% else %>
+          <%= month.balance_last %>
+        <% end %>
+        </td>
+        <td><%= "（#{Detail.where(user_id: current_user.id, month_id: month.id).count(:id)}）" %></td>
+
+        <td>
+          <%= link_to edit_month_path(month) do %>
+            <%= icon 'fa', 'pen' %>
+          <% end %>
+          <%= link_to month_path(month), method: :delete, data:{confirm:"本当に削除していいですか？"}, remote: true do %>
+            <%= icon 'fas', 'trash' %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-  </li>
-  </div>
-</div>
+  </table>

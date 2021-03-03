@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  palayer: MyString
+  amount: 1
+  rate: 1
+  user: one
+  month: one
+  deposit: one
+
+two:
+  name: MyString
+  palayer: MyString
+  amount: 1
+  rate: 1
+  user: two
+  month: two
+  deposit: two

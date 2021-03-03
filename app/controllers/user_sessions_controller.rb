@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  skip_before_action :authenticated_this_month
 
   def new; end
 
@@ -7,7 +8,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
     #binding.irb
     if @user
-      redirect_back_or_to months_path, success: 'ログインしました'
+      redirect_back_or_to user_path(current_user), success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new
@@ -16,6 +17,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_back_or_to root_path, success: 'ログアウトしました'
+    redirect_back_or_to root_path
   end
 end
