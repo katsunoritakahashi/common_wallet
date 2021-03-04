@@ -35,8 +35,9 @@
  }
  // 中デバイス（タブレット, 992px 未満）
  @media (max-width: 991.98px) {
-  body {
+  body, div.chatches, div.sub-image {
     font-size: 1.0rem;
+    text-align: center;
   }
  }
  // 小デバイス（横向きモバイル, 768px 未満）
