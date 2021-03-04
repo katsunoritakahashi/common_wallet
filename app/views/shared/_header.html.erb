@@ -23,7 +23,7 @@
             <%= link_to "明細", month_details_path(@authenticated_this_month.id), class: 'dropdown-item' %>
             <%= link_to "分析", month_budgets_path(@authenticated_this_month.id), class: 'dropdown-item' %>
             <%= link_to "精算", new_month_detail_path(@authenticated_this_month.id), class: 'dropdown-item' %>
-            <%= link_to "入金", month_budgets_path(@authenticated_this_month.id), class: 'dropdown-item' %>
+            <%= link_to "入金", month_deposits_path(@authenticated_this_month.id), class: 'dropdown-item' %>
           </div>
         </li>
       <% end %>
