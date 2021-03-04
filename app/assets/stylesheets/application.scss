@@ -35,7 +35,7 @@
  }
  // 中デバイス（タブレット, 992px 未満）
  @media (max-width: 991.98px) {
-  body, div.chatches, div.sub-image {
+  div.main-contents {
     font-size: 1.0rem;
     text-align: center;
   }
