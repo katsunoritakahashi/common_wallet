@@ -7,11 +7,9 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<header>
   <h2 class="border-bottom">
     <%= @month.month.strftime("%Y年%-m月の家計簿") %>
   </h2>
-</header>
 <div class="col-sm-12">
   <ul class="list-inline">
     <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
