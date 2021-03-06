@@ -7,8 +7,9 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-
-<div class="col-sm-12 col-lg-8">
+<div class="container">
+  <div class="row">
+<div class="col">
   <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
   <h5>
     <% if @month.present? %>
@@ -64,4 +65,6 @@
   <% else %>
     <p>　家計簿が登録されていません</p>
   <% end %>
+</div>
+</div>
 </div>

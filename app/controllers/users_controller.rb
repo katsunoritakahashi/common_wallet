@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create edit update]
   skip_before_action :authenticated_this_month, only: %i[new destroy create]
 
   def new
@@ -41,9 +41,22 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user_edit = User.find(current_user.id)
+  end
+
+  def update
+    @user_edit = User.find(current_user.id)
+    if @user_edit.update(user_params)
+      redirect_back_or_to user_path, success: 'ユーザー情報を変更しました'
+    else
+      redirect_back_or_to edit_user_path, danger: 'ユーザー情報を変更できませんでした'
+    end
   end
 
   def destroy
+    @user = current_user
+    @user.destroy!
+    redirect_back_or_to root_path
   end
 
   private

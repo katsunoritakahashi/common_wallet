@@ -35,7 +35,11 @@
             <%= "アカウント" %>
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
-            <div class='dropdown-item'><%= current_user.name %></div>
+          <% if current_user.email == "oretokuguestuser@example.com" %>
+            <%= link_to "#{current_user.name}", user_path(current_user), class: 'dropdown-item' %>
+          <% else %>
+            <%= link_to "#{current_user.name}", edit_user_path(current_user), class: 'dropdown-item' %>
+          <% end %>
             <div class="dropdown-divider"></div>
 
             <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
