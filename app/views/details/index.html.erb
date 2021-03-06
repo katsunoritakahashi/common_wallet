@@ -16,12 +16,12 @@
     <ul class="list-inline">
       <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
         <%= f.date_field :date, class: 'form-control', id: 'js-new-detail-date' %>
-        <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money]],{ include_blank: '項目'}, class: 'form-control', id: 'js-new-detail-classification' %>
+        <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: '項目'}, class: 'form-control', id: 'js-new-detail-classification' %>
         <%= f.text_field :note, class: 'form-control', placeholder: 'メモ', id: 'js-new-detail-note' %>
         <%= f.number_field :income, class: 'form-control', placeholder: '収入', id: 'js-new-detail-income' %>
         <%= f.number_field :spending, class: 'form-control', placeholder: '支出', id: 'js-new-detail-spending' %>
         <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["共通", "共通"]],{ include_blank: '立替'}, class: 'form-control', id: 'js-new-detail-replayer' %>
-        <%= f.submit '明細追加', class: 'btn btn-outline-warning btn-sm' %>
+        <%= f.submit '明細追加', class: 'btn btn-warning' %>
       <% end %>
     </ul>
         <div id="js-table-detail">

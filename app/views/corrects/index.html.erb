@@ -21,7 +21,7 @@
       <%= f.select :player,[["旦那", "旦那"], ["嫁", "嫁"]],{ include_blank: '補正者'}, class: 'form-control' %>
       <%= f.number_field :amount, class: 'form-control', placeholder: '金額(円)' %>
       <%= f.number_field :rate, class: 'form-control', placeholder: '補正率(%)' %>
-      <%= f.submit '補正追加', class: 'btn btn-outline-warning btn-sm' %>
+      <%= f.submit '補正追加', class: 'btn btn-warning' %>
     <% end %>
   </ul>
   <p>※補正率は未入力の場合は「100(%)」となります。</p>

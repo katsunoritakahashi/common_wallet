@@ -29,9 +29,10 @@
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
           <div class="actions">
-            <%= f.submit '登録', class: 'btn btn-outline-warning btn-sm' %>
+            <%= f.submit '登録', class: 'btn btn-warning' %>
           </div>
       <% end %>
+      <p class="notion">※必ずご自身のメールアドレスを登録下さい。<br>万が一パスワードを紛失した場合、再設定ができません。</p>
       <div class='text-center'>
         <%= link_to 'ログインはこちら', login_path %>
       </div>

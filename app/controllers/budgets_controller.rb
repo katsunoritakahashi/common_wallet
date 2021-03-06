@@ -3,13 +3,15 @@ class BudgetsController < ApplicationController
     each_month
     authenticate_budget
     @setting = Budget.new
-    if @budget
+    if @budget.present?
       @spending_rent = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :rent).includes(:month).sum(:spending)
       @spending_food = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :food).includes(:month).sum(:spending)
       @spending_life = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :life).includes(:month).sum(:spending)
       @spending_enjoy = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :enjoy).includes(:month).sum(:spending)
-      @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy
-      @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy
+      @spending_other = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :other).includes(:month).sum(:spending)
+      @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
+      #binding.irb
+      @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
       pie_chart
       @bar_cahrt = [[:家賃, @spending_rent * 100 / @budget.rent],[:生活費, @spending_life * 100 / @budget.food],[:食費, @spending_food * 100 / @budget.life],[:交際費, @spending_enjoy * 100 / @budget.enjoy]]
     end
@@ -42,7 +44,7 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.permit(:rent, :food, :life, :enjoy)
+    params.permit(:rent, :food, :life, :enjoy, :other)
   end
 
   def each_month
@@ -54,38 +56,70 @@ class BudgetsController < ApplicationController
   end
 
   def pie_chart
-    if @spending_rent != 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy != 0
-      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy != 0
-      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy != 0
-      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy != 0
-      @pie_chart = [["", @spending_rent],["", @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy != 0
-      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],["", @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy != 0
-      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],["", @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy != 0
-      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],["", @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy != 0
-      @pie_chart = [["", @spending_rent],["", @spending_life],["", @spending_food],[:交際費, @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy == 0
-      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],["", @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy == 0
-      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],["", @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy == 0
-      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],[:食費, @spending_food],["", @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy == 0
-      @pie_chart = [["", @spending_rent],["", @spending_life],[:食費, @spending_food],["", @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy == 0
-      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],["", @spending_food],["", @spending_enjoy]]
-    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy == 0
-      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],["", @spending_food],["", @spending_enjoy]]
-    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy == 0
-      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],["", @spending_food],["", @spending_enjoy]]
-    else @spending_rent == 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy == 0
-      @pie_chart = [["", @spending_rent],["", @spending_life],["", @spending_food],["", @spending_enjoy]]
+    if @spending_rent != 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],["", @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],["", @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],["", @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],["", @spending_food],[:交際費, @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],[:食費, @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],[:食費, @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],["", @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],["", @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],["", @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other != 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],["", @spending_food],["", @spending_enjoy],[:その他, @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],[:食費, @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],["", @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],["", @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],["", @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy != 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],["", @spending_food],[:交際費, @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],["", @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],[:食費, @spending_food],["", @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],[:食費, @spending_food],["", @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life == 0 && @spending_food != 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],[:食費, @spending_food],["", @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],[:生活費, @spending_life],["", @spending_food],["", @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent == 0 && @spending_life != 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],[:生活費, @spending_life],["", @spending_food],["", @spending_enjoy],["", @spending_other]]
+    elsif @spending_rent != 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [[:家賃, @spending_rent],["", @spending_life],["", @spending_food],["", @spending_enjoy],["", @spending_other]]
+    else @spending_rent == 0 && @spending_life == 0 && @spending_food == 0 && @spending_enjoy == 0 && @spending_other == 0
+      @pie_chart = [["", @spending_rent],["", @spending_life],["", @spending_food],["", @spending_enjoy],["", @spending_other]]
     end
   end
 end

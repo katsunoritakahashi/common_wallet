@@ -15,7 +15,7 @@
     <ul class="list-inline">
       <%= form_with model: @month, html: { class: 'form-inline' }, local: true do |f| %>
           <%= f.text_field :balance, class: 'form-control',placeholder: @month.balance %>
-        <%= f.submit "修正", class: 'btn btn-outline-warning btn-sm' %>
+        <%= f.submit "修正", class: 'btn btn-warning' %>
       <% end %>
     </ul>
   </div>

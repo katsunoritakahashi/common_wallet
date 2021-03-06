@@ -89,6 +89,8 @@
           <i class="fas fa-glass-cheers fa-lg green"></i>
         <% elsif detail.classification == 'money' %>
           <i class="fas fa-donate fa-lg gray"></i>
+        <% elsif detail.classification == 'other' %>
+          <i class="fas fa-question-circle fa-lg purple"></i>
         <% else %>
           <%= detail.classification_i18n %>
         <% end %>

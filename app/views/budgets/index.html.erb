@@ -83,6 +83,21 @@
     <% end %>
   </tr>
   <tr>
+    <td class="table-white">その他</td>
+    <td class="table-light"><%= "#{@spending_other.to_s(:delimited)}円" %></td>
+    <td class="table-light"><%= "#{@budget.other.to_s(:delimited)}円" %></td>
+    <% if @budget.other - @spending_other < 0 %>
+      <td class="table-light text-danger"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
+    <% else %>
+      <td class="table-light"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
+    <% end %>
+    <% if @spending_other * 100 / @budget.other >= 100 %>
+      <td class="table-light text-danger"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
+    <% else %>
+      <td class="table-light"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
+    <% end %>
+  </tr>
+  <tr>
     <td class="table-secondary">合計</td>
     <td class="table-light"><%= "#{@spending_total.to_s(:delimited)}円" %></td>
     <td class="table-light"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
@@ -110,7 +125,8 @@
           <%= f.number_field :food, class: 'form-control', placeholder: '食費' %>
           <%= f.number_field :life, class: 'form-control', placeholder: '生活費' %>
           <%= f.number_field :enjoy, class: 'form-control', placeholder: '交際費' %>
-          <%= f.submit '登録', class: 'btn btn-outline-warning btn-sm' %>
+          <%= f.number_field :other, class: 'form-control', placeholder: 'その他' %>
+          <%= f.submit '登録', class: 'btn btn-warning' %>
     <% end %>
   </ul>
 <% end %>
