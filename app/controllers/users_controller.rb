@@ -40,6 +40,9 @@ class UsersController < ApplicationController
     #binding.irb
   end
 
+  def edit
+  end
+
   def destroy
   end
 

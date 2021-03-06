@@ -13,7 +13,7 @@
     <%= form_with model: @month, local: true do |f| %>
       <%= f.date_select :month, class: 'form-control', use_month_numbers: true, date_separator: '年', discard_day: true %>月
       <%= f.number_field :balance, id: 'js-new-month-balance', placeholder: '月初残高' %>
-      <%= f.submit '年月の追加', class: 'btn btn-outline-primary btn-sm' %>
+      <%= f.submit '年月の追加', class: 'btn btn-outline-warning btn-sm' %>
     <% end %>
   </p>
   <% if @months.present? %>
