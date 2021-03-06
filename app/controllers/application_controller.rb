@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :success, :info, :warning, :danger
   before_action :require_login #sorceryが作成するメソッド。ログインしてない時not_authenticatedメソッドを発火する
   before_action :authenticated_this_month
 
