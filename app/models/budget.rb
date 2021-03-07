@@ -3,4 +3,8 @@ class Budget < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   validates :month_id, presence: true
+  validates :life, presence: true
+  validates :rent, presence: true
+  validates :food, presence: true
+  validates :enjoy, presence: true
 end

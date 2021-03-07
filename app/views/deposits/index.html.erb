@@ -7,7 +7,9 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<div class="col-sm-12 col-lg-8">
+<div class="container">
+  <div class="row">
+<div class="col">
   <h2 class="border-bottom">入金</h2>
   <%= link_to '戻る', month_details_path  %>
   <% if @deposit %>
@@ -63,9 +65,11 @@
           <%= f.number_field :total_deposit, class: 'form-control', placeholder: '合計入金額' %>
           <%= f.number_field :man_salary, class: 'form-control', placeholder: '旦那給料' %>
           <%= f.number_field :woman_salary, class: 'form-control', placeholder: '嫁給料' %>
-          <%= f.submit '設定', class: 'btn btn-outline-primary btn-sm' %>
+          <%= f.submit '設定', class: 'btn btn-warning' %>
         </div>
     <% end %>
   </ul>
 <% end %>
+</div>
+</div>
 </div>

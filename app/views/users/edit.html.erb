@@ -1,0 +1,55 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKBSFQGWRN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LKBSFQGWRN');
+</script>
+<!DOCTYPE html>
+<html lang="ja">
+    <body>
+        <div class="container">
+            <br/>
+            <!-- ユーザー情報変更画面 -->
+            <div class="row">
+                <aside class="col-sm-0 col-md-2 col-lg-2 col-xl-2"></aside>
+                <aside class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                    <div class="card">
+                        <article class="card-body">
+                            <h4 class="card-title text-center mb-4 mt-1">ユーザー情報変更</h4>
+                            <hr>
+                                  <%= form_with model: @user_edit, local: true do |f| %>
+                                    <div class="form-group">
+                                      <h3><%= f.label :ユーザー名： %></h3>
+                                      <%= f.text_field :name, class: 'form-control',value: "#{current_user.name}" %>
+                                    </div>
+                                    <div class="form-group">
+                                      <h3><%= f.label :メールアドレス： %></h3>
+                                      <%= f.email_field :email, class: 'form-control',value: "#{current_user.email}" %>
+                                    </div>
+                                    <div class="form-group">
+                                      <h3><%= f.label :パスワード： %></h3>
+                                      <%= f.password_field :password, class: 'form-control' %>
+                                    </div>
+                                    <div class="form-group">
+                                      <h3><%= f.label :パスワード確認： %></h3>
+                                      <%= f.password_field :password_confirmation, class: 'form-control' %>
+                                    </div>
+                                    <div class="actions">
+                                      <%= f.submit '変更', class: 'btn btn-warning' %>
+                                    </div>
+                                  <% end %>
+                        </article>
+                    </div>
+                </aside>
+                <aside class="col-sm-0 col-md-2 col-lg-2 col-xl-2"></aside>
+            </div>
+        </div>
+
+        <div class="my-4 text-center">
+            <%= link_to "ホーム画面へ",user_path(current_user), class: "btn btn-secondary" %><br><br>
+            <%= link_to 'ユーザーを削除する', user_path, class: 'btn btn-danger', method: :delete, data:{confirm:"本当に削除していいですか？"} %>
+        </div>
+    </body>
+</html>

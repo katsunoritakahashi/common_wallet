@@ -7,7 +7,9 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<div class="col-sm-12 col-lg-8">
+<div class="container">
+  <div class="row">
+    <div class="col">
 <h2 class="border-bottom"><%= @month.month.strftime("分析（%Y年%-m月）") %></h2>
 <% if @budget %>
   <%= link_to "再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"} %>
@@ -81,6 +83,21 @@
     <% end %>
   </tr>
   <tr>
+    <td class="table-white">その他</td>
+    <td class="table-light"><%= "#{@spending_other.to_s(:delimited)}円" %></td>
+    <td class="table-light"><%= "#{@budget.other.to_s(:delimited)}円" %></td>
+    <% if @budget.other - @spending_other < 0 %>
+      <td class="table-light text-danger"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
+    <% else %>
+      <td class="table-light"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
+    <% end %>
+    <% if @spending_other * 100 / @budget.other >= 100 %>
+      <td class="table-light text-danger"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
+    <% else %>
+      <td class="table-light"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
+    <% end %>
+  </tr>
+  <tr>
     <td class="table-secondary">合計</td>
     <td class="table-light"><%= "#{@spending_total.to_s(:delimited)}円" %></td>
     <td class="table-light"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
@@ -108,8 +125,11 @@
           <%= f.number_field :food, class: 'form-control', placeholder: '食費' %>
           <%= f.number_field :life, class: 'form-control', placeholder: '生活費' %>
           <%= f.number_field :enjoy, class: 'form-control', placeholder: '交際費' %>
-          <%= f.submit '登録', class: 'btn btn-outline-primary btn-sm' %>
+          <%= f.number_field :other, class: 'form-control', placeholder: 'その他' %>
+          <%= f.submit '登録', class: 'btn btn-warning' %>
     <% end %>
   </ul>
 <% end %>
+</div>
+</div>
 </div>

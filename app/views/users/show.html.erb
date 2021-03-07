@@ -7,7 +7,9 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<div class="col-sm-12 col-lg-8">
+<div class="container">
+  <div class="row">
+<div class="col">
   <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
   <h5>
     <% if @month.present? %>
@@ -59,8 +61,10 @@
 
   <h5><%= link_to "残高推移", months_path %></h5>
   <% if @months.present? %>
-    <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last.to_j] }, colors: ['#ffc107'], suffix: "万" %>
+    <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc107'], suffix: "万円" %>
   <% else %>
     <p>　家計簿が登録されていません</p>
   <% end %>
+</div>
+</div>
 </div>

@@ -7,7 +7,9 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<div class="col-sm-12 col-lg-8">
+<div class="container">
+  <div class="row">
+<div class="col">
   <h2 class="border-bottom">精算</h2>
   <%= link_to "戻る", month_details_path %>
   <% if @details.present? %>
@@ -87,6 +89,8 @@
           <i class="fas fa-glass-cheers fa-lg green"></i>
         <% elsif detail.classification == 'money' %>
           <i class="fas fa-donate fa-lg gray"></i>
+        <% elsif detail.classification == 'other' %>
+          <i class="fas fa-question-circle fa-lg purple"></i>
         <% else %>
           <%= detail.classification_i18n %>
         <% end %>
@@ -132,9 +136,11 @@
       </tr>
       <% end %>
     </table>
+    <p>※ステータスが「未済」かつ本日以前の明細が精算対象となります。</p>
   </div>
   <% else %>
   <p>精算はありません</p>
   <% end %>
-    <p>※ステータスが「未済」かつ本日以前の明細が精算対象となります。</p>
+</div>
+</div>
 </div>

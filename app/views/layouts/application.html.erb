@@ -31,13 +31,15 @@
   </head>
 
   <body>
-   <%= render 'shared/flash_message' %>
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
-    <%= yield %>
+    <div class="content">
+      <%= render 'shared/flash_message' %>
+      <%= yield %>
+    </div>
       <%= render 'shared/footer' %>
   </body>
 </html>

@@ -13,9 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ @import "semantic-ui";
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+
 
  .fa-trash:before{
   color:#708090;
@@ -30,7 +32,7 @@
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
-    font-size: 1.0rem;
+    font-size: 1rem;
   }
  }
  // 中デバイス（タブレット, 992px 未満）
@@ -52,6 +54,9 @@
   body, .btn-sm, .btn {
     font-size: 0.8rem;
     text-align: center;
+  }
+  footer {
+    font-size: 1rem;
   }
   h1.left{
     text-align: left;
@@ -104,7 +109,7 @@
   }
   .visible-lg-block {display: none; }
   span.left {
-    margin-left: 40px;
+    margin-left: 55px;
   }
  }
 
@@ -141,6 +146,9 @@ a{
 .white {
   color: #FFFFFF;
 }
+.purple {
+  color: #ddaef8;
+}
 
 .main-contents{
   background-color: #FFFFFF;
@@ -152,4 +160,43 @@ a{
 footer{
   background-color: #ffc107;
   text-align: center;
+}
+html {
+  position: relative;
+  height: 100%;
+}
+.content {
+  /* ヘッダーと同じ高さに設定 */
+  margin-top: 58.7px;
+  padding-bottom: 40px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+
+  /* フッタの高さ */
+  height: 20px;
+}
+
+.sub-contents {
+  margin-right: 30px;
+  margin-left: 30px;
+  padding-bottom: 30px;
+}
+
+
+@media (max-width: 576px) {
+  .content {
+    max-width: 540px;
+  }
+}
+.notion {
+  padding-top:20px;
+}
+
+
+.table-white{
+  background-color: #fafafa;
 }

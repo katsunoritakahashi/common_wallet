@@ -7,13 +7,13 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<header>
+<div class="container">
+  <div class="row">
   <div class="col-sm-12">
     <h2 class="border-bottom">
       補正
     </h2>
   </div>
-</header>
 <div class="col-sm-12">
   <ul class="list-inline">
     <%= form_with model: @add, local: true, html: { class: 'form-inline' } do |f| %>
@@ -21,7 +21,7 @@
       <%= f.select :player,[["旦那", "旦那"], ["嫁", "嫁"]],{ include_blank: '補正者'}, class: 'form-control' %>
       <%= f.number_field :amount, class: 'form-control', placeholder: '金額(円)' %>
       <%= f.number_field :rate, class: 'form-control', placeholder: '補正率(%)' %>
-      <%= f.submit '補正追加', class: 'btn btn-outline-primary btn-sm' %>
+      <%= f.submit '補正追加', class: 'btn btn-warning' %>
     <% end %>
   </ul>
   <p>※補正率は未入力の場合は「100(%)」となります。</p>
@@ -60,4 +60,6 @@
     <p>補正明細がありません</p>
   <% end %>
     <%= link_to '戻る', month_deposits_path(@deposit.month_id)  %>
+</div>
+</div>
 </div>

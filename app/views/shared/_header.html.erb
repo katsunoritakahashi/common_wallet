@@ -1,6 +1,9 @@
 <header>
+<div class='fixed-top'>
   <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <a class="navbar-brand" href="#"><%= image_tag 'top-header.png', width: '130', height: '30'%></a>
+    <%= link_to user_path(current_user), class: 'navbar-brand' do %>
+      <%= image_tag 'top-header.png', width: '130', height: '30'%>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +35,11 @@
             <%= "アカウント" %>
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
-            <div class='dropdown-item'><%= current_user.name %></div>
+          <% if current_user.email == "oretokuguestuser@example.com" %>
+            <%= link_to "#{current_user.name}", user_path(current_user), class: 'dropdown-item' %>
+          <% else %>
+            <%= link_to "#{current_user.name}", edit_user_path(current_user), class: 'dropdown-item' %>
+          <% end %>
             <div class="dropdown-divider"></div>
 
             <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
@@ -41,4 +48,5 @@
       </ul>
     </div>
   </nav>
+</div>
 </header>
