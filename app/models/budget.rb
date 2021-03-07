@@ -7,5 +7,4 @@ class Budget < ApplicationRecord
   validates :rent, presence: true
   validates :food, presence: true
   validates :enjoy, presence: true
-  validates :other, presence: true
 end

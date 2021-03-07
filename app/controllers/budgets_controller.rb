@@ -1,4 +1,6 @@
 class BudgetsController < ApplicationController
+  before_action :budget_other_entry, only: %i[index]
+
   def index
     each_month
     authenticate_budget
@@ -53,6 +55,12 @@ class BudgetsController < ApplicationController
 
   def authenticate_budget
     @budget = Budget.find_by(user_id: current_user.id, month_id: params[:month_id])
+  end
+
+  def budget_other_entry
+    @budget = Budget.find_by(user_id: current_user.id, month_id: params[:month_id])
+    @budget.other = 0 if @budget.other.blank?
+    @budget.save
   end
 
   def pie_chart
