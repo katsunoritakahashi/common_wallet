@@ -116,7 +116,7 @@
     <h4>項目別</h4>
     <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
     <h4>予算対比</h4>
-    <%= bar_chart @bar_cahrt, colors: ['#ffc107'] %>
+    <%= bar_chart @bar_cahrt, colors: ['#ffc107'], suffix: "%" %>
 <% else %>
   <ul class="list-inline">
     ※予算を設定して下さい

@@ -59,8 +59,12 @@ class BudgetsController < ApplicationController
 
   def budget_other_entry
     @budget = Budget.find_by(user_id: current_user.id, month_id: params[:month_id])
-    @budget.other = 0 if @budget.other.blank?
-    @budget.save
+    if @budget.present?
+      if !@budget.other.present?
+        @budget.other = 0
+        @budget.save
+      end
+    end
   end
 
   def pie_chart
