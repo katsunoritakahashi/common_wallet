@@ -61,7 +61,11 @@
 
   <h5><%= link_to "残高推移", months_path %></h5>
   <% if @months.present? %>
-    <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc107'], suffix: "万円" %>
+    <% if @colum_chart_max > 10000 %>
+      <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc107'], suffix: "万円" %>
+    <% else %>
+      <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#ffc107'], suffix: "円" %>
+    <% end %>
   <% else %>
     <p>　家計簿が登録されていません</p>
   <% end %>
