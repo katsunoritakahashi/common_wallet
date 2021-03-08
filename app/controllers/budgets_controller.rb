@@ -14,8 +14,44 @@ class BudgetsController < ApplicationController
       @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
       #binding.irb
       @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
+      @rent_percent = 
+        if @budget.rent == 0
+          0
+        else
+          @spending_rent * 100 / @budget.rent
+        end
+      @life_percent = 
+        if @budget.life == 0
+          0
+        else
+          @spending_life * 100 / @budget.life
+        end
+      @food_percent = 
+        if @budget.food == 0
+          0
+        else
+          @spending_food * 100 / @budget.food
+        end
+      @enjoy_percent = 
+        if @budget.enjoy == 0
+          0
+        else
+          @spending_enjoy * 100 / @budget.enjoy
+        end
+      @other_percent = 
+        if @budget.other == 0
+          0
+        else
+          @spending_other * 100 / @budget.other
+        end
+      @total_percent = 
+        if @budget_total == 0
+          0
+        else
+          @spending_total * 100 / @budget_total
+        end
       pie_chart
-      @bar_cahrt = [[:家賃, @spending_rent * 100 / @budget.rent],[:生活費, @spending_life * 100 / @budget.food],[:食費, @spending_food * 100 / @budget.life],[:交際費, @spending_enjoy * 100 / @budget.enjoy]]
+      @bar_cahrt = [[:家賃, @rent_percent],[:生活費, @life_percent],[:食費, @food_percent],[:交際費, @enjoy_percent],[:その他, @other_percent],[:合計, @total_percent]]
     end
   end
 
