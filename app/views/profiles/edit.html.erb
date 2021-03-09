@@ -19,7 +19,7 @@
                         <article class="card-body">
                             <h4 class="card-title text-center mb-4 mt-1">ユーザー情報変更</h4>
                             <hr>
-                                  <%= form_with model: @user_edit, local: true do |f| %>
+                                  <%= form_with model: @profile_edit, local: true do |f| %>
                                     <div class="form-group">
                                       <h3><%= f.label :ユーザー名： %></h3>
                                       <%= f.text_field :name, class: 'form-control',value: "#{current_user.name}" %>
@@ -48,8 +48,8 @@
         </div>
 
         <div class="my-4 text-center">
-            <%= link_to "ホーム画面へ",user_path(current_user), class: "btn btn-secondary" %><br><br>
-            <%= link_to 'ユーザーを削除する', user_path, class: 'btn btn-danger', method: :delete, data:{confirm:"本当に削除していいですか？"} %>
+            <%= link_to "ホーム画面へ",profile_path, class: "btn btn-secondary" %><br><br>
+            <%= link_to 'ユーザーを削除する', profile_path, class: 'btn btn-danger', method: :delete, data:{confirm:"本当に削除していいですか？"} %>
         </div>
     </body>
 </html>

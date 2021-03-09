@@ -5,6 +5,6 @@ class GuestSessionsController < ApplicationController
   def create
     user = User.find_by(email: 'oretokuguestuser@example.com')
     log_in(user)
-    redirect_to user_path(user), success: 'ゲストユーザーでログインしました'
+    redirect_to profile_path, success: 'ゲストユーザーでログインしました'
   end
 end
