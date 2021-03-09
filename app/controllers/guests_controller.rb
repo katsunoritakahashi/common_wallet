@@ -34,6 +34,11 @@ class GuestsController < ApplicationController
     detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(23.day), classification: 5, spending: rand(100..200) * 100, replayer: "旦那", status: 0,note: "投資損失" )
     detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(25.day), classification: 3, spending: rand(100..200) * 100, replayer: "旦那", status: 0,note: "デート" )
     budget = Budget.create(user_id: current_user.id, month_id: month_1.id, rent: 100000, food: 30000, life: 30000, enjoy: 30000, other:10000 )
+    income_total = Detail.where(user_id: current_user.id, month_id: month_1.id).includes(:month).sum(:income)
+    spending_total = Detail.where(user_id: current_user.id, month_id: month_1.id).includes(:month).sum(:spending)
+    balance_of_payments = income_total - spending_total
+    month_1.balance_last = month_1.balance + balance_of_payments
+    month_1.save
     redirect_to profile_path, success: 'ゲストユーザーでログインしました'
   end
 end

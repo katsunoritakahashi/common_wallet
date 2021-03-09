@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :require_login #sorceryが作成するメソッド。ログインしてない時not_authenticatedメソッドを発火する
+  before_action :require_login
   before_action :authenticated_this_month
 
   private

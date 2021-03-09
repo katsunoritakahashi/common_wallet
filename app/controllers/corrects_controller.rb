@@ -35,9 +35,4 @@ class CorrectsController < ApplicationController
   def authenticate_deposit
     @deposit = Deposit.find_by(user_id: current_user.id, id: params[:deposit_id])
   end
-
-  def authenticate_correct
-    @correct = Correct.find_by(user_id: current_user.id, month_id: params[:month_id])
-  end
-
 end
