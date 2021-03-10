@@ -17,8 +17,8 @@
   <table class="text-center table table-hover table-striped">
     <tr class="table-warning">
       <th></th>
-      <th>旦那</th>
-      <th>嫁</th>
+      <th><i class="fas fa-male fa-lg light-blue"></i></th>
+      <th><i class="fas fa-female fa-lg red"></i></th>
     </tr>
     <tr class="table-light">
       <td>給料</td>
@@ -39,8 +39,8 @@
   <table class="text-center table table-hover table-striped">
     <tr class="table-warning">
       <th></th>
-      <th>旦那</th>
-      <th>嫁</th>
+      <th><i class="fas fa-male fa-lg light-blue"></i></th>
+      <th><i class="fas fa-female fa-lg red"></i></th>
       <th>合計</th>
     </tr>
     <tr class="table-light">
@@ -50,7 +50,7 @@
       <td><%= "#{(@man_deposit + @woman_deposit).to_s(:delimited)}円" %></td>
     </tr>
     <tr class="table-light">
-      <td>可処分所得</td>
+      <td>手元に残る額</td>
       <td><%= "#{@disposable_income_man.to_s(:delimited)}円" %></td>
       <td><%= "#{@disposable_income_woman.to_s(:delimited)}円" %></td>
       <td><%= "#{(@disposable_income_man + @disposable_income_woman).to_s(:delimited)}円" %></td>

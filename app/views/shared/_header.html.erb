@@ -1,17 +1,14 @@
 <header>
 <div class='fixed-top'>
   <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <%= link_to user_path(current_user), class: 'navbar-brand' do %>
+    <%= link_to profile_path, class: 'navbar-brand' do %>
       <%= image_tag 'top-header.png', width: '130', height: '30'%>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <%= link_to 'ホーム',user_path(current_user), class: "nav-link" %>
-        </li>
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <%= link_to '家計簿一覧', months_path, class: "nav-link" %>
         </li>
@@ -30,15 +27,17 @@
           </div>
         </li>
       <% end %>
+      </ul>
+      <ul class="navbar-nav">
         <li class='nav-item dropdown dropdown-slide'>
           <a href='#' class='nav-link' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='header-profile'>
             <%= "アカウント" %>
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
-          <% if current_user.email == "oretokuguestuser@example.com" %>
-            <%= link_to "#{current_user.name}", user_path(current_user), class: 'dropdown-item' %>
+          <% if current_user.name == "ゲストユーザー" %>
+            <%= link_to "#{current_user.name}", profile_path, class: 'dropdown-item' %>
           <% else %>
-            <%= link_to "#{current_user.name}", edit_user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to "#{current_user.name}", edit_profile_path, class: 'dropdown-item' %>
           <% end %>
             <div class="dropdown-divider"></div>
 

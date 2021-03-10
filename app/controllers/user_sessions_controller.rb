@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
     #binding.irb
     if @user
-      redirect_back_or_to user_path(current_user), success: 'ログインしました'
+      redirect_back_or_to profile_path, success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new
