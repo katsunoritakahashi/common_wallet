@@ -5,6 +5,7 @@ class Detail < ApplicationRecord
   validates :date, presence: true
   validates :user_id, presence: true
   validates :month_id, presence: true
+  validates :replayer, presence: true
   validates :status, presence: true
   validates :classification, presence: true
   validates :note, length: { maximum: 10 }

@@ -41,6 +41,8 @@ gem 'config', '2.0.0'
 gem 'semantic-ui-sass'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 4.0.2'
+  gem 'factory_bot_rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'letter_opener_web', '~> 1.0'
