@@ -49,8 +49,4 @@
 
 ## 関連記事
 
-- [ポートフォリオレビュー会 vol\.1 イベントレポート \| RUNTEQ \- 公式ブログ](https://blog.runteq.jp/programming-career/portfolio/3060/)
-
-- [ポートフォリオレビュー会の感想｜aiandrox｜note](https://note.com/aiandrox/n/n18598a9c0c9d)
-
-- [【Rails】未経験者がポートフォリオを作って感じたこと、指摘されたこと \- Qiita](https://qiita.com/aiandrox/items/cd0eaac79bd1d313f76d)
+- ["共働き夫婦特化型"の家計簿作りました！〜Common Wallet（コモンウォレット）〜 \- Qiita](https://qiita.com/mogkane916/items/99c21d1014435d90a359)
