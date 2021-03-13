@@ -2,6 +2,7 @@
 
 ![badge](https://img.shields.io/badge/thank%20you-for%20visiting-brightgreen)
 [![Rails](https://img.shields.io/badge/Rails-v5.2.4.3-%23a72332)](https://rubygems.org/gems/rails/versions/6.1.3)
+![top](https://user-images.githubusercontent.com/73891532/111021352-f9c86300-840e-11eb-9ae7-ed3f77b586c3.png)
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="60" height="60"/> 
   
@@ -21,6 +22,7 @@
 
   <img src="https://img.shields.io/badge/--343434.svg?logo=circleci&style=plastic" width="70" height="50"/>
 </p>
+
 ### **https://www.common-wallet.work/**
 
 ## サービス概要
