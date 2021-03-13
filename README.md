@@ -1,4 +1,4 @@
-# Hashlog（ハッシュログ）
+# Common Wallet（コモンウォレット）
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/aiandrox/hashlog)](https://github.com/aiandrox/hashlog/releases)
 [![Rails](https://img.shields.io/badge/Rails-v5.2.4.3-%23a72332)](https://rubygems.org/gems/rails/versions/5.2.4.4)
@@ -7,31 +7,30 @@
 [![Coverage Status](https://coveralls.io/repos/github/aiandrox/hashlog/badge.svg?branch=develop)](https://coveralls.io/github/aiandrox/hashlog?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d31e5fff03ec3ea494fa/maintainability)](https://codeclimate.com/github/aiandrox/hashlog/maintainability)
 
-### **https://hashlog.work**
+### **https://www.common-wallet.work/**
 
 ## サービス概要
 
-**ハッシュタグであなたの学びをキチンとする**
+**”共働き”の**
+**”共働き”による**
+**”共働き”のための家計簿**
 
-面倒くさがりツイッタラーが
-ハッシュタグを登録するだけで継続を可視化できる
-Twitter 連携型 学習記録サービスです。
-
-[以前のREADME](/README_old.md)<br>
-[プロダクトについて](/README_product.md)
+「Common Wallet」は
+製作者のこだわりが詰まった
+共働き夫婦の”共通財布専用”家計簿です。
 
 ## 使用画面と機能
 
 | トップページ                                                         | 利用規約                                                                                               |
 | :------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
-| <img src="https://i.gyazo.com/288cfef35a4c404a57b9ed80803b9f77.png"> | <img src="https://i.gyazo.com/a5df36426cae3326b9813cb2afb6eacf.png">                                   |
-| 最近登録されたハッシュタグ 3 件と機能の紹介を表示する。              | ユーザー登録 / ログイン前に利用規約を表示し、ユーザーが同意した上で Twitter 認証ページへジャンプする。 |
+| <img src="https://gyazo.com/598518551f28bc3c93a4c15525ea5dd7.png"> | <img src="https://gyazo.com/aaf8a847ad17af714594a2c3604de927.png">                                   |
+| タイトルや機能紹介など              | フッターに利用規約を記載 |
 
 <br>
 
-| マイページ                                                                                                                 | ハッシュタグ登録画面                                                                                                        |
+| ホーム画面                                                                                                                 | 家計簿一覧画面                                                                                                        |
 | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://i.gyazo.com/bd2b43a7a36d58c52bb49e9dccce47e0.png">                                                       | <img src="https://i.gyazo.com/5264cb248f86022f6d5fef549460ee34.png">                                                        |
+| <img src="https://gyazo.com/165b3206309796481e30942a0a93719f.png">                                                       | <img src="https://i.gyazo.com/5264cb248f86022f6d5fef549460ee34.png">                                                        |
 | ユーザープロフィールと公開設定のみ編集できる。<br>非公開設定の場合、自分以外によるユーザーページへのアクセスが制限される。 | ハッシュタグを登録することで、自動でツイートを取得する。<br>登録後はサービス側で自動で 1 日ごとにツイートを収集し更新する。 |
 
 <br>
