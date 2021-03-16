@@ -42,24 +42,30 @@
     text-align: center;
   }
  }
- // 小デバイス（横向きモバイル, 768px 未満）
- @media (max-width: 767.98px) {
-  body {
-    font-size: 1.0rem;
-  }
- }
  // @include media-breakpoint-up(sm) {
- // 極小デバイス（縦向きモバイル, 576px 未満）
  @media (max-width: 550px) {
   body, .btn-sm, .btn {
     font-size: 0.8rem;
     text-align: center;
+  }
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    height: calc(3rem);
   }
   footer {
     font-size: 1rem;
   }
   h1.left{
     text-align: left;
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.2rem;
   }
   .stay{
     font-size: 0.9rem;
@@ -78,6 +84,10 @@
     width: 100%;
     height: auto;
   }
+  .visible-lg-block {display: none; }
+  span.left {
+    margin-left: 55px;
+  }
  }
 
  @media (min-width: 550px) {
@@ -85,34 +95,7 @@
     display: none;
   }
   .visible-xs-block {display: none; }
-
  }
-
- @media (max-width: 550px) {
-  h1.left {
-    font-size: 1.6rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-  h4 {
-    font-size: 1.2rem;
-  }
-  body, .btn-sm, .btn, .form-control {
-    font-size: 0.5rem;
-  }
-  .btn-lg {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1.25rem;
-    height: calc(3rem);
-  }
-  .visible-lg-block {display: none; }
-  span.left {
-    margin-left: 55px;
-  }
- }
-
 
  body{
   background-color: #fdfdea;
@@ -149,6 +132,9 @@ a{
 .purple {
   color: #ddaef8;
 }
+.table-white{
+  background-color: #fafafa;
+}
 
 .main-contents{
   background-color: #FFFFFF;
@@ -166,7 +152,6 @@ html {
   height: 100%;
 }
 .content {
-  /* ヘッダーと同じ高さに設定 */
   margin-top: 58.7px;
   padding-bottom: 40px;
 }
@@ -175,8 +160,6 @@ footer {
   bottom: 0;
   margin-bottom: 0;
   width: 100%;
-
-  /* フッタの高さ */
   height: 20px;
 }
 
@@ -186,16 +169,8 @@ footer {
   padding-bottom: 30px;
 }
 
-
-@media (max-width: 576px) {
-  .content {
-    max-width: 540px;
-  }
-}
 .notion {
   padding-top:20px;
 }
 
-.table-white{
-  background-color: #fafafa;
-}
+

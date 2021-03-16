@@ -9,138 +9,138 @@
 </script>
 <div class="container">
   <div class="row">
-<div class="col">
-  <h2 class="border-bottom">精算</h2>
-  <%= link_to "戻る", month_details_path %>
-  <% if @details.present? %>
-  <div class="stay">
-    <table class="text-center table">
-      <tr class="table-warning">
-        <th>口座残高</th>
-        <th>精算額</th>
-        <th>精算後残高</th>
-      </tr>
-      <tr class="table-light">
-        <td><%= "#{(@month.balance + @done_income - @done_spending).to_s(:delimited)}円" %></td>
-        <td>
-        <% if @balance_of_payments_not_common >= 0 %>
-          <%= "+#{(@balance_of_payments_not_common).to_s(:delimited)}円" %>
-        <% else %>
-          <%= "#{(@balance_of_payments_not_common).to_s(:delimited)}円" %>
-        <% end %>
-        </td>
-        <td><%= "#{(@month.balance + @done_income - @done_spending + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
-      </tr>
-    </table>
-    <h5>○精算内訳</h5>
-    <table class="text-center table table-bordered">
-      <tr class="table-warning">
-        <th></th>
-        <th>入金</th>
-        <th>支払</th>
-        <th>共通→個人</th>
-      </tr>
-      <% @replayers.each do |replayer| %>
-        <tr class="table-light">
-          <td>
-            <% if replayer.replayer == '旦那' %>
-              <i class="fas fa-male fa-lg light-blue"></i>
-            <% elsif replayer.replayer == '嫁' %>
-              <i class="fas fa-female fa-lg red"></i>
+    <div class="col">
+      <h2 class="border-bottom">精算</h2>
+      <%= link_to "戻る", month_details_path %>
+      <% if @details.present? %>
+      <div class="stay">
+        <table class="text-center table">
+          <tr class="table-warning">
+            <th>口座残高</th>
+            <th>精算額</th>
+            <th>精算後残高</th>
+          </tr>
+          <tr class="table-light">
+            <td><%= "#{(@month.balance + @done_income - @done_spending).to_s(:delimited)}円" %></td>
+            <td>
+            <% if @balance_of_payments_not_common >= 0 %>
+              <%= "+#{(@balance_of_payments_not_common).to_s(:delimited)}円" %>
             <% else %>
-              <%= replayer.replayer %>
+              <%= "#{(@balance_of_payments_not_common).to_s(:delimited)}円" %>
             <% end %>
-          </td>
-          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
-          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending)).to_s(:delimited)}円" %></td>
-          <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date < ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
-        </tr>
+            </td>
+            <td><%= "#{(@month.balance + @done_income - @done_spending + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+          </tr>
+        </table>
+        <h5>○精算内訳</h5>
+        <table class="text-center table table-bordered">
+          <tr class="table-warning">
+            <th></th>
+            <th>入金</th>
+            <th>支払</th>
+            <th>共通→個人</th>
+          </tr>
+          <% @replayers.each do |replayer| %>
+            <tr class="table-light">
+              <td>
+                <% if replayer.replayer == '旦那' %>
+                  <i class="fas fa-male fa-lg light-blue"></i>
+                <% elsif replayer.replayer == '嫁' %>
+                  <i class="fas fa-female fa-lg red"></i>
+                <% else %>
+                  <%= replayer.replayer %>
+                <% end %>
+              </td>
+              <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
+              <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending)).to_s(:delimited)}円" %></td>
+              <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date < ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
+            </tr>
+          <% end %>
+            <tr class="table-light">
+              <td>合計</td>
+              <td><%= "#{@income_total_not_common.to_s(:delimited)}円" %></td>
+              <td><%= "#{@spending_total_not_common.to_s(:delimited)}円" %></td>
+              <td><%= "#{(-@balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+            </tr>
+        </table>
+      </div>
+        <h5>○精算明細</h5>
+        <table class="text-center table table-hover table-sm">
+          <tr class="table-warning">
+            <th>日付</th>
+            <th>分類</th>
+            <th>メモ</th>
+            <th class="display-xs-none">収入</th>
+            <th class="display-xs-none">支出</th>
+            <th class="display-lg-none">収支</th>
+            <th>立替</th>
+          </tr>
+          <% @details.each do |detail| %>
+          <tr class="table-light">
+            <td><%= detail.date.strftime("%-m月%-d日") %></td>
+            <td>
+            <% if detail.classification == 'rent' %>
+              <i class="fas fa-home fa-lg red"></i>
+            <% elsif detail.classification == 'food' %>
+              <i class="fas fa-utensils fa-lg yellow"></i>
+            <% elsif detail.classification == 'life' %>
+              <i class="fas fa-faucet fa-lg blue"></i>
+            <% elsif detail.classification == 'enjoy' %>
+              <i class="fas fa-glass-cheers fa-lg green"></i>
+            <% elsif detail.classification == 'money' %>
+              <i class="fas fa-donate fa-lg gray"></i>
+            <% elsif detail.classification == 'other' %>
+              <i class="fas fa-question-circle fa-lg purple"></i>
+            <% else %>
+              <%= detail.classification_i18n %>
+            <% end %>
+            </td>
+            <td><%= detail.note %></td>
+            <td class="display-xs-none">
+              <% if detail.income.present? %>
+                <%= "#{detail.income.to_s(:delimited)}円" %>
+              <% else %>
+                <%= detail.income %>
+              <% end %>
+            </td>
+            <td class="display-xs-none">
+              <% if detail.spending.present? %>
+                <%= "#{detail.spending.to_s(:delimited)}円" %>
+              <% else %>
+                <%= detail.spending %>
+              <% end %>
+            </td>
+            <td class="display-lg-none">
+              <% if detail.income.present? && detail.spending.present? %>
+                <%= "#{(detail.income - detail.spending).to_s(:delimited)}円" %>
+              <% elsif !detail.income.present? && detail.spending.present? %>
+                <div class="red">
+                  <%= "#{(-detail.spending).to_s(:delimited)}円" %>
+                </div>
+              <% elsif detail.income.present? && !detail.spending.present? %>
+                <%= "#{(detail.income).to_s(:delimited)}円" %>
+              <% else %>
+                <%= detail.income %>
+              <% end %>
+            </td>
+            <td>
+              <% if detail.replayer == '旦那' %>
+                <i class="fas fa-male fa-lg light-blue"></i>
+              <% elsif detail.replayer == '嫁' %>
+                <i class="fas fa-female fa-lg red"></i>
+              <% else %>
+                <%= detail.replayer %>
+              <% end %>
+            </td>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+        <p>※ステータスが「未済」かつ本日以前の明細が精算対象となります。</p>
+      </div>
+      <% else %>
+      <p>精算はありません</p>
       <% end %>
-        <tr class="table-light">
-          <td>合計</td>
-          <td><%= "#{@income_total_not_common.to_s(:delimited)}円" %></td>
-          <td><%= "#{@spending_total_not_common.to_s(:delimited)}円" %></td>
-          <td><%= "#{(-@balance_of_payments_not_common).to_s(:delimited)}円" %></td>
-        </tr>
-    </table>
+    </div>
   </div>
-    <h5>○精算明細</h5>
-    <table class="text-center table table-hover table-sm">
-      <tr class="table-warning">
-        <th>日付</th>
-        <th>分類</th>
-        <th>メモ</th>
-        <th class="display-xs-none">収入</th>
-        <th class="display-xs-none">支出</th>
-        <th class="display-lg-none">収支</th>
-        <th>立替</th>
-      </tr>
-      <% @details.each do |detail| %>
-      <tr class="table-light">
-        <td><%= detail.date.strftime("%-m月%-d日") %></td>
-        <td>
-        <% if detail.classification == 'rent' %>
-          <i class="fas fa-home fa-lg red"></i>
-        <% elsif detail.classification == 'food' %>
-          <i class="fas fa-utensils fa-lg yellow"></i>
-        <% elsif detail.classification == 'life' %>
-          <i class="fas fa-faucet fa-lg blue"></i>
-        <% elsif detail.classification == 'enjoy' %>
-          <i class="fas fa-glass-cheers fa-lg green"></i>
-        <% elsif detail.classification == 'money' %>
-          <i class="fas fa-donate fa-lg gray"></i>
-        <% elsif detail.classification == 'other' %>
-          <i class="fas fa-question-circle fa-lg purple"></i>
-        <% else %>
-          <%= detail.classification_i18n %>
-        <% end %>
-        </td>
-        <td><%= detail.note %></td>
-        <td class="display-xs-none">
-          <% if detail.income.present? %>
-            <%= "#{detail.income.to_s(:delimited)}円" %>
-          <% else %>
-            <%= detail.income %>
-          <% end %>
-        </td>
-        <td class="display-xs-none">
-          <% if detail.spending.present? %>
-            <%= "#{detail.spending.to_s(:delimited)}円" %>
-          <% else %>
-            <%= detail.spending %>
-          <% end %>
-        </td>
-        <td class="display-lg-none">
-          <% if detail.income.present? && detail.spending.present? %>
-            <%= "#{(detail.income - detail.spending).to_s(:delimited)}円" %>
-          <% elsif !detail.income.present? && detail.spending.present? %>
-            <div class="red">
-              <%= "#{(-detail.spending).to_s(:delimited)}円" %>
-            </div>
-          <% elsif detail.income.present? && !detail.spending.present? %>
-            <%= "#{(detail.income).to_s(:delimited)}円" %>
-          <% else %>
-            <%= detail.income %>
-          <% end %>
-        </td>
-        <td>
-          <% if detail.replayer == '旦那' %>
-            <i class="fas fa-male fa-lg light-blue"></i>
-          <% elsif detail.replayer == '嫁' %>
-            <i class="fas fa-female fa-lg red"></i>
-          <% else %>
-            <%= detail.replayer %>
-          <% end %>
-        </td>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-    <p>※ステータスが「未済」かつ本日以前の明細が精算対象となります。</p>
-  </div>
-  <% else %>
-  <p>精算はありません</p>
-  <% end %>
-</div>
-</div>
 </div>

@@ -9,66 +9,66 @@
 </script>
 <div class="container">
   <div class="row">
-<div class="col">
-  <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
-  <h5>
-    <% if @month.present? %>
-      <%= link_to "今月の家計簿", month_details_path(@month.id) %>
-    <% else %>
-      <%= link_to "今月の家計簿", months_path %>
-    <% end %>
-  </h5>
-  <% if @month.present? %>
-    <table class="text-center table table-bordered table_border_radius">
-      <tr class="table-warning">
-        <th>月初残高</th>
-        <th>月末予定残高</th>
-        <th>精算未済</th>
-      </tr>
-      <tr class="table-light">
-        <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
-        <td><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
-        <td>
-        <% if @not_yet_count.blank? %>
-          無し
-        <% elsif @not_yet_count == 0 %>
-          0件
+    <div class="col">
+      <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
+      <h5>
+        <% if @month.present? %>
+          <%= link_to "今月の家計簿", month_details_path(@month.id) %>
         <% else %>
-          <%= link_to "#{@not_yet_count}件", new_month_detail_path(@month.id) %>
+          <%= link_to "今月の家計簿", months_path %>
         <% end %>
-        <% #binding.irb %>
-        </td>
-      </tr>
-    </table>
-  <% else %>
-    <p>　今月の家計簿が登録されていません</p>
-  <% end %>
+      </h5>
+      <% if @month.present? %>
+        <table class="text-center table table-bordered table_border_radius">
+          <tr class="table-warning">
+            <th>月初残高</th>
+            <th>月末予定残高</th>
+            <th>精算未済</th>
+          </tr>
+          <tr class="table-light">
+            <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
+            <td><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+            <td>
+            <% if @not_yet_count.blank? %>
+              無し
+            <% elsif @not_yet_count == 0 %>
+              0件
+            <% else %>
+              <%= link_to "#{@not_yet_count}件", new_month_detail_path(@month.id) %>
+            <% end %>
+            <% #binding.irb %>
+            </td>
+          </tr>
+        </table>
+      <% else %>
+        <p>　今月の家計簿が登録されていません</p>
+      <% end %>
 
-  <h5>
-    <% if @detail.present? && @budget.present? %>
-      <%= link_to "今月の支出", month_budgets_path(@month.id) %>
-    <% elsif !@detail.present? && @month.present? %>
-      <%= link_to "今月の支出", month_details_path(@month.id) %>
-    <% else %>
-      <%= link_to "今月の支出", months_path %>
-    <% end %>
-  </h5>
-  <% if @month.present? && @detail.present? %>
-    <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
-  <% else %>
-    <p>　今月の支出が登録されていません</p>
-  <% end %>
+      <h5>
+        <% if @detail.present? && @budget.present? %>
+          <%= link_to "今月の支出", month_budgets_path(@month.id) %>
+        <% elsif !@detail.present? && @month.present? %>
+          <%= link_to "今月の支出", month_details_path(@month.id) %>
+        <% else %>
+          <%= link_to "今月の支出", months_path %>
+        <% end %>
+      </h5>
+      <% if @month.present? && @detail.present? %>
+        <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
+      <% else %>
+        <p>　今月の支出が登録されていません</p>
+      <% end %>
 
-  <h5><%= link_to "残高推移", months_path %></h5>
-  <% if @months.present? %>
-    <% if @colum_chart_max > 10000 %>
-      <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc107'], suffix: "万円" %>
-    <% else %>
-      <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#ffc107'], suffix: "円" %>
-    <% end %>
-  <% else %>
-    <p>　家計簿が登録されていません</p>
-  <% end %>
-</div>
-</div>
+      <h5><%= link_to "残高推移", months_path %></h5>
+      <% if @months.present? %>
+        <% if @colum_chart_max > 10000 %>
+          <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc107'], suffix: "万円" %>
+        <% else %>
+          <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#ffc107'], suffix: "円" %>
+        <% end %>
+      <% else %>
+        <p>　家計簿が登録されていません</p>
+      <% end %>
+    </div>
+  </div>
 </div>
