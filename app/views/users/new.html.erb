@@ -12,25 +12,25 @@
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h2 class="border-bottom">新規登録</h2>
       <%= form_with model: @user, local: true do |f| %>
-          <div class="form-group">
-            <%= f.label :ユーザー名 %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :メールアドレス %>
-            <%= f.email_field :email, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :パスワード %>
-            <%= f.password_field :password, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :パスワード確認 %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
-          </div>
-          <div class="actions">
-            <%= f.submit '登録', class: 'btn btn-warning' %>
-          </div>
+        <div class="form-group">
+          <%= f.label :ユーザー名 %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :パスワード %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :パスワード確認 %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit '登録', class: 'btn btn-warning' %>
+        </div>
       <% end %>
       <p class="notion">※必ずご自身のメールアドレスを登録下さい。<br>万が一パスワードを紛失した場合、再設定ができません。</p>
       <div class='text-center'>

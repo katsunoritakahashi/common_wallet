@@ -10,16 +10,16 @@
 <div class="container">
   <div class="row">
     <div class="col">
-<h2><%= @month.month.strftime("月初残高編集（%Y年%-m月）") %></h2>
-  <div class="col-sm-12">
-    <ul class="list-inline">
-      <%= form_with model: @month, html: { class: 'form-inline' }, local: true do |f| %>
-          <%= f.text_field :balance, class: 'form-control',placeholder: @month.balance %>
-        <%= f.submit "修正", class: 'btn btn-warning' %>
-      <% end %>
-    </ul>
-  </div>
-<%= link_to "戻る", months_path %>
+    <h2><%= @month.month.strftime("月初残高編集（%Y年%-m月）") %></h2>
+      <div class="col-sm-12">
+        <ul class="list-inline">
+          <%= form_with model: @month, html: { class: 'form-inline' }, local: true do |f| %>
+            <%= f.text_field :balance, class: 'form-control',placeholder: @month.balance %>
+            <%= f.submit "修正", class: 'btn btn-warning' %>
+          <% end %>
+        </ul>
+      </div>
+      <%= link_to "戻る", months_path %>
     </div>
   </div>
 </div>

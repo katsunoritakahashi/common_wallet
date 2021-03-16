@@ -10,150 +10,150 @@
 <div class="container">
   <div class="row">
     <div class="col">
-<h2 class="border-bottom"><%= @month.month.strftime("分析（%Y年%-m月）") %></h2>
-<% if @budget %>
-  <%= link_to "再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"} %>
-  <%= link_to '戻る', month_details_path  %>
-<table class="text-center table table-bordered table-sm">
-  <tr class="table-warning">
-    <th></th>
-    <th>出費</th>
-    <th>予算</th>
-    <th>予算残高</th>
-    <th>出費/予算</th>
-  </tr>
-  <tr>
-    <td class="table-danger">家賃</td>
-    <td class="table-light"><%= "#{@spending_rent.to_s(:delimited)}円" %></td>
-    <td class="table-light"><%= "#{@budget.rent.to_s(:delimited)}円" %></td>
-    <% if @budget.rent - @spending_rent < 0 %>
-      <td class="table-light text-danger"><%= "#{(@budget.rent - @spending_rent).to_s(:delimited)}円" %></td>
+    <h2 class="border-bottom"><%= @month.month.strftime("分析（%Y年%-m月）") %></h2>
+    <% if @budget %>
+      <%= link_to "再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"} %>
+      <%= link_to '戻る', month_details_path  %>
+    <table class="text-center table table-bordered table-sm">
+      <tr class="table-warning">
+        <th></th>
+        <th>出費</th>
+        <th>予算</th>
+        <th>予算残高</th>
+        <th>出費/予算</th>
+      </tr>
+      <tr>
+        <td class="table-danger">家賃</td>
+        <td class="table-light"><%= "#{@spending_rent.to_s(:delimited)}円" %></td>
+        <td class="table-light"><%= "#{@budget.rent.to_s(:delimited)}円" %></td>
+        <% if @budget.rent - @spending_rent < 0 %>
+          <td class="table-light text-danger"><%= "#{(@budget.rent - @spending_rent).to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="table-light"><%= "#{(@budget.rent - @spending_rent).to_s(:delimited)}円" %></td>
+        <% end %>
+        <% if @budget.rent != 0 %>
+          <% if @spending_rent * 100 / @budget.rent >= 100 %>
+            <td class="table-light text-danger"><%= "#{@spending_rent * 100 / @budget.rent}%" %></td>
+          <% else %>
+            <td class="table-light"><%= "#{@spending_rent * 100 / @budget.rent}%" %></td>
+          <% end %>
+        <% else %>
+          <td class="table-light">-</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="table-info">生活費</td>
+        <td class="table-light"><%= "#{@spending_life.to_s(:delimited)}円" %></td>
+        <td class="table-light"><%= "#{@budget.life.to_s(:delimited)}円" %></td>
+        <% if @budget.life - @spending_life < 0 %>
+          <td class="table-light text-danger"><%= "#{(@budget.life - @spending_life).to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="table-light"><%= "#{(@budget.life - @spending_life).to_s(:delimited)}円" %></td>
+        <% end %>
+        <% if @budget.life != 0 %>
+          <% if @spending_life * 100 / @budget.life >= 100 %>
+            <td class="table-light text-danger"><%= "#{@spending_life* 100 / @budget.life}%" %></td>
+          <% else %>
+            <td class="table-light"><%= "#{@spending_life * 100 / @budget.life}%" %></td>
+          <% end %>
+        <% else %>
+          <td class="table-light">-</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="table-warning">食費</td>
+        <td class="table-light"><%= "#{@spending_food.to_s(:delimited)}円" %></td>
+        <td class="table-light"><%= "#{@budget.food.to_s(:delimited)}円" %></td>
+        <% if @budget.food - @spending_food < 0 %>
+          <td class="table-light text-danger"><%= "#{(@budget.food - @spending_food).to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="table-light"><%= "#{(@budget.food - @spending_food).to_s(:delimited)}円" %></td>
+        <% end %>
+        <% if @budget.food != 0 %>
+          <% if @spending_food * 100 / @budget.food >= 100 %>
+            <td class="table-light text-danger"><%= "#{@spending_food * 100 / @budget.food}%" %></td>
+          <% else %>
+            <td class="table-light"><%= "#{@spending_food * 100 / @budget.food}%" %></td>
+          <% end %>
+        <% else %>
+          <td class="table-light">-</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="table-success">交際費</td>
+        <td class="table-light"><%= "#{@spending_enjoy.to_s(:delimited)}円" %></td>
+        <td class="table-light"><%= "#{@budget.enjoy.to_s(:delimited)}円" %></td>
+        <% if @budget.enjoy - @spending_enjoy < 0 %>
+          <td class="table-light text-danger"><%= "#{(@budget.enjoy - @spending_enjoy).to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="table-light"><%= "#{(@budget.enjoy - @spending_enjoy).to_s(:delimited)}円" %></td>
+        <% end %> 
+        <% if @budget.enjoy != 0 %>
+          <% if @spending_enjoy * 100 / @budget.enjoy >= 100 %>
+            <td class="table-light text-danger"><%= "#{@spending_enjoy * 100 / @budget.enjoy}%" %></td>
+          <% else %>
+            <td class="table-light"><%= "#{@spending_enjoy * 100 / @budget.enjoy}%" %></td>
+          <% end %>
+        <% else %>
+          <td class="table-light">-</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="table-white">その他</td>
+        <td class="table-light"><%= "#{@spending_other.to_s(:delimited)}円" %></td>
+        <td class="table-light"><%= "#{@budget.other.to_s(:delimited)}円" %></td>
+        <% if @budget.other - @spending_other < 0 %>
+          <td class="table-light text-danger"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="table-light"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
+        <% end %>
+        <% if @budget.other != 0 %>
+          <% if @spending_other * 100 / @budget.other >= 100 %>
+            <td class="table-light text-danger"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
+          <% else %>
+            <td class="table-light"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
+          <% end %>
+        <% else %>
+          <td class="table-light">-</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="table-secondary">合計</td>
+        <td class="table-light"><%= "#{@spending_total.to_s(:delimited)}円" %></td>
+        <td class="table-light"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
+        <% if @budget_total - @spending_total < 0 %>
+          <td class="table-light text-danger"><%= "#{(@budget_total - @spending_total).to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="table-light"><%= "#{(@budget_total - @spending_total).to_s(:delimited)}円" %></td>
+        <% end %>
+        <% if @budget_total != 0 %>
+          <% if @spending_total * 100 / @budget_total >= 100 %>
+            <td class="table-light text-danger"><%= "#{@spending_total * 100 / @budget_total}%" %></td>
+          <% else %>
+            <td class="table-light"><%= "#{@spending_total * 100 / @budget_total}%" %></td>
+          <% end %>
+        <% else %>
+          <td class="table-light">-</td>
+        <% end %>
+      </tr>
+    </table>
+        <h4>項目別</h4>
+        <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
+        <h4>予算対比</h4>
+        <%= bar_chart @bar_cahrt, colors: ['#ffc107'], suffix: "%" %>
     <% else %>
-      <td class="table-light"><%= "#{(@budget.rent - @spending_rent).to_s(:delimited)}円" %></td>
+      <ul class="list-inline">
+        ※予算を設定して下さい
+        <%= form_with model: @add, local: true, html: { class: 'form-inline' } do |f| %>
+              <%= f.number_field :rent, class: 'form-control', placeholder: '家賃' %>
+              <%= f.number_field :food, class: 'form-control', placeholder: '食費' %>
+              <%= f.number_field :life, class: 'form-control', placeholder: '生活費' %>
+              <%= f.number_field :enjoy, class: 'form-control', placeholder: '交際費' %>
+              <%= f.number_field :other, class: 'form-control', placeholder: 'その他' %>
+              <%= f.submit '登録', class: 'btn btn-warning' %>
+        <% end %>
+      </ul>
     <% end %>
-    <% if @budget.rent != 0 %>
-      <% if @spending_rent * 100 / @budget.rent >= 100 %>
-        <td class="table-light text-danger"><%= "#{@spending_rent * 100 / @budget.rent}%" %></td>
-      <% else %>
-        <td class="table-light"><%= "#{@spending_rent * 100 / @budget.rent}%" %></td>
-      <% end %>
-    <% else %>
-      <td class="table-light">-</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td class="table-info">生活費</td>
-    <td class="table-light"><%= "#{@spending_life.to_s(:delimited)}円" %></td>
-    <td class="table-light"><%= "#{@budget.life.to_s(:delimited)}円" %></td>
-    <% if @budget.life - @spending_life < 0 %>
-      <td class="table-light text-danger"><%= "#{(@budget.life - @spending_life).to_s(:delimited)}円" %></td>
-    <% else %>
-      <td class="table-light"><%= "#{(@budget.life - @spending_life).to_s(:delimited)}円" %></td>
-    <% end %>
-    <% if @budget.life != 0 %>
-      <% if @spending_life * 100 / @budget.life >= 100 %>
-        <td class="table-light text-danger"><%= "#{@spending_life* 100 / @budget.life}%" %></td>
-      <% else %>
-        <td class="table-light"><%= "#{@spending_life * 100 / @budget.life}%" %></td>
-      <% end %>
-    <% else %>
-      <td class="table-light">-</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td class="table-warning">食費</td>
-    <td class="table-light"><%= "#{@spending_food.to_s(:delimited)}円" %></td>
-    <td class="table-light"><%= "#{@budget.food.to_s(:delimited)}円" %></td>
-    <% if @budget.food - @spending_food < 0 %>
-      <td class="table-light text-danger"><%= "#{(@budget.food - @spending_food).to_s(:delimited)}円" %></td>
-    <% else %>
-      <td class="table-light"><%= "#{(@budget.food - @spending_food).to_s(:delimited)}円" %></td>
-    <% end %>
-    <% if @budget.food != 0 %>
-      <% if @spending_food * 100 / @budget.food >= 100 %>
-        <td class="table-light text-danger"><%= "#{@spending_food * 100 / @budget.food}%" %></td>
-      <% else %>
-        <td class="table-light"><%= "#{@spending_food * 100 / @budget.food}%" %></td>
-      <% end %>
-    <% else %>
-      <td class="table-light">-</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td class="table-success">交際費</td>
-    <td class="table-light"><%= "#{@spending_enjoy.to_s(:delimited)}円" %></td>
-    <td class="table-light"><%= "#{@budget.enjoy.to_s(:delimited)}円" %></td>
-    <% if @budget.enjoy - @spending_enjoy < 0 %>
-      <td class="table-light text-danger"><%= "#{(@budget.enjoy - @spending_enjoy).to_s(:delimited)}円" %></td>
-    <% else %>
-      <td class="table-light"><%= "#{(@budget.enjoy - @spending_enjoy).to_s(:delimited)}円" %></td>
-    <% end %> 
-    <% if @budget.enjoy != 0 %>
-      <% if @spending_enjoy * 100 / @budget.enjoy >= 100 %>
-        <td class="table-light text-danger"><%= "#{@spending_enjoy * 100 / @budget.enjoy}%" %></td>
-      <% else %>
-        <td class="table-light"><%= "#{@spending_enjoy * 100 / @budget.enjoy}%" %></td>
-      <% end %>
-    <% else %>
-      <td class="table-light">-</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td class="table-white">その他</td>
-    <td class="table-light"><%= "#{@spending_other.to_s(:delimited)}円" %></td>
-    <td class="table-light"><%= "#{@budget.other.to_s(:delimited)}円" %></td>
-    <% if @budget.other - @spending_other < 0 %>
-      <td class="table-light text-danger"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
-    <% else %>
-      <td class="table-light"><%= "#{(@budget.other - @spending_other).to_s(:delimited)}円" %></td>
-    <% end %>
-    <% if @budget.other != 0 %>
-      <% if @spending_other * 100 / @budget.other >= 100 %>
-        <td class="table-light text-danger"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
-      <% else %>
-        <td class="table-light"><%= "#{@spending_other * 100 / @budget.other}%" %></td>
-      <% end %>
-    <% else %>
-      <td class="table-light">-</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td class="table-secondary">合計</td>
-    <td class="table-light"><%= "#{@spending_total.to_s(:delimited)}円" %></td>
-    <td class="table-light"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
-    <% if @budget_total - @spending_total < 0 %>
-      <td class="table-light text-danger"><%= "#{(@budget_total - @spending_total).to_s(:delimited)}円" %></td>
-    <% else %>
-      <td class="table-light"><%= "#{(@budget_total - @spending_total).to_s(:delimited)}円" %></td>
-    <% end %>
-    <% if @budget_total != 0 %>
-      <% if @spending_total * 100 / @budget_total >= 100 %>
-        <td class="table-light text-danger"><%= "#{@spending_total * 100 / @budget_total}%" %></td>
-      <% else %>
-        <td class="table-light"><%= "#{@spending_total * 100 / @budget_total}%" %></td>
-      <% end %>
-    <% else %>
-      <td class="table-light">-</td>
-    <% end %>
-  </tr>
-</table>
-    <h4>項目別</h4>
-    <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
-    <h4>予算対比</h4>
-    <%= bar_chart @bar_cahrt, colors: ['#ffc107'], suffix: "%" %>
-<% else %>
-  <ul class="list-inline">
-    ※予算を設定して下さい
-    <%= form_with model: @add, local: true, html: { class: 'form-inline' } do |f| %>
-          <%= f.number_field :rent, class: 'form-control', placeholder: '家賃' %>
-          <%= f.number_field :food, class: 'form-control', placeholder: '食費' %>
-          <%= f.number_field :life, class: 'form-control', placeholder: '生活費' %>
-          <%= f.number_field :enjoy, class: 'form-control', placeholder: '交際費' %>
-          <%= f.number_field :other, class: 'form-control', placeholder: 'その他' %>
-          <%= f.submit '登録', class: 'btn btn-warning' %>
-    <% end %>
-  </ul>
-<% end %>
-</div>
-</div>
+    </div>
+  </div>
 </div>
