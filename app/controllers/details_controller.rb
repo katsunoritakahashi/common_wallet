@@ -24,7 +24,6 @@ class DetailsController < ApplicationController
     @add.replayer = "共通" if @add.replayer.blank?
     @add.status = :not_yet
     @add.status = :done if @add.replayer == "共通"
-    #binding.irb
     if @add.date.present? && @add.date >= each_month.month && @add.date < each_month.month.next_month && @add.save
       each_month
       each_total
