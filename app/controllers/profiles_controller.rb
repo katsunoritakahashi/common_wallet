@@ -28,7 +28,6 @@ class ProfilesController < ApplicationController
         @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
       end
     end
-    #binding.irb
   end
 
   def edit

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    #binding.irb
     if @user.save
       redirect_back_or_to months_path, success: '登録が完了しました'
     else

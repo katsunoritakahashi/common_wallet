@@ -6,7 +6,6 @@ class UserSessionsController < ApplicationController
 
   def create
     @user = login(params[:email], params[:password])
-    #binding.irb
     if @user
       redirect_back_or_to profile_path, success: 'ログインしました'
     else
