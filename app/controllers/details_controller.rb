@@ -30,7 +30,6 @@ class DetailsController < ApplicationController
       @month.balance_last = @month.balance + @balance_of_payments
       @month.save
       @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc)
-      #redirect_back_or_to month_details_path, success: '明細を追加しました'
     else
       redirect_back_or_to month_details_path, danger: '明細を追加出来ませんでした'
     end
@@ -46,7 +45,6 @@ class DetailsController < ApplicationController
       @detail.status = :not_yet
     end
     @detail.save
-    #redirect_back_or_to month_details_path(@detail.month_id)
   end
 
   def destroy

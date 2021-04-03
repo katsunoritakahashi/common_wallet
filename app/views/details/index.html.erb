@@ -10,6 +10,22 @@
 <div class="container">
   <div class="row">
     <div class="col">
+      <div class="switch">
+        <div class="row justify-content-center">
+          <div class="col">
+            <%= link_to "明細", month_details_path,class: 'btn btn-info btn-lg btn-block' %>
+          </div>
+          <div class="col">
+            <%= link_to "分析", month_budgets_path,class: 'btn btn-warning btn-lg btn-block' %>
+          </div>
+          <div class="col">
+            <%= link_to "精算", new_month_detail_path,class: 'btn btn-success btn-lg btn-block' %>
+          </div>
+          <div class="col">
+            <%= link_to "入金", month_deposits_path,class: 'btn btn-danger btn-lg btn-block' %>
+          </div>
+        </div>
+      </div>
     <h2 class="border-bottom">
       <%= @month.month.strftime("%Y年%-m月の家計簿") %>
     </h2>
@@ -21,7 +37,7 @@
         <%= f.number_field :income, class: 'form-control', placeholder: '収入', id: 'js-new-detail-income' %>
         <%= f.number_field :spending, class: 'form-control', placeholder: '支出', id: 'js-new-detail-spending' %>
         <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["立替なし(共通財布から支払い)", "共通"]],{ include_blank: '立替者'}, class: 'form-control', id: 'js-new-detail-replayer' %>
-        <%= f.submit '明細追加', class: 'btn btn-warning' %>
+        <%= f.submit '明細追加', class: 'btn btn-info' %>
       <% end %>
     </ul>
         <div id="js-table-detail">

@@ -10,12 +10,27 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 class="border-bottom">精算</h2>
-      <%= link_to "戻る", month_details_path %>
+      <div class="switch">
+        <div class="row justify-content-center">
+          <div class="col">
+            <%= link_to "明細", month_details_path,class: 'btn btn-info btn-lg btn-block' %>
+          </div>
+          <div class="col">
+            <%= link_to "分析", month_budgets_path,class: 'btn btn-warning btn-lg btn-block' %>
+          </div>
+          <div class="col">
+            <%= link_to "精算", new_month_detail_path,class: 'btn btn-success btn-lg btn-block' %>
+          </div>
+          <div class="col">
+            <%= link_to "入金", month_deposits_path,class: 'btn btn-danger btn-lg btn-block' %>
+          </div>
+        </div>
+      </div>
+      <h2 class="border-bottom"><%= @month.month.strftime("精算〜%Y年%-m月〜") %></h2>
       <% if @details.present? %>
       <div class="stay">
         <table class="text-center table">
-          <tr class="table-warning">
+          <tr class="table-success">
             <th>口座残高</th>
             <th>精算額</th>
             <th>精算後残高</th>
@@ -34,8 +49,8 @@
         </table>
         <h5>○精算内訳</h5>
         <table class="text-center table table-bordered">
-          <tr class="table-warning">
-            <th></th>
+          <tr class="table-success">
+            <th class></th>
             <th>入金</th>
             <th>支払</th>
             <th>共通→個人</th>
@@ -53,20 +68,28 @@
               </td>
               <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
               <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending)).to_s(:delimited)}円" %></td>
-              <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date < ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
+              <% if Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income) < 0 %>
+                <td class="table-light text-danger"><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
+              <% else %>
+                <td><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></td>
+              <% end %>
             </tr>
           <% end %>
             <tr class="table-light">
               <td>合計</td>
               <td><%= "#{@income_total_not_common.to_s(:delimited)}円" %></td>
               <td><%= "#{@spending_total_not_common.to_s(:delimited)}円" %></td>
-              <td><%= "#{(-@balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+              <% if @balance_of_payments_not_common > 0 %>
+                <td class="table-light text-danger"><%= "#{(-@balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+              <% else %>
+                <td><%= "#{(-@balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+              <% end %>
             </tr>
         </table>
       </div>
         <h5>○精算明細</h5>
         <table class="text-center table table-hover table-sm">
-          <tr class="table-warning">
+          <tr class="table-success">
             <th>日付</th>
             <th>分類</th>
             <th>メモ</th>

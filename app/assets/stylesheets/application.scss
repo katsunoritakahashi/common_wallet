@@ -48,12 +48,6 @@
     font-size: 0.8rem;
     text-align: center;
   }
-  .btn-lg {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1.25rem;
-    height: calc(3rem);
-  }
   footer {
     font-size: 1rem;
   }
@@ -79,6 +73,11 @@
   .form-control, .btn {
     height: calc(1.6rem);
     padding: 0.200rem 0.5rem;
+  }
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    height: calc(2.5rem);
   }
   .sub-image img{
     width: 100%;
@@ -173,4 +172,6 @@ footer {
   padding-top:20px;
 }
 
-
+.switch {
+  padding-bottom:20px;
+}
