@@ -168,7 +168,7 @@ a{
 
 
 footer{
-  background-color: #ffc107;
+  background-color: #ffc10700;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -207,7 +207,10 @@ html {
 }
 
 .switch {
-  background-color: #f8f8f8;
+  background-color: #f8f8f800;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 5px;
 }
 span.font-size {
   font-size: 0.5rem;
@@ -266,4 +269,8 @@ tr:last-child td:first-child{
 tr:last-child td:last-child {
   border-bottom: none;
   border-radius: 0 0 1rem 0;
+}
+.information-footer {
+  background-color: #ffc107;
+  border-top: 1px solid #cacaca;
 }
