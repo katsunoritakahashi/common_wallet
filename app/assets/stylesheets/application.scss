@@ -185,11 +185,11 @@ html {
 }
 .content-switch {
   margin-top: 58.7px;
-  padding-bottom: 70px;
+  padding-bottom: 75px;
 }
 
 .switch_footer {
-  height: 75px;
+  height: 74px;
 }
 
 .swichless_footer {
@@ -248,7 +248,7 @@ span.font-size {
   border-top: 0.3em solid #dc3545;
 }
 .text-center.table.lg {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 th {
   background-color: #F9FAFB;
@@ -274,3 +274,13 @@ tr:last-child td:last-child {
   background-color: #ffc107;
   border-top: 1px solid #cacaca;
 }
+.badge {
+  font-size: 110%;
+  margin-bottom: 10px;
+  color: #FFF;
+}
+.badge.badge-pill {
+  margin-bottom: -10px;
+  margin-top: 10px;
+}
+

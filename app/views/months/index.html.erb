@@ -10,7 +10,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-    <h2>月毎の残高</h2>
+    <h2>月ごとのお金</h2>
       <p class="border-bottom">
         <%= form_with model: @month, local: true do |f| %>
           <%= f.date_select :month, class: 'form-control', use_month_numbers: true, date_separator: '年', discard_day: true %>月
