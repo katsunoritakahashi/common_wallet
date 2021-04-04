@@ -10,14 +10,15 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 class="border-bottom"><%= @month.month.strftime("精算〜%Y年%-m月〜") %></h2>
+      <h2 class="border-bottom"><span class="badge badge-success">
+        <i class="fas fa-exchange-alt white"></i> 精算</span><br class="visible-xs-block"><%= @month.month.strftime(" %Y年%-m月 ") %></h2>
       <% if @details.present? %>
       <div class="stay">
         <table class="text-center table green lg">
           <tr>
             <th>口座残高</th>
-            <th>精算額</th>
-            <th>精算後残高</th>
+            <th>今回の精算金</th>
+            <th>精算後の残高</th>
           </tr>
           <tr class="table-light">
             <td><%= "#{(@month.balance + @done_income - @done_spending).to_s(:delimited)}円" %></td>
@@ -31,7 +32,11 @@
             <td><%= "#{(@month.balance + @done_income - @done_spending + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
           </tr>
         </table>
-        <h5>精算内訳</h5>
+        <h5>
+          <span class="badge badge-pill badge-success">
+            内訳
+          </span>
+        </h5>
         <table class="text-center table green">
           <tr>
             <th class></th>
@@ -71,7 +76,11 @@
             </tr>
         </table>
       </div>
-        <h5>精算明細</h5>
+        <h5>
+          <span class="badge badge-pill badge-success">
+            明細
+          </span>
+        </h5>
         <table class="text-center table table-hover table-sm green">
           <tr>
             <th>日付</th>

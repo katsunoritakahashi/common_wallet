@@ -10,9 +10,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-    <h2 class="border-bottom"><%= @month.month.strftime("分析〜%Y年%-m月〜") %></h2>
+    <h2 class="border-bottom"><span class="badge badge-warning">
+        <i class="fas fa-chart-pie white"></i> 分析</span><br class="visible-xs-block"><%= @month.month.strftime(" %Y年%-m月 ") %></h2>
     <% if @budget %>
-      <br><%= link_to "再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"}, class: 'btn btn-success' %>
+      <br><%= link_to "予算を再設定する", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"}, class: 'btn btn-outline-secondary' %>
     <table class="text-center table table-sm">
       <tr class="table-warning">
         <th></th>
@@ -136,9 +137,17 @@
         <% end %>
       </tr>
     </table>
-        <h4>項目別</h4>
+        <h4>
+          <span class="badge badge-pill badge-warning">
+            支出の内訳
+          </span>
+        </h4>
         <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
-        <h4>予算対比</h4>
+        <h4>
+          <span class="badge badge-pill badge-warning">
+            支出/予算
+          </span>
+        </h4>
         <%= bar_chart @bar_cahrt, colors: ['#ffc107'], suffix: "%" %>
     <% else %>
       <ul class="list-inline">

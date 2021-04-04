@@ -10,7 +10,8 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 class="border-bottom"><%= @month.month.strftime("入金〜%Y年%-m月〜") %></h2>
+      <h2 class="border-bottom"><span class="badge badge-danger">
+        <i class="fas fa-donate white"></i> 入金</span><br class="visible-xs-block"><%= @month.month.strftime(" %Y年%-m月 ") %></h2>
       <% if @deposit %>
         <%= link_to "再設定", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-success' %>
         <table class="text-center table table-hover table-striped red lg">

@@ -1,8 +1,13 @@
 <div class="stay">
+  <h4>
+    <span class="badge badge-pill badge-info">
+      残高・収支
+    </span>
+  </h4>
   <table class="text-center table blue lg">
     <tr>
-      <th>月初残高</th>
-      <th>月末残高</th>
+      <th>月初の残高</th>
+      <th>現在の残高</th>
     </tr>
     <tr class="table-light">
       <td><%= "#{@month.balance.to_s(:delimited)}円" %></td>
@@ -34,6 +39,11 @@
     </tr>
   </table>
 </div>
+  <h4>
+    <span class="badge badge-pill badge-info">
+      リスト
+    </span>
+  </h4>
 <table class="text-center table table-hover table-sm blue">
   <tr>
     <th>日付</th>
@@ -48,7 +58,7 @@
   </tr>
   <% details.each do |detail| %>
     <tr class="table-light" id="detail-trash-button-<%=detail.id%>">
-      <td><%= detail.date.strftime("%-m月%-d日") %></td>
+      <td><%= detail.date.strftime("%-m/%-d") %></td>
       <td>
       <% if detail.classification == 'rent' %>
         <i class="fas fa-home fa-lg red"></i>
