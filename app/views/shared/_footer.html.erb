@@ -1,5 +1,41 @@
-<footer class="border-top">
-  <%= link_to '利用規約',terms_of_service_path,:style=>"color:#FFFFFF;" %>
-  <span class="white">/</span>
-  <%= link_to 'プライバシーポリシー', privacy_policy_path,:style=>"color:#FFFFFF;" %>
-</footer>
+<% if params[:month_id].present? %>
+  <footer class="switch_footer">
+    <div class="switch">
+      <div class="row justify-content-center">
+        <div class="col">
+          <%= link_to month_details_path,class: 'btn btn-info btn-lg btn-block' do %>
+            <i class="fas fa-list fa-lg white"></i><br><div class="negative-margin"><span class="font-size">明細</span></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= link_to month_budgets_path,class: 'btn btn-warning btn-lg btn-block' do %>
+            <i class="fas fa-chart-pie fa-lg white"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= link_to new_month_detail_path,class: 'btn btn-success btn-lg btn-block' do %>
+            <i class="fas fa-exchange-alt fa-lg white"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= link_to month_deposits_path,class: 'btn btn-danger btn-lg btn-block' do %>
+            <i class="fas fa-donate fa-lg white"></i><br><div class="negative-margin"><span class="font-size">入金</span></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="border-top">
+      <%= link_to '利用規約',terms_of_service_path,:style=>"color:#FFFFFF;" %>
+      <span class="white">/</span>
+      <%= link_to 'プライバシーポリシー', privacy_policy_path,:style=>"color:#FFFFFF;" %>
+    </div>
+  </footer>
+<% else %>
+  <footer class="swichless_footer">
+    <div class="border-top">
+      <%= link_to '利用規約',terms_of_service_path,:style=>"color:#FFFFFF;" %>
+      <span class="white">/</span>
+      <%= link_to 'プライバシーポリシー', privacy_policy_path,:style=>"color:#FFFFFF;" %>
+    </div>
+  </footer>
+<% end %>

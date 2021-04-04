@@ -10,22 +10,6 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="switch">
-        <div class="row justify-content-center">
-          <div class="col">
-            <%= link_to "明細", month_details_path,class: 'btn btn-info btn-lg btn-block' %>
-          </div>
-          <div class="col">
-            <%= link_to "分析", month_budgets_path,class: 'btn btn-warning btn-lg btn-block' %>
-          </div>
-          <div class="col">
-            <%= link_to "精算", new_month_detail_path,class: 'btn btn-success btn-lg btn-block' %>
-          </div>
-          <div class="col">
-            <%= link_to "入金", month_deposits_path,class: 'btn btn-danger btn-lg btn-block' %>
-          </div>
-        </div>
-      </div>
     <h2 class="border-bottom">
       <%= @month.month.strftime("%Y年%-m月の家計簿") %>
     </h2>
@@ -43,7 +27,6 @@
         <div id="js-table-detail">
           <%= render partial: 'details/detail', locals: { details: @details } %>
         </div>
-      <%= link_to '戻る', months_path  %>
       </div>
     </div>
   </div>

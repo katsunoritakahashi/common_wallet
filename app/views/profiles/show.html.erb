@@ -13,13 +13,19 @@
       <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
       <h5>
         <% if @month.present? %>
-          <%= link_to "今月の家計簿", month_details_path(@month.id) %>
+          <%= @month.month.strftime("%-m月の家計簿") %>
+          <%= link_to month_details_path(@month.id) do %>
+           <i class="fas fa-arrow-circle-right fa-lg"></i>
+          <% end %>
         <% else %>
-          <%= link_to "今月の家計簿", months_path %>
+          <%= @month.month.strftime("%-m月の家計簿") %>
+          <%= link_to months_path do %>
+           <i class="fas fa-arrow-circle-right fa-lg"></i>
+          <% end %> 
         <% end %>
       </h5>
       <% if @month.present? %>
-        <table class="text-center table table-bordered table_border_radius">
+        <table class="text-center table lg">
           <tr class="table-warning">
             <th>月初残高</th>
             <th>月末予定残高</th>
@@ -45,20 +51,33 @@
 
       <h5>
         <% if @detail.present? && @budget.present? %>
-          <%= link_to "今月の支出", month_budgets_path(@month.id) %>
+          <%= @month.month.strftime("%-m月に使ったお金") %>
+          <%= link_to month_budgets_path(@month.id) do %>
+           <i class="fas fa-arrow-circle-right fa-lg"></i>
+          <% end %> 
         <% elsif !@detail.present? && @month.present? %>
-          <%= link_to "今月の支出", month_details_path(@month.id) %>
+          <%= @month.month.strftime("%-m月に使ったお金") %>
+          <%= link_to month_details_path(@month.id) do %>
+           <i class="fas fa-arrow-circle-right fa-lg"></i>
+          <% end %> 
         <% else %>
-          <%= link_to "今月の支出", months_path %>
+          <%= @month.month.strftime("%-m月に使ったお金") %>
+          <%= link_to months_path do %>
+           <i class="fas fa-arrow-circle-right fa-lg"></i>
+          <% end %> 
         <% end %>
       </h5>
       <% if @month.present? && @detail.present? %>
         <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
       <% else %>
-        <p>　今月の支出が登録されていません</p>
+        <p>　今月はまだ支出がありません。</p>
       <% end %>
 
-      <h5><%= link_to "残高推移", months_path %></h5>
+      <h5>月ごとのお金
+        <%= link_to months_path do %>
+          <i class="fas fa-arrow-circle-right fa-lg"></i>
+        <% end %> 
+      </h5>
       <% if @months.present? %>
         <% if @colum_chart_max > 10000 %>
           <%= column_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc107'], suffix: "万円" %>
