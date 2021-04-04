@@ -10,49 +10,32 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="switch">
-        <div class="row justify-content-center">
-          <div class="col">
-            <%= link_to "明細", month_details_path,class: 'btn btn-info btn-lg btn-block' %>
-          </div>
-          <div class="col">
-            <%= link_to "分析", month_budgets_path,class: 'btn btn-warning btn-lg btn-block' %>
-          </div>
-          <div class="col">
-            <%= link_to "精算", new_month_detail_path,class: 'btn btn-success btn-lg btn-block' %>
-          </div>
-          <div class="col">
-            <%= link_to "入金", month_deposits_path,class: 'btn btn-danger btn-lg btn-block' %>
-          </div>
-        </div>
-      </div>
       <h2 class="border-bottom"><%= @month.month.strftime("入金〜%Y年%-m月〜") %></h2>
       <% if @deposit %>
-        <%= link_to "再設定", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-light' %>
-        <table class="text-center table table-hover table-striped">
-          <tr class="table-danger">
+        <%= link_to "再設定", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-success' %>
+        <table class="text-center table table-hover table-striped red lg">
+          <tr>
             <th></th>
             <th><i class="fas fa-male fa-lg light-blue"></i></th>
             <th><i class="fas fa-female fa-lg red"></i></th>
           </tr>
           <tr class="table-light">
-            <td>給料</td>
+          <tr class="table-light">
+            <td>入金総額</td>
+          <td colspan="2"><%= "#{@deposit.total_deposit.to_s(:delimited)}円" %></td>
+          </tr>
+            <td>お給料</td>
             <td><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
             <td><%= "#{@deposit.woman_salary.to_s(:delimited)}円" %></td>
           </tr>
           <tr class="table-light">
-            <td>補正額</td>
+            <td>調整</td>
             <td><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
             <td><%= "#{@correct_total_woman.to_s(:delimited)}円" %></td>
           </tr>
-          <tr class="table-light">
-            <td>合計入金額</td>
-            <td><%= "#{@deposit.total_deposit.to_s(:delimited)}円" %></td>
-            <td></td>
-          </tr>
         </table>
-        <table class="text-center table table-hover table-striped">
-          <tr class="table-danger">
+        <table class="text-center table table-hover table-striped red lg">
+          <tr>
             <th></th>
             <th><i class="fas fa-male fa-lg light-blue"></i></th>
             <th><i class="fas fa-female fa-lg red"></i></th>

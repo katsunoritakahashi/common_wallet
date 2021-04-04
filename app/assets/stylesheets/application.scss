@@ -28,7 +28,9 @@
 .fa-pen:before{
   color:#708090;
  }
- 
+.negative-margin {
+  margin-top: -9px;
+}
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
@@ -79,6 +81,13 @@
     font-size: 1rem;
     height: calc(2.5rem);
   }
+  .fa-lg.white {
+    font-size: 23px;
+    margin-top: 5px;
+  }
+  .negative-margin {
+    margin-top: -5px;
+  }
   .sub-image img{
     width: 100%;
     height: auto;
@@ -97,11 +106,17 @@
  }
 
  body{
-  background-color: #fdfdea;
-  font-family: YuGothic,'Yu Gothic', sans-serif;
+  background-color: #f8f8f8;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN', 
+sans-serif;
+
 }
 a{
   color: #b68973;
+}
+.top-background{
+  background-color: #fdfdea;
+  font-family: YuGothic,'Yu Gothic', sans-serif;
 }
 
 .red {
@@ -142,9 +157,23 @@ a{
 .center {
   text-align: center;
 }
+
+.table-warning > th {
+  background-color: #ffca2c;
+}
+
+.table-danger {
+  background-color: #ff9ea7;
+}
+
+
 footer{
   background-color: #ffc107;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
 }
 html {
   position: relative;
@@ -152,13 +181,18 @@ html {
 }
 .content {
   margin-top: 58.7px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
-footer {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 0;
-  width: 100%;
+.content-switch {
+  margin-top: 58.7px;
+  padding-bottom: 70px;
+}
+
+.switch_footer {
+  height: 70px;
+}
+
+.swichless_footer {
   height: 20px;
 }
 
@@ -173,5 +207,63 @@ footer {
 }
 
 .switch {
-  padding-bottom:20px;
+  background-color: #f8f8f8;
+}
+span.font-size {
+  font-size: 0.5rem;
+  color: #FFF;
+}
+.btn-lg {
+  height: 50px;
+}
+.table {
+  border-radius: 0.28571429rem;
+}
+.ui.table {
+  text-align: center;
+}
+.text-center.table {
+  width: 100%;
+  background: #FFFFFF;
+  margin: 1em 0em;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: none;
+  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.87);
+  border-collapse: separate;
+  border-spacing: 0px;
+  border-top: none;
+}
+
+.text-center.table.blue {
+  border-top: 0.3em solid #17a2b8;
+}
+.text-center.table.green {
+  border-top: 0.3em solid #28a745;
+}
+.text-center.table.red {
+  border-top: 0.3em solid #dc3545;
+}
+.text-center.table.lg {
+  font-size: 1.2rem;
+}
+th {
+  background-color: #F9FAFB;
+}
+
+tr th:first-child {
+  border-radius: 1rem 0 0 0;
+}
+
+tr th:last-child {
+  border-right: none;
+  border-radius: 0 1rem 0 0;
+}
+
+tr:last-child td:first-child{
+  border-radius: 0 0 0 1rem;
+}
+tr:last-child td:last-child {
+  border-bottom: none;
+  border-radius: 0 0 1rem 0;
 }

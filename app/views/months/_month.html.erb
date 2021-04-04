@@ -1,6 +1,6 @@
 <table class="text-center table table-hover table-striped">
     <tr class="table-warning">
-      <th>年月</th>
+      <th>年月(明細へ)</th>
       <th>月初残高</th>
       <th>月末残高</th>
       <th>明細数</th>
@@ -8,7 +8,7 @@
     </tr>
     <% months.each do |month| %>
       <tr class="table-light" id="month-trash-button-<%=month.id%>">
-        <td><%= link_to month.month.strftime("%Y年%-m月"), month_details_path(month) %></td>
+        <td><%= link_to month.month.strftime("%Y年%-m月"), month_details_path(month),class: 'btn btn-outline-dark btn-block' %></td>
 
         <td>
         <% if month.balance.present? %>

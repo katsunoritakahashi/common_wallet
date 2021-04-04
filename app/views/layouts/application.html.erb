@@ -38,10 +38,17 @@
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
-    <div class="content">
-      <%= render 'shared/flash_message' %>
-      <%= yield %>
-    </div>
+      <% if params[:month_id].present? %>
+        <div class="content-switch">
+          <%= render 'shared/flash_message' %>
+          <%= yield %>
+        </div>
+      <% else %>
+        <div class="content">
+          <%= render 'shared/flash_message' %>
+          <%= yield %>
+        </div>
+      <% end %>
       <%= render 'shared/footer' %>
   </body>
 </html>
