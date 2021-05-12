@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/guest_new', to: 'guests#create'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
   get 'terms_of_service', to: 'static_pages#terms_of_service'
+  get 'help', to: 'static_pages#help'
   get 'test', to: 'static_pages#test'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

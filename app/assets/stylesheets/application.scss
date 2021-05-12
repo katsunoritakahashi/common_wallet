@@ -31,10 +31,20 @@
 .negative-margin {
   margin-top: -9px;
 }
+.bold {
+  font-weight: bold;
+}
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
     font-size: 1rem;
+  }
+  .h-80{
+    height: 80px;
+  }
+  p.stay-top {
+    margin: initial;
+    margin-top: 10px;
   }
  }
  // 中デバイス（タブレット, 992px 未満）
@@ -94,7 +104,7 @@
   }
   .visible-lg-block {display: none; }
   span.left {
-    margin-left: 55px;
+    margin-left: 45px;
   }
  }
 
@@ -115,10 +125,9 @@ a{
   color: #b68973;
 }
 .top-background{
-  background-color: #fdfdea;
+  background-color: #fff;
   font-family: YuGothic,'Yu Gothic', sans-serif;
 }
-
 .red {
   color: #f14668;
 }
@@ -180,7 +189,7 @@ html {
   height: 100%;
 }
 .content {
-  margin-top: 58.7px;
+  margin-top: 52px;
   padding-bottom: 20px;
 }
 .content-switch {
@@ -197,9 +206,11 @@ html {
 }
 
 .sub-contents {
-  margin-right: 25px;
-  margin-left: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
   padding-bottom: 30px;
+  background-color: #FFF6DA;
+  font-family: YuGothic,'Yu Gothic', sans-serif;
 }
 
 .notion {
@@ -283,4 +294,12 @@ tr:last-child td:last-child {
   margin-bottom: -10px;
   margin-top: 10px;
 }
-
+.features {
+  background-color: white;
+  border-radius: 50px;
+  padding: 20px 10px;
+  margin: 5px;
+}
+.marker{
+  background:linear-gradient(transparent 60%, #ffc107 70%);
+}
