@@ -64,8 +64,8 @@
     font-size: 1rem;
   }
   h1.left{
-    text-align: left;
     font-size: 1.6rem;
+    text-align: left;
   }
   h2 {
     font-size: 1.5rem;
@@ -103,11 +103,23 @@
     height: auto;
   }
   .visible-lg-block {display: none; }
-  span.left {
-    margin-left: 45px;
+  .main-catch {
+    margin-left: 50px;
+    margin-bottom: 10px;
   }
  }
-
+ @media (max-width: 400px) {
+  .main-catch {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+ }
+ @media (max-width: 375px) {
+  .main-catch {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+ }
  @media (min-width: 550px) {
   .display-lg-none {
     display: none;
@@ -302,4 +314,7 @@ tr:last-child td:last-child {
 }
 .marker{
   background:linear-gradient(transparent 60%, #ffc107 70%);
+}
+h1.left {
+  line-height: 150%;
 }
