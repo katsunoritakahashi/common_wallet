@@ -8,56 +8,66 @@
   gtag('config', 'G-LKBSFQGWRN');
 </script>
 <div class="top-background">
-<div class="col-sm-12">
-<div class="main-contents">
-<h1 class="sub-image"><br><%= image_tag 'top.png', width: '500', height: '100'%></h1>
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-11 col-lg-5 align-self-center">
-      <div class="chatches">
-        <div class="main-chatch">
-          <h1 class="left"><br class="visible-xs-block"><span class="left"><b>”共働き”の、</b></span></h1>
-          <h1 class="left"><span class="left"><b>”共働き”による、</b></span></h1>
-          <h1 class="left"><span class="left"><b>”共働き”のための家計簿。</b><span></h1><br>
+  <div class="col-sm-12">
+    <div class="main-contents">
+    <div class="container">
+    <h1 class="sub-image"><br><%= image_tag 'top.png', width: '500', height: '100'%></h1>
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-11 col-lg-5 align-self-center">
+          <div class="chatches">
+            <div class="main-chatch">
+              <h1 class="left bold"><br class="visible-xs-block"><span class="left">”共働き”の、</span></h1>
+              <h1 class="left bold"><span class="left">”共働き”による、</span></h1>
+              <h1 class="left bold"><span class="left">”共働き”のための家計簿。<span></h1><br>
+            </div>
+            <div class="sub-chatch">
+              <h4>「Common Wallet」は<br>製作者のこだわりが詰まった<br>共働き夫婦の<br class="visible-xs-block"><span class="orange">”共通財布専用”</span>家計簿です。</h4>
+              <h1><%= link_to '無料で始める', new_user_path, class: 'big ui orange button' %></h1>
+              <h1><%= link_to 'ゲストログイン', guest_new_path, method: :post, class: 'large ui yellow button' %></h1><br class="visible-lg-block"><br class="visible-lg-block">
+            </div>
+          </div>
         </div>
-        <div class="sub-chatch">
-          <h4>「Common Wallet」は<br>製作者のこだわりが詰まった<br>共働き夫婦の<br class="visible-xs-block"><span class="orange">”共通財布専用”</span>家計簿です。</h4>
-          <h1><%= link_to '無料で始める', new_user_path, class: 'big ui orange button' %></h1>
-          <h1><%= link_to 'ゲストログイン', guest_new_path, method: :post, class: 'large ui yellow button' %></h1><br class="visible-lg-block"><br class="visible-lg-block">
+        <div class="col-sm-12 col-md-12 col-lg-5 align-self-center">
+          <div class="sub-image">
+            <%= image_tag 'top-image.png', width: '500', height: '500'%>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-5 align-self-center">
-      <div class="sub-image">
-        <%= image_tag 'top-image.png', width: '500', height: '500'%>
+    </div>
+  </div>
+</div>
+<div class="sub-contents center">
+  <h1 class="bold"><br><span class="marker">Common Walletの<br class="visible-xs-block">特徴</span></h1>
+    <p class="stay-top">共通財布で管理している共働き夫婦に<br class="visible-xs-block">最適な機能がたくさんあります。</p><br>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="features">
+          <h3 class="bold"><span class="marker">家計簿機能</span></h3>
+          <p class="stay-top h-80">明細入力や予算設定など、通常の家計簿アプリはもちろんありますので、1人用の家計簿としてもご利用いただけます。</p>
+          <%= image_tag 'standard.png', width: '100%' %>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="features">
+          <h3 class="bold"><span class="marker">データ分析</span></h3>
+          <p class="stay-top h-80">「残高推移・項目別支出グラフ」など、あなたの家計簿を多面的なデータで分析することが出来ます。</p>
+          <%= image_tag 'Analytics.png', width: '100%' %>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="features">
+          <h3 class="bold"><span class="marker">精算機能</span></h3>
+          <p class="stay-top h-80">個人で一時的に立替えた明細について、自動的にデータを抽出・共通財布との精算額を算出してくれます。</p>
+          <%= image_tag 'pay-off.png', width: '100%' %>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="features">
+          <h3 class="bold"><span class="marker">入金額算出</span></h3>
+          <p class="stay-top h-80">夫婦それぞれが共通財布へ入金する金額は、自由に設定した条件に従って自動的に算出してくれます。</p>
+          <%= image_tag 'deposit.png', width: '100%' %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="sub-contents">
-<h3><br><b>機能紹介</b></h3>
-  <h5>「Common Wallet」は、<br>共通財布で管理している<br class="visible-xs-block">共働き夫婦に最適な機能が<br class="visible-xs-block">たくさんあります。</h5><br>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <h5><b>①基本的な家計簿機能</b></h5>
-      <p class="stay-top">通常の家計簿機能があるので、<br>個人でもご利用可能です。</p>
-      <%= image_tag 'mobile-mockup-detail.png', width: '250', height: '250'%>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <h5><b>②データ分析</b></h5>
-      <p class="stay-top">「残高推移・項目別支出」など<br>多面的な分析が可能です。</p>
-      <%= image_tag 'mobile-mockup-analytics.png', width: '250', height: '250'%>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <h5><b>③精算機能</b></h5>
-      <p class="stay-top">個人の明細で立替えた明細は<br>自動的に精算額を算出します。</p>
-      <%= image_tag 'mobile-mockup-payment.png', width: '250', height: '250'%>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <h5><b>④入金額算出</b></h5>
-      <p class="stay-top">毎月設定した条件に従い、<br>自動的に入金額を算出します。</p>
-      <%= image_tag 'mobile-mockup-deposit.png', width: '250', height: '250'%><br>
-    </div>
-  </div>
-</div>
-</div>
-</div>
