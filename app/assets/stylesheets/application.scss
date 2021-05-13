@@ -34,6 +34,9 @@
 .bold {
   font-weight: bold;
 }
+.mt-70 {
+  margin-top: 70px;
+}
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
@@ -65,6 +68,9 @@
   }
   footer {
     font-size: 1rem;
+  }
+  .left {
+    text-align: left;
   }
   h1.left{
     font-size: 1.6rem;
@@ -203,7 +209,7 @@ html {
   height: 100%;
 }
 .content {
-  margin-top: 52px;
+  margin-top: 53px;
   padding-bottom: 20px;
 }
 .content-switch {
