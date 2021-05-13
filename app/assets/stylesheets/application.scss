@@ -116,6 +116,10 @@
     margin-left: 50px;
     margin-bottom: 10px;
   }
+  .prl-5 {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
  }
  @media (max-width: 400px) {
   .main-catch {
@@ -239,8 +243,8 @@ html {
 
 .switch {
   background-color: #f8f8f800;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
   padding-bottom: 5px;
 }
 span.font-size {
