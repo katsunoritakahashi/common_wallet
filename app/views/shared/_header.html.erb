@@ -20,10 +20,18 @@
           <div class='dropdown-menu dropdown-menu-right'>
             <div class='dropdown-item'><%= @authenticated_this_month.month.strftime("%Y年%-m月の家計簿") %></div>
             <div class="dropdown-divider"></div>
-            <%= link_to "明細", month_details_path(@authenticated_this_month.id), class: 'dropdown-item' %>
-            <%= link_to "分析", month_budgets_path(@authenticated_this_month.id), class: 'dropdown-item' %>
-            <%= link_to "精算", new_month_detail_path(@authenticated_this_month.id), class: 'dropdown-item' %>
-            <%= link_to "入金", month_deposits_path(@authenticated_this_month.id), class: 'dropdown-item' %>
+            <%= link_to month_details_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
+              <span class="badge badge-info"><i class="fas fa-list white"></i> 明細</span>
+            <% end %>
+            <%= link_to month_budgets_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
+              <span class="badge badge-warning"><i class="fas fa-chart-pie white"></i> 分析</span>
+            <% end %>
+            <%= link_to new_month_detail_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
+              <span class="badge badge-success"><i class="fas fa-exchange-alt white"></i> 精算</span>
+            <% end %>
+            <%= link_to month_deposits_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
+              <span class="badge badge-danger"><i class="fas fa-donate white"></i> 入金</span>
+            <% end %>
           </div>
         </li>
       <% end %>
