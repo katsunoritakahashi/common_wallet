@@ -14,7 +14,7 @@
       <span class="badge badge-info">
         <i class="fas fa-list white"></i> 明細</span><br class="visible-xs-block"><%= @month.month.strftime(" %Y年%-m月") %>
     </h2>
-    <span class="badge badge-info">明細追加</span>
+    <p class="badge badge-secondary mb-0">明細追加</p>
     <ul class="list-inline">
       <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
         <%= f.date_field :date, class: 'form-control', id: 'js-new-detail-date' %>
@@ -23,7 +23,7 @@
         <%= f.number_field :income, class: 'form-control col', placeholder: '収入', id: 'js-new-detail-income' %>
         <%= f.number_field :spending, class: 'form-control col', placeholder: '支出', id: 'js-new-detail-spending' %>
         <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["立替なし(共通財布から支払い)", "共通"]],{ include_blank: '立替者'}, class: 'form-control col', id: 'js-new-detail-replayer' %>
-        <%= f.submit '記録する', class: 'btn btn-info' %>
+        <%= f.submit '記録する', class: 'btn btn-secondary' %>
       <% end %>
     </ul>
         <div id="js-table-detail">
