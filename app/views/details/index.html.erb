@@ -14,14 +14,15 @@
       <span class="badge badge-info">
         <i class="fas fa-list white"></i> 明細</span><br class="visible-xs-block"><%= @month.month.strftime(" %Y年%-m月") %>
     </h2>
+    <span class="badge badge-info">明細追加</span>
     <ul class="list-inline">
       <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
         <%= f.date_field :date, class: 'form-control', id: 'js-new-detail-date' %>
-        <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: '項目'}, class: 'form-control', id: 'js-new-detail-classification' %>
-        <%= f.text_field :note, class: 'form-control', placeholder: 'メモ', id: 'js-new-detail-note' %>
-        <%= f.number_field :income, class: 'form-control', placeholder: '収入', id: 'js-new-detail-income' %>
-        <%= f.number_field :spending, class: 'form-control', placeholder: '支出', id: 'js-new-detail-spending' %>
-        <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["立替なし(共通財布から支払い)", "共通"]],{ include_blank: '立替者'}, class: 'form-control', id: 'js-new-detail-replayer' %>
+        <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: '項目'}, class: 'form-control col', id: 'js-new-detail-classification' %>
+        <%= f.text_field :note, class: 'form-control col', placeholder: 'メモ', id: 'js-new-detail-note' %>
+        <%= f.number_field :income, class: 'form-control col', placeholder: '収入', id: 'js-new-detail-income' %>
+        <%= f.number_field :spending, class: 'form-control col', placeholder: '支出', id: 'js-new-detail-spending' %>
+        <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["立替なし(共通財布から支払い)", "共通"]],{ include_blank: '立替者'}, class: 'form-control col', id: 'js-new-detail-replayer' %>
         <%= f.submit '記録する', class: 'btn btn-info' %>
       <% end %>
     </ul>
