@@ -50,6 +50,7 @@
     margin: initial;
     margin-top: 10px;
   }
+  
  }
  // 中デバイス（タブレット, 992px 未満）
  @media (max-width: 991.98px) {
@@ -84,8 +85,12 @@
   p.stay-top {
     font-size: 1rem;
   }
+
   .display-xs-none {
     display: none;
+  }
+  .visible-lg-block {
+    display: none; 
   }
   .form-control, .btn {
     height: calc(1.6rem);
@@ -107,7 +112,7 @@
     width: 100%;
     height: auto;
   }
-  .visible-lg-block {display: none; }
+  
   .main-catch {
     margin-bottom: 10px;
     text-align: center;
@@ -143,7 +148,7 @@
  }
 
  body{
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN', 
 sans-serif;
 
@@ -174,7 +179,7 @@ a{
   color: #708090;
 }
 .orange {
-  color: #fca504;
+  color: #fc8804;
 }
 .white {
   color: #FFFFFF;
@@ -228,14 +233,21 @@ html {
 }
 
 .swichless_footer {
-  height: 20px;
+  height: 19px;
 }
 
-.sub-contents {
+.sub-contents-2 {
   padding-right: 25px;
   padding-left: 25px;
   padding-bottom: 30px;
   background-color: #FFF6DA;
+  font-family: YuGothic,'Yu Gothic', sans-serif;
+}
+.sub-contents-1 {
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-bottom: 30px;
+  background-color: #f5f5f5;
   font-family: YuGothic,'Yu Gothic', sans-serif;
 }
 
@@ -326,8 +338,17 @@ tr:last-child td:last-child {
   padding: 20px 10px;
   margin: 5px;
 }
-.marker{
+.what-common-wallet {
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px 5px;
+  margin: 5px;
+}
+.marker-orange{
   background:linear-gradient(transparent 60%, #ffc107 70%);
+}
+.marker-gray{
+  background:linear-gradient(transparent 60%, #bbbbbb 70%);
 }
 h1.left {
   line-height: 150%;
@@ -348,3 +369,4 @@ h1.left {
   text-align: left;
   display: inline-block;
 }
+
