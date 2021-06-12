@@ -68,4 +68,13 @@
         </div>
       </div>
     </div>
-  </div>
+    <h3 class="mt-70 pb-20 bold">Common Walletで<br class="visible-xs-block">夫婦の家計を改善しよう！</h3>
+    <div class="display-lg-none">
+      <h1><%= link_to '無料で始める', new_user_path, class: 'big ui orange button' %></h1>
+      <h1><%= link_to 'お試しログイン', guest_new_path, method: :post, class: 'large ui yellow button' %></h1>
+    </div>
+    <div class="display-xs-none">
+      <%= link_to '無料で始める', new_user_path, class: 'big ui orange button' %>
+      <%= link_to 'お試しログイン', guest_new_path, method: :post, class: 'big ui yellow button' %>
+    </div>
+</div>
