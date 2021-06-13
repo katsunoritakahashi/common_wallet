@@ -37,6 +37,12 @@
 .mt-70 {
   margin-top: 70px;
 }
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
@@ -374,4 +380,10 @@ h1.left {
 }
 .text-left {
   text-align: left;
+}
+.explain {
+  text-align: center;
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
