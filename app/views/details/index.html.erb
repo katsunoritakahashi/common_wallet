@@ -10,9 +10,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-    <h2 class="border-bottom">
-      <span class="badge badge-info">
-        <i class="fas fa-list white"></i> 明細</span><br class="visible-xs-block"><%= @month.month.strftime(" %Y年%-m月") %>
+    <h2 class="border-bottom">明細<span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月") %></span>
     </h2>
     <p class="badge badge-secondary mb-0">明細追加</p>
     <ul class="list-inline">
@@ -33,3 +31,37 @@
     </div>
   </div>
 </div>
+<footer class="switch_footer">
+  <div class="switch top-shadow">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col prl-5">
+          <%= link_to month_details_path do %>
+            <i class="fas fa-list fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">明細</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_budgets_path do %>
+            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to new_month_detail_path do %>
+            <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_deposits_path do %>
+            <i class="fas fa-donate fa-lg"></i><br><div class="negative-margin"><span class="font-size">入金</span></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="information-footer stay">
+  <span class="white">© 2021 Common Wallet　</span>
+    <%= link_to '利用規約',terms_of_service_path,:style=>"color:#FFFFFF;" %>
+    <span class="white"> / </span>
+    <%= link_to 'プライバシーポリシー', privacy_policy_path,:style=>"color:#FFFFFF;" %>
+  </div>
+</footer>
