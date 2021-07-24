@@ -1,5 +1,5 @@
 <header>
-<div class='fixed-top'>
+<div class='fixed-top bottom-shadow'>
   <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <%= link_to profile_path, class: 'navbar-brand' do %>
       <%= image_tag 'top-header.png', width: '130', height: '30'%>
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%= link_to '月毎の残高', months_path, class: "nav-link" %>
+          <%= link_to '口座残高', months_path, class: "nav-link" %>
         </li>
       <% if @authenticated_this_month.present? %>
         <li class='nav-item dropdown dropdown-slide'>
@@ -18,19 +18,19 @@
             <%= "今月の家計簿" %>
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
-            <div class='dropdown-item'><%= @authenticated_this_month.month.strftime("%Y年%-m月の家計簿") %></div>
+            <div class='dropdown-item gray'><%= @authenticated_this_month.month.strftime("%Y年%-m月の家計簿") %></div>
             <div class="dropdown-divider"></div>
-            <%= link_to month_details_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
-              <span class="badge badge-info"><i class="fas fa-list white"></i> 明細</span>
+            <%= link_to month_details_path(@authenticated_this_month.id), class: 'dropdown-item gray' do %>
+              <span>明細</span>
             <% end %>
-            <%= link_to month_budgets_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
-              <span class="badge badge-warning"><i class="fas fa-chart-pie white"></i> 分析</span>
+            <%= link_to month_budgets_path(@authenticated_this_month.id), class: 'dropdown-item gray' do %>
+              <span>分析</span>
             <% end %>
-            <%= link_to new_month_detail_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
-              <span class="badge badge-success"><i class="fas fa-exchange-alt white"></i> 精算</span>
+            <%= link_to new_month_detail_path(@authenticated_this_month.id), class: 'dropdown-item gray' do %>
+              <span>精算</span>
             <% end %>
-            <%= link_to month_deposits_path(@authenticated_this_month.id), class: 'dropdown-item' do %>
-              <span class="badge badge-danger"><i class="fas fa-donate white"></i> 入金</span>
+            <%= link_to month_deposits_path(@authenticated_this_month.id), class: 'dropdown-item gray' do %>
+              <span>入金</span>
             <% end %>
           </div>
         </li>
@@ -43,13 +43,13 @@
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
           <% if current_user.name == "ゲストユーザー" %>
-            <%= link_to "#{current_user.name}", profile_path, class: 'dropdown-item' %>
+            <%= link_to "#{current_user.name}", profile_path, class: 'dropdown-item gray' %>
           <% else %>
-            <%= link_to "#{current_user.name}", edit_profile_path, class: 'dropdown-item' %>
+            <%= link_to "#{current_user.name}", edit_profile_path, class: 'dropdown-item gray' %>
           <% end %>
             <div class="dropdown-divider"></div>
 
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item gray', method: :delete %>
           </div>
         </li>
       </ul>

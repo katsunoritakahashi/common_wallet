@@ -157,8 +157,7 @@
 
  body{
   background-color: #f5f5f5;
-  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN', 
-sans-serif;
+  font-family: YuGothic,'Yu Gothic', sans-serif;
 
 }
 a{
@@ -184,8 +183,9 @@ a{
   color: #beca5c;
 }
 .gray {
-  color: #708090;
+  color: #8d8d8d;
 }
+
 .orange {
   color: #fc8804;
 }
@@ -237,11 +237,11 @@ html {
 }
 
 .switch_footer {
-  height: 74px;
+  height: 70px;
 }
 
-.swichless_footer {
-  height: 19px;
+.switchless_footer {
+  height: 18px;
 }
 
 .sub-contents-2 {
@@ -264,14 +264,23 @@ html {
 }
 
 .switch {
-  background-color: #f8f8f800;
+  background-color: #f5f5f5;
   padding-right: 10px;
   padding-left: 10px;
   padding-bottom: 5px;
+  padding-top: 10px;
 }
+.switch a {
+  color: #8d8d8d;
+}
+
 span.font-size {
   font-size: 0.5rem;
-  color: #FFF;
+  color: #8d8d8d;
+}
+span.font-size.orange {
+  font-size: 0.5rem;
+  color: #fc8804;
 }
 .btn-lg {
   height: 50px;
@@ -329,7 +338,6 @@ tr:last-child td:last-child {
 }
 .information-footer {
   background-color: #ffc107;
-  border-top: 1px solid #cacaca;
 }
 .badge {
   font-size: 110%;
@@ -385,4 +393,16 @@ h1.left {
   display: block;
   margin-left: 10px;
   margin-right: 10px;
+}
+.bottom-shadow {
+  box-shadow: 0 1px 4px gray;
+}
+.top-shadow {
+  box-shadow: 0 -2px 2px #e4e4e4 ;
+}
+.footer-shadow {
+  box-shadow: 0 1px 4px gray;
+}
+.fs-07 {
+  font-size: 0.7em;
 }
