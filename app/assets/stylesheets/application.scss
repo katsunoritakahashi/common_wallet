@@ -156,7 +156,14 @@
     display: none;
   }
   .visible-xs-block {display: none; }
- }
+
+  .width{
+    display: inline-block;
+  }
+  .width.right{
+    float: right;
+  }
+}
 
  body{
   background-color: #f5f5f5;
