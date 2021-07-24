@@ -12,7 +12,7 @@
     <div class="col">
       <h2 class="border-bottom">入金<span class="gray fs-07"><%= @month.month.strftime("　%Y年%-m月 ") %></span></></h2>
       <% if @deposit %>
-        <%= link_to "再設定", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-success' %>
+        <br><%= link_to "条件を再設定する", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-outline-secondary' %>
         <table class="text-center table table-hover table-striped red lg">
           <tr>
             <th></th>
@@ -60,9 +60,9 @@
           ※条件を設定して下さい
           <%= form_with model: @add, local: true do |f| %>
               <div class="form-inline">
-                <%= f.number_field :total_deposit, class: 'form-control', placeholder: '合計入金額' %>
-                <%= f.number_field :man_salary, class: 'form-control', placeholder: '旦那給料' %>
-                <%= f.number_field :woman_salary, class: 'form-control', placeholder: '嫁給料' %>
+                <%= f.number_field :total_deposit, class: 'form-control', placeholder: '共通財布に入れる合計金額' %>
+                <%= f.number_field :man_salary, class: 'form-control', placeholder: '旦那さんの手取り' %>
+                <%= f.number_field :woman_salary, class: 'form-control', placeholder: '奥さんの手取り' %>
                 <%= f.submit '設定', class: 'btn btn-danger' %>
               </div>
           <% end %>
