@@ -164,7 +164,7 @@
       </tr>
 
       <tr>
-        <td class="text-left fs-15 border-top border-dark-top"><i class="far fa-question-circle fa-lg brown"></i> その他</td>
+        <td class="text-left fs-15 border-top border-dark-top"><i class="far fa-question-circle fa-lg"></i> その他</td>
         <td class="text-right fs-15 border-top border-dark-top">
           <% if @spending_other > @budget.other %>
             <span class="red"><%= "#{(@spending_other - @budget.other).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
