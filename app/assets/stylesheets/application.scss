@@ -36,9 +36,7 @@
 .mt-70 {
   margin-top: 70px;
 }
-.mt-50 {
-  margin-top: 50px;
-}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -105,6 +103,9 @@
   }
   .visible-lg-block {
     display: none; 
+  }
+  .mt-50 {
+    margin-top: 50px;
   }
   .form-control, .btn {
     height: calc(1.6rem);
@@ -465,4 +466,8 @@ h1.left {
 }
 .bg-brown{
   background-color: #be6a6a;
+}
+.border-gray{
+  border: 1px solid;
+  border-color: rgb(172, 172, 172);
 }
