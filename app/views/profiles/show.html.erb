@@ -16,14 +16,14 @@
           <%= link_to month_details_path(@month.id) do %>
             <div class="white-box bottom-shadow">
               <h5 class="text-left black"><%= @month.month.strftime("%-m月の家計簿") %></h5>
-              <table class="table black fs-15">
+              <table class="text-center table black lg">
                 <tr>
-                  <td class="block-center"><span class="left">口座残高</span></td>
-                  <td><span class="text-left"><%= "#{@month.balance_last.to_s(:delimited) }円" %></span></td>
+                  <td><span class="left">口座残高</span></td>
+                  <td class="fs-15"><span class="text-left"><%= "#{@month.balance_last.to_s(:delimited) }円" %></span></td>
                 </tr>
                 <tr>
-                  <td class="block-center"><span class="left">前月比</span></td>
-                  <td>
+                  <td><span class="left">前月比</span></td>
+                  <td class="fs-15">
                     <% if @month.balance < @month.balance_last %>
                       <span class="default-blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %><i class="fas fa-thumbs-up"></i></span>
                     <% elsif @month.balance == @month.balance_last %>
@@ -34,8 +34,8 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="block-center"><span class="left">未精算</span></td>
-                  <td>
+                  <td><span class="left">未精算</span></td>
+                  <td class="fs-15">
                   <% if @not_yet_count.blank? %>
                     無し
                   <% elsif @not_yet_count == 0 %>
