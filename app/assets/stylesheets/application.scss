@@ -163,6 +163,9 @@
   .width.right{
     float: right;
   }
+  .width-50{
+    width: 50%;
+  }
 }
 
  body{
@@ -320,7 +323,6 @@ span.font-size.orange {
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
-  border-top: none;
 }
 
 .text-center.table.blue {
