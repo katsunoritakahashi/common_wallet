@@ -218,6 +218,9 @@ a:hover {
 .black {
   color: #585858;
 }
+.brown {
+  color: #be6a6a;
+}
 .table-white{
   background-color: #fafafa;
 }
@@ -436,6 +439,9 @@ h1.left {
 .fs-07 {
   font-size: 0.7em;
 }
+.fs-12 {
+  font-size: 1.2em;
+}
 .fs-15 {
   font-size: 1.5em;
 }
@@ -446,4 +452,11 @@ h1.left {
 .block-center {
   text-align: center;
   display: block;
+}
+.table th.top,.table td.top{
+  vertical-align: top;
+  padding-top: initial;
+}
+.bg-brown{
+  background-color: #be6a6a;
 }
