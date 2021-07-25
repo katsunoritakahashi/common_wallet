@@ -8,7 +8,7 @@
     <% months.each do |month| %>
       <tr class="table-light" id="month-trash-button-<%=month.id%>">
         <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'btn btn-outline-dark btn-block' %></td>
-        <td class="text-right fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
+        <td class="text-right fs-15"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
 
         <td class="text-left">
           <% if month.balance < month.balance_last %>
