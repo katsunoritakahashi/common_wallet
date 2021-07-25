@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
       @colum_chart_max =Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(7).pluck(:balance_last).max
       @month = Month.find_by(user_id: current_user.id, month: Date.today.beginning_of_month)
       @detail = Detail.where(user_id: current_user.id, month_id: @month.id) if @month.present?
-      @budget = Budget.where(user_id: current_user.id, month_id: @month.id) if @month.present?
+      @budget = Budget.find_by(user_id: current_user.id, month_id: @month.id) if @month.present?
       if @detail.present?
         @not_yet_count = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').count(:id)
         @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).includes(:month).sum(:spending)
@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
         @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending)
         @spending_other = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:spending)
         @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
+        @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
         rent = @spending_rent == 0 ? "" : "家賃"
         life = @spending_life == 0 ? "" : "生活費"
         food = @spending_food == 0 ? "" : "食費"
