@@ -190,6 +190,9 @@ a:hover {
 .light-blue {
   color: #0000FF;
 }
+.default-blue {
+  color: #007bff;
+}
 .yellow {
   color: #ffe227;
 }
@@ -411,6 +414,9 @@ h1.left {
 .text-left {
   text-align: left;
 }
+.text-right {
+  text-align: right;
+}
 .explain {
   text-align: center;
   display: block;
@@ -428,4 +434,7 @@ h1.left {
 }
 .fs-07 {
   font-size: 0.7em;
+}
+.fs-12 {
+  font-size: 1.5em;
 }

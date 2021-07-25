@@ -1,32 +1,24 @@
-<table class="text-center table table-hover table-striped">
+<table class="text-center table table-hover">
     <tr class="table-warning">
-      <th>年月(明細へ)</th>
-      <th>月初残高</th>
-      <th>月末残高</th>
-      <th>明細数</th>
+      <th>年月</th>
+      <th colspan="2">口座残高</th>
+      
       <th></th>
     </tr>
     <% months.each do |month| %>
       <tr class="table-light" id="month-trash-button-<%=month.id%>">
-        <td><%= link_to month.month.strftime("%Y年%-m月"), month_details_path(month),class: 'btn btn-outline-dark btn-block' %></td>
+        <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'btn btn-outline-dark btn-block' %></td>
+        <td class="text-right fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
 
-        <td>
-        <% if month.balance.present? %>
-          <%= "#{month.balance.to_s(:delimited)}円" %>
-        <% else %>
-          <%= month.balance %>
-        <% end %>
+        <td class="text-left">
+          <% if month.balance < month.balance_last %>
+            <span class="default-blue"><%= "　+#{(month.balance_last - month.balance).to_s(:delimited)}円" %></span>
+          <% elsif month.balance == month.balance_last %>
+            -
+          <% else %>
+            <span class="red"><%= "　#{(month.balance_last - month.balance).to_s(:delimited)}円" %></span>
+          <% end %>
         </td>
-
-        <td>
-        <% if month.balance.present? %>
-          <%= "#{month.balance_last.to_s(:delimited)}円" %></td>
-        <% else %>
-          <%= month.balance_last %>
-        <% end %>
-        </td>
-        <td><%= "（#{Detail.where(user_id: current_user.id, month_id: month.id).count(:id)}）" %></td>
-
         <td>
           <%= link_to edit_month_path(month) do %>
             <%= icon 'fa', 'pen' %>
