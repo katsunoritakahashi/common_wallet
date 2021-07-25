@@ -12,11 +12,11 @@
 
         <td class="text-left">
           <% if month.balance < month.balance_last %>
-            <span class="default-blue"><%= "　+#{(month.balance_last - month.balance).to_s(:delimited)}円" %></span>
+            <span class="default-blue"><%= "　+#{(month.balance_last - month.balance).to_s(:delimited)}円 " %><i class="fas fa-thumbs-up"></i></span>
           <% elsif month.balance == month.balance_last %>
             -
           <% else %>
-            <span class="red"><%= "　#{(month.balance_last - month.balance).to_s(:delimited)}円" %></span>
+            <span class="red"><%= "　#{(month.balance_last - month.balance).to_s(:delimited)}円 " %><i class="fas fa-fire"></i></span>
           <% end %>
         </td>
         <td>
