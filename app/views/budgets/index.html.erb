@@ -17,40 +17,39 @@
           <h5 class="text-left black">支出の内訳</h5>
           <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
         </div>
-      </div>
-      <div class="white-box bottom-shadow">
       
+      <div class="white-box bottom-shadow col-md-6 width right">
+      <h5 class="text-left black">
+        あといくら残ってる？
+      </h5>
       <table class="text-center table table-light">
-        <tr>
-          <td class="text-left fs-15">あといくら残ってる？</td>
-          <td class="text-right fs-15">
-            <% if @spending_total > @budget_total %>
-              <i class="fas fa-fire fa-lg red fs-15"></i>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-        <tr>
-          <td colspan="2">
-          <div class="progress">
-            <% if @budget_total != 0 %>
-              <div class="progress-bar bg-secondary" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            <% else %>
-              <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            <% end %>
-          </div>
-          </td> 
-        </tr>
-        <tr class="fs-12">
-          <% if @spending_total > @budget_total %>
-            <td class="text-left top"><%= "支出#{@spending_total.to_s(:delimited)}円" %><span class="red"><%= "　+#{(@spending_total - @budget_total).to_s(:delimited)}円" %></span></td>
-          <% else %> 
+          <tr>
+            <td class="text-left fs-15">合計</td>
+            <td class="text-right fs-15">
+              <% if @spending_total > @budget_total %>
+                <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+              <% else %> 
+                <span class="default-blue"><%= "あと#{((@spending_total - @budget_total)* -1).to_s(:delimited)}円" %></span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <td colspan="2">
+            <div class="progress">
+              <% if @budget_total != 0 %>
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
+              <% else %>
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              <% end %>
+            </div>
+            </td> 
+          </tr>
+          <tr class="fs-12">
             <td class="text-left top"><%= "支出#{@spending_total.to_s(:delimited)}円" %></td>
-          <% end %>
-          
-          <td class="text-right top"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
-        </tr>
-      </table>
+            <td class="text-right top"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
+          </tr>
+        </table>
       <br>
       <h5 class="text-left black">
         費用別
@@ -59,10 +58,12 @@
       <tr>
         <td class="text-left fs-15"><i class="fas fa-home fa-lg red"></i> 家賃</td>
         <td class="text-right fs-15">
-            <% if @spending_rent > @budget.rent %>
-              <i class="fas fa-fire fa-lg red fs-15"></i>
-            <% end %>
-          </td>
+          <% if @spending_rent > @budget.rent %>
+            <span class="red"><%= "#{(@spending_rent - @budget.rent).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+          <% else %> 
+            <span class="default-blue"><%= "あと#{((@spending_rent - @budget.rent)* -1).to_s(:delimited)}円" %></span>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="2">
@@ -76,21 +77,19 @@
         </td> 
       </tr>
       <tr class="fs-12">
-        <% if @spending_rent > @budget.rent %>
-          <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %><span class="red"><%= "　+#{(@spending_rent - @budget.rent).to_s(:delimited)}円" %></span></td>
-        <% else %> 
-          <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %></td>
-        <% end %>
+        <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %></td>
         <td class="text-right top"><%= "#{@budget.rent.to_s(:delimited)}円" %></td>
       </tr>
 
       <tr>
         <td class="text-left fs-15 border-top border-dark-top"><i class="fas fa-faucet fa-lg blue"></i> 生活費</td>
-          <td class="text-right fs-15 border-top border-dark-top">
-            <% if @spending_life > @budget.life %>
-              <i class="fas fa-fire fa-lg red fs-15"></i>
-            <% end %>
-          </td>
+        <td class="text-right fs-15 border-top border-dark-top">
+          <% if @spending_life > @budget.life%>
+            <span class="red"><%= "#{(@spending_life - @budget.life).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+          <% else %> 
+            <span class="default-blue"><%= "あと#{((@spending_life - @budget.life)* -1).to_s(:delimited)}円" %></span>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="2">
@@ -104,21 +103,19 @@
         </td> 
       </tr>
       <tr class="fs-12">
-        <% if @spending_life > @budget.life %>
-          <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %><span class="red"><%= "　+#{(@spending_rent - @budget.rent).to_s(:delimited)}円" %></span></td>
-        <% else %> 
-          <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %></td>
-        <% end %>
+        <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %></td>
         <td class="text-right top"><%= "#{@budget.life.to_s(:delimited)}円" %></td>
       </tr>
 
       <tr>
         <td class="text-left fs-15 border-top border-dark-top"><i class="fas fa-utensils fa-lg yellow"></i> 食費</td>
-          <td class="text-right fs-15 border-top border-dark-top">
-            <% if @spending_food > @budget.food %>
-              <i class="fas fa-fire fa-lg red fs-15"></i>
-            <% end %>
-          </td>
+        <td class="text-right fs-15 border-top border-dark-top">
+          <% if @spending_food > @budget.food %>
+            <span class="red"><%= "#{(@spending_food - @budget.food).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+          <% else %> 
+            <span class="default-blue"><%= "あと#{((@spending_food - @budget.food)* -1).to_s(:delimited)}円" %></span>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="2">
@@ -142,11 +139,13 @@
 
       <tr>
         <td class="text-left fs-15 border-top border-dark-top"><i class="fas fa-glass-cheers fa-lg green"></i> 交際費</td>
-          <td class="text-right fs-15 border-top border-dark-top">
-            <% if @spending_enjoy > @budget.enjoy %>
-              <i class="fas fa-fire fa-lg red fs-15"></i>
-            <% end %>
-          </td>
+        <td class="text-right fs-15 border-top border-dark-top">
+          <% if @spending_enjoy > @budget.enjoy %>
+            <span class="red"><%= "#{(@spending_enjoy - @budget.enjoy).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+          <% else %> 
+            <span class="default-blue"><%= "あと#{((@spending_enjoy - @budget.enjoy)* -1).to_s(:delimited)}円" %></span>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="2">
@@ -160,21 +159,19 @@
         </td> 
       </tr>
       <tr class="fs-12">
-        <% if @spending_enjoy > @budget.enjoy %>
-          <td class="text-left top"><%= "支出#{@spending_enjoy.to_s(:delimited)}円" %><span class="red"><%= "　+#{(@spending_enjoy - @budget.enjoy).to_s(:delimited)}円" %></span></td>
-        <% else %> 
-          <td class="text-left top"><%= "支出#{@spending_enjoy.to_s(:delimited)}円" %></td>
-        <% end %>
+        <td class="text-left top"><%= "支出#{@spending_enjoy.to_s(:delimited)}円" %></td>
         <td class="text-right top"><%= "#{@budget.enjoy.to_s(:delimited)}円" %></td>
       </tr>
 
       <tr>
         <td class="text-left fs-15 border-top border-dark-top"><i class="far fa-question-circle fa-lg brown"></i> その他</td>
-          <td class="text-right fs-15 border-top border-dark-top">
-            <% if @spending_other > @budget.other %>
-              <i class="fas fa-fire fa-lg red fs-15"></i>
-            <% end %>
-          </td>
+        <td class="text-right fs-15 border-top border-dark-top">
+          <% if @spending_other > @budget.other %>
+            <span class="red"><%= "#{(@spending_other - @budget.other).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+          <% else %> 
+            <span class="default-blue"><%= "あと#{((@spending_other - @budget.other)* -1).to_s(:delimited)}円" %></span>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="2">
@@ -188,11 +185,7 @@
         </td> 
       </tr>
       <tr class="fs-12">
-        <% if @spending_other > @budget.other %>
-          <td class="text-left top"><%= "支出#{@spending_other.to_s(:delimited)}円" %><span class="red"><%= "　+#{(@spending_other - @budget.other).to_s(:delimited)}円" %></span></td>
-        <% else %> 
-          <td class="text-left top"><%= "支出#{@spending_other.to_s(:delimited)}円" %></td>
-        <% end %>
+        <td class="text-left top"><%= "支出#{@spending_other.to_s(:delimited)}円" %></td>
         <td class="text-right top"><%= "#{@budget.other.to_s(:delimited)}円" %></td>
       </tr>
     </table>
@@ -212,6 +205,7 @@
       </ul>
     <% end %>
     </div>
+  </div>
   </div>
 </div>
 <footer class="switch_footer">

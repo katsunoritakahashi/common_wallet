@@ -7,25 +7,19 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<div class="container mt-70">
+<div class="container mt-50">
   <div class="row">
     <div class="col">
-      <h2 class="border-bottom"><%= "#{current_user.name}の家計簿" %></h2>
-
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
             <div class="white-box bottom-shadow">
               <h5 class="text-left black"><%= @month.month.strftime("%-m月の家計簿") %></h5>
-              <table class="text-center table black lg">
+              <table class="text-center table lg">
                 <tr>
-                  <td><span class="left">口座残高</span></td>
-                  <td class="fs-15"><span class="text-left"><%= "#{@month.balance_last.to_s(:delimited) }円" %></span></td>
-                </tr>
-                <tr>
-                  <td><span class="left">前月比</span></td>
-                  <td class="fs-15">
+                  <td class="gray text-left">口座残高</td>
+                  <td class="gray text-right"><span class="fs-07">前月比</span>
                     <% if @month.balance < @month.balance_last %>
-                      <span class="default-blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %><i class="fas fa-thumbs-up"></i></span>
+                      <span class="default-blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %></span>
                     <% elsif @month.balance == @month.balance_last %>
                       -
                     <% else %>
@@ -33,17 +27,12 @@
                     <% end %>
                   </td>
                 </tr>
-                <tr>
-                  <td><span class="left">未精算</span></td>
-                  <td class="fs-15">
-                  <% if @not_yet_count.blank? %>
-                    無し
-                  <% elsif @not_yet_count == 0 %>
-                    0件
-                  <% else %>
-                    <%= link_to "#{@not_yet_count}件", new_month_detail_path(@month.id) %>
-                  <% end %>
-                  </td>
+                <tr class="fs-15 top">
+                    <% if @month.balance_last.present? %>
+                      <td colspan="2" class="top"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+                    <% else %>
+                      <td colspan="2" class="top"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
+                    <% end %>
                 </tr>
               </table>
             </div>
@@ -56,6 +45,45 @@
             </div>
           <% end %>
         <% end %>
+        
+        <% if @detail.present? && @budget.present? %>
+        <%= link_to month_budgets_path(@month.id) do %>
+        <div class="white-box bottom-shadow">
+        <h5 class="text-left black">
+          あといくら残ってる？
+        </h5>
+        <table class="text-center table table-light">
+          <tr>
+            <td class="text-left fs-15">合計</td>
+            <td class="text-right fs-15">
+              <% if @spending_total > @budget_total %>
+                <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+              <% else %> 
+                <span class="default-blue"><%= "あと#{((@spending_total - @budget_total)* -1).to_s(:delimited)}円" %></span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <td colspan="2">
+            <div class="progress">
+              <% if @budget_total != 0 %>
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
+              <% else %>
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              <% end %>
+            </div>
+            </td> 
+          </tr>
+          <tr class="fs-12">
+            <td class="text-left top"><%= "支出#{@spending_total.to_s(:delimited)}円" %></td>
+            <td class="text-right top"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
+          </tr>
+        </table>
+        </div>
+        <% end %>
+        <% end %>
+        
         <div class="box">
           <% if @detail.present? && @budget.present? %>
             <%= link_to month_budgets_path(@month.id) do %>

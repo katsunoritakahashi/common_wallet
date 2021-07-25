@@ -36,6 +36,9 @@
 .mt-70 {
   margin-top: 70px;
 }
+.mt-50 {
+  margin-top: 50px;
+}
 .mt-10 {
   margin-top: 10px;
 }
@@ -326,6 +329,9 @@ span.font-size.orange {
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
+}
+.text-center.table.border-none {
+  border: initial;
 }
 
 .text-center.table.blue {
