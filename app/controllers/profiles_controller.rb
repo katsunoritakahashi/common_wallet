@@ -7,8 +7,8 @@ class ProfilesController < ApplicationController
     @months = Month.where(user_id: current_user.id)
     if @months.present?
       @this_month = Date.today.all_month
-      @column_chart = Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(7).pluck(:month, :balance_last)
-      @colum_chart_max =Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(7).pluck(:balance_last).max
+      @column_chart = Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(12).pluck(:month, :balance_last)
+      @colum_chart_max =Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(12).pluck(:balance_last).max
       @month = Month.find_by(user_id: current_user.id, month: Date.today.beginning_of_month)
       @detail = Detail.where(user_id: current_user.id, month_id: @month.id) if @month.present?
       @budget = Budget.find_by(user_id: current_user.id, month_id: @month.id) if @month.present?
