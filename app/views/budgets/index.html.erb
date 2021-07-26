@@ -29,7 +29,7 @@
               <% if @spending_total > @budget_total %>
                 <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
               <% else %> 
-                <span class="default-blue"><%= "あと#{((@spending_total - @budget_total)* -1).to_s(:delimited)}円" %></span>
+                <span><%= "あと#{((@spending_total - @budget_total)* -1).to_s(:delimited)}円" %></span>
               <% end %>
             </td>
           </tr>
@@ -61,7 +61,7 @@
           <% if @spending_rent > @budget.rent %>
             <span class="red"><%= "#{(@spending_rent - @budget.rent).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
           <% else %> 
-            <span class="default-blue"><%= "あと#{((@spending_rent - @budget.rent)* -1).to_s(:delimited)}円" %></span>
+            <span><%= "あと#{((@spending_rent - @budget.rent)* -1).to_s(:delimited)}円" %></span>
           <% end %>
         </td>
       </tr>
@@ -87,7 +87,7 @@
           <% if @spending_life > @budget.life%>
             <span class="red"><%= "#{(@spending_life - @budget.life).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
           <% else %> 
-            <span class="default-blue"><%= "あと#{((@spending_life - @budget.life)* -1).to_s(:delimited)}円" %></span>
+            <span><%= "あと#{((@spending_life - @budget.life)* -1).to_s(:delimited)}円" %></span>
           <% end %>
         </td>
       </tr>
@@ -103,7 +103,7 @@
         </td> 
       </tr>
       <tr class="fs-12">
-        <td class="text-left top"><%= "支出#{@spending_rent.to_s(:delimited)}円" %></td>
+        <td class="text-left top"><%= "支出#{@spending_life.to_s(:delimited)}円" %></td>
         <td class="text-right top"><%= "#{@budget.life.to_s(:delimited)}円" %></td>
       </tr>
 
@@ -113,7 +113,7 @@
           <% if @spending_food > @budget.food %>
             <span class="red"><%= "#{(@spending_food - @budget.food).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
           <% else %> 
-            <span class="default-blue"><%= "あと#{((@spending_food - @budget.food)* -1).to_s(:delimited)}円" %></span>
+            <span><%= "あと#{((@spending_food - @budget.food)* -1).to_s(:delimited)}円" %></span>
           <% end %>
         </td>
       </tr>
@@ -143,7 +143,7 @@
           <% if @spending_enjoy > @budget.enjoy %>
             <span class="red"><%= "#{(@spending_enjoy - @budget.enjoy).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
           <% else %> 
-            <span class="default-blue"><%= "あと#{((@spending_enjoy - @budget.enjoy)* -1).to_s(:delimited)}円" %></span>
+            <span><%= "あと#{((@spending_enjoy - @budget.enjoy)* -1).to_s(:delimited)}円" %></span>
           <% end %>
         </td>
       </tr>
@@ -169,7 +169,7 @@
           <% if @spending_other > @budget.other %>
             <span class="red"><%= "#{(@spending_other - @budget.other).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
           <% else %> 
-            <span class="default-blue"><%= "あと#{((@spending_other - @budget.other)* -1).to_s(:delimited)}円" %></span>
+            <span><%= "あと#{((@spending_other - @budget.other)* -1).to_s(:delimited)}円" %></span>
           <% end %>
         </td>
       </tr>

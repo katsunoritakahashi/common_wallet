@@ -12,7 +12,6 @@
     <div class="col">
     <h2 class="border-bottom">明細<span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月") %></span>
     </h2>
-    <p class="badge badge-secondary mb-0">明細追加</p>
     <ul class="list-inline">
       <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
         <%= f.date_field :date, class: 'form-control', id: 'js-new-detail-date' %>

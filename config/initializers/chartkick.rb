@@ -1,5 +1,6 @@
 Chartkick.options = {
   donut: true, # ドーナツグラフ
+  curve: false,
   #width: '400px',
   colors: [ "#f54355",
             "#34c2d8",
@@ -19,7 +20,8 @@ Chartkick.options = {
     chart: {
       backgroundColor: 'none',
       plotBorderWidth: 0, 
-      plotShadow: false
+      plotShadow: false,
+      
     },
     plotOptions: {
       pie: {
