@@ -33,7 +33,7 @@ class MonthsController < ApplicationController
     each_month
     each_total
     @month.update(month_params)
-    @month.balance_last = @month.balance + @balance_of_payments if @month.balance.present?
+    @month.balance_last = @month.balance + @balance_of_payments
     if @month.save
       redirect_back_or_to months_path, success: '月初残高を修正しました'
     else
