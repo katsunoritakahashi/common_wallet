@@ -13,15 +13,15 @@
       <%= form_with model: @month, local: true do |f| %>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.label :年月 %>
-            <%= f.date_field :month, class: 'form-control form-control-lg', style:"margin-left: auto; margin-right: auto;" %>
+            <%= f.label :年月 %><br>
+            <%= f.date_select :month, {use_month_numbers: true, date_separator: '年', discard_day: true}, {class: 'form-control form-control-lg', style: 'display: inline-block;width: auto;'} %>月
             </div>
           </div>
           <br>
           <div class="form-group">
             <div class="w-200 text-left">
               <%= f.label :前月末の残高 %>
-              <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: '例) 200000', style:"margin-left: auto; margin-right: auto;" %>
+              <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: '半角数字' %>
             </div>
           </div><br>
           <div class="block-center">
