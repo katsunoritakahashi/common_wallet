@@ -117,7 +117,7 @@
             </div>
           <% end %> 
         </div>
-        <% if @detail.present? %>
+        <% if @detail.present? && @not_yet_count != 0 %>
         <%= link_to new_month_detail_path(@month.id) do %>
           <div class="stay white-box bottom-shadow">
             <h5 class="text-left black">
@@ -146,7 +146,7 @@
           </div>
         <% end %>
         <% end %> 
-        <% if @detail.present? %>
+        <% if @deposit.present? %>
         <%= link_to month_deposits_path(@month.id) do %>
         <div class="stay white-box bottom-shadow">
           <h5 class="text-left black">
