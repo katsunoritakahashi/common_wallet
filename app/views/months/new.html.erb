@@ -1,0 +1,36 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKBSFQGWRN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LKBSFQGWRN');
+</script>
+<div class="container mt-70">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h2 class="border-bottom">年月の追加</h2>
+      <%= form_with model: @month, local: true do |f| %>
+          <div class="form-group">
+            <div class="w-200 text-left">
+            <%= f.label :年月 %>
+            <%= f.date_field :month, class: 'form-control form-control-lg', style:"margin-left: auto; margin-right: auto;" %>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <div class="w-200 text-left">
+              <%= f.label :前月末の残高 %>
+              <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: '例) 200000', style:"margin-left: auto; margin-right: auto;" %>
+            </div>
+          </div><br>
+          <div class="block-center">
+          <%= link_to "キャンセル　" ,months_path ,class:"inline-block" %>
+          <div class="actions inline-block">
+            <%= f.submit '追加', class: 'btn btn-warning' %>
+          </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

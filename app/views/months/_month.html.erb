@@ -1,19 +1,19 @@
 <div class="stay white-box bottom-shadow">
-  <h5 class="text-left black">
-    月別一覧 <span class="fs-07">※年月をタップすると各月の家計簿が見れます</span>
+<div class="block-left">
+  <h5 class="text-left black inline-block left">
+    月別一覧<br><span class="fs-07">※年月をタップすると各月の家計簿が見れます</span>
   </h5>
-<table class="text-center table table-hover">
-    <tr class="table-warning">
-      <th>年月</th>
-      <th colspan="2">口座残高</th>
-      <th></th>
-    </tr>
+  <%= link_to new_month_path do %>
+    <div class="plus-bottom bottom-shadow inline-block">＋</div>
+  <% end %>
+</div>
+<table class="text-center table">
     <% months.each do |month| %>
-      <tr class="table-light" id="month-trash-button-<%=month.id%>">
-        <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'btn btn-outline-dark btn-block' %></td>
-        <td class="text-right fs-15"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
+      <tr id="month-trash-button-<%=month.id%>">
+        <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'btn btn-sm btn-outline-dark btn-block' %></td>
+        <td class="text-right fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
 
-        <td class="text-left">
+        <td class="text-left fs-07">
           <% if month.balance < month.balance_last %>
             <span class="default-blue"><%= "　+#{(month.balance_last - month.balance).to_s(:delimited)}円 " %></span>
           <% elsif month.balance == month.balance_last %>

@@ -117,6 +117,33 @@
             </div>
           <% end %> 
         </div>
+        <%= link_to new_month_detail_path(@month.id) do %>
+          <div class="stay white-box bottom-shadow">
+            <h5 class="text-left black">
+              精算内訳
+            </h5>
+            <table class="text-center table lg fs-15">
+              <% @replayers.each do |replayer| %>
+                <tr>
+                  <td class="text-right">
+                    <% if replayer.replayer == '旦那' %>
+                      <i class="fas fa-male fa-lg default-blue"></i>
+                    <% elsif replayer.replayer == '嫁' %>
+                      <i class="fas fa-female fa-lg light-red"></i>
+                    <% else %>
+                      <%= replayer.replayer %>
+                    <% end %>
+                  </td>
+                  <% if Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income) < 0 %>
+                    <td class="text-left">共通財布に<span class="text-danger"><%= "#{((Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income))* -1).to_s(:delimited)}円" %></span>入金する</td>
+                  <% else %>
+                    <td class="text-left">共通財布から<span class="default-blue"><%= "#{(Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></span>受け取る</td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>

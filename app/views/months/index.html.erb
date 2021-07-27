@@ -10,14 +10,7 @@
 <div class="container mt-70">
   <div class="row">
     <div class="col">
-    <h2>口座残高</h2>
-      <p class="border-bottom">
-        <%= form_with model: @month, local: true do |f| %>
-          <%= f.date_select :month, class: 'form-control', use_month_numbers: true, date_separator: '年', discard_day: true %>月
-          <%= f.number_field :balance, id: 'js-new-month-balance', placeholder: '口座残高' %>
-          <%= f.submit '追加', class: 'btn btn-warning btn-sm' %>
-        <% end %>
-      </p>
+    <h2 class="border-bottom">口座残高</h2>
       <% if @months.present? %>
         <div class="white-box bottom-shadow">
         <h5 class="text-left black">
