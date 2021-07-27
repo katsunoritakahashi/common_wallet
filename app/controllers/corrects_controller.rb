@@ -13,7 +13,7 @@ class CorrectsController < ApplicationController
     @add.user_id = current_user.id
     @add.deposit_id = params[:deposit_id]
     if @add.save
-      redirect_back_or_to deposit_corrects_path, success: '補正明細を追加しました'
+      redirect_back_or_to month_deposits_path(@add.month_id), success: '補正明細を追加しました'
     else
       redirect_back_or_to deposit_corrects_path, danger: '補正明細を追加できませんでした'
     end

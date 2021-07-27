@@ -40,6 +40,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'yen'
 gem 'config', '2.0.0'
 gem 'semantic-ui-sass'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'

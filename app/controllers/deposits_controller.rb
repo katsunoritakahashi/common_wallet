@@ -1,7 +1,7 @@
 class DepositsController < ApplicationController
   def index
     @month = Month.find_by(user_id: current_user.id, id: params[:month_id])
-    authenticate_budget
+    authenticate_deposit
     @correct_total_man = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "旦那").sum(:correct_amount)
     @correct_total_woman = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "嫁").sum(:correct_amount)
     if @deposit.present?
@@ -12,6 +12,7 @@ class DepositsController < ApplicationController
       @disposable_income_woman = @disposable_income + @correct_total_woman
       @man_deposit = @deposit.man_salary - @disposable_income_man
       @woman_deposit = @deposit.woman_salary - @disposable_income_woman
+      @corrects = Correct.where(user_id: current_user.id, deposit_id: @deposit.id).includes(:deposit).order(created_at: :asc)
     end
   end
 
@@ -42,7 +43,7 @@ class DepositsController < ApplicationController
     params.permit(:total_deposit, :man_salary, :woman_salary, :correction1_name, :correction1_amount, :correction1_rate, :correction2_name, :correction2_amount, :correction2_rate, :correction3_name, :correction3_amount, :correction3_rate)
   end
 
-  def authenticate_budget
+  def authenticate_deposit
     @deposit = Deposit.find_by(user_id: current_user.id, month_id: params[:month_id])
   end
 
