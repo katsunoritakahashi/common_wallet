@@ -122,9 +122,11 @@
         <% end %>
       </td>
       <td>
-        <div id="detail-status-button-<%=detail.id%>">
-            <%= render partial: 'details/status', locals: { detail: detail} %>
-        </div>
+        <% if detail.replayer == '旦那' || detail.replayer == '嫁' %>
+          <div id="detail-status-button-<%=detail.id%>">
+              <%= render partial: 'details/status', locals: { detail: detail} %>
+          </div>
+        <% end %>
       </td>
       <td>
         <%= link_to detail_path(detail), method: :delete, data:{confirm:"本当に削除していいですか？"}, remote: true do %>
