@@ -57,7 +57,7 @@
         <table class="text-center table table-light">
           <tr>
             <td class="text-left fs-15">合計</td>
-            <td class="text-right fs-15">
+            <td class="text-right fs-12">
               <% if @spending_total > @budget_total %>
                 <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
               <% else %> 
@@ -77,7 +77,7 @@
             </div>
             </td> 
           </tr>
-          <tr class="fs-12">
+          <tr>
             <td class="text-left top"><%= "支出#{@spending_total.to_s(:delimited)}円" %></td>
             <td class="text-right top"><%= "#{@budget_total.to_s(:delimited)}円" %></td>
           </tr>

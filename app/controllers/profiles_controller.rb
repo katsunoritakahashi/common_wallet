@@ -10,6 +10,12 @@ class ProfilesController < ApplicationController
       @column_chart = Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(12).pluck(:month, :balance_last)
       @colum_chart_max =Month.where(user_id: current_user.id).includes(:user).order(month: :asc).last(12).pluck(:balance_last).max
       @month = Month.find_by(user_id: current_user.id, month: Date.today.beginning_of_month)
+        if @month.present?
+          @income_total_done_before_today = Detail.where(user_id: current_user.id, month_id: @month.id, status: :done).where("date <= ?", Date.today).includes(:month).sum(:income)
+          @spending_total_done_before_today = Detail.where(user_id: current_user.id, month_id: @month.id, status: :done).where("date <= ?", Date.today).includes(:month).sum(:spending)
+          @balance_of_payments_done_before_today = @income_total_done_before_today - @spending_total_done_before_today
+          @month.balance_last = @month.balance + @balance_of_payments_done_before_today
+        end
       @detail = Detail.where(user_id: current_user.id, month_id: @month.id) if @month.present?
       @budget = Budget.find_by(user_id: current_user.id, month_id: @month.id) if @month.present?
       if @detail.present?
