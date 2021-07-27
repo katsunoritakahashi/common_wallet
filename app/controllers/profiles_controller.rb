@@ -34,6 +34,19 @@ class ProfilesController < ApplicationController
         @balance_of_payments_not_common = @income_total_not_common - @spending_total_not_common
         @done_income = Detail.where(user_id: current_user.id, month_id: @month.id, status: :done).sum(:income)
         @done_spending = Detail.where(user_id: current_user.id, month_id: @month.id, status: :done).sum(:spending)
+        @deposit = Deposit.find_by(user_id: current_user.id, month_id: @month.id)
+        @correct_total_man = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "旦那").sum(:correct_amount)
+        @correct_total_woman = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "嫁").sum(:correct_amount)
+        if @deposit.present?
+          @correct_man_salary = @deposit.man_salary - @correct_total_man
+          @correct_woman_salary = @deposit.woman_salary - @correct_total_woman
+          @disposable_income = (@correct_man_salary + @correct_woman_salary - @deposit.total_deposit) / 2
+          @disposable_income_man = @disposable_income + @correct_total_man
+          @disposable_income_woman = @disposable_income + @correct_total_woman
+          @man_deposit = @deposit.man_salary - @disposable_income_man
+          @woman_deposit = @deposit.woman_salary - @disposable_income_woman
+          @corrects = Correct.where(user_id: current_user.id, deposit_id: @deposit.id).includes(:deposit).order(created_at: :asc)
+        end
       end
     end
   end

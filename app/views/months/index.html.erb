@@ -22,6 +22,7 @@
             <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#ffc107'], suffix: "円" %>
           <% end %>
         </div>
+      
       <div id="js-table-month">
         <%= render partial: 'months/month', locals: { months: @months } %>
       </div>

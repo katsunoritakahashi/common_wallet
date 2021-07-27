@@ -465,6 +465,10 @@ h1.left {
   vertical-align: top;
   padding-top: initial;
 }
+.table th.bottom,.table td.bottom{
+  vertical-align: bottom;
+  padding-bottom: initial;
+}
 .bg-brown{
   background-color: #be6a6a;
 }
