@@ -1,7 +1,7 @@
 class DetailsController < ApplicationController
   before_action :each_month, only: %i[new index]
   before_action :each_total, only: %i[new index]
-  before_action :adjustj_balance_last, only: %i[new index]
+  before_action :adjust_balance_last, only: %i[new index]
 
   def new
     @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
@@ -15,6 +15,8 @@ class DetailsController < ApplicationController
 
   def index
     @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc)
+
+
   end
 
   def create
@@ -66,12 +68,15 @@ class DetailsController < ApplicationController
   def each_total
     @income_total = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).sum(:income)
     @spending_total = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).sum(:spending)
+    @income_total_done_before_today = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).where("date <= ?", Date.today).includes(:month).sum(:income)
+    @spending_total_done_before_today = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).where("date <= ?", Date.today).includes(:month).sum(:spending)
     @balance_of_payments = @income_total - @spending_total
+    @balance_of_payments_done_before_today = @income_total_done_before_today - @spending_total_done_before_today
   end
 
-  def adjustj_balance_last
+  def adjust_balance_last
     @month = Month.find_by(user_id: current_user.id, id: params[:month_id])
-    @month.balance_last = @month.balance + @balance_of_payments
+    @month.balance_last = @month.balance + @balance_of_payments_done_before_today
     @month.save
   end
 end
