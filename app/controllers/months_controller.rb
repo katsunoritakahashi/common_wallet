@@ -7,6 +7,7 @@ class MonthsController < ApplicationController
   end
 
   def new
+    @month = Month.new
   end
 
   def create

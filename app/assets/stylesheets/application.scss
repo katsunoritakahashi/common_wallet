@@ -71,7 +71,6 @@
  // @include media-breakpoint-up(sm) {
  @media (max-width: 550px) {
   body, .btn-sm, .btn {
-    font-size: 0.8rem;
     text-align: center;
   }
   footer {
@@ -106,10 +105,6 @@
   }
   .mt-50 {
     margin-top: 50px;
-  }
-  .form-control, .btn {
-    height: calc(1.6rem);
-    padding: 0.200rem 0.5rem;
   }
   .btn-lg {
     padding: 0.5rem 1rem;
@@ -190,6 +185,9 @@ a:hover {
 }
 .red {
   color: #f14668;
+}
+.light-red {
+  color: #f8708b;
 }
 .blue {
   color: #8ac4d0;
@@ -460,6 +458,9 @@ h1.left {
   text-align: center;
   display: block;
 }
+.block-left {
+  display: block;
+}
 .table th.top,.table td.top{
   vertical-align: top;
   padding-top: initial;
@@ -470,4 +471,22 @@ h1.left {
 .border-gray{
   border: 1px solid;
   border-color: rgb(172, 172, 172);
+}
+.form-group.center{
+  text-align: center;
+}
+.inline-block {
+  display: inline-block;
+}
+.plus-bottom {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fc8804;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  float: right;
+  margin: 10px;
 }
