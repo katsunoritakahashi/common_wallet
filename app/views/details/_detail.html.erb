@@ -13,11 +13,17 @@
         </td>
       </tr>
       <tr class="fs-15 top">
-          <% if @month.balance_last.present? %>
-            <td colspan="2" class="top"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
-          <% else %>
-            <td colspan="2" class="top"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
-          <% end %>
+        <td colspan="2" class="top"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+      </tr>
+    </table>
+    <table class="text-center table lg">
+      <tr>
+        <td class="gray">立替精算後</td>
+        <td class="gray">月末予想</td>
+      </tr>
+      <tr class="fs-15 top">
+        <td class="top"><%= "#{(@month.balance + @done_income - @done_spending + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+        <td class="top"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited)}円" %></td>
       </tr>
     </table>
     <table class="text-center table lg">

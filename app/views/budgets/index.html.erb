@@ -194,13 +194,28 @@
     <% else %>
       <ul class="list-inline">
         ※予算を設定して下さい
-        <%= form_with model: @add, local: true, html: { class: 'form-inline' } do |f| %>
-              <%= f.number_field :rent, class: 'form-control', placeholder: '家賃' %>
-              <%= f.number_field :food, class: 'form-control', placeholder: '食費' %>
-              <%= f.number_field :life, class: 'form-control', placeholder: '生活費' %>
-              <%= f.number_field :enjoy, class: 'form-control', placeholder: '交際費' %>
-              <%= f.number_field :other, class: 'form-control', placeholder: 'その他' %>
-              <%= f.submit '登録', class: 'btn btn-warning' %>
+        <%= form_with model: @add, local: true do |f| %>
+          <div class="form-group text-left">
+            <%= f.label :家賃 %>
+            <%= f.number_field :rent, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+          </div>
+          <div class="form-group text-left">
+            <%= f.label :生活費 %>
+            <%= f.number_field :life, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+          </div>
+          <div class="form-group text-left">
+            <%= f.label :食費 %>
+            <%= f.number_field :food, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+          </div>
+          <div class="form-group text-left">
+            <%= f.label :交際費 %>
+            <%= f.number_field :enjoy, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+          </div>
+          <div class="form-group text-left">
+            <%= f.label :その他 %>
+            <%= f.number_field :other, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+          </div>
+          <%= f.submit '設定', class: 'btn btn-warning' %>
         <% end %>
       </ul>
     <% end %>
@@ -218,13 +233,13 @@
           <% end %>
         </div>
         <div class="col prl-5">
-          <%= link_to month_budgets_path do %>
-            <i class="fas fa-chart-pie fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">分析</span></div>
+          <%= link_to new_month_detail_path do %>
+            <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
           <% end %>
         </div>
         <div class="col prl-5">
-          <%= link_to new_month_detail_path do %>
-            <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
+          <%= link_to month_budgets_path do %>
+            <i class="fas fa-chart-pie fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">分析</span></div>
           <% end %>
         </div>
         <div class="col prl-5">

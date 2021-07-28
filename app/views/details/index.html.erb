@@ -40,15 +40,16 @@
           <% end %>
         </div>
         <div class="col prl-5">
-          <%= link_to month_budgets_path do %>
-            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
-          <% end %>
-        </div>
-        <div class="col prl-5">
           <%= link_to new_month_detail_path do %>
             <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
           <% end %>
         </div>
+        <div class="col prl-5">
+          <%= link_to month_budgets_path do %>
+            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
+          <% end %>
+        </div>
+
         <div class="col prl-5">
           <%= link_to month_deposits_path do %>
             <i class="fas fa-donate fa-lg"></i><br><div class="negative-margin"><span class="font-size">入金</span></div>
