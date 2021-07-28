@@ -26,13 +26,15 @@ class ProfilesController < ApplicationController
         @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending)
         @spending_other = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:spending)
         @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
-        @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
-        rent = @spending_rent == 0 ? "" : "家賃"
-        life = @spending_life == 0 ? "" : "生活費"
-        food = @spending_food == 0 ? "" : "食費"
-        enjoy = @spending_enjoy == 0 ? "" : "交際費"
-        other = @spending_other == 0 ? "" : "その他"
-        @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
+        if @budget.present?
+          @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
+          rent = @spending_rent == 0 ? "" : "家賃"
+          life = @spending_life == 0 ? "" : "生活費"
+          food = @spending_food == 0 ? "" : "食費"
+          enjoy = @spending_enjoy == 0 ? "" : "交際費"
+          other = @spending_other == 0 ? "" : "その他"
+          @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
+        end
         @replayers = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
         @details = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
         @income_total_not_common = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:income)
@@ -41,8 +43,8 @@ class ProfilesController < ApplicationController
         @done_income = Detail.where(user_id: current_user.id, month_id: @month.id, status: :done).sum(:income)
         @done_spending = Detail.where(user_id: current_user.id, month_id: @month.id, status: :done).sum(:spending)
         @deposit = Deposit.find_by(user_id: current_user.id, month_id: @month.id)
-        @correct_total_man = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "旦那").sum(:correct_amount)
-        @correct_total_woman = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "嫁").sum(:correct_amount)
+        @correct_total_man = Correct.where(user_id: current_user.id, month_id: @month.id, player: "旦那").sum(:correct_amount)
+        @correct_total_woman = Correct.where(user_id: current_user.id, month_id: @month.id, player: "嫁").sum(:correct_amount)
         if @deposit.present?
           @correct_man_salary = @deposit.man_salary - @correct_total_man
           @correct_woman_salary = @deposit.woman_salary - @correct_total_woman

@@ -18,7 +18,7 @@ class DepositsController < ApplicationController
 
   def create
     @add = Deposit.new(deposit_params)
-    if !authenticate_budget
+    if !authenticate_deposit
       @add.month_id = params[:month_id]
       @add.user_id = current_user.id
       if @add.save

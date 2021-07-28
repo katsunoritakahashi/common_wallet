@@ -6,11 +6,7 @@ class DetailsController < ApplicationController
   def new
     @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
     @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
-    @income_total_not_common = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:income)
-    @spending_total_not_common = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:spending)
-    @balance_of_payments_not_common = @income_total_not_common - @spending_total_not_common
-    @done_income = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).sum(:income)
-    @done_spending = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).sum(:spending)
+
   end
 
   def index
@@ -72,6 +68,11 @@ class DetailsController < ApplicationController
     @spending_total_done_before_today = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).where("date <= ?", Date.today).includes(:month).sum(:spending)
     @balance_of_payments = @income_total - @spending_total
     @balance_of_payments_done_before_today = @income_total_done_before_today - @spending_total_done_before_today
+    @income_total_not_common = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:income)
+    @spending_total_not_common = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:spending)
+    @balance_of_payments_not_common = @income_total_not_common - @spending_total_not_common
+    @done_income = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).sum(:income)
+    @done_spending = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :done).sum(:spending)
   end
 
   def adjust_balance_last

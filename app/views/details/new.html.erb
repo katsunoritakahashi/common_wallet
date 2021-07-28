@@ -16,7 +16,7 @@
         <table class="text-center table lg">
           <tr>
             <td class="text-left">　現状</td>
-            <td class="fs-15"><%= "#{(@month.balance + @done_income - @done_spending).to_s(:delimited)}円" %></td>
+            <td class="fs-15"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
           </tr>
           <tr>
             <td class="text-left">　精算額</td>
@@ -153,14 +153,14 @@
             <i class="fas fa-list fa-lg"></i><br><div class="negative-margin"><span class="font-size">明細</span></div>
           <% end %>
         </div>
-        <div class="col prl-5">
-          <%= link_to month_budgets_path do %>
-            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
-          <% end %>
-        </div>
         <div class="col prl-5 orange">
           <%= link_to new_month_detail_path do %>
             <i class="fas fa-exchange-alt fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">精算</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_budgets_path do %>
+            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
           <% end %>
         </div>
         <div class="col prl-5">
