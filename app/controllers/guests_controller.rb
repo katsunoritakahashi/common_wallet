@@ -38,6 +38,8 @@ class GuestsController < ApplicationController
     detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(22.day), classification: 2, spending: rand(60..150) * 100, replayer: "共通", status: 1,note: "ガス代" )
     detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(23.day), classification: 5, spending: rand(100..200) * 100, replayer: "旦那", status: 0,note: "投資損失" )
     detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(25.day), classification: 3, spending: rand(100..200) * 100, replayer: "旦那", status: 1,note: "デート" )
+    detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(27.day), classification: 1, spending: rand(100..200) * 10, replayer: "共通", status: 1,note: "おやつ" )
+    detail_2 = Detail.create(user_id: current_user.id, month_id: month_1.id, date: Date.today.beginning_of_month.since(27.day), classification: 4, income: rand(100..200) * 100, replayer: "嫁", status: 1,note: "臨時収入" )
     budget = Budget.create(user_id: current_user.id, month_id: month_1.id, rent: 100000, food: 30000, life: 30000, enjoy: 30000, other:10000 )
     deposit = Deposit.create(user_id: current_user.id, month_id: month_1.id, total_deposit: 200000, man_salary: 300000, woman_salary: 250000)
     correct_1 = Correct.create(user_id: current_user.id, month_id: month_1.id, deposit_id: deposit.id, name:"ボーナス", player:"旦那" ,amount: 50000, rate: 90, correct_amount:45000)
