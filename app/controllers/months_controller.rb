@@ -45,7 +45,7 @@ class MonthsController < ApplicationController
   def destroy
     @month = current_user.months.find(params[:id])
     @month.destroy!
-    #redirect_to months_path
+    redirect_to months_path
   end
 
   def show

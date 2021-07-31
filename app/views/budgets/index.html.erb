@@ -197,23 +197,23 @@
         <%= form_with model: @add, local: true do |f| %>
           <div class="form-group text-left">
             <%= f.label :家賃 %>
-            <%= f.number_field :rent, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+            <%= f.number_field :rent, class: 'form-control form-control-lg' %>
           </div>
           <div class="form-group text-left">
             <%= f.label :生活費 %>
-            <%= f.number_field :life, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+            <%= f.number_field :life, class: 'form-control form-control-lg' %>
           </div>
           <div class="form-group text-left">
             <%= f.label :食費 %>
-            <%= f.number_field :food, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+            <%= f.number_field :food, class: 'form-control form-control-lg' %>
           </div>
           <div class="form-group text-left">
             <%= f.label :交際費 %>
-            <%= f.number_field :enjoy, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+            <%= f.number_field :enjoy, class: 'form-control form-control-lg' %>
           </div>
           <div class="form-group text-left">
             <%= f.label :その他 %>
-            <%= f.number_field :other, class: 'form-control form-control-lg', placeholder: '半角数字' %>
+            <%= f.number_field :other, class: 'form-control form-control-lg' %>
           </div>
           <%= f.submit '設定', class: 'btn btn-warning' %>
         <% end %>
