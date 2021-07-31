@@ -118,7 +118,7 @@
           <% end %> 
         </div>
         <% if @detail.present? && @not_yet_count != 0 %>
-        <%= link_to new_month_detail_path(@month.id) do %>
+        <%= link_to reimbursement_month_details_path(@month.id) do %>
           <div class="stay white-box bottom-shadow">
             <h5 class="text-left black">
               立て替え精算

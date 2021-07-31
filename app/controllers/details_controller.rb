@@ -1,7 +1,7 @@
 class DetailsController < ApplicationController
-  before_action :each_month, only: %i[new index]
-  before_action :each_total, only: %i[new index]
-  before_action :adjust_balance_last, only: %i[new index]
+  before_action :each_month, only: %i[new index reimbursement]
+  before_action :each_total, only: %i[new index reimbursement]
+  before_action :adjust_balance_last, only: %i[new index reimbursement]
 
   def new
     @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
@@ -49,6 +49,11 @@ class DetailsController < ApplicationController
     @detail = Detail.find_by(user_id: current_user.id, id: params[:id])
     @detail.destroy!
     #redirect_back_or_to month_details_path(@detail.month_id), success: '削除しました'
+  end
+
+  def reimbursement
+    @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
+    @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
   end
 
   private
