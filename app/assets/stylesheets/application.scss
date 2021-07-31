@@ -322,7 +322,7 @@ span.font-size.orange {
 .text-center.table {
   width: 100%;
   background: #FFFFFF;
-  margin: 1em 0em;
+  margin: 10px 0px;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 1rem;
   color: rgba(0, 0, 0, 0.87);
@@ -386,8 +386,8 @@ tr:last-child td:last-child {
 .white-box {
   background-color: white;
   border-radius: 5px;
-  padding: 20px 10px;
-  margin: 20px 0px;
+  padding: 10px 10px 5px 10px;
+  margin: 10px 0 0 0;
 }
 .what-common-wallet {
   background-color: white;

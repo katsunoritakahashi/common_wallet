@@ -7,19 +7,29 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
-<div class="container">
+<div class="container mt-70">
   <div class="row">
     <div class="col">
-    <h2><%= @month.month.strftime("月初残高編集（%Y年%-m月）") %></h2>
+    <h2 class="border-bottom">残高修正 <span class="gray fs-07"><%= @month.month.strftime("%Y年%-m月") %></span></h2>
       <div class="col-sm-12">
-        <ul class="list-inline">
-          <%= form_with model: @month, html: { class: 'form-inline' }, local: true do |f| %>
-            <%= f.text_field :balance, class: 'form-control',placeholder: @month.balance %>
-            <%= f.submit "修正", class: 'btn btn-warning' %>
+        <ul class="list-inline"><br>
+          <%= form_with model: @month, local: true do |f| %>
+            <div class="form-group">
+              <div class="w-200 text-left">
+                <%= f.label :前月末の残高 %>
+                <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: @month.balance %>
+              </div>
+            </div><br>
+            <div class="block-center">
+              <%= link_to "キャンセル　" ,months_path ,class:"inline-block" %>
+              <div class="actions inline-block">
+                <%= f.submit '更新', class: 'btn btn-warning' %>
+              </div>
+            </div>
           <% end %>
         </ul>
+        <br><%= link_to "家計簿を消去", month_path(@month), method: :delete, data:{confirm:"本当に消去していいですか？当月の記録はすべて消去されます。"}, class: 'btn btn-outline-danger' %>
       </div>
-      <%= link_to "戻る", months_path %>
     </div>
   </div>
 </div>

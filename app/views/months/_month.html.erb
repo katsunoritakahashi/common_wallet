@@ -26,9 +26,6 @@
           <%= link_to edit_month_path(month) do %>
             <%= icon 'fa', 'pen' %>
           <% end %>
-          <%= link_to month_path(month), method: :delete, data:{confirm:"本当に削除していいですか？"}, remote: true do %>
-            <%= icon 'fas', 'trash' %>
-          <% end %>
         </td>
       </tr>
     <% end %>
