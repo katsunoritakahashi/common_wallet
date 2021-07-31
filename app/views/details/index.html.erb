@@ -12,17 +12,6 @@
     <div class="col">
     <h2 class="border-bottom">明細<span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月") %></span>
     </h2>
-    <ul class="list-inline">
-      <%= form_with model: @add, html: { class: 'form-inline' }, data: {remote: true} do |f| %>
-        <%= f.date_field :date, class: 'form-control', id: 'js-new-detail-date' %>
-        <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: '項目'}, class: 'form-control col select', id: 'js-new-detail-classification' %>
-        <%= f.text_field :note, class: 'form-control col', placeholder: 'メモ', id: 'js-new-detail-note' %>
-        <%= f.number_field :income, class: 'form-control col', placeholder: '収入', id: 'js-new-detail-income' %>
-        <%= f.number_field :spending, class: 'form-control col', placeholder: '支出', id: 'js-new-detail-spending' %>
-        <%= f.select :replayer,[["旦那", "旦那"], ["嫁", "嫁"], ["立替なし(共通財布から支払い)", "共通"]],{ include_blank: '立替者'}, class: 'form-control col select', id: 'js-new-detail-replayer' %>
-        <%= f.submit '記録する', class: 'btn btn-secondary' %>
-      <% end %>
-    </ul>
         <div id="js-table-detail">
           <%= render partial: 'details/detail', locals: { details: @details } %>
         </div>
@@ -30,7 +19,12 @@
     </div>
   </div>
 </div>
-<footer class="switch_footer">
+<footer class="switch_footer plus-detail">
+  <div class="display-table margin-right">
+  <%= link_to new_month_detail_path do %>
+    <div class="plus-bottom">＋</div>
+  <% end %>
+  </div>
   <div class="switch top-shadow">
     <div class="container">
       <div class="row justify-content-center">
@@ -40,7 +34,7 @@
           <% end %>
         </div>
         <div class="col prl-5">
-          <%= link_to new_month_detail_path do %>
+          <%= link_to reimbursement_month_details_path do %>
             <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
           <% end %>
         </div>

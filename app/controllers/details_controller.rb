@@ -1,18 +1,14 @@
 class DetailsController < ApplicationController
-  before_action :each_month, only: %i[new index]
-  before_action :each_total, only: %i[new index]
-  before_action :adjust_balance_last, only: %i[new index]
+  before_action :each_month, only: %i[index reimbursement]
+  before_action :each_total, only: %i[index reimbursement]
+  before_action :adjust_balance_last, only: %i[index reimbursement]
 
   def new
-    @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
-    @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
-
+    @detail = Detail.new
   end
 
   def index
     @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc)
-
-
   end
 
   def create
@@ -28,8 +24,9 @@ class DetailsController < ApplicationController
       @month.balance_last = @month.balance + @balance_of_payments
       @month.save
       @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc)
+      redirect_back_or_to month_details_path, success: '明細を追加しました。'
     else
-      redirect_back_or_to month_details_path, danger: '明細を追加出来ませんでした'
+      redirect_back_or_to new_month_detail_path, danger: '明細を追加出来ませんでした'
     end
   end
 
@@ -49,6 +46,11 @@ class DetailsController < ApplicationController
     @detail = Detail.find_by(user_id: current_user.id, id: params[:id])
     @detail.destroy!
     #redirect_back_or_to month_details_path(@detail.month_id), success: '削除しました'
+  end
+
+  def reimbursement
+    @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
+    @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
   end
 
   private

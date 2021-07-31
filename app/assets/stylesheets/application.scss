@@ -267,6 +267,12 @@ html {
 .switch_footer {
   height: 69px;
 }
+.switch_footer.plus-detail {
+  height: 139px;
+}
+.display-table {
+  display: table;
+}
 
 .switchless_footer {
   height: 18px;
@@ -426,6 +432,9 @@ h1.left {
 .text-right {
   text-align: right;
 }
+.margin-right {
+  margin:0 0 0 auto
+}
 .explain {
   text-align: center;
   display: block;
@@ -491,6 +500,7 @@ h1.left {
   color: #fff;
   text-align: center;
   font-size: 30px;
-  float: right;
   margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  float: right;
 }

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resource :profile, only: %i[destroy edit update show]
   resources :months, only: %i[new index create destroy edit update], shallow: true do
-    resources :details, only: %i[index create destroy update new]
+    resources :details, only: %i[new index create destroy update] do
+      collection do
+        get :reimbursement
+      end
+    end
     resources :budgets, only: %i[index create destroy]
     resources :deposits, only: %i[index create destroy], shallow: true do
       resources :corrects, only: %i[index create destroy]
