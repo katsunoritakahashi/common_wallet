@@ -19,7 +19,7 @@
             <article class="card-body">
               <h4 class="card-title text-center mb-4 mt-1">ユーザー情報変更</h4>
               <hr>
-                <%= form_with model: @profile_edit, local: true do |f| %>
+                <%= form_with model: @profile_edit, url: profile_path, local: true do |f| %>
                   <div class="form-group">
                     <h3><%= f.label :ユーザー名： %></h3>
                     <%= f.text_field :name, class: 'form-control',value: "#{current_user.name}" %>
