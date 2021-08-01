@@ -257,12 +257,13 @@ html {
 }
 .content {
   margin-top: 53px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 .content-switch {
   margin-top: 70px;
-  padding-bottom: 75px;
+  padding-bottom: 95px;
 }
+
 
 .switch_footer {
   height: 69px;
@@ -503,4 +504,7 @@ h1.left {
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   float: right;
+}
+.mb-40{
+  margin-bottom: 40px;
 }
