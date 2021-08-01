@@ -60,7 +60,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @user_edit = User.find(current_user.id)
+    @profile_edit = User.find(current_user.id)
   end
 
   def update
