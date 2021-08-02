@@ -30,7 +30,7 @@
           </tr>
           <tr>
             <td class="text-left border-top border-dark-top">　精算後</td>
-            <td class="fs-15 border-top border-dark-top"><%= "#{(@month.balance + @done_income - @done_spending + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+            <td class="fs-15 border-top border-dark-top"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
           </tr>
           
         </table>
