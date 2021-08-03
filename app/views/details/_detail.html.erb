@@ -20,7 +20,7 @@
         <td class="gray border-top border-dark-top">月末予想</td>
       </tr>
       <tr class="fs-15 top">
-        <td class="top"><%= "#{(@month.balance + @done_income - @done_spending + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+        <td class="top"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
         <td class="top"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited)}円" %></td>
       </tr>
     </table>
