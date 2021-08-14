@@ -137,8 +137,8 @@
         <% end %>
       </td>
       <td>
-        <%= link_to detail_path(detail), method: :delete, data:{confirm:"本当に削除していいですか？"}, remote: true do %>
-          <%= icon 'fas', 'trash' %>
+        <%= link_to edit_detail_path(detail) do %>
+          <%= icon 'fa', 'pen' %>
         <% end %>
       </td>
     </tr>

@@ -1,0 +1,96 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKBSFQGWRN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LKBSFQGWRN');
+</script>
+<div class="container mt-70">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h2 class="border-bottom">明細編集</h2>
+      <%= form_with model: @detail, local: true do |f| %>
+          <div class="form-group">
+            <div class="w-200 text-left">
+            <%= f.label :日付 %>
+            <%= f.date_field :date, class: 'form-control form-control-lg' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="w-200 text-left">
+              <%= f.label :分類 %>
+              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: ''}, class: 'form-control form-control-lg select' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="w-200 text-left">
+            <%= f.label :メモ %>
+            <%= f.text_field :note, class: 'form-control form-control-lg' %>
+            </div>
+          </div>
+          <div class="row">
+          <div class="form-group col">
+            <div class="w-200 text-left">
+            <%= f.label :収入 %>
+            <%= f.number_field :income, class: 'form-control form-control-lg' %>
+            </div>
+          </div>
+          <div class="form-group col">
+            <div class="w-200 text-left">
+            <%= f.label :支出 %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg' %>
+            </div>
+          </div>
+          </div>
+          <div class="form-group">
+            <div class="w-200 text-left">
+            <%= f.label :どの財布で支払った？ %>
+            <%= f.select :replayer,[["旦那さん", "旦那"], ["奥さん", "嫁"], ["共通財布", "共通"]],{ include_blank: ''}, class: 'form-control form-control-lg select' %>
+            </div>
+          </div>
+          <div class="block-center">
+          <%= link_to "キャンセル　" ,month_details_path(@detail.month_id) ,class:"inline-block" %>
+          <div class="actions inline-block">
+            <%= f.submit '修正', class: 'btn btn-warning' %>
+          </div>
+          </div>
+      <% end %>
+      <br><%= link_to "明細を消去", detail_path(@detail), method: :delete, data:{confirm:"本当に消去していいですか？"}, class: 'btn btn-outline-danger' %>
+    </div>
+  </div>
+</div>
+<footer class="switch_footer">
+  <div class="switch top-shadow">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col prl-5">
+          <%= link_to month_details_path(@detail.month_id) do %>
+            <i class="fas fa-list fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">明細</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5 orange">
+          <%= link_to reimbursement_month_details_path(@detail.month_id) do %>
+            <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_budgets_path(@detail.month_id) do %>
+            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_deposits_path(@detail.month_id) do %>
+            <i class="fas fa-donate fa-lg"></i><br><div class="negative-margin"><span class="font-size">入金</span></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="information-footer stay">
+  <span class="white">© 2021 Common Wallet　</span>
+    <%= link_to '利用規約',terms_of_service_path,:style=>"color:#FFFFFF;" %>
+    <span class="white"> / </span>
+    <%= link_to 'プライバシーポリシー', privacy_policy_path,:style=>"color:#FFFFFF;" %>
+  </div>
+</footer>
