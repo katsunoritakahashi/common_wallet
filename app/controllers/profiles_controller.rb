@@ -20,11 +20,11 @@ class ProfilesController < ApplicationController
       @budget = Budget.find_by(user_id: current_user.id, month_id: @month.id) if @month.present?
       if @detail.present?
         @not_yet_count = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').count(:id)
-        @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).includes(:month).sum(:spending)
-        @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:spending)
-        @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:spending)
-        @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending)
-        @spending_other = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:spending)
+        @spending_rent = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :rent).includes(:month).sum(:income)
+        @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:income)
+        @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:income)
+        @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:income)
+        @spending_other = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:income)
         @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
         if @budget.present?
           @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
