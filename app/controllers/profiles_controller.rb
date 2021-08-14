@@ -53,7 +53,7 @@ class ProfilesController < ApplicationController
           @disposable_income_woman = @disposable_income + @correct_total_woman
           @man_deposit = @deposit.man_salary - @disposable_income_man
           @woman_deposit = @deposit.woman_salary - @disposable_income_woman
-          @corrects = Correct.where(user_id: current_user.id, deposit_id: @deposit.id).includes(:deposit).order(created_at: :asc)
+          @corrects = Correct.where(user_id: current_user.id, month_id: @month.id).includes(:deposit).order(created_at: :asc)
         end
       end
     end
