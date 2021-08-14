@@ -24,7 +24,7 @@
           <div class="form-group">
             <div class="w-200 text-left">
               <%= f.label :対象者 %>
-              <%= f.select :player,[["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: '対象者'}, class: 'form-control form-control-lg' %>
+              <%= f.select :player,[["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: '　'}, class: 'form-control form-control-lg' %>
             </div>
           </div><br>
           <div class="form-group">
@@ -41,7 +41,7 @@
             </div>
           </div><br>
           <div class="block-center">
-          <%= link_to "キャンセル　" ,month_deposits_path(@deposit.month_id) ,class:"inline-block" %>
+          <%= link_to "キャンセル　" ,month_deposits_path(params[:month_id]) ,class:"inline-block" %>
           <div class="actions inline-block">
             <%= f.submit '追加', class: 'btn btn-warning' %>
           </div>

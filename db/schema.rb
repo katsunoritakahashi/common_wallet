@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_142751) do
+ActiveRecord::Schema.define(version: 2021_08_14_043430) do
 
   create_table "budgets", force: :cascade do |t|
     t.integer "rent"
@@ -33,11 +33,9 @@ ActiveRecord::Schema.define(version: 2021_03_06_142751) do
     t.integer "rate"
     t.integer "user_id", null: false
     t.integer "month_id", null: false
-    t.integer "deposit_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "correct_amount"
-    t.index ["deposit_id"], name: "index_corrects_on_deposit_id"
     t.index ["month_id"], name: "index_corrects_on_month_id"
     t.index ["user_id"], name: "index_corrects_on_user_id"
   end
@@ -97,7 +95,6 @@ ActiveRecord::Schema.define(version: 2021_03_06_142751) do
 
   add_foreign_key "budgets", "months"
   add_foreign_key "budgets", "users"
-  add_foreign_key "corrects", "deposits"
   add_foreign_key "corrects", "months"
   add_foreign_key "corrects", "users"
   add_foreign_key "deposits", "months"
