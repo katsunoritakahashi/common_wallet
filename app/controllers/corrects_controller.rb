@@ -1,7 +1,8 @@
 class CorrectsController < ApplicationController
   def index
     authenticate_correct
-    @corrects = Correct.where(user_id: current_user.id, month_id: @correct.month_id).order(created_at: :asc)
+    #binding.irb
+    @corrects = Correct.where(user_id: current_user.id, month_id: params[:month_id]).order(created_at: :asc)
   end
 
   def create
@@ -9,7 +10,7 @@ class CorrectsController < ApplicationController
     authenticate_correct
     @add.rate = 100 if !@add.rate.present?
     @add.correct_amount = @add.amount * @add.rate / 100 if @add.amount.present?
-    @add.month_id = @correct.month_id
+    @add.month_id = params[:month_id]
     @add.user_id = current_user.id
     #binding.irb
     if @add.save
