@@ -107,7 +107,7 @@
           <% else %>
             <p>調整明細がありません</p>
           <% end %>
-          <%= link_to '調整項目を追加する', deposit_corrects_path(@deposit), class: 'btn btn-outline-secondary' %>
+          <%= link_to '調整項目を追加する', month_corrects_path(params[:month_id]), class: 'btn btn-outline-secondary' %>
         </div>
       <% else %>
         <ul class="list-inline">
@@ -128,6 +128,44 @@
                 <%= f.submit '設定', class: 'btn btn-warning' %>
           <% end %>
         </ul>
+        <div class="stay white-box bottom-shadow">
+          <h5 class="text-left black">
+            調整項目一覧
+          </h5>
+          <% if @corrects.present? %>
+          <table class="text-center table table-hover table-sm">
+            <tr>
+              <th>事由</th>
+              <th>対象者</th>
+              <th>調整額</th>
+              <th></th>
+            </tr>
+            <% @corrects.each do |correct| %>
+            <tr class="table-light">
+              <td><%= correct.name %></td>
+              <td>
+                <% if correct.player == '旦那' %>
+                  <i class="fas fa-male fa-lg default-blue"></i>
+                <% elsif correct.player == '嫁' %>
+                  <i class="fas fa-female fa-lg light-red"></i>
+                <% else %>
+                  <%= correct.player %>
+                <% end %>
+              </td>
+              <td><%= "#{correct.correct_amount.to_s(:delimited)}円" %></td>
+              <td>
+                <%= link_to correct_path(correct), method: :delete, data:{confirm:"本当に削除していいですか？"} do %>
+                  <%= icon 'fas', 'trash' %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+          <% else %>
+            <p>調整明細がありません</p>
+          <% end %>
+          <%= link_to '調整項目を追加する', month_corrects_path(params[:month_id]), class: 'btn btn-outline-secondary' %>
+        </div>
     <% end %>
     </div>
   </div>

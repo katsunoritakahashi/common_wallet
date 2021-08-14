@@ -1,7 +1,6 @@
 class Deposit < ApplicationRecord
   belongs_to :user
   belongs_to :month
-  has_many :corrects, dependent: :destroy
 
   validates :total_deposit, presence: true
   validates :man_salary, presence: true

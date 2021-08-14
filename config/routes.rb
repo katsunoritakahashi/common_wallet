@@ -19,9 +19,8 @@ Rails.application.routes.draw do
       end
     end
     resources :budgets, only: %i[index create destroy]
-    resources :deposits, only: %i[index create destroy], shallow: true do
-      resources :corrects, only: %i[index create destroy]
-    end
+    resources :deposits, only: %i[index create destroy]
+    resources :corrects, only: %i[index create destroy]
   end
   resources :password_resets, only: %i[new create edit update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
