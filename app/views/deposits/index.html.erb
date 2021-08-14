@@ -53,21 +53,21 @@
             </tr>
           </table>
           <table class="text-center table lg fs-15">
-              <tr>
-                <td></td>
-                <td><i class="fas fa-male fa-lg default-blue"></i></td>
-                <td><i class="fas fa-female fa-lg light-red"></i></td>
-              </tr>
-              <tr>
-                <td>月給</td>
-                <td><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
-                <td><%= "#{@deposit.woman_salary.to_s(:delimited)}円" %></td>
-              </tr>
-              <tr>
-                <td>調整金額</td>
-                <td><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
-                <td><%= "#{@correct_total_woman.to_s(:delimited)}円" %></td>
-              </tr>
+            <tr>
+              <td></td>
+              <td>月給</td>
+              <td>調整金額</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-male fa-lg default-blue"></i></td>
+              <td><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
+              <td><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-female fa-lg light-red"></i></td>
+              <td><%= "#{@deposit.woman_salary.to_s(:delimited)}円" %></td>
+              <td><%= "#{@correct_total_woman.to_s(:delimited)}円" %></td>
+            </tr>
           </table>
           <%= link_to "条件を再設定する", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-outline-secondary' %>
         </div>
