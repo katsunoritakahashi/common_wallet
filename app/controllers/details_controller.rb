@@ -11,6 +11,10 @@ class DetailsController < ApplicationController
     @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc)
   end
 
+  def edit
+    @detail = Detail.find_by(user_id: current_user.id, id: params[:id])
+  end
+
   def create
     @add = Detail.new(detail_params)
     @add.month_id = params[:month_id]
@@ -40,12 +44,24 @@ class DetailsController < ApplicationController
       @detail.status = :not_yet
     end
     @detail.save
+    begin
+      if detail_params_edit
+        if @detail.status == 'not_yet'
+          @detail.status = :done
+        else
+          @detail.status = :not_yet
+        end
+        @detail.update(detail_params_edit) 
+        redirect_back_or_to month_details_path(@detail.month_id), success: '明細を編集しました'
+      end
+    rescue
+    end
   end
 
   def destroy
     @detail = Detail.find_by(user_id: current_user.id, id: params[:id])
     @detail.destroy!
-    #redirect_back_or_to month_details_path(@detail.month_id), success: '削除しました'
+    redirect_back_or_to month_details_path(@detail.month_id), success: '削除しました'
   end
 
   def reimbursement
@@ -57,6 +73,10 @@ class DetailsController < ApplicationController
 
   def detail_params
     params.permit(:date, :classification, :income, :spending, :replayer, :note)
+  end
+
+  def detail_params_edit
+    params.require(:detail).permit(:date, :classification, :income, :spending, :replayer, :note)
   end
 
   def each_month
