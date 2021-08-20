@@ -16,6 +16,17 @@
           <%= link_to '新規登録', new_user_path, class: "nav-link" %>
         </li>
       </ul>
+      <ul class="navbar-nav">
+        <li class='nav-item dropdown dropdown-slide'>
+          <a href='#' class='nav-link' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='header-profile'>
+            <%= "規約" %>
+          </a>
+          <div class='dropdown-menu dropdown-menu-right'>
+            <%= link_to "利用規約", terms_of_service_path, class: 'dropdown-item gray' %>
+            <%= link_to "プライバシーポリシー", privacy_policy_path, class: 'dropdown-item gray' %>
+          </div>
+        </li>
+      </ul>
     </div>
   </nav>
 </div>

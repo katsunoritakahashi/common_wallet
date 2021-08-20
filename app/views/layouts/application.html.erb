@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <%= favicon_link_tag('favicon.ico') %>
     <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
     <link rel="icon" type="image/png" href="android-touch-icon.png" sizes="192x192">
@@ -49,6 +51,5 @@
           <%= yield %>
         </div>
       <% end %>
-      <%= render 'shared/footer' %>
   </body>
 </html>
