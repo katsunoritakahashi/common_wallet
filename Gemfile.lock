@@ -293,6 +293,8 @@ GEM
     semantic-ui-sass (2.4.3.0)
       sassc
     semantic_range (3.0.0)
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     sorcery (0.16.1)
       bcrypt (~> 3.1)
       oauth (~> 0.5, >= 0.5.5)
@@ -364,6 +366,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   semantic-ui-sass
+  serviceworker-rails
   sorcery
   spring
   sqlite3

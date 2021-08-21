@@ -41,6 +41,7 @@ gem 'yen'
 gem 'config', '2.0.0'
 gem 'semantic-ui-sass'
 gem 'kaminari'
+gem "serviceworker-rails"
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'
