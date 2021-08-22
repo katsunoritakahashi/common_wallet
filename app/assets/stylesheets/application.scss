@@ -396,6 +396,18 @@ tr:last-child td:last-child {
   padding: 10px 10px 5px 10px;
   margin: 10px 0 0 0;
 }
+.bgc-orange {
+  background-color: #ffc107;
+}
+.bgc-red {
+  background-color: #ff4107;
+}
+.bgc-blue {
+  background-color: #494cff;
+}
+.bgc-green {
+  background-color: #49ff49;
+}
 .what-common-wallet {
   background-color: white;
   border-radius: 30px;
@@ -422,6 +434,9 @@ h1.left {
 }
 .pb-20 {
   padding-bottom: 20px;
+}
+td.p-0 {
+  padding: initial;
 }
 .left {
   text-align: left;
@@ -520,4 +535,8 @@ h1.left {
 }
 .mb-40{
   margin-bottom: 40px;
+}
+.btn-outline-dark.radius.btn-sm, .btn-group-sm > .btn{
+  border-radius: 20px;
+  padding: 0.3rem 1.5rem;
 }
