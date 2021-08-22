@@ -539,4 +539,15 @@ td.p-0 {
 .btn-outline-dark.radius.btn-sm, .btn-group-sm > .btn{
   border-radius: 20px;
   padding: 0.3rem 1.5rem;
+  font-size: 1rem;
+}
+.badge.badge-pill {
+  font-weight: 100;
+  padding: 0.3em 1.5em;
+  vertical-align: initial;
+  margin: initial;
+}
+.btn.btn-warning {
+  padding: 0.375rem 1.5rem;
+  border-radius: 30px;
 }

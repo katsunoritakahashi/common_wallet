@@ -19,9 +19,12 @@
         </div>
       
       <div class="white-box bottom-shadow col-md-6 width right">
-      <h5 class="text-left black">
-        あといくら残ってる？
-      </h5>
+      <table class="table">
+        <tr>
+          <td class="p-0"><h5 class="text-left black">あといくら残ってる？</h5></td>
+          <td class="p-0 text-right"><%= link_to "予算再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"}, class: 'btn btn-outline-dark btn-sm radius' %></td>
+        </tr>
+      </table>
       <table class="text-center table table-light">
           <tr>
             <td class="text-left fs-15">合計</td>
@@ -189,7 +192,6 @@
         <td class="text-right top"><%= "#{@budget.other.to_s(:delimited)}円" %></td>
       </tr>
     </table>
-    <%= link_to "予算を再設定する", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"}, class: 'btn btn-outline-secondary' %>
     </div>
     <% else %>
       <ul class="list-inline">
