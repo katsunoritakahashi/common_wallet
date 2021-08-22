@@ -35,9 +35,12 @@
           </table>
         </div>
         <div class="stay white-box bottom-shadow">
-          <h5 class="text-left black">
-            金額設定
-          </h5>
+          <table class="table">
+            <tr>
+              <td class="p-0"><h5 class="text-left black">金額設定</h5></td>
+              <td class="p-0 text-right"><%= link_to "条件を再設定する", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-outline-secondary btn-sm radius' %></td>
+            </tr>
+          </table>
           <table class="text-center table lg">
             <tr>
               <td class="gray text-left">入金総額</td>
@@ -69,12 +72,14 @@
               <td><%= "#{@correct_total_woman.to_s(:delimited)}円" %></td>
             </tr>
           </table>
-          <%= link_to "条件を再設定する", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-outline-secondary' %>
         </div>
         <div class="stay white-box bottom-shadow">
-          <h5 class="text-left black">
-            調整項目一覧
-          </h5>
+          <table class="table">
+            <tr>
+              <td class="p-0"><h5 class="text-left black">調整項目一覧</h5></td>
+              <td class="p-0 text-right"><%= link_to '追加する', month_corrects_path(params[:month_id]), class: 'btn btn-outline-secondary btn-sm radius' %></td>
+            </tr>
+          </table>
           <% if @corrects.present? %>
           <table class="text-center table table-hover table-sm">
             <tr>
@@ -107,7 +112,6 @@
           <% else %>
             <p>調整明細がありません</p>
           <% end %>
-          <%= link_to '調整項目を追加する', month_corrects_path(params[:month_id]), class: 'btn btn-outline-secondary' %>
         </div>
       <% else %>
         <ul class="list-inline">
