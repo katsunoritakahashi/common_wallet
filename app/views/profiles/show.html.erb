@@ -18,7 +18,7 @@
               <table class="table">
                 <tr>
                   <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の家計簿") %></h5></td>
-                  <td class="p-0 text-right"><h5 class="btn btn-outline-dark btn-sm radius">もっと見る</h5></td>
+                  <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
                 </tr>
               </table>
               <table class="text-center table lg">
@@ -59,7 +59,7 @@
         <table class="table">
           <tr>
             <td class="p-0"><h5 class="text-left black">あといくら残ってる？</h5></td>
-            <td class="p-0 text-right"><h5 class="btn btn-outline-dark btn-sm radius">もっと見る</h5></td>
+            <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
           </tr>
         </table>
         <table class="text-center table table-light">
@@ -101,7 +101,7 @@
                 <table class="table">
                   <tr>
                     <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月に使ったお金") %></h5></td>
-                    <td class="p-0 text-right"><h5 class="btn btn-outline-dark btn-sm radius">もっと見る</h5></td>
+                    <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
                   </tr>
                 </table>
                 <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
@@ -120,7 +120,7 @@
               <table class="table">
                   <tr>
                     <td class="p-0"><h5 class="text-left black">口座残高</h5></td>
-                    <td class="p-0 text-right"><h5 class="btn btn-outline-dark btn-sm radius">もっと見る</h5></td>
+                    <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
                   </tr>
                 </table>
               <% if @months.present? %>
@@ -141,7 +141,7 @@
             <table class="table">
               <tr>
                 <td class="p-0"><h5 class="text-left black">立て替え精算</h5></td>
-                <td class="p-0 text-right"><h5 class="btn btn-outline-dark btn-sm radius">もっと見る</h5></td>
+                <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
               </tr>
             </table>
             <table class="text-center table lg fs-15">
@@ -173,7 +173,7 @@
           <table class="table">
             <tr>
               <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の入金額") %></h5></td>
-              <td class="p-0 text-right"><h5 class="btn btn-outline-dark btn-sm radius">もっと見る</h5></td>
+              <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
             </tr>
           </table>
           <table class="text-center table lg fs-15">
