@@ -47,7 +47,14 @@ class DetailsController < ApplicationController
     begin
       if detail_params_edit
         @detail.update(detail_params_edit) 
-        @detail.status = :done if @add.replayer == "共通"
+        if @detail.status == 'not_yet'
+          @detail.status = :done
+        elsif @detail.status == 'done'
+          @detail.status = :not_yet
+        else
+          @detail.status = :not_yet
+        end
+        @detail.status = :done if @detail.replayer == "共通"
         @detail.save
         redirect_back_or_to month_details_path(@detail.month_id), success: '明細を編集しました'
       end

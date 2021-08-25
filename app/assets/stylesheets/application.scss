@@ -46,6 +46,9 @@
 .pt-30 {
   padding-top: 30px;
 }
+.pb-20 {
+  padding-bottom: 20px;
+}
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
@@ -257,7 +260,6 @@ html {
 }
 .content {
   margin-top: 53px;
-  padding-bottom: 20px;
 }
 .content-switch {
   margin-top: 70px;
