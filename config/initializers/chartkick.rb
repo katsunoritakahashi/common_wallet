@@ -2,11 +2,11 @@ Chartkick.options = {
   donut: true, # ドーナツグラフ
   curve: false,
   #width: '400px',
-  colors: [ "#f54355",
-            "#34c2d8",
-            "#ffca2c",
-            "#44c562",
-            "#FFFFFF",
+  colors: [ "#ee5d3d",
+            "#6DCED1",
+            "#fdea59",
+            "#5eda96",
+            "#F7ECD2",
           ],
   message: {empty: "データがありません"},
   thousands: ",", 
@@ -31,7 +31,8 @@ Chartkick.options = {
           allowOverlap: false, # ラベルが重なったとき、非表示にする
           #suffix: "％",
           style: { #ラベルフォントの設定
-            color: '#00000',
+            color: '#252525',
+            fontWeight: 300,
             textAlign: 'center', 
             textOutline: 0, #デフォルトではラベルが白枠で囲まれていてダサいので消す
             #suffix: "％",
