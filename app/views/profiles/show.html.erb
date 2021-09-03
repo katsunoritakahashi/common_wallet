@@ -14,7 +14,7 @@
 
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
-            <div class="white-box bottom-shadow">
+            <div class="white-box bottom-shadow btn-6">
               <table class="table">
                 <tr>
                   <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の家計簿") %></h5></td>
