@@ -10,9 +10,15 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 class="border-bottom">精算<span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月 ") %></span></h2>
+      <table class="table">
+        <tr>
+          <td class="p-0"><h2 class="text-left black">精算</h2></td>
+          <td class="p-0"><h2 class="text-right"><span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月 ") %></span></h2></td>
+        </tr>
+      </table>
       <% if @details.present? %>
       <div class="stay">
+        <div class="stay white-box bottom-shadow">
         <table class="text-center table lg">
           <tr>
             <td class="text-left">　現状</td>
@@ -32,8 +38,8 @@
             <td class="text-left border-top border-dark-top">　精算後</td>
             <td class="fs-15 border-top border-dark-top"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
           </tr>
-          
         </table>
+        </div>
       <div class="stay white-box bottom-shadow">
         <h5 class="text-left black">
           精算内訳
@@ -76,7 +82,7 @@
           </tr>
           <% @details.each do |detail| %>
           <tr class="table-light">
-            <td><%= detail.date.strftime("%-m月%-d日") %></td>
+            <td><%= detail.date.strftime("%-m/%-d") %></td>
             <td>
             <% if detail.classification == 'rent' %>
               <i class="fas fa-home fa-lg red"></i>

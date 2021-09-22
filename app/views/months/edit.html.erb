@@ -10,7 +10,7 @@
 <div class="container mt-70">
   <div class="row">
     <div class="col">
-    <h2 class="border-bottom">残高修正 <span class="gray fs-07"><%= @month.month.strftime("%Y年%-m月") %></span></h2>
+    <h2 class="text-left">残高修正 <span class="gray fs-07"><%= @month.month.strftime("%Y年%-m月") %></span></h2>
       <div class="col-sm-12">
         <ul class="list-inline"><br>
           <%= form_with model: @month, local: true do |f| %>

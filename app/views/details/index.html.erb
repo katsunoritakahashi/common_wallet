@@ -10,7 +10,12 @@
 <div class="container">
   <div class="row">
     <div class="col">
-    <h2 class="border-bottom">明細<span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月") %></span>
+    <table class="table">
+      <tr>
+        <td class="p-0"><h2 class="text-left black">明細</h2></td>
+        <td class="p-0"><h2 class="text-right"><span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月 ") %></span></h2></td>
+      </tr>
+    </table>
     </h2>
         <div id="js-table-detail">
           <%= render partial: 'details/detail', locals: { details: @details } %>
