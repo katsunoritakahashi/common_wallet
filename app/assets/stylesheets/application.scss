@@ -49,6 +49,9 @@
 .pb-20 {
   padding-bottom: 20px;
 }
+.p-0 {
+  padding: 0;
+}
 // 大デバイス（デスクトップ, 1200px 未満）
 @media (min-width: 992px) {
   body {
@@ -89,6 +92,9 @@
   }
   h4 {
     font-size: 1.2rem;
+  }
+  h5 {
+    font-weight: 100 !important;
   }
   .stay{
     font-size: 0.9rem;
@@ -221,7 +227,7 @@ a:hover {
   color: #ddaef8;
 }
 .black {
-  color: #585858;
+  color: #242424;
 }
 .brown {
   color: #be6a6a;
@@ -332,7 +338,6 @@ span.font-size.orange {
   width: 100%;
   background: #FFFFFF;
   margin: 10px 0px;
-  border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 1rem;
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
@@ -554,4 +559,7 @@ td.p-0 {
 .btn.btn-warning {
   padding: 0.375rem 1.5rem;
   border-radius: 30px;
+}
+.form-control{
+  border: initial;
 }

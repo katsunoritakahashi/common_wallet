@@ -10,7 +10,7 @@
 <div class="container mt-70 mt-50 pb-20">
   <div class="row">
     <div class="col">
-      <h2 class="border-bottom display-xs-none"><%= "#{current_user.name}の家計簿" %></h2>
+      <h2 class="display-xs-none"><%= "#{current_user.name}の家計簿" %></h2>
 
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
@@ -58,14 +58,14 @@
         <div class="white-box bottom-shadow">
         <table class="table">
           <tr>
-            <td class="p-0"><h5 class="text-left black">あといくら残ってる？</h5></td>
+            <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の予算") %></h5></td>
             <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
           </tr>
         </table>
         <table class="text-center table table-light">
           <tr>
-            <td class="text-left fs-15">合計</td>
-            <td class="text-right fs-12">
+            <td class="text-left fs-15 bottom">合計</td>
+            <td class="text-right fs-12 bottom">
               <% if @spending_total > @budget_total %>
                 <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
               <% else %> 
@@ -100,7 +100,7 @@
               <div class="white-box bottom-shadow pt-30 col-md-5 width">
                 <table class="table">
                   <tr>
-                    <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月に使ったお金") %></h5></td>
+                    <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の支出") %></h5></td>
                     <td class="p-0 text-right"><h5 class="badge badge-pill badge-secondary">もっと見る</h5></td>
                   </tr>
                 </table>
@@ -110,7 +110,7 @@
           <% else %>
             <%= link_to months_path do %>
               <div class="white-box bottom-shadow pt-30 col-md-5 width">
-                <h5 class="text-left black">今月に使ったお金</h5>
+                <h5 class="text-left black"><%= @month.month.strftime("%-m月の支出") %></h5>
                 <p>　今月はまだ支出がありません。</p>
               </div>
             <% end %>
@@ -182,11 +182,11 @@
                 <td class="text-left bottom">共通財布に<span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span>入金する</td>
               </tr>
               <tr>
-                <td colspan="2" class="gray top text-right fs-07">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.man_salary- @man_deposit).to_s(:delimited)}円" %></span></td>
+                <td colspan="2" class="gray top text-right fs-07 bottom">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.man_salary- @man_deposit).to_s(:delimited)}円" %></span></td>
               </tr>
               <tr>
-                <td class="text-right bottom"><i class="fas fa-female fa-lg light-red"></i></td>
-                <td class="text-left bottom">共通財布に<span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span>入金する</td>
+                <td class="text-right bottom top"><i class="fas fa-female fa-lg light-red"></i></td>
+                <td class="text-left bottom top">共通財布に<span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span>入金する</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.woman_salary- @woman_deposit).to_s(:delimited)}円" %></span></td>

@@ -1,5 +1,5 @@
 
-    
+    <div class="stay white-box bottom-shadow">
     <table class="text-center table lg">
       <tr>
         <td class="gray text-left">口座残高</td>
@@ -25,9 +25,11 @@
         <td class="top"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited)}円" %></td>
       </tr>
     </table>
+    </div>
+    <div class="stay white-box bottom-shadow">
     <table class="text-center table lg">
       <tr>
-        <td colspan="2" class="bottom gray text-left">すべての収支</td>
+        <td colspan="2" class="bottom gray text-left">今月の収支</td>
       </tr>
       <tr>
         <td class="width-50">収入</td>
@@ -53,6 +55,7 @@
       </tr>
       
     </table>
+    </div>
 <div class="stay white-box bottom-shadow mb-40">
   <h5 class="text-left black">
     記録一覧
