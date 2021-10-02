@@ -8,7 +8,7 @@ class DetailsController < ApplicationController
   end
 
   def index
-    @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc)
+    @details = Detail.where(user_id: current_user.id, month_id: params[:month_id]).includes(:month).order(date: :asc, id: :asc)
   end
 
   def edit
