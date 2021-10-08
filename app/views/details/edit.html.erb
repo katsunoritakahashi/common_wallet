@@ -48,13 +48,10 @@
             <%= f.label :どの財布で支払った？ %>
             <%= f.select :replayer,[["旦那さん", "旦那"], ["奥さん", "嫁"], ["共通財布", "共通"]],{ include_blank: ''}, class: 'form-control form-control-lg select' %>
             </div>
-          </div>
-          <div class="block-center">
-          <%= link_to "キャンセル　" ,month_details_path(@detail.month_id) ,class:"inline-block" %>
-          <div class="actions inline-block">
-            <%= f.submit '修正', class: 'btn btn-warning' %>
-          </div>
-          </div>
+          </div><br>
+          
+          <%= f.submit '修正', class: 'btn btn-warning' %><br><br>
+          <%= link_to "キャンセル" ,month_details_path(@detail.month_id) %>
       <% end %>
       <br><%= link_to "明細を消去", detail_path(@detail), method: :delete, data:{confirm:"本当に消去していいですか？"}, class: 'btn btn-outline-danger' %>
     </div>

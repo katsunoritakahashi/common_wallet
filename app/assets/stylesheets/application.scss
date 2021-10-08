@@ -17,7 +17,9 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
-
+.btn {
+  width: 90%;
+}
  .fa-trash:before{
   color:#708090;
  }
@@ -314,12 +316,12 @@ html {
   padding-top: 10px;
 }
 .switch a {
-  color: #8d8d8d;
+  color: #5e5e5e;
 }
 
 span.font-size {
   font-size: 0.8rem;
-  color: #8d8d8d;
+  color: #5e5e5e;
 }
 span.font-size.orange {
   font-size: 0.8rem;
