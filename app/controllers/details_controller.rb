@@ -73,6 +73,13 @@ class DetailsController < ApplicationController
     @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
   end
 
+  def done
+    @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
+
+    @details.update_all(status: :done)
+    redirect_back_or_to month_details_path(params[:month_id]), success: '精算を完了しました'
+  end
+
   private
 
   def detail_params
