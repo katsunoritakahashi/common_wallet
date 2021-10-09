@@ -6,7 +6,7 @@ Chartkick.options = {
             "#45A1CF",
             "#F6CA06",
             "#23AC0E",
-            "#F7ECD2",
+            "#AAAAAA",
           ],
   message: {empty: "データがありません"},
   thousands: ",", 
@@ -31,7 +31,7 @@ Chartkick.options = {
           allowOverlap: false, # ラベルが重なったとき、非表示にする
           #suffix: "％",
           style: { #ラベルフォントの設定
-            color: '#000000',
+            color: '#FFFFFF',
             fontWeight: 300,
             textAlign: 'center', 
             textOutline: 0, #デフォルトではラベルが白枠で囲まれていてダサいので消す
