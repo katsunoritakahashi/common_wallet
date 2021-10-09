@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :details, only: %i[new edit index create destroy update] do
       collection do
         get :reimbursement
+        patch :done
       end
     end
     resources :budgets, only: %i[index create destroy]
