@@ -141,7 +141,7 @@
           </tr>
           <% end %>
         </table>
-        <p>※ステータスが「未済」かつ本日以前の明細が精算対象となります。</p>
+        <p>※本日以前の明細が精算対象となります。</p>
       <%= link_to "精算完了", done_month_details_path(params[:month_id]), method: :patch, data:{confirm:"精算を完了しますか？"}, class: 'btn btn-warning mb-10' %>
       </div>
       <% else %>
