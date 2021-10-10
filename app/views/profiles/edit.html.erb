@@ -15,33 +15,31 @@
       <div class="row">
         <aside class="col-sm-0 col-md-2 col-lg-2 col-xl-2"></aside>
         <aside class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
-          <div class="card">
             <article class="card-body">
               <h4 class="card-title text-center mb-4 mt-1">ユーザー情報変更</h4>
               <hr>
                 <%= form_with model: @profile_edit, url: profile_path, local: true do |f| %>
                   <div class="form-group">
-                    <h3><%= f.label :ユーザー名 %></h3>
-                    <%= f.text_field :name, class: 'form-control',value: "#{current_user.name}" %>
+                    <h5 class="text-left"><%= f.label :ユーザー名 %></h5>
+                    <%= f.text_field :name, class: 'form-control ml-20',value: "#{current_user.name}" %>
                   </div>
                   <div class="form-group">
-                    <h3><%= f.label :メールアドレス %></h3>
-                    <%= f.email_field :email, class: 'form-control',value: "#{current_user.email}" %>
+                    <h5 class="text-left"><%= f.label :メールアドレス %></h5>
+                    <%= f.email_field :email, class: 'form-control ml-20',value: "#{current_user.email}" %>
                   </div>
                   <div class="form-group">
-                    <h3><%= f.label :パスワード %></h3>
-                    <%= f.password_field :password, class: 'form-control' %>
+                    <h5 class="text-left"><%= f.label :パスワード %></h5>
+                    <%= f.password_field :password, class: 'form-control ml-20' %>
                   </div>
                   <div class="form-group">
-                    <h3><%= f.label :パスワード確認 %></h3>
-                    <%= f.password_field :password_confirmation, class: 'form-control' %>
+                    <h5 class="text-left"><%= f.label :パスワード確認 %></h5>
+                    <%= f.password_field :password_confirmation, class: 'form-control ml-20' %>
                   </div>
                   <div class="actions">
-                    <%= f.submit '変更', class: 'btn btn-warning' %>
+                    <%= f.submit '変更', class: 'btn btn-warning mt-20' %>
                   </div>
                 <% end %>
             </article>
-          </div>
         </aside>
         <aside class="col-sm-0 col-md-2 col-lg-2 col-xl-2"></aside>
       </div>
