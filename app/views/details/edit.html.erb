@@ -50,7 +50,7 @@
             </div>
           </div><br>
           
-          <%= f.submit '修正', class: 'btn btn-warning btn-lg' %><br><br>
+          <%= f.submit '修正する', class: 'btn btn-warning btn-lg' %><br><br>
           <%= link_to "キャンセル" ,month_details_path(@detail.month_id), class: 'btn btn-outline-warning btn-lg' %>
       <% end %>
       <br><%= link_to "明細を消去", detail_path(@detail), method: :delete, data:{confirm:"本当に消去していいですか？"}, class: 'btn btn-outline-danger btn-lg' %>

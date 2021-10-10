@@ -142,7 +142,7 @@
           <% end %>
         </table>
         <p>※本日以前の明細が精算対象となります。</p>
-      <%= link_to "精算完了", done_month_details_path(params[:month_id]), method: :patch, data:{confirm:"精算を完了しますか？"}, class: 'btn btn-warning mb-10' %>
+      <%= link_to "精算を完了する", done_month_details_path(params[:month_id]), method: :patch, data:{confirm:"精算を完了しますか？"}, class: 'btn btn-warning mb-10' %>
       </div>
       <% else %>
       <p>精算はありません</p>
