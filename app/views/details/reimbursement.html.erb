@@ -21,12 +21,12 @@
         <div class="stay white-box bottom-shadow">
         <table class="text-center table lg">
           <tr>
-            <td class="text-left">　現状</td>
-            <td class="fs-15"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+            <td class="text-left mt-0">　今の残高</td>
+            <td class="fs-15 mt-0"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
           </tr>
           <tr>
-            <td class="text-left">　精算額</td>
-            <td class="fs-15">
+            <td class="text-left mt-0">　精算額</td>
+            <td class="fs-15 mt-0">
               <% if @balance_of_payments_not_common >= 0 %>
                 <span class="default-blue"><%= "+#{(@balance_of_payments_not_common).to_s(:delimited)}円" %></span>
               <% else %>
@@ -35,7 +35,7 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left border-top border-dark-top">　精算後</td>
+            <td class="text-left border-top border-dark-top">　精算後残高</td>
             <td class="fs-15 border-top border-dark-top"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
           </tr>
         </table>
