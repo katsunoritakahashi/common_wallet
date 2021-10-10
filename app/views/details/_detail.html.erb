@@ -29,19 +29,19 @@
     <div class="stay white-box bottom-shadow">
     <table class="text-center table lg">
       <tr>
-        <td colspan="2" class="bottom gray text-left">今月の収支</td>
+        <td colspan="2" class="bottom gray text-left top">今月の収支</td>
       </tr>
       <tr>
         <td class="width-50">収入</td>
         <td class="fs-15 vertical-top"><%= "#{@income_total.to_s(:delimited)}円" %></td>
       </tr>
       <tr>
-        <td>支出</td>
-        <td class="fs-15 vertical-top"><%= "#{@spending_total.to_s(:delimited)}円" %></td>
+        <td class="width-50 mt-0">支出</td>
+        <td class="fs-15 vertical-top top"><%= "#{@spending_total.to_s(:delimited)}円" %></td>
       </tr>
       <tr>
-        <td class="border-top border-dark-top">収支</td>
-        <td class="fs-15 vertical-top border-top border-dark-top">
+        <td class="border-top border-dark-top mb-0">収支</td>
+        <td class="fs-15 vertical-top border-top border-dark-top mb-0">
           <% if @balance_of_payments >= 0 %>
           <div class="default-blue">
             <%= "+#{@balance_of_payments.to_s(:delimited)}円 " %>
