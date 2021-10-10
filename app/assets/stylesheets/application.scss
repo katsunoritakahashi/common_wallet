@@ -512,6 +512,9 @@ td.p-0 {
   vertical-align: top;
   padding-top: initial;
 }
+.table th.top,.table td.mt-0{
+  padding-top: initial;
+}
 .table th.bottom,.table td.bottom{
   vertical-align: bottom;
   padding-bottom: initial;
@@ -578,4 +581,9 @@ td.p-0 {
 }
 .form-control{
   border: initial;
+}
+.btn.btn-outline-secondary.btn-sm{
+  width: initial;
+  padding-left: 20px;
+  padding-right: 20px;
 }
