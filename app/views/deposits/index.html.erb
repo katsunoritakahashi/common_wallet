@@ -24,14 +24,14 @@
           </h5>
           <table class="text-center table lg fs-15">
               <tr>
-                <td class="text-right bottom"><i class="fas fa-male fa-lg default-blue"></i></td>
+                <td class="text-right bottom"><i class="fas fa-circle fa-lg default-blue"></i></td>
                 <td class="text-left bottom">共通財布に<span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span>入金する</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07 bottom">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.man_salary- @man_deposit).to_s(:delimited)}円" %></span></td>
               </tr>
               <tr>
-                <td class="text-right bottom top"><i class="fas fa-female fa-lg light-red"></i></td>
+                <td class="text-right bottom top"><i class="fas fa-circle fa-lg red"></i></td>
                 <td class="text-left bottom top">共通財布に<span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span>入金する</td>
               </tr>
               <tr>
@@ -62,12 +62,12 @@
               <td>調整金額</td>
             </tr>
             <tr>
-              <td><i class="fas fa-male fa-lg default-blue"></i></td>
+              <td><i class="fas fa-circle fa-lg default-blue"></i></td>
               <td><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
               <td><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
             </tr>
             <tr>
-              <td><i class="fas fa-female fa-lg light-red"></i></td>
+              <td><i class="fas fa-circle fa-lg red"></i></td>
               <td><%= "#{@deposit.woman_salary.to_s(:delimited)}円" %></td>
               <td><%= "#{@correct_total_woman.to_s(:delimited)}円" %></td>
             </tr>
@@ -87,8 +87,8 @@
           <% if @corrects.present? %>
           <table class="text-center table table-hover table-sm">
             <tr>
-              <th>対象者</th>
-              <th>項目</th>
+              <th>対象</th>
+              <th>調整名</th>
               <th>調整額/調整率</th>
               <th></th>
             </tr>
@@ -96,9 +96,9 @@
             <tr class="table-light">
               <td>
                 <% if correct.player == '旦那' %>
-                  <i class="fas fa-male fa-lg default-blue"></i>
+                  <i class="fas fa-circle fa-lg default-blue"></i>
                 <% elsif correct.player == '嫁' %>
-                  <i class="fas fa-female fa-lg light-red"></i>
+                  <i class="fas fa-circle fa-lg red"></i>
                 <% else %>
                   <%= correct.player %>
                 <% end %>
@@ -151,8 +151,8 @@
           <% if @corrects.present? %>
           <table class="text-center table table-hover table-sm">
             <tr>
-              <th>対象者</th>
-              <th>項目</th>
+              <th>対象</th>
+              <th>調整名</th>
               <th>調整額/調整率</th>
               <th></th>
             </tr>
@@ -160,9 +160,9 @@
             <tr class="table-light">
               <td>
                 <% if correct.player == '旦那' %>
-                  <i class="fas fa-male fa-lg default-blue"></i>
+                  <i class="fas fa-circle fa-lg default-blue"></i>
                 <% elsif correct.player == '嫁' %>
-                  <i class="fas fa-female fa-lg light-red"></i>
+                  <i class="fas fa-circle fa-lg red"></i>
                 <% else %>
                   <%= correct.player %>
                 <% end %>

@@ -49,9 +49,9 @@
             <tr>
               <td class="text-right">
                 <% if replayer.replayer == '旦那' %>
-                  <i class="fas fa-male fa-lg default-blue"></i>
+                  <i class="fas fa-circle fa-lg default-blue"></i>
                 <% elsif replayer.replayer == '嫁' %>
-                  <i class="fas fa-female fa-lg light-red"></i>
+                  <i class="fas fa-circle fa-lg red"></i>
                 <% else %>
                   <%= replayer.replayer %>
                 <% end %>
@@ -130,9 +130,9 @@
             </td>
             <td>
               <% if detail.replayer == '旦那' %>
-                <i class="fas fa-male fa-lg default-blue"></i>
+                <i class="fas fa-circle default-blue"></i>
               <% elsif detail.replayer == '嫁' %>
-                <i class="fas fa-female fa-lg light-red"></i>
+                <i class="fas fa-circle red"></i>
               <% else %>
                 <%= detail.replayer %>
               <% end %>
