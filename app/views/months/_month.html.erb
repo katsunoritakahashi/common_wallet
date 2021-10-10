@@ -10,7 +10,7 @@
 <table class="text-center table">
     <% months.each do |month| %>
       <tr id="month-trash-button-<%=month.id%>">
-        <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'radius btn btn-sm btn-warning' %></td>
+        <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'btn btn-outline-secondary' %></td>
         <td class="text-right fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
 
         <td class="text-left fs-07">
