@@ -19,12 +19,12 @@
                 <%= f.label :前月末の残高 %>
                 <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: @month.balance %>
               </div>
-            </div><br><br><br>
+            </div><br>
             <%= f.submit '更新', class: 'btn btn-warning btn-lg' %><br><br>
-            <%= link_to "キャンセル" ,months_path, class: 'btn btn-outline-warning btn-lg' %>
+            <%= link_to "キャンセル" ,months_path, class: 'btn btn-outline-warning btn-lg' %><br><br>
+            <%= link_to "家計簿を消去", month_path(@month), method: :delete, data:{confirm:"本当に消去していいですか？当月の記録はすべて消去されます。"}, class: 'btn btn-outline-danger btn-lg' %>
           <% end %>
         </ul>
-        <br><%= link_to "家計簿を消去", month_path(@month), method: :delete, data:{confirm:"本当に消去していいですか？当月の記録はすべて消去されます。"}, class: 'btn btn-outline-danger btn-lg' %>
       </div>
     </div>
   </div>
