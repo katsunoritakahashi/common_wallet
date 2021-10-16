@@ -36,18 +36,15 @@
                     <%= f.password_field :password_confirmation, class: 'form-control ml-20' %>
                   </div>
                   <div class="actions">
-                    <%= f.submit '変更する', class: 'btn btn-warning mt-20' %>
+                    <%= f.submit '変更する', class: 'btn btn-warning btn-lg mt-20' %><br><br>
                   </div>
+                  <%= link_to "キャンセル",profile_path, class: "btn btn-outline-warning btn-lg" %><br><br>
+                  <%= link_to 'ユーザーを削除する', profile_path, class: 'btn btn-outline-danger btn-lg', method: :delete, data:{confirm:"本当に削除していいですか？"} %>
                 <% end %>
             </article>
         </aside>
         <aside class="col-sm-0 col-md-2 col-lg-2 col-xl-2"></aside>
       </div>
-    </div>
-
-    <div class="my-4 text-center">
-      <%= link_to "ホーム画面へ",profile_path, class: "btn btn-outline-secondary" %><br><br>
-      <%= link_to 'ユーザーを削除する', profile_path, class: 'btn btn-outline-danger', method: :delete, data:{confirm:"本当に削除していいですか？"} %>
     </div>
   </body>
 </html>
