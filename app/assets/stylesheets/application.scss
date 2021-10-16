@@ -581,6 +581,10 @@ td.p-0 {
 }
 .form-control{
   border: initial;
+  border-radius: initial;
+  border-bottom-color: rgb(119, 119, 119);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
 }
 .btn.btn-outline-secondary.btn-sm{
   width: initial;
@@ -588,5 +592,8 @@ td.p-0 {
   padding-right: 20px;
 }
 .btn.btn-outline-warning.btn-lg{
+  background-color: #fff;
+}
+body.bgc-white{
   background-color: #fff;
 }

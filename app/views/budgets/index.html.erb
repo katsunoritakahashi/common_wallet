@@ -7,6 +7,7 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
+<% if @budget %>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -16,7 +17,6 @@
         <td class="p-0"><h2 class="text-right"><span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月 ") %></span></h2></td>
       </tr>
     </table>
-    <% if @budget %>
       <div class="box">
         <div class="white-box bottom-shadow col-md-5 width">
           <h5 class="text-left black">支出の内訳</h5>
@@ -194,38 +194,52 @@
       </tr>
     </table>
     </div>
-    <% else %>
-      <ul class="list-inline">
-        ※予算を設定して下さい
-        <%= form_with model: @add, local: true do |f| %>
-          <div class="form-group text-left">
-            <%= f.label :家賃 %>
-            <%= f.number_field :rent, class: 'form-control form-control-lg' %>
-          </div>
-          <div class="form-group text-left">
-            <%= f.label :生活費 %>
-            <%= f.number_field :life, class: 'form-control form-control-lg' %>
-          </div>
-          <div class="form-group text-left">
-            <%= f.label :食費 %>
-            <%= f.number_field :food, class: 'form-control form-control-lg' %>
-          </div>
-          <div class="form-group text-left">
-            <%= f.label :交際費 %>
-            <%= f.number_field :enjoy, class: 'form-control form-control-lg' %>
-          </div>
-          <div class="form-group text-left">
-            <%= f.label :その他 %>
-            <%= f.number_field :other, class: 'form-control form-control-lg' %>
-          </div><br>
-          <%= f.submit '設定', class: 'btn btn-warning' %>
-        <% end %>
-      </ul>
-    <% end %>
     </div>
   </div>
   </div>
 </div>
+<% else %>
+<body class="bgc-white">
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <table class="table">
+      <tr>
+        <td class="p-0"><h2 class="text-left black">分析</h2></td>
+        <td class="p-0"><h2 class="text-right"><span class="gray fs-07"><%= @month.month.strftime(" %Y年%-m月 ") %></span></h2></td>
+      </tr>
+    </table>
+  <ul class="list-inline">
+    ※予算を設定して下さい
+    <%= form_with model: @add, local: true do |f| %>
+      <div class="form-group text-left">
+        <%= f.label :家賃 %>
+        <%= f.number_field :rent, class: 'form-control form-control-lg' %>
+      </div>
+      <div class="form-group text-left">
+        <%= f.label :生活費 %>
+        <%= f.number_field :life, class: 'form-control form-control-lg' %>
+      </div>
+      <div class="form-group text-left">
+        <%= f.label :食費 %>
+        <%= f.number_field :food, class: 'form-control form-control-lg' %>
+      </div>
+      <div class="form-group text-left">
+        <%= f.label :交際費 %>
+        <%= f.number_field :enjoy, class: 'form-control form-control-lg' %>
+      </div>
+      <div class="form-group text-left">
+        <%= f.label :その他 %>
+        <%= f.number_field :other, class: 'form-control form-control-lg' %>
+      </div><br>
+      <%= f.submit '設定', class: 'btn btn-warning btn-lg' %>
+    <% end %>
+  </ul>
+<% end %>
+  </div>
+  </div>
+</div>
+</body>
 <footer class="switch_footer">
   <div class="switch top-shadow">
     <div class="container">

@@ -118,25 +118,26 @@
           <% end %>
         </div>
       <% else %>
+      <div class="white-box bottom-shadow btn-6">
         <ul class="list-inline">
           ※条件を設定して下さい
           <%= form_with model: @add, local: true do |f| %>
                 <div class="form-group text-left">
                   <%= f.label :入金総額 %>
-                  <%= f.number_field :total_deposit, class: 'form-control form-control-lg', placeholder: '' %>
+                  <%= f.number_field :total_deposit, class: 'form-control form-control-lg bgc-gray', placeholder: '' %>
                 </div><br>
                 <div class="form-group text-left">
                   <%= f.label :旦那さんの月給 %>
-                  <%= f.number_field :man_salary, class: 'form-control form-control-lg', placeholder: '' %>
+                  <%= f.number_field :man_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '' %>
                 </div><br>
                 <div class="form-group text-left">
                   <%= f.label :奥さんの月給 %>
-                  <%= f.number_field :woman_salary, class: 'form-control form-control-lg', placeholder: '' %>
+                  <%= f.number_field :woman_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '' %>
                 </div><br>
-                <%= f.submit '設定する', class: 'btn btn-warning btn-lg' %>
+                <%= f.submit '設定する', class: 'btn btn-warning' %>
           <% end %>
         </ul>
-        <br>
+        </div>
         <div class="stay white-box bottom-shadow">
           <table class="table">
             <tr>
