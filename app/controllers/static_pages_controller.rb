@@ -6,4 +6,5 @@ class StaticPagesController < ApplicationController
   def terms_of_service;end
   def privacy_policy;end
   def help;end
+  def test;end
 end

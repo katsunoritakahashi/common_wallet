@@ -7,13 +7,47 @@
 
   gtag('config', 'G-LKBSFQGWRN');
 </script>
+<header>
+<div class='fixed-top bottom-shadow'>
+  <div class="header">
+    <table class="table">
+      <tr>
+        <td class="p-0"><h2 class="white pt-15 text-left pl-50">入金調整</h2></td>
+      </tr>
+    </table>
+  </div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li class="text-left"><i class="fas fa-home fa-lg"></i><%= link_to ' ホーム', profile_path %></li>
+      <li class="text-left"><i class="fas fa-donate fa-lg"></i><%= link_to ' 家計簿一覧', months_path %></li>
+      <% if @authenticated_this_month.present? %>
+        <li class="text-left"><i class="fas fa-list fa-lg"></i><%= link_to ' 明細', month_details_path(@authenticated_this_month.id) %></li>
+        <li class="text-left"><i class="fas fa-exchange-alt fa-lg"></i><%= link_to ' 精算', reimbursement_month_details_path(@authenticated_this_month.id) %></li>
+        <li class="text-left"><i class="fas fa-chart-pie fa-lg"></i><%= link_to ' 分析', month_budgets_path(@authenticated_this_month.id) %></li>
+        <li class="text-left"><i class="fas fa-donate fa-lg"></i><%= link_to ' 入金', month_deposits_path(@authenticated_this_month.id) %></li>
+      <% end %>
+      <% if current_user.name == "ゲストユーザー" %>
+        <li class="text-left"><i class="fas fa-user fa-lg"></i><%= link_to " #{current_user.name}", profile_path %></li>
+      <% else %>
+        <li class="text-left"><%= link_to "#{current_user.name}", edit_profile_path %></li>
+      <% end %>
+      <li class="text-left"><i class="fas fa-file-alt fa-lg"></i><%= link_to " 利用規約", terms_of_service_path %></li>
+      <li class="text-left"><i class="fas fa-file-alt fa-lg"></i><%= link_to " プライバシーポリシー", privacy_policy_path %></li>
+      <li class="text-left"><i class="fas fa-sign-out-alt fa-lg"></i><%= link_to ' ログアウト', logout_path, method: :delete %></li>
+    </ul>
+  </div>
+</div>
+</header>
 <body class="bgc-white">
 <div class="container mt-70">
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="text-left">
-        入金調整
-      </h2>
       <%= form_with model: @detail, local: true do |f| %>
           <div class="form-group">
             <div class="w-200 text-left">
@@ -38,7 +72,7 @@
             <div class="w-200 text-left">
               <%= f.label :調整率 %>
               <%= f.number_field :rate, class: 'form-control form-control-lg', placeholder: '' %>
-            <p>※補正率は未入力の場合は「100(%)」となります。</p>
+            <p>※調整率は未入力の場合は100(%)となります。</p>
             </div>
           </div><br>
           

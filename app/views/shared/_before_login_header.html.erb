@@ -1,33 +1,21 @@
+
 <header>
 <div class='fixed-top bottom-shadow'>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <a class='navbar-brand' href='/'>
-      <%= image_tag 'top-header.png', width: '130', height: '30'%>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to 'ログイン', login_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '新規登録', new_user_path, class: "nav-link" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class='nav-item dropdown dropdown-slide'>
-          <a href='#' class='nav-link' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='header-profile'>
-            <%= "規約" %>
-          </a>
-          <div class='dropdown-menu dropdown-menu-right'>
-            <%= link_to "利用規約", terms_of_service_path, class: 'dropdown-item gray' %>
-            <%= link_to "プライバシーポリシー", privacy_policy_path, class: 'dropdown-item gray' %>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div class="header"></div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li class="text-left"><%= link_to 'トップ', root_path %></li>
+      <li class="text-left"><%= link_to 'ログイン', login_path %></li>
+      <li class="text-left"><%= link_to '新規登録', new_user_path %></li>
+      <li class="text-left"><%= link_to "利用規約", terms_of_service_path %></li>
+      <li class="text-left"><%= link_to "プライバシーポリシー", privacy_policy_path %></li>
+    </ul>
+  </div>
 </div>
 </header>
