@@ -31,7 +31,7 @@
       <% if current_user.name == "ゲストユーザー" %>
         <li class="text-left"><i class="fas fa-user fa-lg"></i><%= link_to " #{current_user.name}", profile_path %></li>
       <% else %>
-        <li class="text-left"><%= link_to "#{current_user.name}", edit_profile_path %></li>
+        <li class="text-left"><i class="fas fa-user fa-lg"></i><%= link_to "#{current_user.name}", edit_profile_path %></li>
       <% end %>
       <li class="text-left"><i class="fas fa-file-alt fa-lg"></i><%= link_to " 利用規約", terms_of_service_path %></li>
       <li class="text-left"><i class="fas fa-file-alt fa-lg"></i><%= link_to " プライバシーポリシー", privacy_policy_path %></li>
