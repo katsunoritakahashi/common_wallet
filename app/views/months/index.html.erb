@@ -39,7 +39,7 @@
       <% end %>
       <li class="text-left"><i class="fas fa-file-alt fa-lg"></i><%= link_to " 利用規約", terms_of_service_path %></li>
       <li class="text-left"><i class="fas fa-file-alt fa-lg"></i><%= link_to " プライバシーポリシー", privacy_policy_path %></li>
-      <li class="text-left"><i class="fas fa-sign-out-alt fa-lg"></i><%= link_to ' ログアウト', logout_path, method: :delete %></li>
+      <li class="text-left"><i class="fas fa-sign-out-alt fa-lg"></i><%= link_to ' ログアウト', logout_path, method: :delete, data:{confirm:"ログアウトしますか？"} %></li>
     </ul>
   </div>
 </div>
