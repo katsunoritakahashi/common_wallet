@@ -8,8 +8,8 @@
   gtag('config', 'G-LKBSFQGWRN');
 </script>
 <header>
-<div class='fixed-top bottom-shadow'>
-  <div class="header">
+<div class='fixed-top'>
+  <div class="header bottom-shadow">
     <table class="table">
       <tr>
         <td class="p-0"><h2 class="white pt-15 text-left pl-50">精算</h2></td>
@@ -183,7 +183,7 @@
       <%= link_to "精算を完了する", done_month_details_path(params[:month_id]), method: :patch, data:{confirm:"精算を完了しますか？"}, class: 'btn btn-warning mb-10' %>
       </div>
       <% else %>
-      <p>精算はありません</p>
+      <p class="pt-30">精算はありません</p>
       <% end %>
     </div>
     </div>
