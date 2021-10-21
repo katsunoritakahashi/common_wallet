@@ -10,11 +10,11 @@
   </label>
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
-      <li class="text-left"><%= link_to 'トップ', root_path %></li>
-      <li class="text-left"><%= link_to 'ログイン', login_path %></li>
-      <li class="text-left"><%= link_to '新規登録', new_user_path %></li>
-      <li class="text-left"><%= link_to "利用規約", terms_of_service_path %></li>
-      <li class="text-left"><%= link_to "プライバシーポリシー", privacy_policy_path %></li>
+      <%= link_to root_path do %><li class="text-left">トップ</li><% end %>
+      <%= link_to login_path do %><li class="text-left">ログイン</li><% end %>
+      <%= link_to new_user_path do %><li class="text-left">新規登録</li><% end %>
+      <%= link_to terms_of_service_path do %><li class="text-left">利用規約</li><% end %>
+      <%= link_to privacy_policy_path do %><li class="text-left">プライバシーポリシー</li><% end %>
     </ul>
   </div>
 </div>
