@@ -49,6 +49,12 @@
 <div class="container">
   <div class="row">
     <div class="col">
+      <% if current_user.name == "ゲストユーザー" %>
+        <div class="invite-resister">
+          <p class="mb-5">閲覧中のデータはサンプルです</p>
+          <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
+        </div>
+      <% end %>
       <div class="box">
         <div class="white-box bottom-shadow col-md-5 width">
           <h5 class="text-left black">支出の内訳</h5>
@@ -230,6 +236,12 @@
   </div>
 </div>
 <% else %>
+      <% if current_user.name == "ゲストユーザー" %>
+        <div class="invite-resister">
+          <p class="mb-5">閲覧中のデータはサンプルです</p>
+          <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
+        </div>
+      <% end %>
 <body class="bgc-white">
 <div class="container pt-15">
   <div class="row">

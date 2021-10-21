@@ -47,6 +47,12 @@
 <div class="container mt-70">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <% if current_user.name == "ゲストユーザー" %>
+        <div class="invite-resister">
+          <p class="mb-5">閲覧中のデータはサンプルです</p>
+          <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
+        </div>
+      <% end %>
       <%= form_with model: @add, url: month_details_path, local: true do |f| %>
           <div class="form-group">
             <div class="w-200 text-left">

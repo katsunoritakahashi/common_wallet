@@ -44,6 +44,12 @@
 <div class="container mt-70 text-left">
   <div class="row">
     <div class="col-sm-12">
+      <% if current_user.name == "ゲストユーザー" %>
+        <div class="invite-resister">
+          <p class="mb-5">閲覧中のデータはサンプルです</p>
+          <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
+        </div>
+      <% end %>
     <h2>プライバシーポリシー</h2>
     <p>Common Wallet（以下，「当方」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
     <h4>第1条（個人情報）</h4>

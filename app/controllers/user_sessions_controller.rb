@@ -18,4 +18,9 @@ class UserSessionsController < ApplicationController
     logout
     redirect_back_or_to root_path
   end
+
+  def invite_resister
+    logout
+    redirect_back_or_to new_user_path
+  end
 end

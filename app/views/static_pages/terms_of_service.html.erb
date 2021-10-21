@@ -44,6 +44,12 @@
 <div class="container mt-70 text-left">
   <div class="row">
     <div class="col-sm-12">
+      <% if current_user.name == "ゲストユーザー" %>
+        <div class="invite-resister">
+          <p class="mb-5">閲覧中のデータはサンプルです</p>
+          <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
+        </div>
+      <% end %>
     <h2>利用規約</h2>
     <h4>はじめに</h4>
     <p>家計簿サービス「Common Wallet」の利用については、本規約に必ず同意のうえご利用ください。</p>
