@@ -191,9 +191,9 @@
                 <tr>
                   <td class="text-right">
                     <% if replayer.replayer == '旦那' %>
-                      <i class="fas fa-circle fa-lg default-blue"></i>
+                      <i class="fas fa-user fa-lg default-blue"></i>
                     <% elsif replayer.replayer == '嫁' %>
-                      <i class="fas fa-circle fa-lg red"></i>
+                      <i class="fas fa-user fa-lg red"></i>
                     <% else %>
                       <%= replayer.replayer %>
                     <% end %>
@@ -220,14 +220,14 @@
           </table>
           <table class="text-center table lg fs-15">
               <tr>
-                <td class="text-right bottom"><i class="fas fa-circle fa-lg default-blue"></i></td>
+                <td class="text-right bottom"><i class="fas fa-user fa-lg default-blue"></i></td>
                 <td class="text-left bottom">共通財布に<span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span>入金する</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07 bottom">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.man_salary- @man_deposit).to_s(:delimited)}円" %></span></td>
               </tr>
               <tr>
-                <td class="text-right bottom top"><i class="fas fa-circle fa-lg red"></i></td>
+                <td class="text-right bottom top"><i class="fas fa-user fa-lg red"></i></td>
                 <td class="text-left bottom top">共通財布に<span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span>入金する</td>
               </tr>
               <tr>

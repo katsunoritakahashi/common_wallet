@@ -87,9 +87,9 @@
             <tr>
               <td class="text-right">
                 <% if replayer.replayer == '旦那' %>
-                  <i class="fas fa-circle fa-lg default-blue"></i>
+                  <i class="fas fa-user fa-lg default-blue"></i>
                 <% elsif replayer.replayer == '嫁' %>
-                  <i class="fas fa-circle fa-lg red"></i>
+                  <i class="fas fa-user fa-lg red"></i>
                 <% else %>
                   <%= replayer.replayer %>
                 <% end %>
@@ -105,9 +105,6 @@
       </div>
       </div>
         <div class="stay white-box bottom-shadow">
-        <h5 class="text-left black">
-          明細
-        </h5>
         <table class="text-center table table-sm">
           <tr>
             <th>日付</th>
@@ -168,9 +165,9 @@
             </td>
             <td>
               <% if detail.replayer == '旦那' %>
-                <i class="fas fa-circle default-blue"></i>
+                <i class="fas fa-user default-blue"></i>
               <% elsif detail.replayer == '嫁' %>
-                <i class="fas fa-circle red"></i>
+                <i class="fas fa-user red"></i>
               <% else %>
                 <%= detail.replayer %>
               <% end %>
