@@ -429,7 +429,7 @@ tr:last-child td:last-child {
 
 }
 .bgc-orange {
-  background-color: #ffc107;
+  background-color: #fc8804;
 }
 .bgc-red {
   background-color: #ff4107;
@@ -650,7 +650,7 @@ body.bgc-white{
   margin-top: 50px;
   transform: translateX(-200px);
   transition: transform 200ms ease-in-out;
-  background: #ffc107;
+  background: #fc8804;
 }
 .sidebarMenuInner{
   margin:0;
@@ -749,4 +749,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color: rgba(255, 255, 255, 0.637);
   color: rgb(85, 85, 85);
   padding: 5px;
+}
+.btn-warning{
+  background-color: #fc8804;
+  border-color: #fc8804;
+}
+.btn-outline-warning {
+  color: #fc8804;
+  border-color: #fc8804;
 }
