@@ -76,6 +76,7 @@
                 <td colspan="2" class="gray top text-right fs-07">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.woman_salary- @woman_deposit).to_s(:delimited)}円" %></span></td>
               </tr>
           </table>
+          <%= link_to "明細に追加する", add_deposit_month_deposits_path, method: :post, data:{confirm:"明細に反映しますか？"}, class: 'btn btn-warning mb-10' %>
         </div>
         <div class="stay white-box bottom-shadow">
           <table class="table">

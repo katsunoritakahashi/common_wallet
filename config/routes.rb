@@ -21,7 +21,11 @@ Rails.application.routes.draw do
       end
     end
     resources :budgets, only: %i[index create destroy]
-    resources :deposits, only: %i[index create destroy]
+    resources :deposits, only: %i[index create destroy] do
+      collection do
+        post :add_deposit
+      end
+    end
     resources :corrects, only: %i[index create destroy]
   end
   resources :password_resets, only: %i[new create edit update]
