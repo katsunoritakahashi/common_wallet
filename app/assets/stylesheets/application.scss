@@ -754,7 +754,16 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color: #fc8804;
   border-color: #fc8804;
 }
+.btn-warning:hover{
+  background-color: #fc8804b9;
+  border-color: #fc8804c2;
+}
 .btn-outline-warning {
   color: #fc8804;
   border-color: #fc8804;
+}
+.btn-outline-warning:hover {
+  color: #fc8804;
+  border-color: #fc8804;
+  background-color: rgba(128, 128, 128, 0.336);
 }
