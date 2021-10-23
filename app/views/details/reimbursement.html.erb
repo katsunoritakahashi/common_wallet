@@ -111,7 +111,7 @@
         <table class="text-center table table-sm">
           <% @details.each do |detail| %>
           <tr class="table-light">
-            <td><%= detail.date.strftime("%-d日") %></td>
+            <td class="text-right"><%= detail.date.strftime("%-d日") %></td>
             <td>
             <% if detail.classification == 'rent' %>
               <i class="fas fa-home fa-lg red"></i>
@@ -129,7 +129,7 @@
               <%= detail.classification_i18n %>
             <% end %>
             </td>
-            <td><%= detail.note %></td>
+            <td class="text-left"><%= detail.note %></td>
             <td class="display-xs-none">
               <% if detail.income.present? %>
                 <%= "#{detail.income.to_s(:delimited)}円" %>
@@ -144,7 +144,7 @@
                 <%= detail.spending %>
               <% end %>
             </td>
-            <td class="display-lg-none">
+            <td class="display-lg-none text-right">
               <% if detail.income.present? && detail.spending.present? %>
                 <%= "#{(detail.income - detail.spending).to_s(:delimited)}円" %>
               <% elsif !detail.income.present? && detail.spending.present? %>
