@@ -144,7 +144,7 @@
                 <%= detail.spending %>
               <% end %>
             </td>
-            <td class="display-lg-none text-right">
+            <td class="display-lg-none text-right" width="75">
               <% if detail.income.present? && detail.spending.present? %>
                 <%= "#{(detail.income - detail.spending).to_s(:delimited)}円" %>
               <% elsif !detail.income.present? && detail.spending.present? %>
