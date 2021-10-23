@@ -510,6 +510,9 @@ td.p-0 {
 .fs-12 {
   font-size: 1.2em;
 }
+.fs-13 {
+  font-size: 1.3em;
+}
 .fs-15 {
   font-size: 1.5em;
 }
@@ -563,6 +566,9 @@ td.p-0 {
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   float: right;
+  .fa-pen:before{
+    color: #fff;
+  }
 }
 .plus-bottom-small {
   width: 50px;

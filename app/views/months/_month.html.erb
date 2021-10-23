@@ -11,20 +11,11 @@
     <% months.each do |month| %>
       <tr id="month-trash-button-<%=month.id%>">
         <td><%= link_to month.month.strftime("%Y/%-m"), month_details_path(month),class: 'btn btn-outline-secondary' %></td>
-        <td class="text-right fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
+        <td class="text-right fs-13"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
 
-        <td class="text-left fs-07">
-          <% if month.balance < month.balance_last %>
-            <span class="default-blue"><%= "　+#{(month.balance_last - month.balance).to_s(:delimited)}円 " %></span>
-          <% elsif month.balance == month.balance_last %>
-            -
-          <% else %>
-            <span class="red"><%= "　#{(month.balance_last - month.balance).to_s(:delimited)}円 " %><i class="fas fa-fire"></i></span>
-          <% end %>
-        </td>
         <td>
           <%= link_to edit_month_path(month) do %>
-            <%= icon 'fa', 'pen' %>
+            <i class="fas fa-pen fa-lg"></i>
           <% end %>
         </td>
       </tr>
