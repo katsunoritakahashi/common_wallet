@@ -111,7 +111,7 @@
         <table class="text-center table table-sm">
           <% @details.each do |detail| %>
           <tr class="table-light">
-            <td class="text-right"><%= detail.date.strftime("%-d日") %></td>
+            <td class="text-right" width="36"><%= detail.date.strftime("%-d日") %></td>
             <td>
             <% if detail.classification == 'rent' %>
               <i class="fas fa-home fa-lg red"></i>
