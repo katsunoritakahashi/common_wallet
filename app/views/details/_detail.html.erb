@@ -57,21 +57,13 @@
     </table>
     </div>
 <div class="stay white-box bottom-shadow mb-40">
+<h5 class="text-left black">
+  明細一覧
+</h5>
 <table class="text-center table table-sm">
-  <tr>
-    <th>日付</th>
-    <th>分類</th>
-    <th>メモ</th>
-    <th class="display-xs-none">収入</th>
-    <th class="display-xs-none">支出</th>
-    <th class="display-lg-none">収支</th>
-    <th>立替</th>
-    <th>精算</th>
-    <th></th>
-  </tr>
   <% details.each do |detail| %>
     <tr class="table-light" id="detail-trash-button-<%=detail.id%>">
-      <td><%= detail.date.strftime("%-m/%-d") %></td>
+      <td><%= detail.date.strftime("%-d日") %></td>
       <td>
       <% if detail.classification == 'rent' %>
         <i class="fas fa-home fa-lg red"></i>
@@ -128,12 +120,10 @@
         <% else %>
           <%= detail.replayer %>
         <% end %>
-      </td>
-      <td>
         <% if detail.replayer == '旦那' || detail.replayer == '嫁' %>
-          <div id="detail-status-button-<%=detail.id%>">
+          <span id="detail-status-button-<%=detail.id%>">
               <%= render partial: 'details/status', locals: { detail: detail} %>
-          </div>
+          </span>
         <% end %>
       </td>
       <td>
