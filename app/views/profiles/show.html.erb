@@ -90,7 +90,7 @@
           <%= link_to months_path do %>
             <div class="white-box bottom-shadow">
               <h5 class="text-left black">今月の家計簿</h5>
-              <p>　今月の家計簿が登録されていません</p>
+              <p class="gray">今月の家計簿が登録されていません</p>
             </div>
           <% end %>
         <% end %>
@@ -153,7 +153,7 @@
             <%= link_to months_path do %>
               <div class="white-box bottom-shadow pt-30 col-md-5 width">
                 <h5 class="text-left black">今月の支出</h5>
-                <p>　今月はまだ支出がありません。</p>
+                <p class="gray">今月はまだ支出がありません</p>
               </div>
             <% end %>
           <% end %>
@@ -172,7 +172,7 @@
                   <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#ffc107'], suffix: "円" %>
                 <% end %>
               <% else %>
-                <p>　家計簿が登録されていません</p>
+                <p class="gray">家計簿が登録されていません</p>
               <% end %>
             </div>
           <% end %> 

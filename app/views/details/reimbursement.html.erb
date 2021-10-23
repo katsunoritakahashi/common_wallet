@@ -174,7 +174,9 @@
       <%= link_to "精算を完了する", done_month_details_path(params[:month_id]), method: :patch, data:{confirm:"精算を完了しますか？"}, class: 'btn btn-warning mb-10' %>
       </div>
       <% else %>
+      <body class="bgc-white">
       <p class="pt-30">精算はありません</p>
+      </body>
       <% end %>
     </div>
     </div>

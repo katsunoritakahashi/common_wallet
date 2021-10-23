@@ -69,10 +69,12 @@
         <%= render partial: 'months/month', locals: { months: @months } %>
       </div>
       <% else %>
+      <body class="bgc-white">
         <p>家計簿を作成して下さい</p>
         <%= link_to new_month_path do %>
           <div class="plus-bottom bottom-shadow inline-block">＋</div>
         <% end %>
+      </body>
       <% end %>
     </div>
   </div>
