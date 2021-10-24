@@ -44,7 +44,7 @@
   </div>
 </div>
 </header>
-<div class="container pb-20">
+<div class="container pb-70">
   <div class="row">
     <div class="col">
       <% if current_user.name == "ゲストユーザー" %>
@@ -240,3 +240,36 @@
     </div>
   </div>
 </div>
+<footer class="switch_footer">
+  <div class="switch top-shadow">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col prl-5">
+          <%= link_to profile_path do %>
+            <i class="fas fa-home fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">ホーム</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_details_path(@month.id) do %>
+            <i class="fas fa-list fa-lg"></i><br><div class="negative-margin"><span class="font-size">明細</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to reimbursement_month_details_path(@month.id) do %>
+            <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_budgets_path(@month.id) do %>
+            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
+          <%= link_to month_deposits_path(@month.id) do %>
+            <i class="fas fa-donate fa-lg"></i><br><div class="negative-margin"><span class="font-size">入金</span></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
