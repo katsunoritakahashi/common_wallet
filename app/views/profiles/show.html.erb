@@ -199,9 +199,9 @@
                     <% end %>
                   </td>
                   <% if Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income) < 0 %>
-                    <td class="text-left">共通財布に<span class="text-danger fs-15"><%= "#{((Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income))* -1).to_s(:delimited)}円" %></span>入金する</td>
+                    <td class="text-left">共通財布に <span class="text-danger fs-15"><%= "#{((Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income))* -1).to_s(:delimited)}円" %></span> 入金</td>
                   <% else %>
-                    <td class="text-left">共通財布から<span class="default-blue fs-15"><%= "#{(Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></span>受け取る</td>
+                    <td class="text-left">共通財布から <span class="default-blue fs-15"><%= "#{(Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></span> 受取</td>
                   <% end %>
                 </tr>
               <% end %>
@@ -221,14 +221,14 @@
           <table class="text-center table lg fs-15">
               <tr>
                 <td class="text-right bottom"><i class="fas fa-user fa-lg default-blue"></i></td>
-                <td class="text-left bottom">共通財布に<span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span>入金する</td>
+                <td class="text-left bottom">共通財布に <span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span> 入金</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07 bottom">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.man_salary- @man_deposit).to_s(:delimited)}円" %></span></td>
               </tr>
               <tr>
                 <td class="text-right bottom top"><i class="fas fa-user fa-lg red"></i></td>
-                <td class="text-left bottom top">共通財布に<span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span>入金する</td>
+                <td class="text-left bottom top">共通財布に <span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span> 入金</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.woman_salary- @woman_deposit).to_s(:delimited)}円" %></span></td>

@@ -101,31 +101,3 @@
   </div>
 </div>
 </body>
-<footer class="switch_footer">
-  <div class="switch top-shadow">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col prl-5">
-          <%= link_to month_details_path(@detail.month_id) do %>
-            <i class="fas fa-list fa-lg orange"></i><br><div class="negative-margin"><span class="font-size orange">明細</span></div>
-          <% end %>
-        </div>
-        <div class="col prl-5 orange">
-          <%= link_to reimbursement_month_details_path(@detail.month_id) do %>
-            <i class="fas fa-exchange-alt fa-lg"></i><br><div class="negative-margin"><span class="font-size">精算</span></div>
-          <% end %>
-        </div>
-        <div class="col prl-5">
-          <%= link_to month_budgets_path(@detail.month_id) do %>
-            <i class="fas fa-chart-pie fa-lg"></i><br><div class="negative-margin"><span class="font-size">分析</span></div>
-          <% end %>
-        </div>
-        <div class="col prl-5">
-          <%= link_to month_deposits_path(@detail.month_id) do %>
-            <i class="fas fa-donate fa-lg"></i><br><div class="negative-margin"><span class="font-size">入金</span></div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>

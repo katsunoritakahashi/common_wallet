@@ -59,22 +59,22 @@
         <div class="stay white-box bottom-shadow">
         <table class="text-center table lg">
           <tr>
-            <td class="text-left mt-0">　今の残高</td>
-            <td class="fs-15 mt-0"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+            <td class="text-left mt-0" width="120">　現在の残高</td>
+            <td class="fs-15 mt-0 text-right"><%= "#{@month.balance_last.to_s(:delimited) }円　" %></td>
           </tr>
           <tr>
-            <td class="text-left mt-0">　精算額</td>
-            <td class="fs-15 mt-0">
+            <td class="text-left mt-0"></td>
+            <td class="fs-12 mt-0 text-right">
               <% if @balance_of_payments_not_common >= 0 %>
-                <span class="default-blue"><%= "+#{(@balance_of_payments_not_common).to_s(:delimited)}円" %></span>
+                <span class="default-blue"><%= "+#{(@balance_of_payments_not_common).to_s(:delimited)}円 　" %></span>
               <% else %>
-                <span class="red"><%= "#{(@balance_of_payments_not_common).to_s(:delimited)}円" %></span>
+                <span class="red"><%= "#{(@balance_of_payments_not_common).to_s(:delimited)}円　 " %></span>
               <% end %>
             </td>
           </tr>
           <tr>
             <td class="text-left border-top border-dark-top">　精算後残高</td>
-            <td class="fs-15 border-top border-dark-top"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+            <td class="fs-15 border-top border-dark-top text-right"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円　" %></td>
           </tr>
         </table>
         </div>
@@ -95,9 +95,9 @@
                 <% end %>
               </td>
               <% if Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income) < 0 %>
-                <td class="text-left">共通財布に<span class="text-danger fs-15"><%= "#{((Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income))* -1).to_s(:delimited)}円" %></span>入金する</td>
+                <td class="text-left">共通財布に <span class="text-danger fs-15"><%= "#{((Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income))* -1).to_s(:delimited)}円" %></span> 入金</td>
               <% else %>
-                <td class="text-left">共通財布から<span class="default-blue fs-15"><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></span>受け取る</td>
+                <td class="text-left">共通財布から <span class="default-blue fs-15"><%= "#{(Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income)).to_s(:delimited)}円" %></span> 受取</td>
               <% end %>
             </tr>
           <% end %>
@@ -186,6 +186,11 @@
   <div class="switch top-shadow">
     <div class="container">
       <div class="row justify-content-center">
+        <div class="col prl-5">
+          <%= link_to profile_path do %>
+            <i class="fas fa-home fa-lg"></i><br><div class="negative-margin"><span class="font-size">ホーム</span></div>
+          <% end %>
+        </div>
         <div class="col prl-5">
           <%= link_to month_details_path do %>
             <i class="fas fa-list fa-lg"></i><br><div class="negative-margin"><span class="font-size">明細</span></div>

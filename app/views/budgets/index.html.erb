@@ -282,6 +282,11 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col prl-5">
+          <%= link_to profile_path do %>
+            <i class="fas fa-home fa-lg"></i><br><div class="negative-margin"><span class="font-size">ホーム</span></div>
+          <% end %>
+        </div>
+        <div class="col prl-5">
           <%= link_to month_details_path do %>
             <i class="fas fa-list fa-lg"></i><br><div class="negative-margin"><span class="font-size">明細</span></div>
           <% end %>

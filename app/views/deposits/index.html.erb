@@ -63,14 +63,14 @@
           <table class="text-center table lg fs-15">
               <tr>
                 <td class="text-right bottom"><i class="fas fa-user fa-lg default-blue"></i></td>
-                <td class="text-left bottom">共通財布に<span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span>入金する</td>
+                <td class="text-left bottom">共通財布に <span class="fs-15"><%= "#{@man_deposit.to_s(:delimited)}円" %></span> 入金</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07 bottom">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.man_salary- @man_deposit).to_s(:delimited)}円" %></span></td>
               </tr>
               <tr>
                 <td class="text-right bottom top"><i class="fas fa-user fa-lg red"></i></td>
-                <td class="text-left bottom top">共通財布に<span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span>入金する</td>
+                <td class="text-left bottom top">共通財布に <span class="fs-15"><%= "#{@woman_deposit.to_s(:delimited)}円" %></span> 入金</td>
               </tr>
               <tr>
                 <td colspan="2" class="gray top text-right fs-07">手元に残る額 <span class="fs-15 black"><%= "#{(@deposit.woman_salary- @woman_deposit).to_s(:delimited)}円" %></span></td>
@@ -229,6 +229,11 @@
   <div class="switch top-shadow">
     <div class="container">
       <div class="row justify-content-center">
+        <div class="col prl-5">
+          <%= link_to profile_path do %>
+            <i class="fas fa-home fa-lg"></i><br><div class="negative-margin"><span class="font-size">ホーム</span></div>
+          <% end %>
+        </div>
         <div class="col prl-5">
           <%= link_to month_details_path do %>
             <i class="fas fa-list fa-lg"></i><br><div class="negative-margin"><span class="font-size">明細</span></div>
