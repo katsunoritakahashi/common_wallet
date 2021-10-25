@@ -55,16 +55,15 @@
       <% end %>
       <% if @months.present? %>
         <div class="white-box bottom-shadow">
-        <h5 class="text-left black">
-          残高推移
-        </h5>
+          <h5 class="text-left black">
+            残高推移
+          </h5>
           <% if @colum_chart_max > 10000 %>
             <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#fdd07b'], suffix: "万" %>
           <% else %>
             <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#fdd07b'], suffix: "円" %>
           <% end %>
         </div>
-      
       <div id="js-table-month">
         <%= render partial: 'months/month', locals: { months: @months } %>
       </div>
