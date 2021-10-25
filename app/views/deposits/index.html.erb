@@ -87,8 +87,8 @@
           </table>
           <table class="text-center table lg">
             <tr>
-              <td class="gray text-right">入金総額</td>
-              <td class="gray text-left fs-15 black"><%= "#{@deposit.total_deposit.to_s(:delimited)}円" %>
+              <td class="gray text-right mb-0">入金総額</td>
+              <td class="gray text-left fs-13 black mb-0"><%= "#{@deposit.total_deposit.to_s(:delimited)}円" %>
               </td>
             </tr>
             <tr>
@@ -101,9 +101,9 @@
               <td>調整金額</td>
             </tr>
             <tr>
-              <td><i class="fas fa-user default-blue"></i></td>
-              <td><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
-              <td><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
+              <td class="mb-0"><i class="fas fa-user default-blue"></i></td>
+              <td class="mb-0"><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
+              <td class="mb-0"><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
             </tr>
             <tr>
               <td><i class="fas fa-user red"></i></td>
