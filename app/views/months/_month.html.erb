@@ -7,18 +7,24 @@
     <div class="plus-bottom-small bottom-shadow inline-block">＋</div>
   <% end %>
 </div>
-  <table class="text-center table">
-    <% months.each do |month| %>
-      <tr id="month-trash-button-<%=month.id%>">
-        <td><%= link_to month.month.strftime("%Y年%-m月"), month_details_path(month),class: 'btn btn-warning' %></td>
-        <td class="text-right fs-13"><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
-        <td>
-          <%= link_to edit_month_path(month) do %>
-            <i class="fas fa-pen fa-lg"></i>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+  <% months.each do |month| %>
+  <%= link_to month_details_path(month) do%>
+    <div class="stay white-box bottom-shadow">
+    <table class="text-center table">
+        <tr id="month-trash-button-<%=month.id%>">
+          <td class="text-left fs-13 mt-0"><%= month.month.strftime("%Y年%-m月")%></td>
+          <td class="mt-0 text-right">
+            <%= link_to edit_month_path(month) do %>
+              <i class="fas fa-cog fa-lg gray"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr id="month-trash-button-<%=month.id%>">
+          <td class="text-left fs-12 mt-0 mb-0" colspan="2"><%= "月末残高　#{month.balance_last.to_s(:delimited)}円" %></td>
+        </tr>
+    </table>
+    </div>
+  <% end %>
+  <% end %>
   </div>
   
