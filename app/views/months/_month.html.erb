@@ -20,7 +20,14 @@
           </td>
         </tr>
         <tr id="month-trash-button-<%=month.id%>">
-          <td class="text-left fs-12 mt-0 mb-0" colspan="2"><%= "月末残高　#{month.balance_last.to_s(:delimited)}円" %></td>
+          <td class="text-left mt-0 mb-0" colspan="2">月末残高</td>
+        </tr>
+        <tr id="month-trash-button-<%=month.id%>">
+          <% if month.balance_last - month.balance > 0 %>
+            <td class="text-left mt-0 mb-0" colspan="2"><span class="fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></span><span class="blue"><%= "　（前月+#{(month.balance_last - month.balance).to_s(:delimited)}円）" %></span></td>
+          <% else %>
+            <td class="text-left mt-0 mb-0" colspan="2"><span class="fs-12"><%= "#{month.balance_last.to_s(:delimited)}円" %></span><span class="red"><%= "　（前月#{(month.balance_last - month.balance).to_s(:delimited)}円）" %></span></td>
+          <% end %>
         </tr>
     </table>
     </div>
