@@ -57,13 +57,13 @@
       <% end %>
       <div class="box">
         <div class="white-box bottom-shadow col-md-5 width">
-          <h5 class="text-left black">支出の内訳</h5>
+          <h5 class="text-left black fs-11">支出の内訳</h5>
           <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
         </div>
       <div class="white-box bottom-shadow col-md-6 width right">
       <table class="table">
         <tr>
-          <td class="p-0"><h5 class="text-left black">予算比</h5></td>
+          <td class="p-0"><h5 class="text-left black fs-11">予算比</h5></td>
           <td class="p-0 text-right"><%= link_to "予算再設定", budget_path(@budget), method: :delete, data:{confirm:"予算を再設定しますか？"}, class: 'btn btn-outline-danger btn-sm radius' %></td>
         </tr>
       </table>

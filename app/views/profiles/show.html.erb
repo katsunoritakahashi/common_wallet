@@ -56,10 +56,10 @@
       <h2 class="display-xs-none"><%= "#{current_user.name}の家計簿" %></h2>
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
-            <div class="white-box bottom-shadow btn-6">
+            <div class="white-box bottom-shadow">
               <table class="table">
                 <tr>
-                  <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の家計簿") %></h5></td>
+                  <td class="p-0"><h5 class="text-left black fs-11"><%= @month.month.strftime("%-m月の家計簿") %></h5></td>
                   <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">明細を見る</h5></td>
                 </tr>
               </table>
@@ -89,7 +89,7 @@
         <% else %>
           <%= link_to months_path do %>
             <div class="white-box bottom-shadow">
-              <h5 class="text-left black">今月の家計簿</h5>
+              <h5 class="text-left black fs-11">今月の家計簿</h5>
               <p class="gray">今月の家計簿が登録されていません</p>
             </div>
           <% end %>
@@ -100,7 +100,7 @@
         <div class="white-box bottom-shadow">
         <table class="table">
           <tr>
-            <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の予算") %></h5></td>
+            <td class="p-0"><h5 class="text-left black fs-11"><%= @month.month.strftime("%-m月の予算") %></h5></td>
             <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">分析を見る</h5></td>
           </tr>
         </table>
@@ -142,7 +142,7 @@
               <div class="white-box bottom-shadow pt-30 col-md-5 width">
                 <table class="table">
                   <tr>
-                    <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の支出") %></h5></td>
+                    <td class="p-0"><h5 class="text-left black fs-11"><%= @month.month.strftime("%-m月の支出") %></h5></td>
                     <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">分析を見る</h5></td>
                   </tr>
                 </table>
@@ -152,7 +152,7 @@
           <% else %>
             <%= link_to months_path do %>
               <div class="white-box bottom-shadow pt-30 col-md-5 width">
-                <h5 class="text-left black">今月の支出</h5>
+                <h5 class="text-left black fs-11">今月の支出</h5>
                 <p class="gray">今月はまだ支出がありません</p>
               </div>
             <% end %>
@@ -161,7 +161,7 @@
             <div class="white-box bottom-shadow pt-30 col-md-6 width right">
               <table class="table">
                   <tr>
-                    <td class="p-0"><h5 class="text-left black">口座残高</h5></td>
+                    <td class="p-0"><h5 class="text-left black fs-11">口座残高</h5></td>
                     <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">残高を見る</h5></td>
                   </tr>
                 </table>
@@ -182,7 +182,7 @@
           <div class="stay white-box bottom-shadow">
             <table class="table">
               <tr>
-                <td class="p-0"><h5 class="text-left black">立替精算</h5></td>
+                <td class="p-0"><h5 class="text-left black fs-12">立替精算</h5></td>
                 <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">精算を見る</h5></td>
               </tr>
             </table>
@@ -214,7 +214,7 @@
         <div class="stay white-box bottom-shadow">
           <table class="table">
             <tr>
-              <td class="p-0"><h5 class="text-left black"><%= @month.month.strftime("%-m月の入金額") %></h5></td>
+              <td class="p-0"><h5 class="text-left black fs-12"><%= @month.month.strftime("%-m月の入金額") %></h5></td>
               <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">入金を見る</h5></td>
             </tr>
           </table>
@@ -240,6 +240,7 @@
     </div>
   </div>
 </div>
+<% if @month.present? %>
 <footer class="switch_footer">
   <div class="switch top-shadow">
     <div class="container">
@@ -273,3 +274,4 @@
     </div>
   </div>
 </footer>
+<% end %>
