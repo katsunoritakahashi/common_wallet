@@ -80,7 +80,7 @@
         <%= detail.classification_i18n %>
       <% end %>
       </td>
-      <td class="text-left" width="70"><%= detail.note %></td>
+      <td class="text-left"><%= detail.note %></td>
       <td class="display-xs-none">
         <% if detail.income.present? %>
           <%= "#{detail.income.to_s(:delimited)}円" %>
