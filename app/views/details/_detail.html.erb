@@ -5,7 +5,7 @@
         <td class="gray text-left">口座残高</td>
         <td class="gray text-right"><span class="fs-07">前月比</span>
           <% if @month.balance < @month.balance_last %>
-            <span class="default-blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %></span>
+            <span class="blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %></span>
           <% elsif @month.balance == @month.balance_last %>
             -
           <% else %>
@@ -33,17 +33,17 @@
     <table class="text-center table lg">
       <tr>
         <td class="width-50">収入</td>
-        <td class="fs-13 vertical-top text-right"><%= "#{@income_total.to_s(:delimited)}円　" %></td>
+        <td class="fs-13 vertical-top text-right blue"><%= "#{@income_total.to_s(:delimited)}円　" %></td>
       </tr>
       <tr>
         <td class="width-50 mt-0">支出</td>
-        <td class="fs-13 vertical-top top text-right"><%= "#{@spending_total.to_s(:delimited)}円　" %></td>
+        <td class="fs-13 vertical-top top text-right red"><%= "#{@spending_total.to_s(:delimited)}円　" %></td>
       </tr>
       <tr>
         <td class="border-top border-dark-top mb-0">収支</td>
         <td class="fs-13 vertical-top border-top border-dark-top mb-0 text-right">
           <% if @balance_of_payments >= 0 %>
-          <div class="default-blue">
+          <div class="blue">
             <%= "+#{@balance_of_payments.to_s(:delimited)}円　" %>
           </div>
           <% else %>
@@ -80,7 +80,7 @@
         <%= detail.classification_i18n %>
       <% end %>
       </td>
-      <td class="text-left"><%= detail.note %></td>
+      <td class="text-left" width="70"><%= detail.note %></td>
       <td class="display-xs-none">
         <% if detail.income.present? %>
           <%= "#{detail.income.to_s(:delimited)}円" %>
@@ -95,7 +95,7 @@
           <%= detail.spending %>
         <% end %>
       </td>
-      <td class="display-lg-none text-right" width="75">
+      <td class="display-lg-none text-right" width="80">
         <% if detail.income.present? && detail.spending.present? %>
           <%= "#{(detail.income - detail.spending).to_s(:delimited)}円" %>
         <% elsif !detail.income.present? && detail.spending.present? %>
@@ -112,7 +112,7 @@
       </td>
       <td colspan="2" width="50">
         <% if detail.replayer == '旦那' %>
-          <i class="fas fa-user default-blue"></i>
+          <i class="fas fa-user blue"></i>
         <% elsif detail.replayer == '嫁' %>
           <i class="fas fa-user red"></i>
         <% elsif detail.replayer == '共通' %>

@@ -58,7 +58,7 @@
       <div class="box">
         <div class="white-box bottom-shadow col-md-5 width">
           <h5 class="text-left black fs-11">支出の内訳</h5>
-          <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円"}} %>
+          <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '16px'}}} %>
         </div>
       <div class="white-box bottom-shadow col-md-6 width right">
       <table class="table">
@@ -83,9 +83,9 @@
             <td colspan="2">
             <div class="progress">
               <% if @budget_total != 0 %>
-                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
+                <div class="progress-bar progress-bar bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
               <% else %>
-                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               <% end %>
             </div>
             </td> 

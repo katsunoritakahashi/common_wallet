@@ -38,7 +38,6 @@ Chartkick.options = {
             #suffix: "％",
           }
         },
-        size: '110%',
         innerSize: '50%', # ドーナツグラフの中の円の大きさ
         borderWidth: 0,
         #suffix: "％",

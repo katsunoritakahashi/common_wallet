@@ -218,13 +218,13 @@ a:hover {
   font-family: YuGothic,'Yu Gothic', sans-serif;
 }
 .red {
-  color: #f14668;
+  color: #DA5019;
 }
 .light-red {
   color: #f8708b;
 }
 .blue {
-  color: #8ac4d0;
+  color: #4CACC6;
 }
 .light-blue {
   color: #0000FF;
@@ -233,10 +233,10 @@ a:hover {
   color: #007bff;
 }
 .yellow {
-  color: #ffe227;
+  color: #F6CA06;
 }
 .green {
-  color: #beca5c;
+  color: #23AC0E;
 }
 .gray {
   color: #8d8d8d;
@@ -788,39 +788,18 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   border-color: #fc8804;
   background-color: rgba(128, 128, 128, 0.336);
 }
-.bgc-1 {
-  background-color: #ff4d4d;
+.progress-bar.bg-danger{
+  background-color: #DA5019 !important;
 }
-.bgc-2 {
-  background-color: #dab141;
+.progress-bar.bg-primary{
+  background-color: #45A1CF !important;
 }
-.bgc-3 {
-  background-color:#E77575;
+.progress-bar.bg-warning{
+  background-color: #F6CA06 !important;
 }
-.bgc-4 {
-  background-color: #83B337;
+.progress-bar.bg-success{
+  background-color: #23AC0E !important;
 }
-.bgc-5 {
-  background-color:#ddcc2d;
-}
-.bgc-6 {
-  background-color: #59ccc6;
-}
-.bgc-7 {
-  background-color: #31A1DA;
-}
-.bgc-8 {
-  background-color: #ffb732;
-}
-.bgc-9 {
-  background-color: #e98f45;
-}
-.bgc-10 {
-  background-color: #ad8534;
-}
-.bgc-11 {
-  background-color: #929292;
-}
-.bgc-12 {
-  background-color: #898dda;
+.progress-bar-striped.bg-warning{
+  background-color: #e07800 !important;
 }

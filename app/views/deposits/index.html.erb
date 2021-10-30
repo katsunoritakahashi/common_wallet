@@ -78,7 +78,7 @@
               <td>調整金額</td>
             </tr>
             <tr>
-              <td class="mb-0"><i class="fas fa-user default-blue"></i></td>
+              <td class="mb-0"><i class="fas fa-user blue"></i></td>
               <td class="mb-0"><%= "#{@deposit.man_salary.to_s(:delimited)}円" %></td>
               <td class="mb-0"><%= "#{@correct_total_man.to_s(:delimited)}円" %></td>
             </tr>
@@ -95,7 +95,7 @@
           </h5>
           <table class="text-center table lg fs-15">
               <tr>
-                <td class="text-right bottom"><i class="fas fa-user default-blue"></i></td>
+                <td class="text-right bottom"><i class="fas fa-user blue"></i></td>
                 <td class="text-left bottom">共通財布に <span class="fs-12"><%= "#{@man_deposit.to_s(:delimited)}円" %></span> 入金</td>
               </tr>
               <tr>
@@ -134,7 +134,7 @@
             <tr class="table-light">
               <td>
                 <% if correct.player == '旦那' %>
-                  <i class="fas fa-user default-blue"></i>
+                  <i class="fas fa-user blue"></i>
                 <% elsif correct.player == '嫁' %>
                   <i class="fas fa-user red"></i>
                 <% else %>
@@ -199,7 +199,7 @@
             <tr class="table-light">
               <td>
                 <% if correct.player == '旦那' %>
-                  <i class="fas fa-user fa-lg default-blue"></i>
+                  <i class="fas fa-user fa-lg blue"></i>
                 <% elsif correct.player == '嫁' %>
                   <i class="fas fa-user fa-lg red"></i>
                 <% else %>
