@@ -431,6 +431,14 @@ tr:last-child td:last-child {
   margin: 10px 0 0 0;
 
 }
+a{
+  .white-box:hover{
+    background-color: rgb(209, 209, 209);
+    .table{
+      background-color: rgb(209, 209, 209);
+    }
+  }
+}
 .bgc-orange {
   background-color: #fc8804;
 }
@@ -579,6 +587,9 @@ td.p-0 {
     color: #fff;
   }
 }
+.plus-bottom:hover{
+  background-color: #e27900;
+}
 .plus-bottom-small {
   width: 50px;
   height: 50px;
@@ -591,6 +602,9 @@ td.p-0 {
   margin: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   float: right;
+}
+.plus-bottom-small:hover{
+  background-color: #e27900;
 }
 .mb-40{
   margin-bottom: 40px;
@@ -776,7 +790,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   border-color: #fc8804;
 }
 .btn-warning:hover{
-  background-color: #fc8804b9;
+  background-color: #e27900;
   border-color: #fc8804c2;
 }
 .btn-outline-warning {
@@ -805,4 +819,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .progress{
   border-radius: 1rem;
+}
+.btn-outline-danger{
+  color: #DA5019;
+  border-color: #DA5019 !important;
+}
+.btn-outline-danger:hover{
+  border-color: #DA5019;
+  background-color: #DA5019;
 }
