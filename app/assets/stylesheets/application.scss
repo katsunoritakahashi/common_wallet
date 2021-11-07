@@ -793,6 +793,11 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color: #e27900;
   border-color: #fc8804c2;
 }
+.btn-warning:not(:disabled):not(.disabled):active{
+  background-color: #e27900;
+  border-color: #fc8804c2;
+  color: #fff; 
+}
 .btn-outline-warning {
   color: #fc8804;
   border-color: #fc8804;
@@ -801,6 +806,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   color: #fc8804;
   border-color: #fc8804;
   background-color: rgba(128, 128, 128, 0.336);
+}
+.btn-outline-warning:not(:disabled):not(.disabled):active{
+  color: #fff;
 }
 .progress-bar.bg-danger{
   background-color: #DA5019 !important;
@@ -827,4 +835,8 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 .btn-outline-danger:hover{
   border-color: #DA5019;
   background-color: #DA5019;
+}
+.btn-outline-danger:not(:disabled):not(.disabled):active{
+  border-color: #DA5019;
+  background-color: #DA5019; 
 }
