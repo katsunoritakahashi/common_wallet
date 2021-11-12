@@ -146,7 +146,7 @@
                     <td class="p-0 text-right"><h5 class="btn btn-outline-secondary btn-sm">分析を見る</h5></td>
                   </tr>
                 </table>
-                <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '16px'}}} %>
+                <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '14px'}}} %>
               </div>
             <% end %>
           <% else %>
@@ -167,7 +167,7 @@
                 </table>
               <% if @months.present? %>
                 <% if @colum_chart_max > 10000 %>
-                  <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#fdd07b'], suffix: "万円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
+                  <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc04b'], suffix: "万円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
                 <% else %>
                   <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#fdd07b'], suffix: "円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
                 <% end %>

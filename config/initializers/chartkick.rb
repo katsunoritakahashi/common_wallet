@@ -1,7 +1,8 @@
 Chartkick.options = {
   donut: true, # ドーナツグラフ
   curve: false,
-  #width: '400px',
+  # size: '50%',
+  height: '230px',
   colors: [ "#DA5019",
             "#45A1CF",
             "#F6CA06",
@@ -27,7 +28,7 @@ Chartkick.options = {
       pie: {
         dataLabels: {
           enabled: true, 
-          distance: -40, # ラベルの位置調節
+          distance: -30, # ラベルの位置調節
           allowOverlap: false, # ラベルが重なったとき、非表示にする
           #suffix: "％",
           style: { #ラベルフォントの設定
@@ -38,6 +39,7 @@ Chartkick.options = {
             #suffix: "％",
           }
         },
+        size: '120%',
         innerSize: '50%', # ドーナツグラフの中の円の大きさ
         borderWidth: 0,
         #suffix: "％",
