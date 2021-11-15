@@ -58,7 +58,7 @@
           <div class="form-group">
             <div class="w-200 text-left">
             <%= f.label :調整理由 %>
-            <%= f.text_field :name, class: 'form-control form-control-lg' %>
+            <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: '例）ボーナス調整' %>
             </div>
           </div>
           <br>
@@ -77,8 +77,7 @@
           <div class="form-group">
             <div class="w-200 text-left">
               <%= f.label :調整率 %>
-              <%= f.number_field :rate, class: 'form-control form-control-lg', placeholder: '' %>
-            <p>※調整率は未入力の場合は100(%)となります。</p>
+              <%= f.number_field :rate, class: 'form-control form-control-lg', value: 100 %>
             </div>
           </div><br>
           
