@@ -440,7 +440,7 @@ a{
   }
 }
 .bgc-orange {
-  background-color: #fc8804;
+  background-color: #D6A802;
 }
 .bgc-red {
   background-color: #ff4107;
@@ -461,7 +461,7 @@ a{
   margin: 5px;
 }
 .marker-orange{
-  background:linear-gradient(transparent 60%, #ffc107 70%);
+  background:linear-gradient(transparent 60%, #ffe380 70%);
 }
 .marker-gray{
   background:linear-gradient(transparent 60%, #bbbbbb 70%);
@@ -578,7 +578,7 @@ td.p-0 {
   width: 60px;
   height: 60px;
   line-height: 61px;
-  background-color: #fc8804;
+  background-color: #D6A802;
   border-radius: 50px;
   color: #fff;
   text-align: center;
@@ -597,7 +597,7 @@ td.p-0 {
   width: 50px;
   height: 50px;
   line-height: 51px;
-  background-color: #fc8804;
+  background-color: #D6A802;
   border-radius: 50px;
   color: #fff;
   text-align: center;
@@ -635,7 +635,7 @@ td.p-0 {
 .form-control{
   border: initial;
   border-radius: initial;
-  border-bottom-color: rgb(119, 119, 119);
+  border-bottom-color: rgb(158, 158, 158);
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
@@ -655,7 +655,7 @@ body.bgc-white{
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  background-color: #fc8804;
+  background-color: #fff;
   position: fixed;
   height: 50px!important;
   overflow: hidden;
@@ -688,21 +688,21 @@ body.bgc-white{
   margin-top: 50px;
   transform: translateX(-200px);
   transition: transform 200ms ease-in-out;
-  background: #fc8804;
+  background: #fff;
+  border-right: 1px solid rgb(243, 243, 243);
 }
 .sidebarMenuInner{
   margin:0;
   padding:0;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 .sidebarMenuInner li{
   list-style: none;
-  color: #fff;
+  color: rgb(100, 100, 100);
   text-transform: uppercase;
   font-weight: normal !important;
   padding: 14px;
   cursor: pointer;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgb(226, 226, 226);
 }
 .sidebarMenuInner li span{
   display: block;
@@ -710,7 +710,7 @@ body.bgc-white{
   color: rgba(255, 255, 255, 0.50);
 }
 .sidebarMenuInner li a{
-  color: #fff;
+  color: rgb(100, 100, 100);
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
@@ -744,7 +744,7 @@ input[type=checkbox] {
   position: absolute;
   height: 3px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(100, 100, 100);
 }
 .horizontal {
   transition: all 0.3s;
@@ -789,25 +789,25 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   padding: 5px;
 }
 .btn-warning{
-  background-color: #fc8804;
-  border-color: #fc8804;
+  background-color: #D6A802;
+  border-color: #D6A802;
 }
 .btn-warning:hover{
-  background-color: #e27900;
-  border-color: #fc8804c2;
+  background-color: #D6A802;
+  border-color: #D6A802;
 }
 .btn-warning:not(:disabled):not(.disabled):active{
-  background-color: #e27900;
-  border-color: #fc8804c2;
+  background-color: #D6A802;
+  border-color: #D6A802;
   color: #fff; 
 }
 .btn-outline-warning {
-  color: #fc8804;
-  border-color: #fc8804;
+  color: #D6A802;
+  border-color: #D6A802;
 }
 .btn-outline-warning:hover {
-  color: #fc8804;
-  border-color: #fc8804;
+  color: #D6A802;
+  border-color: #D6A802;
   background-color: rgba(128, 128, 128, 0.336);
 }
 .btn-outline-warning:not(:disabled):not(.disabled):active{
