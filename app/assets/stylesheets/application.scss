@@ -677,7 +677,7 @@ body.bgc-white{
   display:table-cell;
   vertical-align: middle;
   font-size: 3em;
-  font-weight: bold;
+  font-weight: normal !important;
   letter-spacing: 1.25px;
 }
 #sidebarMenu {
@@ -699,7 +699,7 @@ body.bgc-white{
   list-style: none;
   color: #fff;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: normal !important;
   padding: 14px;
   cursor: pointer;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
