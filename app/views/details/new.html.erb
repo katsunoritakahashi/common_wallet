@@ -56,40 +56,34 @@
       <%= form_with model: @add, url: month_details_path, local: true do |f| %>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.label :日付 %>
             <%= f.date_field :date, class: 'form-control form-control-lg', value: Date.today %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-              <%= f.label :分類 %>
-              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: "分類を選択してください"}, class: 'form-control form-control-lg select' %>
+              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: "分類"}, class: 'form-control form-control-lg select' %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.label :メモ %>
-            <%= f.text_field :note, class: 'form-control form-control-lg', placeholder: "例)食事代" %>
+            <%= f.text_field :note, class: 'form-control form-control-lg', placeholder: "メモ" %>
             </div>
           </div>
           <div class="row">
-          <div class="form-group col">
+          <div class="form-group col mr-0">
             <div class="w-200 text-left">
-            <%= f.label :収入 %>
-            <%= f.number_field :income, class: 'form-control form-control-lg' %>
+            <%= f.number_field :income, class: 'form-control form-control-lg', placeholder: "収入"  %>
             </div>
           </div>
-          <div class="form-group col">
+          <div class="form-group col ml-0">
             <div class="w-200 text-left">
-            <%= f.label :支出 %>
-            <%= f.number_field :spending, class: 'form-control form-control-lg', placeholder: "例)3000" %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg', placeholder: "支出"  %>
             </div>
           </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.label :どの財布で支払った？ %>
-            <%= f.select :replayer,[["共通財布", "共通"],["旦那さん", "旦那"], ["奥さん", "嫁"]],{ selected: 1}, class: 'form-control form-control-lg select' %>
+            <%= f.select :replayer,[["共通財布", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: "支払口座"}, class: 'form-control form-control-lg select' %>
             </div>
           </div><br>
           <%= f.submit '追加する', class: 'btn btn-warning btn-lg' %><br><br>

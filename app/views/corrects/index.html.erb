@@ -57,29 +57,24 @@
       <%= form_with model: @detail, local: true do |f| %>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.label :調整理由 %>
-            <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: '例）ボーナス調整' %>
+            <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: '調整理由' %>
             </div>
           </div>
-          <br>
           <div class="form-group">
             <div class="w-200 text-left">
-              <%= f.label :対象者 %>
-              <%= f.select :player,[["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: '選択してください'}, class: 'form-control form-control-lg' %>
+              <%= f.select :player,[["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: '対象者'}, class: 'form-control form-control-lg' %>
             </div>
-          </div><br>
+          </div>
           <div class="form-group">
             <div class="w-200 text-left">
-              <%= f.label :金額 %>
-              <%= f.number_field :amount, class: 'form-control form-control-lg', placeholder: '例)50000' %>
+              <%= f.number_field :amount, class: 'form-control form-control-lg', placeholder: '調整金額' %>
             </div>
-          </div><br>
+          </div>
           <div class="form-group">
             <div class="w-200 text-left">
-              <%= f.label :調整率 %>
-              <%= f.number_field :rate, class: 'form-control form-control-lg', value: 100 %>
+              <%= f.number_field :rate, class: 'form-control form-control-lg', placeholder: '調整率(空欄の場合は100%)' %>
             </div>
-          </div><br>
+          </div>
           
           <%= f.submit '追加する', class: 'btn btn-warning btn-lg' %><br><br>
           <%= link_to "キャンセル" ,month_deposits_path(params[:month_id]), class: 'btn btn-outline-warning btn-lg' %>

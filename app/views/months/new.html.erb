@@ -56,15 +56,12 @@
       <%= form_with model: @month, local: true do |f| %>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.label :年月 %><br>
             <%= f.date_select :month, {use_month_numbers: true, date_separator: '年', discard_day: true}, {class: 'form-control form-control-lg', style: 'display: inline-block;width: auto;'} %>月
             </div>
           </div>
-          <br>
           <div class="form-group">
             <div class="w-200 text-left">
-              <%= f.label :前月末の残高 %>
-              <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: '' %>
+              <%= f.number_field :balance, class: 'form-control form-control-lg', placeholder: '前月末の残高' %>
             </div>
           </div><br>
             <%= f.submit '追加する', class: 'btn btn-warning btn-lg' %><br><br>

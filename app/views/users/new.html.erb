@@ -11,23 +11,19 @@
 <div class="container mt-70">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h2 class="text-left">新規登録</h2>
+      <h2 class="text-left">新規登録</h2><br>
       <%= form_with model: @user, local: true do |f| %>
           <div class="form-group text-left">
-            <%= f.label :ユーザー名 %>
-            <%= f.text_field :name, class: 'form-control form-control-lg' %>
+            <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: "ユーザー名" %>
           </div>
           <div class="form-group text-left">
-            <%= f.label :メールアドレス %>
-            <%= f.email_field :email, class: 'form-control form-control-lg' %>
+            <%= f.email_field :email, class: 'form-control form-control-lg', placeholder: "メールアドレス" %>
           </div>
           <div class="form-group text-left">
-            <%= f.label :パスワード %>
-            <%= f.password_field :password, class: 'form-control form-control-lg' %>
+            <%= f.password_field :password, class: 'form-control form-control-lg', placeholder: "パスワード" %>
           </div>
           <div class="form-group text-left">
-            <%= f.label :パスワード確認 %>
-            <%= f.password_field :password_confirmation, class: 'form-control form-control-lg' %>
+            <%= f.password_field :password_confirmation, class: 'form-control form-control-lg', placeholder: "パスワード（確認）" %>
           </div><br>
           <div class="actions">
             <%= f.submit '登録する', class: 'btn btn-warning btn-lg' %>
