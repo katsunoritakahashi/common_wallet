@@ -63,13 +63,13 @@
           <div class="form-group">
             <div class="w-200 text-left">
               <%= f.label :分類 %>
-              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: true}, class: 'form-control form-control-lg select' %>
+              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: "分類を選択してください"}, class: 'form-control form-control-lg select' %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
             <%= f.label :メモ %>
-            <%= f.text_field :note, class: 'form-control form-control-lg' %>
+            <%= f.text_field :note, class: 'form-control form-control-lg', placeholder: "例)食事代" %>
             </div>
           </div>
           <div class="row">
@@ -82,7 +82,7 @@
           <div class="form-group col">
             <div class="w-200 text-left">
             <%= f.label :支出 %>
-            <%= f.number_field :spending, class: 'form-control form-control-lg' %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg', placeholder: "例)3000" %>
             </div>
           </div>
           </div>

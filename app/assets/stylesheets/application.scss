@@ -632,13 +632,7 @@ td.p-0 {
   color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-.form-control{
-  border: initial;
-  border-radius: initial;
-  border-bottom-color: rgb(158, 158, 158);
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-}
+
 .btn.btn-outline-secondary.btn-sm{
   width: initial;
   padding-left: 20px;
@@ -842,4 +836,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 .btn-outline-danger:not(:disabled):not(.disabled):active{
   border-color: #DA5019;
   background-color: #DA5019; 
+}
+label{
+  margin-bottom: 0rem;
 }

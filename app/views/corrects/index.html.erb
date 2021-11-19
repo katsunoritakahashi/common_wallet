@@ -65,13 +65,13 @@
           <div class="form-group">
             <div class="w-200 text-left">
               <%= f.label :対象者 %>
-              <%= f.select :player,[["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: '　'}, class: 'form-control form-control-lg' %>
+              <%= f.select :player,[["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: '選択してください'}, class: 'form-control form-control-lg' %>
             </div>
           </div><br>
           <div class="form-group">
             <div class="w-200 text-left">
               <%= f.label :金額 %>
-              <%= f.number_field :amount, class: 'form-control form-control-lg', placeholder: '' %>
+              <%= f.number_field :amount, class: 'form-control form-control-lg', placeholder: '例)50000' %>
             </div>
           </div><br>
           <div class="form-group">
