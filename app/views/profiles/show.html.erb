@@ -167,9 +167,9 @@
                 </table>
               <% if @months.present? %>
                 <% if @colum_chart_max > 10000 %>
-                  <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#ffc04b'], suffix: "万円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
+                  <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#d6a8027c'], suffix: "万円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
                 <% else %>
-                  <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#fdd07b'], suffix: "円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
+                  <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#d6a8027c'], suffix: "円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
                 <% end %>
               <% else %>
                 <p class="gray">家計簿が登録されていません</p>
