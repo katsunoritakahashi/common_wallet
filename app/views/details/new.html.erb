@@ -64,32 +64,32 @@
       <%= form_with model: @add, url: month_details_path, local: true do |f| %>
           <div class="form-group" id="income_form">
             <div class="w-200 text-left">
-            <%= f.number_field :income, class: 'form-control form-control-lg text-right fs-15 bottom-only', placeholder: "0 円"  %>
+            <%= f.number_field :income, class: 'form-control form-control-lg text-right fs-15-imp bottom-only', placeholder: "0 円"  %>
             </div>
           </div>
           <div class="form-group" id="spending_form">
             <div class="w-200 text-left">
-            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-15 bottom-only', placeholder: "0 円"  %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-15-imp bottom-only', placeholder: "0 円"  %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.date_field :date, class: 'form-control form-control-lg', value: Date.today %>
+            <%= f.date_field :date, class: 'form-control form-control-lg fs-13-imp', value: Date.today %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: "分類"}, class: 'form-control form-control-lg select' %>
+              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: "費用項目"}, class: 'form-control form-control-lg select fs-11-imp' %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.text_field :note, class: 'form-control form-control-lg', placeholder: "メモ" %>
+            <%= f.select :replayer,[["共通財布", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: "支払口座"}, class: 'form-control form-control-lg select fs-11-imp' %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.select :replayer,[["共通財布", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: "支払口座"}, class: 'form-control form-control-lg select' %>
+            <%= f.text_field :note, class: 'form-control form-control-lg bottom-only fs-11-imp', placeholder: "詳細メモ" %>
             </div>
           </div><br>
           <%= f.submit '追加する', class: 'btn btn-warning btn-lg' %><br><br>

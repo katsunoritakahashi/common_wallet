@@ -54,36 +54,36 @@
         </div>
       <% end %>
       <%= form_with model: @detail, local: true do |f| %>
-          <div class="form-group">
-            <div class="w-200 text-left">
-            <%= f.date_field :date, class: 'form-control form-control-lg' %>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="w-200 text-left">
-              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: ''}, class: 'form-control form-control-lg select' %>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="w-200 text-left">
-            <%= f.text_field :note, class: 'form-control form-control-lg' %>
-            </div>
-          </div>
           <div class="row">
           <div class="form-group col mr-0">
             <div class="w-200 text-left">
-            <%= f.number_field :income, class: 'form-control form-control-lg',placeholder: "収入" %>
+            <%= f.number_field :income, class: 'form-control form-control-lg fs-11-imp bottom-only',placeholder: "収入" %>
             </div>
           </div>
           <div class="form-group col ml-0">
             <div class="w-200 text-left">
-            <%= f.number_field :spending, class: 'form-control form-control-lg',placeholder: "支出" %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg fs-11-imp bottom-only',placeholder: "支出" %>
             </div>
           </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.select :replayer,[["共通財布", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: ''}, class: 'form-control form-control-lg select' %>
+            <%= f.date_field :date, class: 'form-control form-control-lg fs-13-imp' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="w-200 text-left">
+              <%= f.select :classification,[["家賃", :rent], ["食費", :food], ["生活費", :life], ["交際費", :enjoy], ["入金", :money], ["その他", :other]],{ include_blank: ''}, class: 'form-control form-control-lg select fs-11-imp' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="w-200 text-left">
+            <%= f.select :replayer,[["共通財布", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: ''}, class: 'form-control form-control-lg select fs-11-imp' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="w-200 text-left">
+            <%= f.text_field :note, class: 'form-control form-control-lg fs-11-imp bottom-only' %>
             </div>
           </div><br>
           
