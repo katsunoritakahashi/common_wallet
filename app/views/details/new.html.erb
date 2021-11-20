@@ -44,7 +44,7 @@
 </div>
 </header>
 <body class="bgc-white">
-<div class="container mt-60">
+<div class="container mt-70">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <% if current_user.name == "ゲストユーザー" %>
@@ -55,10 +55,10 @@
       <% end %>
       <div class="row mb-10 border-bottom">
       <div class="col pb-5" onclick="clickBtn2()" id="income">
-        <span class="fs-11">収入</span>
+        <span class="fs-13">収入</span>
       </div>
       <div class="col pb-5" onclick="clickBtn1()" id="spending">
-        <span class="fs-11">支出</span>
+        <span class="fs-13">支出</span>
       </div>
       </div>
       <%= form_with model: @add, url: month_details_path, local: true do |f| %>
