@@ -161,17 +161,14 @@
           ※条件を設定して下さい
           <%= form_with model: @add, local: true do |f| %>
                 <div class="form-group text-left">
-                  <%= f.label :入金総額 %>
-                  <%= f.number_field :total_deposit, class: 'form-control form-control-lg bgc-gray', placeholder: '' %>
-                </div><br>
+                  <%= f.number_field :total_deposit, class: 'form-control form-control-lg bgc-gray', placeholder: '入金総額' %>
+                </div>
                 <div class="form-group text-left">
-                  <%= f.label :旦那さんの月給 %>
-                  <%= f.number_field :man_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '' %>
-                </div><br>
+                  <%= f.number_field :man_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '手取り（旦那さん）' %>
+                </div>
                 <div class="form-group text-left">
-                  <%= f.label :奥さんの月給 %>
-                  <%= f.number_field :woman_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '' %>
-                </div><br>
+                  <%= f.number_field :woman_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '手取り（奥さん）' %>
+                </div>
                 <%= f.submit '設定する', class: 'btn btn-warning' %>
           <% end %>
         </ul>
