@@ -37,6 +37,9 @@
 .bold {
   font-weight: bold;
 }
+.mt-60 {
+  margin-top: 60px;
+}
 .mt-70 {
   margin-top: 70px;
 }
@@ -66,6 +69,9 @@
 }
 .pb-10 {
   padding-bottom: 10px;
+}
+.pb-5 {
+  padding-bottom: 5px !important;
 }
 .pb-80 {
   padding-bottom: 80px;
@@ -531,7 +537,7 @@ td.p-0 {
   font-size: 1.3em;
 }
 .fs-15 {
-  font-size: 1.5em;
+  font-size: 1.5em !important;
 }
 .fs-20 {
   font-size: 2.0em;
@@ -849,4 +855,16 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.3rem;
+}
+.border-bottom{
+  border-bottom-width: 2px !important;
+}
+.border-bottom.border-warning{
+  border-color: #D6A802 !important;
+  border-bottom-width: 2px !important;
+}
+.form-control.bottom-only{
+  border: initial;
+  border-radius: initial;
+  border-bottom: 1px solid rgb(175, 175, 175);
 }

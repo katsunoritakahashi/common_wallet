@@ -44,7 +44,7 @@
 </div>
 </header>
 <body class="bgc-white">
-<div class="container mt-70">
+<div class="container mt-60">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <% if current_user.name == "ゲストユーザー" %>
@@ -53,7 +53,25 @@
           <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
         </div>
       <% end %>
+      <div class="row mb-10 border-bottom">
+      <div class="col pb-5" onclick="clickBtn2()" id="income">
+        <span class="fs-11">収入</span>
+      </div>
+      <div class="col pb-5" onclick="clickBtn1()" id="spending">
+        <span class="fs-11">支出</span>
+      </div>
+      </div>
       <%= form_with model: @add, url: month_details_path, local: true do |f| %>
+          <div class="form-group" id="income_form">
+            <div class="w-200 text-left">
+            <%= f.number_field :income, class: 'form-control form-control-lg text-right fs-15 bottom-only', placeholder: "0 円"  %>
+            </div>
+          </div>
+          <div class="form-group" id="spending_form">
+            <div class="w-200 text-left">
+            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-15 bottom-only', placeholder: "0 円"  %>
+            </div>
+          </div>
           <div class="form-group">
             <div class="w-200 text-left">
             <%= f.date_field :date, class: 'form-control form-control-lg', value: Date.today %>
@@ -69,18 +87,6 @@
             <%= f.text_field :note, class: 'form-control form-control-lg', placeholder: "メモ" %>
             </div>
           </div>
-          <div class="row">
-          <div class="form-group col mr-0">
-            <div class="w-200 text-left">
-            <%= f.number_field :income, class: 'form-control form-control-lg', placeholder: "収入"  %>
-            </div>
-          </div>
-          <div class="form-group col ml-0">
-            <div class="w-200 text-left">
-            <%= f.number_field :spending, class: 'form-control form-control-lg', placeholder: "支出"  %>
-            </div>
-          </div>
-          </div>
           <div class="form-group">
             <div class="w-200 text-left">
             <%= f.select :replayer,[["共通財布", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: "支払口座"}, class: 'form-control form-control-lg select' %>
@@ -92,4 +98,35 @@
     </div>
   </div>
 </div>
+
+<script>
+//初期表示は非表示
+document.getElementById("income_form").style.display ="none";
+document.getElementById("spending_form").style.display ="block";
+document.getElementById("spending").classList.add("orange");
+document.getElementById("income").classList.add("gray");
+document.getElementById("spending").classList.add("border-bottom");
+document.getElementById("spending").classList.add("border-warning");
+
+function clickBtn1(){
+	document.getElementById("spending_form").style.display ="block";
+	document.getElementById("income_form").style.display ="none";
+  document.getElementById("spending").style.color = '#D6A802';
+  document.getElementById("income").style.color = '#8d8d8d';
+  document.getElementById("spending").classList.add("border-bottom");
+  document.getElementById("spending").classList.add("border-warning");
+  document.getElementById("income").classList.remove("border-bottom");
+  document.getElementById("income").classList.remove("border-warning");
+}
+function clickBtn2(){
+	document.getElementById("income_form").style.display ="block";
+  document.getElementById("spending_form").style.display ="none";
+  document.getElementById("spending").style.color = '#8d8d8d';
+  document.getElementById("income").style.color = '#D6A802';
+  document.getElementById("spending").classList.remove("border-bottom");
+  document.getElementById("spending").classList.remove("border-warning");
+  document.getElementById("income").classList.add("border-bottom");
+  document.getElementById("income").classList.add("border-warning");
+}
+</script>
 </body>
