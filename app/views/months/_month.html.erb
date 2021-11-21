@@ -9,13 +9,13 @@
     <div class="stay white-box bottom-shadow">
     <table class="text-center table">
         <tr id="month-trash-button-<%=month.id%>">
-          <td class="text-left fs-13 mt-0"><%= month.month.strftime("%Y年%-m月　")%><%= link_to edit_month_path(month) do %><i class="fas fa-pen gray"></i><% end %></td>
+          <td class="text-left fs-13 mt-0"><%= month.month.strftime("%Y年%-m月　")%></td>
           <td class="mt-0 text-right gray fs-12" rowspan="2">
             <i class="fas fa-angle-right fa-lg"></i>
           </td>
         </tr>
         <tr id="month-trash-button-<%=month.id%>">
-          <td class="text-left fs-12 mt-0 mb-0 gray"><span class="fs-07">月末残高　</span><%= "#{month.balance_last.to_s(:delimited)}円" %></td>
+          <td class="text-left fs-12 mt-0 mb-0 gray"><span class="fs-07">月末残高　</span><%= "#{month.balance_last.to_s(:delimited)}円" %>　<%= link_to edit_month_path(month) do %><i class="fas fa-pen gray"></i><% end %></td>
         </tr>
     </table>
     </div>
