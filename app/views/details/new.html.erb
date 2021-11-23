@@ -69,7 +69,7 @@
           </div>
           <div class="form-group" id="spending_form">
             <div class="w-200 text-left">
-            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-15-imp bottom-only', placeholder: "0 円", autofocus:true  %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-15-imp bottom-only', placeholder: "0 円", id:"spending_field"  %>
             </div>
           </div>
           <div class="form-group">
@@ -107,6 +107,8 @@ document.getElementById("spending").classList.add("orange");
 document.getElementById("income").classList.add("gray");
 document.getElementById("spending").classList.add("border-bottom");
 document.getElementById("spending").classList.add("border-warning");
+
+document.getElementById("spending_field").focus();
 
 function clickBtn1(){
 	document.getElementById("spending_form").style.display ="block";
