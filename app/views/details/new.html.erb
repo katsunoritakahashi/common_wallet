@@ -64,12 +64,12 @@
       <%= form_with model: @add, url: month_details_path, local: true do |f| %>
           <div class="form-group" id="income_form">
             <div class="w-200 text-left">
-            <%= f.number_field :income, class: 'form-control form-control-lg text-right fs-15-imp bottom-only', placeholder: "0 円"  %>
+            <%= f.number_field :income, class: 'form-control form-control-lg text-right fs-20-imp bottom-only', placeholder: "0 円"  %>
             </div>
           </div>
           <div class="form-group" id="spending_form">
             <div class="w-200 text-left">
-            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-15-imp bottom-only', placeholder: "0 円", id:"spending_field"  %>
+            <%= f.number_field :spending, class: 'form-control form-control-lg text-right fs-20-imp bottom-only', placeholder: "0 円", id:"spending_field"  %>
             </div>
           </div>
           <div class="form-group">
