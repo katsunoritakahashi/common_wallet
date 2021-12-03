@@ -80,12 +80,12 @@
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.select :replayer,[["共通", "共通"],["旦那さん", "旦那"], ["奥さん", "嫁"]],{ include_blank: ''}, class: 'form-control form-control-lg select fs-11-imp' %>
+            <%= f.text_field :note, class: 'form-control form-control-lg fs-11-imp bottom-only' %>
             </div>
           </div>
           <div class="form-group">
             <div class="w-200 text-left">
-            <%= f.text_field :note, class: 'form-control form-control-lg fs-11-imp bottom-only' %>
+            <%= f.select :replayer,[["共通口座", "共通"],["旦那さん口座", "旦那"], ["奥さん口座", "嫁"]],{ include_blank: ''}, class: 'form-control form-control-lg select fs-11-imp' %>
             </div>
           </div><br>
           
