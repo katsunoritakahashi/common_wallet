@@ -59,7 +59,7 @@
         <div class="stay white-box">
         <table class="text-center table lg">
           <tr>
-            <td class="text-left mt-0" width="120">　現在の残高</td>
+            <td class="text-left mt-0 gray" width="120">現在の残高</td>
             <td class="fs-12 mt-0 text-right pr-30"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
           </tr>
           <tr>
@@ -73,15 +73,13 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left border-top border-dark-top">　精算後残高</td>
+            <td class="text-left border-top border-dark-top gray">　精算後残高</td>
             <td class="fs-12 border-top border-dark-top text-right pr-30"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
           </tr>
         </table>
         </div>
       <div class="stay white-box">
-        <h5 class="text-left black fs-12">
-          精算内訳
-        </h5>
+        <h5 class="text-left black fs-12 pl-5">精算内訳</h5>
         <table class="text-center table lg fs-15">
           <% @replayers.each do |replayer| %>
             <tr>
@@ -105,13 +103,11 @@
       </div>
       </div>
         <div class="stay white-box">
-        <h5 class="text-left black fs-12">
-          精算一覧
-        </h5>
+        <h5 class="text-left black fs-12 pl-5">精算一覧</h5>
         <table class="text-center table table-sm">
           <% @details.each do |detail| %>
           <tr class="table-light">
-            <td class="text-right" width="36"><%= detail.date.strftime("%-d日") %></td>
+            <td class="text-right gray" width="36"><%= detail.date.strftime("%-d日") %></td>
             <td>
             <% if detail.classification == 'rent' %>
               <i class="fas fa-home fa-lg red"></i>
@@ -170,7 +166,7 @@
           </tr>
           <% end %>
         </table>
-        <p>※本日以前の明細が精算対象となります。</p>
+        <p class="gray">※本日以前の明細が精算対象となります。</p>
       <%= link_to "精算を完了する", done_month_details_path(params[:month_id]), method: :patch, data:{confirm:"精算を完了しますか？"}, class: 'btn btn-warning mb-10' %>
       </div>
       <% else %>

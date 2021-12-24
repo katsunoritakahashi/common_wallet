@@ -58,7 +58,7 @@
         <div class="stay white-box">
           <table class="table">
             <tr>
-              <td class="p-0"><h5 class="text-left black fs-12">金額設定</h5></td>
+              <td class="p-0 pl-5"><h5 class="text-left black fs-12">金額設定</h5></td>
               <td class="p-0 text-right"><%= link_to "条件を再設定する", deposit_path(@deposit), method: :delete, data:{confirm:"基本条件を再設定しますか？"}, class: 'btn btn-outline-secondary btn-sm radius' %></td>
             </tr>
           </table>
@@ -90,9 +90,7 @@
           </table>
         </div>
         <div class="stay white-box">
-          <h5 class="text-left black fs-12">
-            入金内訳
-          </h5>
+          <h5 class="text-left black fs-12 pl-5">入金内訳</h5>
           <table class="text-center table lg fs-15">
               <tr>
                 <td class="text-right bottom"><i class="fas fa-user blue"></i></td>
@@ -114,7 +112,7 @@
         <div class="stay white-box">
           <table class="table">
             <tr>
-              <td class="p-0"><h5 class="text-left black fs-12">調整項目一覧</h5></td>
+              <td class="p-0 pl-5"><h5 class="text-left black fs-12">調整項目一覧</h5></td>
               <td class="p-0 text-right">
                 <%= link_to month_corrects_path(params[:month_id]) do %>
                   <div class="plus-bottom-small bottom-shadow inline-block">＋</div>
@@ -158,7 +156,6 @@
       <% else %>
       <div class="white-box">
         <ul class="list-inline">
-          ※条件を設定して下さい
           <%= form_with model: @add, local: true do |f| %>
                 <div class="form-group text-left">
                   <%= f.number_field :total_deposit, class: 'form-control form-control-lg bgc-gray', placeholder: '入金総額：- 円' %>
@@ -176,7 +173,7 @@
         <div class="stay white-box">
           <table class="table">
             <tr>
-              <td class="p-0"><h5 class="text-left black fs-12">調整項目一覧</h5></td>
+              <td class="p-0 pl-5"><h5 class="text-left black fs-12">調整項目一覧</h5></td>
               <td class="p-0 text-right">
                 <%= link_to month_corrects_path(params[:month_id]) do %>
                   <div class="plus-bottom-small bottom-shadow inline-block">＋</div>
