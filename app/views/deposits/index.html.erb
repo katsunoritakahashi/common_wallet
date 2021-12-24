@@ -55,7 +55,7 @@
         </div>
       <% end %>
       <% if @deposit %>
-        <div class="stay white-box bottom-shadow">
+        <div class="stay white-box">
           <table class="table">
             <tr>
               <td class="p-0"><h5 class="text-left black fs-12">金額設定</h5></td>
@@ -89,7 +89,7 @@
             </tr>
           </table>
         </div>
-        <div class="stay white-box bottom-shadow">
+        <div class="stay white-box">
           <h5 class="text-left black fs-12">
             入金内訳
           </h5>
@@ -111,7 +111,7 @@
           </table>
           <%= link_to "明細に適用する", add_deposit_month_deposits_path, method: :post, data:{confirm:"明細に反映しますか？"}, class: 'btn btn-warning mb-10' %>
         </div>
-        <div class="stay white-box bottom-shadow">
+        <div class="stay white-box">
           <table class="table">
             <tr>
               <td class="p-0"><h5 class="text-left black fs-12">調整項目一覧</h5></td>
@@ -156,7 +156,7 @@
           <% end %>
         </div>
       <% else %>
-      <div class="white-box bottom-shadow">
+      <div class="white-box">
         <ul class="list-inline">
           ※条件を設定して下さい
           <%= form_with model: @add, local: true do |f| %>
@@ -173,7 +173,7 @@
           <% end %>
         </ul>
         </div>
-        <div class="stay white-box bottom-shadow">
+        <div class="stay white-box">
           <table class="table">
             <tr>
               <td class="p-0"><h5 class="text-left black fs-12">調整項目一覧</h5></td>

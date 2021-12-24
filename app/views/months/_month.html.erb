@@ -1,4 +1,4 @@
-<div class="stay white-box bottom-shadow">
+<div class="stay white-box">
 <table class="table">
   <tr>
     <td class="p-0"><h5 class="text-left black fs-12">家計簿一覧</h5></td>
@@ -6,7 +6,7 @@
 </table>
   <% months.each do |month| %>
   <%= link_to month_details_path(month) do%>
-    <div class="stay white-box bottom-shadow">
+    <div class="stay white-box">
     <table class="text-center table">
         <tr id="month-trash-button-<%=month.id%>">
           <td class="text-left fs-13 mt-0"><%= month.month.strftime("%Y年%-m月　")%></td>

@@ -56,7 +56,7 @@
       <h2 class="display-xs-none"><%= "#{current_user.name}の家計簿" %></h2>
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
-            <div class="white-box bottom-shadow">
+            <div class="white-box">
               <table class="table">
                 <tr>
                   <td class="p-0"><h5 class="text-left black fs-11"><%= @month.month.strftime("%-m月の家計簿") %></h5></td>
@@ -88,7 +88,7 @@
           <% end %>
         <% else %>
           <%= link_to months_path do %>
-            <div class="white-box bottom-shadow">
+            <div class="white-box">
               <h5 class="text-left black fs-11">今月の家計簿</h5>
               <p class="gray">今月の家計簿が登録されていません</p>
             </div>
@@ -97,7 +97,7 @@
         
         <% if @detail.present? && @budget.present? %>
         <%= link_to month_budgets_path(@month.id) do %>
-        <div class="white-box bottom-shadow">
+        <div class="white-box">
         <table class="table">
           <tr>
             <td class="p-0"><h5 class="text-left black fs-11"><%= @month.month.strftime("%-m月の予算") %></h5></td>
@@ -139,7 +139,7 @@
         <div class="box">
           <% if @detail.present? && @budget.present? %>
             <%= link_to month_budgets_path(@month.id) do %>
-              <div class="white-box bottom-shadow pt-30 col-md-5 width">
+              <div class="white-box pt-30 col-md-5 width">
                 <table class="table">
                   <tr>
                     <td class="p-0"><h5 class="text-left black fs-11"><%= @month.month.strftime("%-m月の支出") %></h5></td>
@@ -151,14 +151,14 @@
             <% end %>
           <% else %>
             <%= link_to months_path do %>
-              <div class="white-box bottom-shadow pt-30 col-md-5 width">
+              <div class="white-box pt-30 col-md-5 width">
                 <h5 class="text-left black fs-11">今月の支出</h5>
                 <p class="gray">今月はまだ支出がありません</p>
               </div>
             <% end %>
           <% end %>
           <%= link_to months_path do %>
-            <div class="white-box bottom-shadow pt-30 col-md-6 width right">
+            <div class="white-box pt-30 col-md-6 width right">
               <table class="table">
                   <tr>
                     <td class="p-0"><h5 class="text-left black fs-11">口座残高</h5></td>
@@ -179,7 +179,7 @@
         </div>
         <% if @detail.present? && @not_yet_count != 0 %>
         <%= link_to reimbursement_month_details_path(@month.id) do %>
-          <div class="stay white-box bottom-shadow">
+          <div class="stay white-box">
             <table class="table">
               <tr>
                 <td class="p-0"><h5 class="text-left black fs-12">立替精算</h5></td>
@@ -211,7 +211,7 @@
         <% end %> 
         <% if @deposit.present? %>
         <%= link_to month_deposits_path(@month.id) do %>
-        <div class="stay white-box bottom-shadow">
+        <div class="stay white-box">
           <table class="table">
             <tr>
               <td class="p-0"><h5 class="text-left black fs-12"><%= @month.month.strftime("%-m月の入金額") %></h5></td>

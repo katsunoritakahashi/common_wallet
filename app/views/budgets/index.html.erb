@@ -56,11 +56,11 @@
         </div>
       <% end %>
       <div class="box">
-        <div class="white-box bottom-shadow col-md-5 width">
+        <div class="white-box col-md-5 width">
           <h5 class="text-left black fs-11">支出の内訳</h5>
           <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '14px'}}} %>
         </div>
-      <div class="white-box bottom-shadow col-md-6 width right">
+      <div class="white-box col-md-6 width right">
       <table class="table">
         <tr>
           <td class="p-0"><h5 class="text-left black fs-11">予算比</h5></td>
@@ -96,7 +96,7 @@
           </tr>
         </table>
         </div>
-    <div class="white-box bottom-shadow col-md-6 width right">
+    <div class="white-box col-md-6 width right">
     <h5 class="text-left black fs-11">項目別</h5>
     <table class="text-center table table-light">
       <tr>
