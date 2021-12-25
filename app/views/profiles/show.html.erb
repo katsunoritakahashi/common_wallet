@@ -120,9 +120,9 @@
             <td colspan="2">
             <div class="progress">
               <% if @budget_total != 0 %>
-                <div class="progress-bar progress-bar bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
               <% else %>
-                <div class="progress-bar progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               <% end %>
             </div>
             </td> 
