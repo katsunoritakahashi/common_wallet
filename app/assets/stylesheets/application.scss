@@ -58,6 +58,9 @@
 .pt-15 {
   padding-top: 13px;
 }
+.pt-20 {
+  padding-top: 20px;
+}
 .mt-20 {
   margin-top: 20px;
 }
@@ -893,5 +896,8 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   height: 1.3rem;
 }
 .vertical-middle {
-  vertical-align: middle !important;
+  vertical-align: bottom !important;
+}
+.df{
+  display: flex;
 }
