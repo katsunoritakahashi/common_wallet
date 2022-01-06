@@ -28,19 +28,20 @@ Chartkick.options = {
       pie: {
         dataLabels: {
           enabled: true, 
-          distance: -30, # ラベルの位置調節
+          distance: -20, # ラベルの位置調節
           allowOverlap: false, # ラベルが重なったとき、非表示にする
           #suffix: "％",
           style: { #ラベルフォントの設定
             color: '#FFFFFF',
             fontWeight: 300,
+            fontSize: 9,
             textAlign: 'center', 
             textOutline: 0, #デフォルトではラベルが白枠で囲まれていてダサいので消す
             #suffix: "％",
           }
         },
         size: '100%',
-        innerSize: '50%', # ドーナツグラフの中の円の大きさ
+        innerSize: '55%', # ドーナツグラフの中の円の大きさ
         borderWidth: 0,
         #suffix: "％",
       }
