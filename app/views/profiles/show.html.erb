@@ -65,7 +65,7 @@
               </table>
               <table class="text-center table lg">
                 <tr>
-                  <td class="gray text-right top bottom"><span class="fs-07">前月比</span>
+                  <td colspan="2" class="gray text-right top bottom"><span class="fs-07">前月比</span>
                     <% if @month.balance < @month.balance_last %>
                       <span class="blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %><i class="fas fa-angle-double-up"></i></span>
                     <% elsif @month.balance == @month.balance_last %>
@@ -76,10 +76,11 @@
                   </td>
                 </tr>
                 <tr class="top">
+                  <td class="gray text-left top bottom fs-09">口座残高</td>
                     <% if @month.balance_last.present? %>
-                      <td class="top bottom text-right"><span class="gray fs-09">口座残高　　</span><span class="fs-20"><%= "#{@month.balance_last.to_s(:delimited) }円" %></span></td>
+                      <td class="top bottom text-right fs-17 "><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
                     <% else %>
-                      <td class="top bottom text-right"><span class="gray fs-09">口座残高　　</span><span class="fs-20"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></span></td>
+                      <td class="top bottom text-right fs-17 "><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
                     <% end %>
                 </tr>
               </table>
