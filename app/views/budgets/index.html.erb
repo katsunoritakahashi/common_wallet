@@ -58,20 +58,20 @@
       <div class="box">
         <div class="white-box col-md-5 width">
           <h5 class="text-left black fs-11 pl-5">支出の内訳</h5>
-          <div class="df row">
-            <div class="col-8">
+            <div class="df row">
+              <div class="col-8 pr-0">
               <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '12px'}}} %>
-            </div> 
-            <div class="col-4 d-flex align-items-center p-0">
-            <div class="text-left black">
-              <p><span class="red">■</span><%= "　#{@spending_rent.to_s(:delimited) }円" %></p>
-              <p><span class="blue">■</span><%= "　#{@spending_life.to_s(:delimited) }円" %></p>
-              <p><span class="yellow">■</span><%= "　#{@spending_food.to_s(:delimited) }円" %></p>
-              <p><span class="green">■</span><%= "　#{@spending_enjoy.to_s(:delimited) }円" %></p>
-              <p><span class="gray">■</span><%= "　#{@spending_other.to_s(:delimited) }円" %></p>
-            </div> 
-            </div> 
-          </div>
+              </div> 
+              <div class="col-4 d-flex align-items-center p-0">
+              <div class="text-left black fs-11">
+                <p class="mb-05rem"><span class="red">■ </span><%= "#{@spending_rent.to_s(:delimited) }円" %></p>
+                <p class="mb-05rem"><span class="blue">■ </span><%= "#{@spending_life.to_s(:delimited) }円" %></p>
+                <p class="mb-05rem"><span class="yellow">■ </span><%= "#{@spending_food.to_s(:delimited) }円" %></p>
+                <p class="mb-05rem"><span class="green">■ </span><%= "#{@spending_enjoy.to_s(:delimited) }円" %></p>
+                <p class="mb-05rem"><span class="gray">■ </span><%= "#{@spending_other.to_s(:delimited) }円" %></p>
+              </div> 
+              </div> 
+            </div>
         </div>
       <div class="white-box col-md-6 width right">
       <table class="table">
