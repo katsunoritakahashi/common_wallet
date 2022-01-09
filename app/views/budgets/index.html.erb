@@ -58,20 +58,35 @@
       <div class="box">
         <div class="white-box col-md-5 width">
           <h5 class="text-left black fs-11 pl-5">支出の内訳</h5>
-            <div class="df row">
-              <div class="col-8 pr-0">
-              <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '12px'}}} %>
-              </div> 
-              <div class="col-4 d-flex align-items-center p-0">
-              <div class="text-left black fs-11">
-                <p class="mb-05rem"><span class="red">■ </span><%= "#{@spending_rent.to_s(:delimited) }円" %></p>
-                <p class="mb-05rem"><span class="blue">■ </span><%= "#{@spending_life.to_s(:delimited) }円" %></p>
-                <p class="mb-05rem"><span class="yellow">■ </span><%= "#{@spending_food.to_s(:delimited) }円" %></p>
-                <p class="mb-05rem"><span class="green">■ </span><%= "#{@spending_enjoy.to_s(:delimited) }円" %></p>
-                <p class="mb-05rem"><span class="gray">■ </span><%= "#{@spending_other.to_s(:delimited) }円" %></p>
-              </div> 
-              </div> 
-            </div>
+          <div class="df row">
+            <div class="col-8 pr-0 pl-0">
+            <%= pie_chart @pie_chart,library: {title: {text: "支出<br> #{@spending_total.to_s(:delimited)}円", style: {fontSize: '12px'}}} %>
+            </div> 
+            <div class="col-4 d-flex align-items-center p-0">
+            <table>
+              <tr class="text-left black fs-11">
+                <td><span class="red">■ </span></td>
+                <td class="text-right"><%= "#{@spending_rent.to_s(:delimited) }円" %></td>
+              </tr>
+              <tr class="text-left black fs-11">
+                <td><span class="blue">■ </span></td>
+                <td class="text-right"><%= "#{@spending_life.to_s(:delimited) }円" %></td>
+              </tr>
+              <tr class="text-left black fs-11">
+                <td><span class="yellow">■ </span></td>
+                <td class="text-right"><%= "#{@spending_food.to_s(:delimited) }円" %></td>
+              </tr>
+              <tr class="text-left black fs-11">
+                <td><span class="green">■ </span></td>
+                <td class="text-right"><%= "#{@spending_enjoy.to_s(:delimited) }円" %></td>
+              </tr>
+              <tr class="text-left black fs-11">
+                <td><span class="gray">■ </span></td>
+                <td class="text-right"><%= "#{@spending_other.to_s(:delimited) }円" %></td>
+              </tr>
+            </table>
+            </div> 
+          </div>
         </div>
       <div class="white-box col-md-6 width right">
       <table class="table">
@@ -93,7 +108,7 @@
           </tr>
           <tr>
           <tr>
-            <td colspan="2" class="top">
+            <td colspan="2" class="top bottom">
             <div class="progress">
               <% if @budget_total != 0 %>
                 <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="<%= "width: #{@spending_total * 100 / @budget_total}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_total > @budget_total %></div>
@@ -123,7 +138,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" class="top">
+        <td colspan="2" class="top bottom">
         <div class="progress">
           <% if @budget.rent != 0 %>
             <div class="progress-bar bg-danger" role="progressbar" style="<%= "width: #{@spending_rent * 100 / @budget.rent}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_rent > @budget.rent %></div>
@@ -149,7 +164,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" class="top">
+        <td colspan="2" class="top bottom">
         <div class="progress">
           <% if @budget.life != 0 %>
             <div class="progress-bar bg-primary" role="progressbar" style="<%= "width: #{@spending_life * 100 / @budget.life}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_life > @budget.life %></div>
@@ -175,7 +190,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" class="top">
+        <td colspan="2" class="top bottom">
         <div class="progress">
           <% if @budget.food != 0 %>
             <div class="progress-bar bg-warning" role="progressbar" style="<%= "width: #{@spending_food * 100 / @budget.food}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_food > @budget.food %></div>
@@ -201,7 +216,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" class="top">
+        <td colspan="2" class="top bottom">
         <div class="progress">
           <% if @budget.enjoy != 0 %>
             <div class="progress-bar bg-success" role="progressbar" style="<%= "width: #{@spending_enjoy * 100 / @budget.enjoy}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_enjoy > @budget.enjoy %></div>
@@ -227,7 +242,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" class="top">
+        <td colspan="2" class="top bottom">
         <div class="progress">
           <% if @budget.other != 0 %>
             <div class="progress-bar bg-secondary" role="progressbar" style="<%= "width: #{@spending_other * 100 / @budget.other}%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= "予算オーバー" if @spending_other > @budget.other %></div>
