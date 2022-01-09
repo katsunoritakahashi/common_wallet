@@ -2,8 +2,8 @@
     <div class="stay white-box">
     <table class="text-center table lg">
       <tr>
-        <td class="gray text-left pl-5">口座残高</td>
-        <td class="gray text-right"><span class="fs-07">前月比</span>
+        <td class="gray text-left pl-5 top">口座残高</td>
+        <td class="gray text-right top"><span class="fs-07">前月比</span>
           <% if @month.balance < @month.balance_last %>
             <span class="blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %><i class="fas fa-angle-double-up"></i></span>
           <% elsif @month.balance == @month.balance_last %>
@@ -21,8 +21,8 @@
         <td class="gray border-top border-dark-top">月末予想</td>
       </tr>
       <tr class="fs-13 top">
-        <td class="top"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
-        <td class="top"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited)}円" %></td>
+        <td class="top bottom"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+        <td class="top bottom"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited)}円" %></td>
       </tr>
     </table>
     </div>
@@ -30,8 +30,8 @@
     <h5 class="text-left black fs-12 pl-5">今月の収支</h5>
     <table class="text-center table lg">
       <tr>
-        <td class="width-50 gray">収入</td>
-        <td class="fs-13 vertical-top text-right blue"><%= "#{@income_total.to_s(:delimited)}円　" %></td>
+        <td class="width-50 gray top">収入</td>
+        <td class="fs-13 vertical-top text-right blue top"><%= "#{@income_total.to_s(:delimited)}円　" %></td>
       </tr>
       <tr>
         <td class="width-50 mt-0 gray">支出</td>

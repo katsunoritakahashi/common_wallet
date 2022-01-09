@@ -59,8 +59,8 @@
         <div class="stay white-box">
         <table class="text-center table lg">
           <tr>
-            <td class="text-left mt-0 gray" width="120">　現在の残高</td>
-            <td class="fs-12 mt-0 text-right pr-30"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+            <td class="text-left mt-0 gray top bottom" width="120">　現在の残高</td>
+            <td class="fs-12 mt-0 text-right pr-30 top bottom"><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
           </tr>
           <tr>
             <td class="text-left mt-0"></td>
@@ -73,8 +73,8 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left border-top border-dark-top gray">　精算後残高</td>
-            <td class="fs-12 border-top border-dark-top text-right pr-30"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
+            <td class="text-left border-top border-dark-top gray bottom">　精算後残高</td>
+            <td class="fs-12 border-top border-dark-top text-right pr-30 bottom"><%= "#{(@month.balance_last + @balance_of_payments_not_common).to_s(:delimited)}円" %></td>
           </tr>
         </table>
         </div>
