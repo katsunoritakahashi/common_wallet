@@ -77,9 +77,9 @@
                 </tr>
                 <tr class="top">
                     <% if @month.balance_last.present? %>
-                      <td class="top bottom text-right fs-20 "><%= "#{@month.balance_last.to_s(:delimited) }円" %></td>
+                      <td class="top bottom text-right"><span class="gray fs-09">口座残高　　</span><span class="fs-20"><%= "#{@month.balance_last.to_s(:delimited) }円" %></span></td>
                     <% else %>
-                      <td class="top bottom text-right fs-20 "><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></td>
+                      <td class="top bottom text-right"><span class="gray fs-09">口座残高　　</span><span class="fs-20"><%= "#{(@month.balance + @balance_of_payments).to_s(:delimited) }円" %></span></td>
                     <% end %>
                 </tr>
               </table>
