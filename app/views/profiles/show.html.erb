@@ -47,11 +47,12 @@
 <div class="container pb-130">
   <div class="row">
     <div class="col">
+      <% if current_user.name == "ゲストユーザー" %>
         <div class="invite-resister">
-          <span>※ドメイン変更のお知らせ</span>
-          <p class="mb-5 text-left pl-5">2022年2月28日をもって本ドメインは終了いたします。<br>3月1日以降は下記ドメインからご利用下さい。</p>
-          <%= link_to "移行先はこちら", 'https://common-wallet.herokuapp.com/' %>
+          <p class="mb-5">閲覧中のデータはサンプルです</p>
+          <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
         </div>
+      <% end %>
       <h2 class="display-xs-none"><%= "#{current_user.name}の家計簿" %></h2>
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
