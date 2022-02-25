@@ -3,7 +3,12 @@ class BudgetsController < ApplicationController
   def index
     @month = Month.find_by(user_id: current_user.id, id: params[:month_id])
     @second_latest_month = Month.where(user_id: current_user.id).includes(:user).order(month: :desc).second
-    @second_budget = Budget.find_by(month_id: @second_latest_month.id)
+    @last_budget = Budget.find_by(month_id: @second_latest_month.id)
+    @last_spending_rent = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :rent).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :rent).includes(:month).sum(:income)
+    @last_spending_food = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :food).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :food).includes(:month).sum(:income)
+    @last_spending_life = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :life).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :life).includes(:month).sum(:income)
+    @last_spending_enjoy = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :enjoy).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :enjoy).includes(:month).sum(:income)
+    @last_spending_other = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :other).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :other).includes(:month).sum(:income)
     authenticate_budget
     @setting = Budget.new
     if @budget.present?
