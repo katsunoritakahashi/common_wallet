@@ -276,31 +276,31 @@
   <ul class="list-inline">
     <%= form_with model: @add, local: true do |f| %>
       <div class="text-right">
-        <p>先月の予算:<%= @last_budget ? @last_budget.rent.to_s(:delimited) : "-" %> 円　支出:<%= @last_spending_rent ? @last_spending_rent.to_s(:delimited) : "-" %> 円</p>
+        <p><span class="gray fs-09">先月の予算:</span><%= @last_budget ? @last_budget.rent.to_s(:delimited) : "-" %> 円　<span class="gray fs-09">支出:</span><%= @last_spending_rent ? @last_spending_rent.to_s(:delimited) : "-" %> 円</p>
       </div>
       <div class="form-group text-left">
         <%= f.number_field :rent, class: 'form-control form-control-lg', placeholder: "家賃：- 円" %>
       </div>
       <div class="text-right">
-        <p>先月の予算:<%= @last_budget ? @last_budget.life.to_s(:delimited) : "-" %> 円　支出:<%= @last_spending_life ? @last_spending_life.to_s(:delimited) : "-" %> 円</p>
+        <p><span class="gray fs-09">先月の予算:</span><%= @last_budget ? @last_budget.life.to_s(:delimited) : "-" %> 円　<span class="gray fs-09">支出:</span><%= @last_spending_life ? @last_spending_life.to_s(:delimited) : "-" %> 円</p>
       </div>
       <div class="form-group text-left">
         <%= f.number_field :life, class: 'form-control form-control-lg', placeholder: "生活費：- 円" %>
       </div>
       <div class="text-right">
-        <p>先月の予算:<%= @last_budget ? @last_budget.food.to_s(:delimited) : "-" %> 円　支出:<%= @last_spending_food ? @last_spending_food.to_s(:delimited) : "-" %> 円</p>
+        <p><span class="gray fs-09">先月の予算:</span><%= @last_budget ? @last_budget.food.to_s(:delimited) : "-" %> 円　<span class="gray fs-09">支出:</span><%= @last_spending_food ? @last_spending_food.to_s(:delimited) : "-" %> 円</p>
       </div>
       <div class="form-group text-left">
         <%= f.number_field :food, class: 'form-control form-control-lg', placeholder: "食費：- 円" %>
       </div>
       <div class="text-right">
-        <p>先月の予算:<%= @last_budget ? @last_budget.enjoy.to_s(:delimited) : "-" %> 円　支出:<%= @last_spending_enjoy ? @last_spending_enjoy.to_s(:delimited) : "-" %> 円</p>
+        <p><span class="gray fs-09">先月の予算:</span><%= @last_budget ? @last_budget.enjoy.to_s(:delimited) : "-" %> 円　<span class="gray fs-09">支出:</span><%= @last_spending_enjoy ? @last_spending_enjoy.to_s(:delimited) : "-" %> 円</p>
       </div>
       <div class="form-group text-left">
         <%= f.number_field :enjoy, class: 'form-control form-control-lg', placeholder: "交際費：- 円" %>
       </div>
       <div class="text-right">
-        <p>先月の予算:<%= @last_budget ? @last_budget.other.to_s(:delimited) : "-" %> 円　支出:<%= @last_spending_other ? @last_spending_other.to_s(:delimited) : "-" %> 円</p>
+        <p><span class="gray fs-09">先月の予算:</span><%= @last_budget ? @last_budget.other.to_s(:delimited) : "-" %> 円　<span class="gray fs-09">支出:</span><%= @last_spending_other ? @last_spending_other.to_s(:delimited) : "-" %> 円</p>
       </div>
       <div class="form-group text-left">
         <%= f.number_field :other, class: 'form-control form-control-lg', placeholder: "その他：- 円" %>
