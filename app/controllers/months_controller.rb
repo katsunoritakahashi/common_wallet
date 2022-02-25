@@ -8,6 +8,7 @@ class MonthsController < ApplicationController
 
   def new
     @month = Month.new
+    @latest_month = Month.where(user_id: current_user.id).includes(:user).order(month: :desc).first
   end
 
   def create
