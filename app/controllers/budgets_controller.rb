@@ -2,6 +2,8 @@ class BudgetsController < ApplicationController
 
   def index
     @month = Month.find_by(user_id: current_user.id, id: params[:month_id])
+    @second_latest_month = Month.where(user_id: current_user.id).includes(:user).order(month: :desc).second
+    @second_budget = Budget.find_by(month_id: @second_latest_month.id)
     authenticate_budget
     @setting = Budget.new
     if @budget.present?
