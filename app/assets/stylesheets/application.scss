@@ -230,7 +230,7 @@ td.pr-30 {
   color: #585858;
 }
 a{
-  color: #b68973;
+  color: #A1CADF;
 }
 a:hover {
   color: #585858;
@@ -342,7 +342,7 @@ html {
   padding-right: 25px;
   padding-left: 25px;
   padding-bottom: 30px;
-  background-color: #FFF6DA;
+  background-color: #a1cadf49;
   font-family: YuGothic,'Yu Gothic', sans-serif;
 }
 .sub-contents-1 {
@@ -479,9 +479,6 @@ a{
 .bgc-green {
   background-color: #49ff49;
 }
-.bg-secondary{
-  background-color: #C1A383 !important;
-}
 .what-common-wallet {
   background-color: white;
   border-radius: 30px;
@@ -489,7 +486,7 @@ a{
   margin: 5px;
 }
 .marker-orange{
-  background:linear-gradient(transparent 60%, #ffe380 70%);
+  background:linear-gradient(transparent 60%, #A1CADF 70%);
 }
 .marker-gray{
   background:linear-gradient(transparent 60%, #bbbbbb 70%);
@@ -861,16 +858,19 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   color: #fff;
 }
 .progress-bar.bg-danger{
-  background-color: #F16060 !important;
+  background-color: #da5019be !important;
 }
 .progress-bar.bg-primary{
-  background-color: #A0CADE !important;
+  background-color: #4094bebe !important;
 }
 .progress-bar.bg-warning{
-  background-color: #EEE796 !important;
+  background-color: #ddb500bb !important;
 }
 .progress-bar.bg-success{
-  background-color: #A2D14E !important;
+  background-color: #21990ec5 !important;
+}
+.bg-secondary{
+  background-color: #8a400ec7 !important;
 }
 .progress-bar.bg-info{
   background-color: #A1CADF !important;
