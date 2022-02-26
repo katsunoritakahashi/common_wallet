@@ -1,4 +1,4 @@
-<%= link_to detail_path(detail),id: "detail-status-button-#{detail.id}", method: :patch, remote: true do %>
+<%= link_to detail_path(detail),id: "detail-status-button-#{detail.id}", method: :patch, remote: true, class:'gray' do %>
   <% if detail.status == 'not_yet' %>
     <%= icon 'far', 'square' %>
   <% elsif detail.status == 'done' %>
