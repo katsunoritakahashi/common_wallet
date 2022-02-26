@@ -26,7 +26,7 @@
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
       <%= link_to profile_path do %><li class="text-left"><i class="fas fa-home fa-lg"></i>　ホーム</li><% end %>
-      <%= link_to months_path do %><li class="text-left"><i class="fas fa-chart-area fa-lg"></i>　家計簿一覧</li><% end %>
+      <%= link_to months_path do %><li class="text-left"><i class="fas fa-chart-bar fa-lg"></i>　家計簿一覧</li><% end %>
       <% if @authenticated_this_month.present? %>
         <%= link_to month_details_path(@authenticated_this_month.id) do %><li class="text-left"><i class="fas fa-receipt fa-lg"></i>　明細</li><% end %>
         <%= link_to reimbursement_month_details_path(@authenticated_this_month.id) do %><li class="text-left"><i class="fas fa-cash-register fa-lg"></i>　精算</li><% end %>
@@ -81,7 +81,7 @@
                 <td class="text-right"><%= "#{@spending_enjoy.to_s(:delimited) }円" %></td>
               </tr>
               <tr class="text-left black fs-11">
-                <td><span class="gray">■ </span></td>
+                <td><span class="brown">■ </span></td>
                 <td class="text-right"><%= "#{@spending_other.to_s(:delimited) }円" %></td>
               </tr>
             </table>
@@ -232,7 +232,7 @@
       </tr>
 
       <tr>
-        <td class="text-left fs-11 border-top border-dark-top"><i class="fas fa-dog fa-lg gray"></i> その他</td>
+        <td class="text-left fs-11 border-top border-dark-top"><i class="fas fa-paw fa-lg brown"></i> その他</td>
         <td class="text-right border-top border-dark-top fs-11 bottom">
           <% if @spending_other > @budget.other %>
             <span class="red"><%= "#{(@spending_other - @budget.other).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>

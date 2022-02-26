@@ -71,12 +71,16 @@
       <% elsif detail.classification == 'money' %>
         <i class="fas fa-piggy-bank fa-lg skin"></i>
       <% elsif detail.classification == 'other' %>
-        <i class="fas fa-dog fa-lg brown"></i>
+        <i class="fas fa-paw fa-lg brown"></i>
       <% else %>
         <%= detail.classification_i18n %>
       <% end %>
       </td>
-      <td class="text-left"><%= detail.note %></td>
+      <td class="text-left">
+        <%= link_to edit_detail_path(detail) do %>
+          <%= detail.note %>
+        <% end %>
+        </td>
       <td class="display-xs-none">
         <% if detail.income.present? %>
           <%= "#{detail.income.to_s(:delimited)}円" %>
@@ -119,11 +123,6 @@
           <span id="detail-status-button-<%=detail.id%>">
               <%= render partial: 'details/status', locals: { detail: detail} %>
           </span>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to edit_detail_path(detail) do %>
-          <%= icon 'fa', 'pen' %>
         <% end %>
       </td>
     </tr>

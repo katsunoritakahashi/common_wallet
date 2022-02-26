@@ -25,7 +25,7 @@
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
       <%= link_to profile_path do %><li class="text-left"><i class="fas fa-home fa-lg"></i>　ホーム</li><% end %>
-      <%= link_to months_path do %><li class="text-left"><i class="fas fa-chart-area fa-lg"></i>　家計簿一覧</li><% end %>
+      <%= link_to months_path do %><li class="text-left"><i class="fas fa-chart-bar fa-lg"></i>　家計簿一覧</li><% end %>
       <% if @authenticated_this_month.present? %>
         <%= link_to month_details_path(@authenticated_this_month.id) do %><li class="text-left"><i class="fas fa-receipt fa-lg"></i>　明細</li><% end %>
         <%= link_to reimbursement_month_details_path(@authenticated_this_month.id) do %><li class="text-left"><i class="fas fa-cash-register fa-lg"></i>　精算</li><% end %>
@@ -108,7 +108,7 @@
           <tr>
             <td colspan="2" class="text-right fs-13 top bottom">
               <% if @spending_total > @budget_total %>
-                <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire fa-lg red fs-15"></i>
+                <span class="red"><%= "#{(@spending_total - @budget_total).to_s(:delimited)}円オーバー " %></span><i class="fas fa-fire red"></i>
               <% else %> 
                 <span class="gray fs-07">残り </span><%= "#{((@spending_total - @budget_total)* -1).to_s(:delimited)}円" %>
               <% end %>
