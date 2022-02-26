@@ -64,7 +64,7 @@
           </table>
           <table class="text-center table lg">
             <tr>
-              <td class="gray text-right mb-0">入金総額</td>
+              <td class="gray text-right mb-0 vertical-bottom">入金総額</td>
               <td class="gray text-left fs-13 black mb-0"><%= "#{@deposit.total_deposit.to_s(:delimited)}円" %>
               </td>
             </tr>
@@ -155,13 +155,23 @@
         </div>
       <% else %>
       <div class="white-box">
+        <p class="orange">入金条件を設定してください</p>
         <ul class="list-inline">
           <%= form_with model: @add, local: true do |f| %>
+                <div class="text-right">
+                  <p><span class="gray fs-09">先月:</span><%= @last_deposit ? @last_deposit.total_deposit.to_s(:delimited) : "-" %> 円</p>
+                </div>
                 <div class="form-group text-left">
                   <%= f.number_field :total_deposit, class: 'form-control form-control-lg bgc-gray', placeholder: '入金総額：- 円' %>
                 </div>
+                <div class="text-right">
+                  <p><span class="gray fs-09">先月:</span><%= @last_deposit ? @last_deposit.man_salary.to_s(:delimited) : "-" %> 円</p>
+                </div>
                 <div class="form-group text-left">
                   <%= f.number_field :man_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '旦那さん手取り：- 円' %>
+                </div>
+                <div class="text-right">
+                  <p><span class="gray fs-09">先月:</span><%= @last_deposit ? @last_deposit.woman_salary.to_s(:delimited) : "-" %> 円</p>
                 </div>
                 <div class="form-group text-left">
                   <%= f.number_field :woman_salary, class: 'form-control form-control-lg bgc-gray', placeholder: '奥さん手取り：- 円' %>

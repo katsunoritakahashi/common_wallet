@@ -2,6 +2,8 @@ class DepositsController < ApplicationController
   def index
     @month = Month.find_by(user_id: current_user.id, id: params[:month_id])
     authenticate_deposit
+    @second_latest_month = Month.where(user_id: current_user.id).includes(:user).order(month: :desc).second
+    @last_deposit = Deposit.find_by(month_id: @second_latest_month.id)
     @correct_total_man = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "旦那").sum(:correct_amount)
     @correct_total_woman = Correct.where(user_id: current_user.id, month_id: params[:month_id], player: "嫁").sum(:correct_amount)
     @corrects = Correct.where(user_id: current_user.id, month_id: params[:month_id]).order(created_at: :asc)

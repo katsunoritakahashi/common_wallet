@@ -30,15 +30,15 @@
     <h5 class="text-left black fs-12 pl-5">今月の収支</h5>
     <table class="text-center table lg">
       <tr>
-        <td class="width-50 gray top">収入</td>
+        <td class="width-50 gray top vertical-bottom">収入</td>
         <td class="fs-13 vertical-top text-right blue top"><%= "#{@income_total.to_s(:delimited)}円　" %></td>
       </tr>
       <tr>
-        <td class="width-50 mt-0 gray">支出</td>
+        <td class="width-50 mt-0 gray vertical-bottom">支出</td>
         <td class="fs-13 vertical-top top text-right red"><%= "#{@spending_total.to_s(:delimited)}円　" %></td>
       </tr>
       <tr>
-        <td class="border-top border-dark-top mb-0 gray">収支</td>
+        <td class="border-top border-dark-top mb-0 gray vertical-bottom">収支</td>
         <td class="fs-13 vertical-top border-top border-dark-top mb-0 text-right">
           <% if @balance_of_payments >= 0 %>
           <div class="blue">
