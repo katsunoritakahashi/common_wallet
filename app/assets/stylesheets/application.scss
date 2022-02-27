@@ -256,7 +256,7 @@ a:hover {
   color: #007bff;
 }
 .yellow {
-  color: #ddb500;
+  color: #ffc74f;
 }
 .green {
   color: #20990e;
@@ -373,9 +373,9 @@ span.font-size {
   font-size: 0.8rem;
   color: #5e5e5e;
 }
-span.font-size.orange {
+span.font-size.yellow {
   font-size: 0.8rem;
-  color: #A1CADF;
+  color: #ffc74f;
 }
 .btn-lg {
   height: 50px;
@@ -627,7 +627,7 @@ td.p-0 {
   width: 60px;
   height: 60px;
   line-height: 61px;
-  background-color: #A1CADF;
+  background-color: #FFC84F;
   border-radius: 50px;
   color: #fff;
   text-align: center;
@@ -646,7 +646,7 @@ td.p-0 {
   width: 50px;
   height: 50px;
   line-height: 51px;
-  background-color: #A1CADF;
+  background-color: #FFC84F;
   border-radius: 50px;
   color: #fff;
   text-align: center;
@@ -864,7 +864,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color: #4094bec0 !important;
 }
 .progress-bar.bg-warning{
-  background-color: #ddb50096 !important;
+  background-color: #ffc74fa4 !important;
 }
 .progress-bar.bg-success{
   background-color: #21990e9d !important;
