@@ -53,7 +53,6 @@
           <%= link_to "ユーザー登録へ", invite_resiter_path, method: :delete %>
         </div>
       <% end %>
-      <h2 class="display-xs-none"><%= "#{current_user.name}の家計簿" %></h2>
         <% if @month.present? %>
           <%= link_to month_details_path(@month.id) do %>
             <div class="white-box">
