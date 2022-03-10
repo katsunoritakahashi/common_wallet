@@ -230,7 +230,7 @@ td.pr-30 {
   color: #585858;
 }
 a{
-  color: #A1CADF;
+  color: #96c8e0;
 }
 a:hover {
   color: #585858;
@@ -266,7 +266,7 @@ a:hover {
 }
 
 .orange {
-  color: #A1CADF;
+  color: #96c8e0;
 }
 .white {
   color: #FFFFFF;
@@ -468,7 +468,7 @@ a{
   }
 }
 .bgc-orange {
-  background-color: #A1CADF;
+  background-color: #96c8e0;
 }
 .bgc-red {
   background-color: #ff4107;
@@ -486,7 +486,7 @@ a{
   margin: 5px;
 }
 .marker-orange{
-  background:linear-gradient(transparent 60%, #A1CADF 70%);
+  background:linear-gradient(transparent 60%, #96c8e0 70%);
 }
 .marker-gray{
   background:linear-gradient(transparent 60%, #bbbbbb 70%);
@@ -698,7 +698,7 @@ body.bgc-white{
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  background-color: #A1CADF;
+  background-color: #96c8e0;
   position: fixed;
   height: 50px!important;
   overflow: hidden;
@@ -732,7 +732,7 @@ body.bgc-white{
   margin-top: 50px;
   transform: translateX(-200px);
   transition: transform 200ms ease-in-out;
-  background: #A1CADF;
+  background: #96c8e0;
   border-right: 1px solid rgb(243, 243, 243);
 }
 .sidebarMenuInner{
@@ -833,25 +833,25 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   padding: 5px;
 }
 .btn-warning{
-  background-color: #A1CADF;
-  border-color: #A1CADF;
+  background-color: #96c8e0;
+  border-color: #96c8e0;
 }
 .btn-warning:hover{
-  background-color: #A1CADF;
-  border-color: #A1CADF;
+  background-color: #96c8e0;
+  border-color: #96c8e0;
 }
 .btn-warning:not(:disabled):not(.disabled):active{
-  background-color: #A1CADF;
-  border-color: #A1CADF;
+  background-color: #96c8e0;
+  border-color: #96c8e0;
   color: #fff; 
 }
 .btn-outline-warning {
-  color: #A1CADF;
-  border-color: #A1CADF;
+  color: #96c8e0;
+  border-color: #96c8e0;
 }
 .btn-outline-warning:hover {
-  color: #A1CADF;
-  border-color: #A1CADF;
+  color: #96c8e0;
+  border-color: #96c8e0;
   background-color: rgba(128, 128, 128, 0.336);
 }
 .btn-outline-warning:not(:disabled):not(.disabled):active{
@@ -873,7 +873,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color: #8a400e80 !important;
 }
 .progress-bar.bg-info{
-  background-color: #A1CADF !important;
+  background-color: #96c8e0 !important;
 }
 .progress-bar-striped.bg-warning{
   background-color: #e07800 !important;
@@ -904,7 +904,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   border-bottom-width: 2px !important;
 }
 .border-bottom.border-warning{
-  border-color: #A1CADF !important;
+  border-color: #96c8e0 !important;
   border-bottom-width: 2px !important;
 }
 .form-control.bottom-only{
