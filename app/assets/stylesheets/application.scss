@@ -233,7 +233,7 @@ td.pr-30 {
   color: #585858;
 }
 a{
-  color: #96c8e0;
+  color: #283465;
 }
 a:hover {
   color: #585858;
@@ -269,7 +269,7 @@ a:hover {
 }
 
 .orange {
-  color: #96c8e0;
+  color: #283465;
 }
 .white {
   color: #FFFFFF;
@@ -471,7 +471,7 @@ a{
   }
 }
 .bgc-orange {
-  background-color: #96c8e0;
+  background-color: #283465;
 }
 .bgc-red {
   background-color: #ff4107;
@@ -701,7 +701,7 @@ body.bgc-white{
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  background-color: #96c8e0;
+  background-color: #283465;
   position: fixed;
   height: 50px!important;
   overflow: hidden;
@@ -735,7 +735,7 @@ body.bgc-white{
   margin-top: 50px;
   transform: translateX(-200px);
   transition: transform 200ms ease-in-out;
-  background: #96c8e0;
+  background: #283465;
   border-right: 1px solid rgb(243, 243, 243);
 }
 .sidebarMenuInner{
@@ -836,47 +836,47 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   padding: 5px;
 }
 .btn-warning{
-  background-color: #96c8e0;
-  border-color: #96c8e0;
+  background-color: #283465;
+  border-color: #283465;
 }
 .btn-warning:hover{
-  background-color: #96c8e0;
-  border-color: #96c8e0;
+  background-color: #283465;
+  border-color: #283465;
 }
 .btn-warning:not(:disabled):not(.disabled):active{
-  background-color: #96c8e0;
-  border-color: #96c8e0;
+  background-color: #283465;
+  border-color: #283465;
   color: #fff; 
 }
 .btn-outline-warning {
-  color: #96c8e0;
-  border-color: #96c8e0;
+  color: #283465;
+  border-color: #283465;
 }
 .btn-outline-warning:hover {
-  color: #96c8e0;
-  border-color: #96c8e0;
+  color: #283465;
+  border-color: #283465;
   background-color: rgba(128, 128, 128, 0.336);
 }
 .btn-outline-warning:not(:disabled):not(.disabled):active{
   color: #fff;
 }
 .progress-bar.bg-danger{
-  background-color: #da5019cb !important;
+  background-color: #da5019 !important;
 }
 .progress-bar.bg-primary{
-  background-color: #4094bebd !important;
+  background-color: #4094be !important;
 }
 .progress-bar.bg-warning{
-  background-color: #ffc74fcc !important;
+  background-color: #ffc74f !important;
 }
 .progress-bar.bg-success{
-  background-color: #21990ebb !important;
+  background-color: #21990e !important;
 }
 .bg-secondary{
-  background-color: #8a400e9f !important;
+  background-color: #8a400e !important;
 }
 .progress-bar.bg-info{
-  background-color: #96c8e0 !important;
+  background-color: #283465 !important;
 }
 .progress-bar-striped.bg-warning{
   background-color: #e07800 !important;
@@ -907,7 +907,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   border-bottom-width: 2px !important;
 }
 .border-bottom.border-warning{
-  border-color: #96c8e0 !important;
+  border-color: #283465 !important;
   border-bottom-width: 2px !important;
 }
 .form-control.bottom-only{
