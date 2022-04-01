@@ -233,7 +233,7 @@ td.pr-30 {
   color: #404040;
 }
 a{
-  color: #283465;
+  color: #144A91;
 }
 a:hover {
   color: #585858;
@@ -269,7 +269,7 @@ a:hover {
 }
 
 .orange {
-  color: #283465;
+  color: #144A91;
 }
 .white {
   color: #FFFFFF;
@@ -471,7 +471,7 @@ a{
   }
 }
 .bgc-orange {
-  background-color: #283465;
+  background-color: #144A91;
 }
 .bgc-red {
   background-color: #ff4107;
@@ -701,7 +701,7 @@ body.bgc-white{
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  background-color: #283465;
+  background-color: #144A91;
   position: fixed;
   height: 50px!important;
   overflow: hidden;
@@ -735,7 +735,7 @@ body.bgc-white{
   margin-top: 50px;
   transform: translateX(-200px);
   transition: transform 200ms ease-in-out;
-  background: #283465;
+  background: #144A91;
   border-right: 1px solid rgb(243, 243, 243);
 }
 .sidebarMenuInner{
@@ -836,25 +836,25 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   padding: 5px;
 }
 .btn-warning{
-  background-color: #283465;
-  border-color: #283465;
+  background-color: #144A91;
+  border-color: #144A91;
 }
 .btn-warning:hover{
-  background-color: #283465;
-  border-color: #283465;
+  background-color: #144A91;
+  border-color: #144A91;
 }
 .btn-warning:not(:disabled):not(.disabled):active{
-  background-color: #283465;
-  border-color: #283465;
+  background-color: #144A91;
+  border-color: #144A91;
   color: #fff; 
 }
 .btn-outline-warning {
-  color: #283465;
-  border-color: #283465;
+  color: #144A91;
+  border-color: #144A91;
 }
 .btn-outline-warning:hover {
-  color: #283465;
-  border-color: #283465;
+  color: #144A91;
+  border-color: #144A91;
   background-color: rgba(128, 128, 128, 0.336);
 }
 .btn-outline-warning:not(:disabled):not(.disabled):active{
@@ -876,7 +876,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color: #8a400ed2 !important;
 }
 .progress-bar.bg-info{
-  background-color: #283465 !important;
+  background-color: #144A91 !important;
 }
 .progress-bar-striped.bg-warning{
   background-color: #e07800 !important;
@@ -907,7 +907,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   border-bottom-width: 2px !important;
 }
 .border-bottom.border-warning{
-  border-color: #283465 !important;
+  border-color: #144A91 !important;
   border-bottom-width: 2px !important;
 }
 .form-control.bottom-only{
