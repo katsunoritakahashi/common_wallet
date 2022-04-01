@@ -1,4 +1,4 @@
-# Common Wallet（コモンウォレット）
+# CoWallet（コウォレット）
 
 ![badge](https://img.shields.io/badge/thank%20you-for%20visiting-brightgreen)
 [![Rails](https://img.shields.io/badge/Rails-v6.1.3-%23a72332)](https://rubygems.org/gems/rails/versions/6.1.3)
@@ -28,7 +28,7 @@
 **”共働き”による**<br>
 **”共働き”のための家計簿**
 
-「Common Wallet」は製作者のこだわりが詰まった共働き夫婦の”共通財布専用”家計簿です。<br>
+「CoWallet」は製作者のこだわりが詰まった共働き夫婦の”共通財布専用”家計簿です。<br>
 「立替精算」や「入金金額管理」など、共通財布管理ならではの悩みを解決できるサービスになっています。
 
 ## 使用画面と機能
