@@ -59,9 +59,9 @@
             残高推移
           </h5>
           <% if @colum_chart_max > 10000 %>
-            <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#144A9177'], suffix: "万円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
+            <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last / 10000] }, colors: ['#1F5DA477'], suffix: "万円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
           <% else %>
-            <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#144A9177'], suffix: "円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
+            <%= area_chart @column_chart.map { |month, balance_last| [month.strftime('%-m月'), balance_last] }, colors: ['#1F5DA477'], suffix: "円", library: {xAxis: {labels: {style: {fontSize: '7px'}}},yAxis: {labels: {style: {fontSize: '7px'}}}} %>
           <% end %>
         </div>
       <div id="js-table-month">
