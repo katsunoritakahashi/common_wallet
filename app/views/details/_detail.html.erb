@@ -58,7 +58,11 @@
 <table class="text-center table table-sm">
   <% details.each do |detail| %>
     <tr class="table-light" id="detail-trash-button-<%=detail.id%>">
-      <td class="text-right gray" width="36"><%= detail.date.strftime("%-d日") %></td>
+      <td class="text-right gray" width="36">
+        <%= link_to edit_detail_path(detail),class: 'black' do %>
+          <%= detail.date.strftime("%-d日") %>
+        <% end %>
+      </td>
       <td>
       <% if detail.classification == 'rent' %>
         <i class="fas fa-home fa-lg red"></i>
