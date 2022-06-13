@@ -20,7 +20,7 @@
 
 </p>
 
-### **https://www.common-wallet.work/**
+### **https://common-wallet.herokuapp.com/**
 
 ## サービス概要
 
