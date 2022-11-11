@@ -78,6 +78,29 @@
           </tr>
         </table>
         </div>
+      <div class="stay white-box">
+        <h5 class="text-left black fs-12 pl-5">精算内訳</h5>
+        <table class="text-center table lg fs-15">
+          <% @replayers.each do |replayer| %>
+            <tr>
+              <td class="text-right top pb-5">
+                <% if replayer.replayer == '旦那' %>
+                  <i class="fas fa-user blue"></i>
+                <% elsif replayer.replayer == '嫁' %>
+                  <i class="fas fa-user red"></i>
+                <% else %>
+                  <%= replayer.replayer %>
+                <% end %>
+              </td>
+              <% if @details.sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income) < 0 %>
+                <td class="text-left top pb-5">共通財布に <span class="red fs-12"></span> 払う</td>
+              <% else %>
+                <td class="text-left top pb-5">共通財布から <span class="blue fs-12"></span> もらう</td>
+              <% end %>
+            </tr>
+          <% end %>
+        </table>
+      </div>
       </div>
         <div class="stay white-box">
         <h5 class="text-left black fs-12 pl-5">精算一覧</h5>
