@@ -92,7 +92,7 @@
                   <%= replayer.replayer %>
                 <% end %>
               </td>
-              <% if @details.sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: replayer.replayer, status: :not_yet).where("date <= ?", Date.today).sum(:income) < 0 %>
+              <% if @details.sum(:income) < 0 %>
                 <td class="text-left top pb-5">共通財布に <span class="red fs-12"></span> 払う</td>
               <% else %>
                 <td class="text-left top pb-5">共通財布から <span class="blue fs-12"></span> もらう</td>
