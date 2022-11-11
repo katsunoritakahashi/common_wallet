@@ -92,11 +92,6 @@
                   <%= replayer.replayer %>
                 <% end %>
               </td>
-              <% if @details.sum(:income) < 0 %>
-                <td class="text-left top pb-5">共通財布に <span class="red fs-12"></span> 払う</td>
-              <% else %>
-                <td class="text-left top pb-5">共通財布から <span class="blue fs-12"></span> もらう</td>
-              <% end %>
             </tr>
           <% end %>
         </table>
