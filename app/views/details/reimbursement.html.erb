@@ -81,30 +81,44 @@
       <div class="stay white-box">
         <h5 class="text-left black fs-12 pl-5">精算内訳</h5>
         <table class="text-center table lg fs-15">
-          <tr>
-            <td class="text-right top pb-5">
-              <i class="fas fa-user blue"></i>
-            </td>
-            <td class="text-left top pb-5">
-              <% if @man_reimbrsement < 0 %>
-                共通財布に <span class="red fs-12"><%= "#{ (@man_reimbrsement).to_s(:delimited)}円" %></span> 払う
-              <% else %>
+          <% if @man_reimbrsement < 0 %>
+            <tr>
+              <td class="text-right top pb-5">
+                <i class="fas fa-user blue"></i>
+              </td>
+              <td class="text-left top pb-5">
+                  共通財布に <span class="red fs-12"><%= "#{ (@man_reimbrsement * -1).to_s(:delimited)}円" %></span> 払う
+              </td>
+            </tr>
+          <% elsif @man_reimbrsement > 0 %>
+            <tr>
+              <td class="text-right top pb-5">
+                <i class="fas fa-user blue"></i>
+              </td>
+              <td class="text-left top pb-5">
                 共通財布から <span class="blue fs-12"><%= "#{ (@man_reimbrsement).to_s(:delimited)}円" %></span> もらう
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right top pb-5">
-              <i class="fas fa-user red"></i>
-            </td>
-            <td class="text-left top pb-5">
-              <% if @woman_reimbrsement < 0 %>
-                共通財布に <span class="red fs-12"><%= "#{ (@woman_reimbrsement).to_s(:delimited)}円" %></span> 払う
-              <% else %>
+              </td>
+            </tr>
+          <% end %>
+          <% if @woman_reimbrsement < 0 %>
+            <tr>
+              <td class="text-right top pb-5">
+                <i class="fas fa-user red"></i>
+              </td>
+              <td class="text-left top pb-5">
+                  共通財布に <span class="red fs-12"><%= "#{ (@woman_reimbrsement * -1).to_s(:delimited)}円" %></span> 払う
+              </td>
+            </tr>
+          <% elsif @woman_reimbrsement > 0 %>
+            <tr>
+              <td class="text-right top pb-5">
+                <i class="fas fa-user red"></i>
+              </td>
+              <td class="text-left top pb-5">
                 共通財布から <span class="blue fs-12"><%= "#{ (@woman_reimbrsement).to_s(:delimited)}円" %></span> もらう
-              <% end %>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          <% end %>
         </table>
       </div>
       </div>
