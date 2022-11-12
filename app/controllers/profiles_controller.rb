@@ -36,6 +36,8 @@ class ProfilesController < ApplicationController
           @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
         end
         @replayers = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
+        @man_reimbrsement = Detail.where(user_id: current_user.id, month_id: @month.id, replayer: '旦那', status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: '旦那', status: :not_yet).where("date <= ?", Date.today).sum(:income)
+        @woman_reimbrsement = Detail.where(user_id: current_user.id, month_id: @month.id, replayer: '嫁', status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: '嫁', status: :not_yet).where("date <= ?", Date.today).sum(:income)
         @details = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
         @income_total_not_common = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:income)
         @spending_total_not_common = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).sum(:spending)

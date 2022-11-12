@@ -71,6 +71,8 @@ class DetailsController < ApplicationController
   def reimbursement
     @replayers = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
     @details = Detail.where(user_id: current_user.id, month_id: params[:month_id], status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').includes(:month).order(date: :asc)
+    @man_reimbrsement = Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: '旦那', status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: '旦那', status: :not_yet).where("date <= ?", Date.today).sum(:income)
+    @woman_reimbrsement = Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: '嫁', status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], replayer: '嫁', status: :not_yet).where("date <= ?", Date.today).sum(:income)
   end
 
   def done
