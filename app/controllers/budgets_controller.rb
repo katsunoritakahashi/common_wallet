@@ -25,12 +25,12 @@ class BudgetsController < ApplicationController
       @enjoy_percent = @budget.enjoy == 0 ? 0 : @spending_enjoy * 100 / @budget.enjoy
       @other_percent = @budget.other == 0 ? 0 : @spending_other * 100 / @budget.other
       @total_percent = @budget_total == 0 ? 0 : @spending_total * 100 / @budget_total
-      @bar_cahrt = [[:家賃, @rent_percent],[:生活費, @life_percent],[:食費, @food_percent],[:交際費, @enjoy_percent],[:その他, @other_percent],[:合計, @total_percent]]
+      @bar_cahrt = [[:家賃, @rent_percent],[:生活費, @life_percent],[:食費, @food_percent],[:交際費, @enjoy_percent],[:ペット費, @other_percent],[:合計, @total_percent]]
       rent = @spending_rent == 0 ? "" : "家賃"
       life = @spending_life == 0 ? "" : "生活費"
       food = @spending_food == 0 ? "" : "食費"
       enjoy = @spending_enjoy == 0 ? "" : "交際費"
-      other = @spending_other == 0 ? "" : "その他"
+      other = @spending_other == 0 ? "" : "ペット費"
       @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
     end
   end

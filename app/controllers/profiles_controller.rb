@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
           life = @spending_life == 0 ? "" : "生活費"
           food = @spending_food == 0 ? "" : "食費"
           enjoy = @spending_enjoy == 0 ? "" : "交際費"
-          other = @spending_other == 0 ? "" : "その他"
+          other = @spending_other == 0 ? "" : "ペット費"
           @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
         end
         @replayers = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
