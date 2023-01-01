@@ -2,7 +2,7 @@
     <div class="stay white-box">
     <table class="text-center table lg">
       <tr>
-        <td class="gray text-left pl-5 top pb-5">口座残高 </td>
+        <td class="gray text-left pl-5 top pb-5">口座残高</td>
         <td class="gray text-right top pb-5"><span class="fs-07">前月比</span>
           <% if @month.balance < @month.balance_last %>
             <span class="blue"><%= "+#{(@month.balance_last - @month.balance).to_s(:delimited)}円 " %><i class="fas fa-angle-double-up"></i></span>
