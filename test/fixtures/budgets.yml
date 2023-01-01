@@ -5,6 +5,7 @@ one:
   food: 1
   life: 1
   enjoy: 1
+  child: 1
   month: one
   user: one
 
@@ -13,5 +14,6 @@ two:
   food: 1
   life: 1
   enjoy: 1
+  child: 1
   month: two
   user: two

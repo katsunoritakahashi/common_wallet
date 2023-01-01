@@ -6,6 +6,7 @@ ja:
         food: 食費
         life: 生活費
         enjoy: 交際費
+        child: 養育費
         money: 入金
       status:
         not_yet: 未済

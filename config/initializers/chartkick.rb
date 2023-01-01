@@ -7,6 +7,7 @@ Chartkick.options = {
             "#4094be",
             "#ffc74f",
             "#21990e",
+            "#ed80c8",
             "#8a400ed2",
           ],
   message: {empty: "データがありません"},

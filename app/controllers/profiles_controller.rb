@@ -24,16 +24,18 @@ class ProfilesController < ApplicationController
         @spending_food = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :food).includes(:month).sum(:income)
         @spending_life = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :life).includes(:month).sum(:income)
         @spending_enjoy = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :enjoy).includes(:month).sum(:income)
+        @spending_child = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :child).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :child).includes(:month).sum(:income)
         @spending_other = Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, classification: :other).includes(:month).sum(:income)
-        @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
+        @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_child + @spending_other
         if @budget.present?
-          @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
+          @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.child + @budget.other
           rent = @spending_rent == 0 ? "" : "家賃"
           life = @spending_life == 0 ? "" : "生活費"
           food = @spending_food == 0 ? "" : "食費"
           enjoy = @spending_enjoy == 0 ? "" : "交際費"
+          child= @spending_child == 0 ? "" : "養育費"
           other = @spending_other == 0 ? "" : "ペット費"
-          @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
+          @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[child, @spending_child],[other, @spending_other]]
         end
         @replayers = Detail.where(user_id: current_user.id, month_id: @month.id, status: :not_yet).where("date <= ?", Date.today).where.not(replayer: '共通').group(:replayer)
         @man_reimbrsement = Detail.where(user_id: current_user.id, month_id: @month.id, replayer: '旦那', status: :not_yet).where("date <= ?", Date.today).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @month.id, replayer: '旦那', status: :not_yet).where("date <= ?", Date.today).sum(:income)

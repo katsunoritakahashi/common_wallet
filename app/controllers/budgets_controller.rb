@@ -8,6 +8,7 @@ class BudgetsController < ApplicationController
     @last_spending_food = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :food).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :food).includes(:month).sum(:income)
     @last_spending_life = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :life).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :life).includes(:month).sum(:income)
     @last_spending_enjoy = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :enjoy).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :enjoy).includes(:month).sum(:income)
+    @last_spending_child = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :child).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :child).includes(:month).sum(:income)
     @last_spending_other = Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :other).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: @second_latest_month.id, classification: :other).includes(:month).sum(:income)
     authenticate_budget
     @setting = Budget.new
@@ -16,22 +17,25 @@ class BudgetsController < ApplicationController
       @spending_food = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :food).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :food).includes(:month).sum(:income)
       @spending_life = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :life).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :life).includes(:month).sum(:income)
       @spending_enjoy = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :enjoy).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :enjoy).includes(:month).sum(:income)
+      @spending_child = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :child).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :child).includes(:month).sum(:income)
       @spending_other = Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :other).includes(:month).sum(:spending) - Detail.where(user_id: current_user.id, month_id: params[:month_id], classification: :other).includes(:month).sum(:income)
-      @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_other
-      @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.other
+      @spending_total = @spending_rent + @spending_food + @spending_life + @spending_enjoy + @spending_child + @spending_other
+      @budget_total = @budget.rent + @budget.food + @budget.life + @budget.enjoy + @budget.child + @budget.other
       @rent_percent = @budget.rent == 0 ? 0 : @spending_rent * 100 / @budget.rent
       @life_percent = @budget.life == 0 ? 0 : @spending_life * 100 / @budget.life
       @food_percent = @budget.food == 0 ? 0 : @spending_food * 100 / @budget.food
       @enjoy_percent = @budget.enjoy == 0 ? 0 : @spending_enjoy * 100 / @budget.enjoy
+      @child_percent = @budget.child == 0 ? 0 : @spending_child * 100 / @budget.child
       @other_percent = @budget.other == 0 ? 0 : @spending_other * 100 / @budget.other
       @total_percent = @budget_total == 0 ? 0 : @spending_total * 100 / @budget_total
-      @bar_cahrt = [[:家賃, @rent_percent],[:生活費, @life_percent],[:食費, @food_percent],[:交際費, @enjoy_percent],[:ペット費, @other_percent],[:合計, @total_percent]]
+      @bar_cahrt = [[:家賃, @rent_percent],[:生活費, @life_percent],[:食費, @food_percent],[:交際費, @enjoy_percent],[:養育費, @child_percent],[:ペット費, @other_percent],[:合計, @total_percent]]
       rent = @spending_rent == 0 ? "" : "家賃"
       life = @spending_life == 0 ? "" : "生活費"
       food = @spending_food == 0 ? "" : "食費"
       enjoy = @spending_enjoy == 0 ? "" : "交際費"
+      child = @spending_child == 0 ? "" : "養育費"
       other = @spending_other == 0 ? "" : "ペット費"
-      @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[other, @spending_other]]
+      @pie_chart = [[rent, @spending_rent],[life, @spending_life],[food, @spending_food],[enjoy, @spending_enjoy],[child, @spending_child],[other, @spending_other]]
     end
   end
 
@@ -59,7 +63,7 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.permit(:rent, :food, :life, :enjoy, :other)
+    params.permit(:rent, :food, :life, :enjoy, :child, :other)
   end
 
   def authenticate_budget
