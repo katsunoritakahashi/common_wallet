@@ -1,0 +1,15 @@
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/takahashikatsunori/.rbenv/versions/3.1.2/bin/ruby -I /Users/takahashikatsunori/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230226-40459-h36xjy.rb extconf.rb
+creating Makefile
+
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20230226-40459-r31d5x/bootsnap

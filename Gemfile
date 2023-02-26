@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -37,7 +37,7 @@ gem 'enum_help'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'yen'
-gem 'config', '2.0.0'
+gem 'config', '~> 3.0'
 gem 'semantic-ui-sass'
 gem 'kaminari'
 gem "serviceworker-rails"

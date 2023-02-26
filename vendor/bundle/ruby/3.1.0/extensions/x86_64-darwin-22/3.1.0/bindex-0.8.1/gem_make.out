@@ -1,0 +1,15 @@
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/takahashikatsunori/.rbenv/versions/3.1.2/bin/ruby -I /Users/takahashikatsunori/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230226-40459-7vt4t3.rb extconf.rb
+creating Makefile
+
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/takahashikatsunori/engineer/app/common_wallet/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20230226-40459-4q035j/skiptrace/internal

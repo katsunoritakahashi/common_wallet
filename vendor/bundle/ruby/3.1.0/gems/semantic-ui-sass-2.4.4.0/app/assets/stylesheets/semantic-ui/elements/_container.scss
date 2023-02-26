@@ -1,0 +1,146 @@
+/*!
+ * # Semantic UI 2.4.2 - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Container
+*******************************/
+
+
+/* All Sizes */
+.ui.container {
+  display: block;
+  max-width: $max-width !important;
+}
+
+/* Mobile */
+@media only screen and (max-width: $largest-mobile-screen) {
+  .ui.container {
+    width: $mobile-width !important;
+    margin-left: $mobile-gutter !important;
+    margin-right: $mobile-gutter !important;
+  }
+  .ui.grid.container {
+    width: $mobile-grid-width !important;
+  }
+  .ui.relaxed.grid.container {
+    width: $mobile-relaxed-grid-width !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: $mobile-very-relaxed-grid-width !important;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: $tablet-breakpoint) and (max-width: $largest-tablet-screen) {
+  .ui.container {
+    width: $tablet-width;
+    margin-left: $tablet-gutter !important;
+    margin-right: $tablet-gutter !important;
+  }
+  .ui.grid.container {
+    width: $tablet-grid-width !important;
+  }
+  .ui.relaxed.grid.container {
+    width: $tablet-relaxed-grid-width !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: $tablet-very-relaxed-grid-width !important;
+  }
+}
+
+/* Small Monitor */
+@media only screen and (min-width: $computer-breakpoint) and (max-width: $largest-small-monitor) {
+  .ui.container {
+    width: $computer-width;
+    margin-left: $computer-gutter !important;
+    margin-right: $computer-gutter !important;
+  }
+  .ui.grid.container {
+    width: $computer-grid-width !important;
+  }
+  .ui.relaxed.grid.container {
+    width: $computer-relaxed-grid-width !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: $computer-very-relaxed-grid-width !important;
+  }
+}
+
+/* Large Monitor */
+@media only screen and (min-width: $large-monitor-breakpoint) {
+  .ui.container {
+    width: $large-monitor-width;
+    margin-left: $large-monitor-gutter !important;
+    margin-right: $large-monitor-gutter !important;
+  }
+  .ui.grid.container {
+    width: $large-monitor-grid-width !important;
+  }
+  .ui.relaxed.grid.container {
+    width: $large-monitor-relaxed-grid-width !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: $large-monitor-very-relaxed-grid-width !important;
+  }
+}
+
+
+/*******************************
+             Types
+*******************************/
+
+
+/* Text Container */
+.ui.text.container {
+  font-family: $font-family;
+  max-width: 700px !important;
+  line-height: 1.5;
+}
+.ui.text.container {
+  font-size: 1.14285714rem;
+}
+
+/* Fluid */
+.ui.fluid.container {
+  width: 100%;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+.ui.justified.container {
+  text-align: justify;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
